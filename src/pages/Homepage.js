@@ -1,25 +1,29 @@
-import React from 'react'
-import Desc from '../components/Desc'
-import Step1 from '../components/Step1'
-import Step2 from '../components/Step2'
+import React from 'react';
+import Introduction from "../HomeComponents/Introduction";
+import Step1 from "../HomeComponents/Step1";
+import Step2 from "../HomeComponents/Step2";
+import Step3 from "../HomeComponents/Step3";
+import Step4 from "../HomeComponents/Step4";
+import Step5 from "../HomeComponents/Step5";
+import Resources from "../HomeComponents/Resources";
+import AFewWords from "../HomeComponents/AFewWords";
+import SingleCommunities from "../HomeComponents/SingleCommunities";
+import Question from "../HomeComponents/Question";
+import '../HomeComponents/HomePage.css'
 
-const Homepage = () => {
+export default function HomePage() {
   return (
-    <div id="parent">
-      <div className="desc">
-        <h3>What is MatchesUp?</h3>
-        <div>Content</div>
-      </div>
-      <div className="step1">
-        <h3>Step 1</h3>
-        <div>Content</div>
-      </div>
-      <div className="step2">
-        <h3>Step 2</h3>
-        <div>Content</div>
-      </div>
+    <div id="homepage">
+      <Introduction />
+      <Step1 />
+      <Step2 />
+      <Step3 />
+      <Step4 />
+      <Step5 />
+      <Resources />
+      <AFewWords />
+      <SingleCommunities />
+      <Question />
     </div>
   )
 }
-
-export default Homepage

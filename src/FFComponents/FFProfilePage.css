@@ -1,0 +1,144 @@
+#FFProfilePage {
+  width: 100%;
+  height: 100%;
+}
+
+#welcome-ff {
+  box-sizing: content-box;
+  padding: 7vh;
+  font-size: 70px;
+}
+
+#create-gsc-btn {
+  box-sizing: border-box;
+  height: 60px;
+  line-height: 42px;
+  width: auto;
+  padding: 10px 30px;
+  text-align: center;
+  border: 1px solid #E9482B;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 0.5vh;
+  margin-bottom: 3vh;
+}
+
+#create-gsc-input {
+  margin-left: 10px;
+}
+
+#use-this-name {
+  margin: 5% 0;
+}
+
+#create-gsc-close-btn {
+  margin-right: 30px;
+}
+
+#ff-profile-page-click-note {
+  box-sizing: border-box;
+  width: 65vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ff-profile-page-donation {
+  box-sizing: border-box;
+  width: 65vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+}
+
+#ff-page-donation-info-link {
+  text-decoration: underline;
+  color: #E9482B;
+}
+
+#ff-page-donation-info-link:hover {
+  color: #1e365c;
+}
+
+#create-gsc-modal-confirm-btn {
+  background-color: #e9482b !important;
+  color: white !important;
+  border-color: #e9482b;
+}
+
+#manage-profiles {
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+}
+
+.gsc-profile-button {
+  box-sizing: border-box;
+  width: 330px;
+  height: 56px;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#awaiting-txt, #existing-gsc-btn {
+  margin-bottom: 4vh;
+}
+
+@media(min-width: 721px) {
+  #create-gscf-btn {
+    display: none;
+  }
+}
+
+@media(max-width: 1024px) {
+  #create-gsc-btn {
+    width: 715px;
+    height: 60px;
+  }
+
+  #create-gscf-btn {
+    display: none;
+  }
+}
+
+@media(max-width: 720px) {
+  #welcome-ff {
+    box-sizing: content-box;
+    padding: 7vh;
+    font-size: 50px;
+  }
+
+  #ff-profile-page-click-note {
+    text-align: justify;
+    font-size: 12px;
+  }
+
+  #ff-profile-page-donation {
+    text-align: justify;
+    margin-top: 10vw;
+  }
+
+  #create-gsc-btn {
+    display: none;
+  }
+
+  #create-gscf-btn {
+    display: block;
+    width: 250px;
+    height: 70px;
+    margin: auto;
+  }
+
+  .gsc-profile-button {
+    box-sizing: border-box;
+    width: 180px;
+    height: 50px;
+  }
+
+  #awaiting-txt {
+    font-size: 12px;
+  }
+
+  #use-this-name {
+    margin-bottom: 10px;
+  }
+}
