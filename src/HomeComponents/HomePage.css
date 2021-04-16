@@ -288,7 +288,7 @@
   }
 
   #donation-waived-stamp {
-    width: 160px;
+    width: 180px;
     margin-top: -13%;
     margin-left: 20%;
     border: 4px #E9482B;
@@ -303,8 +303,8 @@
 
   #step-1-title, #step-2-title, #step-3-title, #step-4-title, #step-5-title, #a-few-words-title {
     font-weight: 700;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 22px;
+    line-height: 22px;
   }
 
   .left-steps-icon {
@@ -354,10 +354,6 @@
 
   #a-few-words-title {
     font-size: 18px;
-  }
-
-  #justify-text {
-    text-align: justify;
   }
 
   #single-communities-input {
