@@ -35,7 +35,7 @@ export default function Step1() {
         </div>
       </div>
       <br />
-      <div id="create-gsc-txt" className="color-grey">Create a profile for you GSCF (appear anonymous or link a social media account)</div>
+      <div id="create-gsc-txt" className="color-grey">Create a profile for your GSCF (appear anonymous or link a social media account)</div>
 
     </div>
   )
