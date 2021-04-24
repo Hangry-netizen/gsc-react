@@ -42,7 +42,7 @@ const ForgotPassword = () => {
         <button id="forgot-page-submit-btn" className="red-button" disabled={isLoading} type="submit">SUBMIT</button>
       </form>
       <div id="login-link-div">
-        <Link id="forgot-password-login-link" to="/login" className="underline">back to login?</Link>
+        <Link id="forgot-password-login-link" to="/faithful-friend-login" className="underline">back to login?</Link>
       </div>
     </div>
   )

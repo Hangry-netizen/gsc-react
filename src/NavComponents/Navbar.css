@@ -47,7 +47,7 @@
 
 @media(max-width: 720px) {
   #navbar {
-    height: 50px;
+    height: 55px;
     padding: 5px 15px;
     justify-items: center;
   }

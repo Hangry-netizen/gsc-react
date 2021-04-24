@@ -12,6 +12,14 @@ export default function Navbar() {
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    })
+  }
+
   const handleLogout = () => {
     setMessage("")
     try {
@@ -24,13 +32,13 @@ export default function Navbar() {
   return (
     <div id="navbar" className="color-red bg-blue">
       <div id="nav-left">
-        <Link to="/" id="matches-up-link">
+        <Link to="/" id="matches-up-link" onClick={scrollToTop}>
           <img src={MatchesUpLogo} alt="MatchesUpLogo" id="matches-up-logo-nav"/>
           <span id="matches-up-title">MatchesUp</span>
         </Link>
       </div>
       <div id="nav-right">
-        <Link to="/" id="home-link">HOME</Link>        
+        <Link to="/" id="home-link" onClick={scrollToTop}>HOME</Link>        
         {currentUser 
         ?
         <>
@@ -38,9 +46,10 @@ export default function Navbar() {
           <Link onClick={handleLogout} id="logout-link">LOGOUT</Link>
         </>
         :
-        <Link to="/login" id="login-link">LOGIN</Link>
+        <Link to="/faithful-friend-login" id="login-link">LOGIN</Link>
         }
       </div>
+      
       <Burger />
     </div>
   )

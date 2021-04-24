@@ -25,7 +25,7 @@ export default function Step1() {
               <button id="start-now-btn" className="red-button">START NOW</button>
             </Link>
             :
-            <Link to="/login">
+            <Link to="/faithful-friend-sign-up">
               <button id="start-now-btn" className="red-button">START NOW</button>
             </Link>
           }

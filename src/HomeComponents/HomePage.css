@@ -30,6 +30,10 @@
   font-size: 22px;
 }
 
+#finally-mobile {
+  display: none;
+}
+
 #step-1-title, #step-2-title, #step-3-title, #step-4-title, #step-5-title {
   font-weight: 700;
   font-size: 40px;
@@ -120,6 +124,17 @@
 #a-few-words-link:hover {
   text-decoration: underline;
   color:#E9482B;
+}
+
+#step-2-mobile-flex, #step-4-mobile-flex {
+  display: none;
+}
+
+#step-2-content {
+  box-sizing: border-box;
+  width: 834px;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 #resources {
@@ -262,6 +277,30 @@
   }
 }
 
+@media(max-width: 950px) {
+  #step-2-mobile-flex, #step-4-mobile-flex {
+    display: flex;
+  }
+
+  #step-2-desktop-flex, #step-4-desktop-flex {
+    display: none;
+  }
+  
+  #step-2-one-liner, #step-4-one-liner {
+    text-align: left;
+  }
+  
+  #step-2-content {
+    box-sizing: content-box;
+    width: auto;
+  }
+
+  #step-4-content {
+    text-align: left;
+  }
+
+}
+
 
 /* 720px */
 @media (max-width: 720px) {
@@ -277,14 +316,19 @@
     width: 50%;
   }
 
-  
   #what-is-matches-up-title {
     font-size: 25px;
     line-height: 25px;
   }
   
-  #finally {
+  #finally-mobile {
+    display: block;
     font-size: 16px;
+    padding-bottom: 15px;
+  }
+  
+  #finally {
+    display: none;
   }
 
   #donation-waived-stamp {
@@ -305,6 +349,7 @@
     font-weight: 700;
     font-size: 22px;
     line-height: 22px;
+    text-align: left;
   }
 
   .left-steps-icon {
@@ -328,7 +373,7 @@
   }
 
   #start-now-btn {
-    width: 120px;
+    width: 130px;
     height: 40px;
     font-size: 16px;
     border: 1px solid #E9482B;
@@ -337,7 +382,7 @@
   }
 
   #a-few-words-link {
-    font-size: 10px;
+    font-size: 9px;
     text-decoration: underline;
   }
 
@@ -366,7 +411,7 @@
     height: 30px;
     line-height: 30px;
     margin-left: 5px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   #alert-div {
