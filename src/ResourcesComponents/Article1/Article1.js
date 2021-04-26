@@ -13,6 +13,7 @@ export default function Article1() {
       <hr />
       <div className="text-align-center article-img-div">
         <img src={ArticleImg1} className="article-img" alt="Should I put myself out there?"/>
+        <div className="font-size-x-small italic">Photo credit: Kelly Sikkema - unsplash</div>
       </div>
       <div className="article-content text-align-justify color-blue">
         <p>How do you know if you should click ‘like’ on a profile? Putting yourself out there is risky! What if you get rejected? Or worse, what if they don’t respond at all and leave your heart hanging on a question mark forever… Take a deep breath.</p>
