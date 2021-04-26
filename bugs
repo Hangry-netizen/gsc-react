@@ -1,0 +1,20 @@
+0.6 edits
+Homepage
+- remove "make recommendations"
+- Step 2 one-liner change to "Get consent, commendation, and screening!"
+- align Step 2: i and ii left
+- step 2 & 4 align left on smaller device (max-width: 950px)
+- start now btn: direct not signed in user to create page instead of login page
+- mobile: line break between "Finally!" and "A matchmaking site..." in Introductions
+- mobile: widen buttons (start now and single community submit) {start-now increase width 10px, submit btn reduced font size from 14px to 12px}
+- nav & side nav: home onclick scroll to the top
+
+My GSCFs page
+- after login direct to my gscf page instead of homepage
+- add waived stamp on my gscf page
+- edit create gscf modal to full name
+- delete faithful friend account
+- check forgot password page
+
+T&C page
+- update t&c

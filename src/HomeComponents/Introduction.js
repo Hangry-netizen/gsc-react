@@ -11,11 +11,17 @@ export default function Introduction() {
         </div>
         <div id="intro-right">
           <div id="what-is-matches-up-title" className="color-blue bold">What is MatchesUp?</div>
-          <div id="finally" className="Essays1743 color-blue text-align-right">Finally! A matchmaking site where community matters...</div>
+          <div>
+            <div id="finally-mobile" className="Essays1743 color-blue text-align-center">
+              <div>Finally!</div>
+              <div>A matchmaking site where community matters...</div>
+            </div>
+            <div id="finally" className="Essays1743 color-blue text-align-right">Finally! A matchmaking site where community matters...</div>
+          </div>
         </div>
       </div>
       <p className="color-red text-align-justify">
-      MatchesUp (/Match-us-up/) is a Christian matchmaking site, based in South East Asia, with a uniquely Asian approach. We believe in the value of community input, of friends helping friends find a suitable match. It can be intimidating and vulnerable to put your personal data on a generic public dating site, and even harder to sift through the masses to find a good quality partner. But what if your friends could help you not only create an anonymous profile (identified not by name or picture but simply by your biodata), and also recommend suitable matches for you, make recommendations and encourage you in your matchmaking journey? And what if this site had three high-priority filters:
+      MatchesUp (/Match-us-up/) is a Christian matchmaking site, based in South East Asia, with a uniquely Asian approach. We believe in the value of community input, of friends helping friends find a suitable match. It can be intimidating and vulnerable to put your personal data on a generic public dating site, and even harder to sift through the masses to find a good quality partner. But what if your friends could help you not only create an anonymous profile (identified not by name or picture but simply by your biodata), and also recommend suitable matches for you, and encourage you in your matchmaking journey? And what if this site had three high-priority filters:
       </p>
       <div id="for-people" className="color-red text-align-justify">
         <p className="padding-left">1) Good Single Christian’s (GSC’s) welcomed by friend referral only (peer to peer filter!)</p>

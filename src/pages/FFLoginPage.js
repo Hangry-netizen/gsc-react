@@ -27,7 +27,7 @@ const FFLoginPage = () => {
       setIsLoading(true)
       await login(email, password)
       setMessage("Logged in successfully")
-      history.push("/")
+      history.push("/my-good-single-christian-friends")
     } catch {
       setError("Failed to log in")
     }
@@ -58,7 +58,7 @@ const FFLoginPage = () => {
         <div>
           <button id="login-enter-btn" className="red-button" disabled={isLoading} type="submit">Enter</button>
           <div>
-            <Link id="sign-up-link" to="/sign-up" className="color-red bold">New? Sign up here!</Link>
+            <Link id="sign-up-link" to="/faithful-friend-sign-up" className="color-red bold">New? Sign up here!</Link>
           </div>
         </div>
       </form>

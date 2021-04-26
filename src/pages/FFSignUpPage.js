@@ -38,7 +38,7 @@ const FFSignUpPage = ({ showLogin, setShowLogin, showSignUp, setShowSignUp }) =>
       setIsLoading(true)
       await signup(email, password, name, referral)
         setMessage("Successfully created an account and logged in")
-        history.push("/")
+        history.push("/my-good-single-christian-friends")
     } catch {
       setError("Failed to create an account")
     }
@@ -79,7 +79,7 @@ const FFSignUpPage = ({ showLogin, setShowLogin, showSignUp, setShowSignUp }) =>
         </div>
         <button id="sign-up-enter-btn" className="red-button" disabled={isLoading} type="submit">Enter</button>
         <div>
-          <Link id="sign-up-page-login-link" to="/login" className="color-red bold">Already have an account? Login here!</Link>
+          <Link id="sign-up-page-login-link" to="/faithful-friend-login" className="color-red bold">Already have an account? Login here!</Link>
         </div>
       </form>
     </div>

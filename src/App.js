@@ -27,11 +27,13 @@ function App() {
         {
         currentUser
         ?
-        <Route exact path="/my-good-single-christian-friends"><FFProfilePage /></Route>
+        <>
+          <Route exact path="/my-good-single-christian-friends"><FFProfilePage /></Route>
+        </>
         :
         <>
-          <Route exact path="/login"><FFLoginPage /></Route>
-          <Route exact path="/sign-up"><FFSignUpPage /></Route>
+          <Route exact path="/faithful-friend-login"><FFLoginPage /></Route>
+          <Route exact path="/faithful-friend-sign-up"><FFSignUpPage /></Route>
           <Route exact path="/forgot-password"><ForgotPasswordPage /></Route>
         </>
         }

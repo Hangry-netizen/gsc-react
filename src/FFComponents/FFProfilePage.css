@@ -59,6 +59,20 @@
   color: #1e365c;
 }
 
+#profile-page-donation-waived-stamp {
+  box-sizing: border-box;
+  position: relative;
+  margin-left: 55%;
+  margin-top: -1.5%;
+  width: 180px;
+  border: 4px #E9482B;
+  letter-spacing: 2px;
+  transform: rotate(-10deg);
+  border-style: double;
+  box-shadow: 0 0 0 1px #E9482B, 0 0 0 1px #E9482B inset;
+  background: rgba(255, 255, 255, 0.4);
+}
+
 #create-gsc-modal-confirm-btn {
   background-color: #e9482b !important;
   color: white !important;
@@ -81,6 +95,11 @@
 
 #awaiting-txt, #existing-gsc-btn {
   margin-bottom: 4vh;
+}
+
+#delete-ff-acc-btn {
+  padding: 5px 20px;
+  margin-bottom: 50px;
 }
 
 @media(min-width: 721px) {
@@ -115,6 +134,11 @@
   #ff-profile-page-donation {
     text-align: justify;
     margin-top: 10vw;
+  }
+
+  #profile-page-donation-waived-stamp {
+    margin-left: 35%;
+    margin-top: -3%;
   }
 
   #create-gsc-btn {

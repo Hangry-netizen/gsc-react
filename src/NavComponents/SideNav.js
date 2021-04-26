@@ -55,6 +55,14 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    })
+  }
+  
   const handleLogout = () => {
     setMessage("")
     try {
@@ -70,7 +78,7 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
       <div className="side-nav-container">
         <li>
           <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={scrollToTop}>Home</Link>
           </button>
         </li>
         <hr />
@@ -112,7 +120,7 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
             <hr />
             <li>
               <button className="side-nav-button log-in" onClick={() => setOpenSideNav(false)}>
-                <Link to="/login">Log In</Link>
+                <Link to="/faithful-friend-login">Log In</Link>
               </button>
             </li>
           </>
