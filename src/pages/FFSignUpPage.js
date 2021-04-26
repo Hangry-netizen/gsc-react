@@ -38,7 +38,7 @@ const FFSignUpPage = ({ showLogin, setShowLogin, showSignUp, setShowSignUp }) =>
       setIsLoading(true)
       await signup(email, password, name, referral)
         setMessage("Successfully created an account and logged in")
-        history.push("/")
+        history.push("/my-good-single-christian-friends")
     } catch {
       setError("Failed to create an account")
     }

@@ -8,3 +8,10 @@ Homepage
 - mobile: line break between "Finally!" and "A matchmaking site..." in Introductions
 - mobile: widen buttons (start now and single community submit) {start-now increase width 10px, submit btn reduced font size from 14px to 12px}
 - nav & side nav: home onclick scroll to the top
+
+My GSCFs page
+- after login direct to my gscf page instead of homepage
+- add waived stamp on my gscf page
+- edit create gscf modal to full name
+- delete faithful friend account
+- check forgot password page

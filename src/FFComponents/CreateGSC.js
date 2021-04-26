@@ -16,8 +16,6 @@ export default function CreateGSC() {
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
-  const [time, setTime] = useState(10)
-
   const { currentUser } = useAuth()
   
   const handleSubmit = e => {
@@ -80,7 +78,7 @@ export default function CreateGSC() {
         <Modal.Body className="bg-beach">
           <Form onSubmit={e => handleSubmit(e)}>
             <div>
-              <label className="color-blue">Enter GSCF's Name: </label>
+              <label className="color-blue">Enter GSCF's Full Name: </label>
               <input id="create-gsc-input" type="name" onChange={e => setName(e.target.value)} />
             </div>
             <div id="use-this-name" className="color-blue font-size-small" >Please use this name when you fill out the form for your GSCF</div>

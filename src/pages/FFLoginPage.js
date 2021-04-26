@@ -27,7 +27,7 @@ const FFLoginPage = () => {
       setIsLoading(true)
       await login(email, password)
       setMessage("Logged in successfully")
-      history.push("/")
+      history.push("/my-good-single-christian-friends")
     } catch {
       setError("Failed to log in")
     }
