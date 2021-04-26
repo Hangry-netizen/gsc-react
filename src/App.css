@@ -16,6 +16,22 @@ body {
   .font-size-medium {
     font-size: 18px !important;
   }
+  .font-size-small, .font-size-x-small{
+    font-size: 12px !important;
+  }
+
+  h1 {
+    font-size: 22px !important;
+  }
+  h2 {
+    font-size: 22px !important;
+  }
+  h3 {
+    font-size: 19px !important;
+  }
+  h4 {
+    font-size: 16px !important;
+  }
 }
 
 .font-size-large {
@@ -25,6 +41,11 @@ body {
 .font-size-small {
   font-size: 16px;
 }
+
+.font-size-x-small {
+  font-size: 12px;
+}
+
 .underline {
   text-decoration: underline;
 }

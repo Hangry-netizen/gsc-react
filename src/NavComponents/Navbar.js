@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from "../contexts/AuthContext"
-import MatchesUpLogo from "../utils/MatchesUpLogo.svg"
+import { useAuth } from "../contexts/AuthContext";
+import MatchesUpLogo from "../utils/MatchesUpLogo.svg";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import './Navbar.css'
 import Burger from "./Burger"
 
@@ -38,12 +39,13 @@ export default function Navbar() {
         </Link>
       </div>
       <div id="nav-right">
-        <Link to="/" id="home-link" onClick={scrollToTop}>HOME</Link>        
+        <Link to="/" id="home-link" onClick={scrollToTop}>HOME</Link>
+        <Link to="/resources" id="resources-link" onClick={scrollToTop}>RESOURCES</Link>     
         {currentUser 
         ?
         <>
           <Link to="/my-good-single-christian-friends" id="my-gscfs">My GSCFs</Link>
-          <Link onClick={handleLogout} id="logout-link">LOGOUT</Link>
+          <Link onClick={handleLogout} id="logout-link" style={{fontSize:"40px"}}><ExitToAppIcon /></Link>
         </>
         :
         <Link to="/faithful-friend-login" id="login-link">LOGIN</Link>

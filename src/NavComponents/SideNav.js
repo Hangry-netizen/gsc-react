@@ -82,15 +82,15 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
           </button>
         </li>
         <hr />
+        <li>
+          <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
+            <HashLink smooth to="/resources">Resources</HashLink>
+          </button>
+        </li>
         
         {
           currentUser ?
           <>
-            <li>
-              <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
-                <HashLink smooth to="/#a-few-words-from-us">A Few Words</HashLink>
-              </button>
-            </li>
             <hr />
             <li>
               <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
@@ -106,17 +106,6 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
           </>
           :
           <>
-            <li>
-              <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
-                <HashLink smooth to="/#step-1">Steps</HashLink>
-              </button>
-            </li>
-            <hr />
-            <li>
-              <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
-                <HashLink smooth to="/#a-few-words-from-us">A Few Words</HashLink>
-              </button>
-            </li>
             <hr />
             <li>
               <button className="side-nav-button log-in" onClick={() => setOpenSideNav(false)}>

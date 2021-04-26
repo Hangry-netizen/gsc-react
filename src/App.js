@@ -9,6 +9,12 @@ import FFLoginPage from './pages/FFLoginPage';
 import FFSignUpPage from './pages/FFSignUpPage';
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import FFProfilePage from './pages/FFProfilePage';
+import ResourcesPage from './pages/ResourcesPage';
+
+/*Articles*/
+import Article1 from "./ResourcesComponents/Article1/Article1"
+import Article2 from "./ResourcesComponents/Article2/Article2"
+import Article3 from "./ResourcesComponents/Article3/Article3"
 
 import { useAuth } from "./contexts/AuthContext";
 
@@ -24,6 +30,13 @@ function App() {
         <Route exact path="/"><HomePage /></Route>
         <Route exact path="/terms-and-privacy-policy"><TermsAndPrivacyPage /></Route>
         <Route exact path="/donation-info"><DonationPage /></Route>
+        <Route exact path="/resources"><ResourcesPage /></Route>
+
+        {/* Articles */}
+        <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>
+        <Route exact path="/resources/articles/should-i-like-someone-in-a-different-country"><Article2 /></Route>
+        <Route exact path="/resources/articles/what-if-i-receive-a-like-from-someone-I'm-not-interested-in"><Article3 /></Route>
+
         {
         currentUser
         ?

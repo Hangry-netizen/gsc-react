@@ -36,11 +36,11 @@
   font-weight: 400;
 }
 
-#articles-link, #home-link {
+#resources-link, #home-link {
   color: #e9482b;
 }
 
-#login-link, #logout-link, #my-gscfs, #articles-link {
+#login-link, #logout-link, #my-gscfs, #resources-link {
   color: #e9482b;
   padding-left: 30px;
 }
