@@ -41,14 +41,15 @@ export default function Navbar() {
       <div id="nav-right">
         <Link to="/" id="home-link" onClick={scrollToTop}>HOME</Link>
         <Link to="/resources" id="resources-link" onClick={scrollToTop}>RESOURCES</Link>     
+        <Link to="/frequently-asked-questions" id="faqs-link" onClick={scrollToTop}>FAQs</Link>     
         {currentUser 
         ?
         <>
-          <Link to="/my-good-single-christian-friends" id="my-gscfs">My GSCFs</Link>
+          <Link to="/my-good-single-christian-friends" id="my-gscfs" onClick={scrollToTop}>My GSCFs</Link>
           <Link onClick={handleLogout} id="logout-link" style={{fontSize:"40px"}}><ExitToAppIcon /></Link>
         </>
         :
-        <Link to="/faithful-friend-login" id="login-link">LOGIN</Link>
+        <Link to="/faithful-friend-login" id="login-link" onClick={scrollToTop}>LOGIN</Link>
         }
       </div>
       

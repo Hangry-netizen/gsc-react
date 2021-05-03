@@ -1,0 +1,11 @@
+@media(max-width: 1024px) {
+  #faq-gscs-container, #faq-ffs-container {
+    width: 600px !important;
+  }
+}
+
+@media(max-width: 720px) {
+  #faq-gscs-container, #faq-ffs-container {
+    width: 320px !important;
+  }
+}

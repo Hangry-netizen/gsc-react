@@ -10,6 +10,7 @@ import FFSignUpPage from './pages/FFSignUpPage';
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import FFProfilePage from './pages/FFProfilePage';
 import ResourcesPage from './pages/ResourcesPage';
+import FAQPage from './pages/FAQPage';
 
 /*Articles*/
 import Article1 from "./ResourcesComponents/Article1/Article1"
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/terms-and-privacy-policy"><TermsAndPrivacyPage /></Route>
         <Route exact path="/donation-info"><DonationPage /></Route>
         <Route exact path="/resources"><ResourcesPage /></Route>
+        <Route exact path="/frequently-asked-questions"><FAQPage /></Route>
 
         {/* Articles */}
         <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>

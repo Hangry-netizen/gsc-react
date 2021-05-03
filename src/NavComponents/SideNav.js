@@ -84,7 +84,13 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
         <hr />
         <li>
           <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
-            <HashLink smooth to="/resources">Resources</HashLink>
+            <Link smooth to="/resources" onClick={scrollToTop}>Resources</Link>
+          </button>
+        </li>
+        <hr />
+        <li>
+          <button className="side-nav-button" onClick={() => setOpenSideNav(false)}>
+            <Link smooth to="/frequently-asked-questions" onClick={scrollToTop}>FAQs</Link>
           </button>
         </li>
         
