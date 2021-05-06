@@ -37,7 +37,7 @@ export default function AdminNavbar() {
           ?
           <>
             <Link to="/admin/home" id="home-link" onClick={scrollToTop}>ADMINISTRATION</Link>
-            <Link onClick={handleLogout} id="logout-link">LOGOUT</Link>
+            <button onClick={handleLogout} id="logout-link" style={{border:"none", background:"none"}}>LOGOUT</button>
           </>
           :
           null
