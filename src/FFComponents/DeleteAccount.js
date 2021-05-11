@@ -2,6 +2,7 @@ import { Modal } from 'bootstrap';
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { Button, Alert } from "react-bootstrap";
 
 export default function DeleteAccount() {
   const { currentUser } = useAuth()

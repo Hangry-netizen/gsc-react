@@ -17,7 +17,6 @@ const FFLoginPage = () => {
 
   async function handleLogin(e) {
     e.preventDefault()
-    console.log("submitted")
 
     if (email === "" || password === "") {
       return setError("Email and password are required to log in")

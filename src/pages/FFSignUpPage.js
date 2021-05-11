@@ -5,7 +5,7 @@ import { useHistory, Link } from "react-router-dom";
 
 import '../FFComponents/FFSignUpPage.css'
 
-const FFSignUpPage = ({ showLogin, setShowLogin, showSignUp, setShowSignUp }) => {
+const FFSignUpPage = ({ showLogin }) => {
   const history = useHistory()
   const { signup } = useAuth()
 

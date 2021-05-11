@@ -12,6 +12,8 @@ import FFProfilePage from './pages/FFProfilePage';
 import ResourcesPage from './pages/ResourcesPage';
 import FAQPage from './pages/FAQPage';
 
+import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm';
+
 /*Articles*/
 import Article1 from "./ResourcesComponents/Article1/Article1"
 import Article2 from "./ResourcesComponents/Article2/Article2"
@@ -19,8 +21,8 @@ import Article3 from "./ResourcesComponents/Article3/Article3"
 
 import { useAuth } from "./contexts/AuthContext";
 
-export const url = 'https://matches-up.herokuapp.com/api/v1';
-/**/
+export const url = 'http://localhost:5000/api/v1';
+/*https://matches-up.herokuapp.com/api/v1*/
 
 function App() {
   const { currentUser } = useAuth()
@@ -44,6 +46,7 @@ function App() {
         ?
         <>
           <Route exact path="/my-good-single-christian-friends"><FFProfilePage /></Route>
+          <Route exact path="/create-new-good-single-christian-friend-profile-form"><CreateGSCForm /></Route>
         </>
         :
         <>

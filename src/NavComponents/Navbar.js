@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from "../contexts/AuthContext";
 import MatchesUpLogo from "../utils/MatchesUpLogo.svg";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -12,6 +12,8 @@ export default function Navbar() {
 
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
+
+  let history = useHistory()
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -26,6 +28,7 @@ export default function Navbar() {
     try {
       logout()
       setMessage("Successfully logout")
+      history.push("/")
     } catch {
         setError("Failed to logout")
     }
@@ -46,7 +49,7 @@ export default function Navbar() {
         ?
         <>
           <Link to="/my-good-single-christian-friends" id="my-gscfs" onClick={scrollToTop}>My GSCFs</Link>
-          <Link onClick={handleLogout} id="logout-link" style={{fontSize:"40px"}}><ExitToAppIcon /></Link>
+          <button onClick={handleLogout} id="logout-link" style={{fontSize:"40px", background:"none", border:"none"}}><ExitToAppIcon /></button>
         </>
         :
         <Link to="/faithful-friend-login" id="login-link" onClick={scrollToTop}>LOGIN</Link>

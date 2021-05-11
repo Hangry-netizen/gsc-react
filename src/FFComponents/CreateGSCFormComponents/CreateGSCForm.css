@@ -1,0 +1,42 @@
+.create-gsc-form-container {
+  width: 900px;
+  margin: auto;
+}
+
+#create-gsc-form-header {
+  width: 800px;
+  margin: 30px auto 0;
+}
+
+.create-gsc-form-body {
+  width: 800px;
+  margin: 30px auto;
+}
+
+.create-gsc-form-header-content {
+  width: 800px;
+  margin: auto;
+}
+
+.without-left-padding {
+  padding-left: 0 !important;
+}
+
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+#create-gsc-form-next-btn {
+  background-color: #e9482b !important;
+  color: white !important;
+  border-color: #e9482b;
+  font-size: 20px;
+}
+
+#create-gsc-form-prev-btn {
+  background-color: #1e365c;
+  color: #cccccc;
+  border-color: #1e365c;
+  font-size: 20px;
+}

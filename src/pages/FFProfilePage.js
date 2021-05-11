@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import CreateGSC from "../FFComponents/CreateGSC";
-import AwaitingApprovalGSCs from "../FFComponents/AwaitingApprovalGSCs";
 import ExistingGSCs from "../FFComponents/ExistingGSCs";
 import DeleteFFAccount from "../FFComponents/DeleteFFAccount";
 import "../FFComponents/FFProfilePage.css";
@@ -24,7 +23,6 @@ export default function FFProfilePage() {
         <div id="profile-page-donation-waived-stamp" className="text-align-center color-red bold">waived for the first batch</div>
       </div>
       <div id="manage-profiles" className="color-blue bold font-size-large">MANAGE GSCF PROFILES</div>
-      <AwaitingApprovalGSCs />
       <ExistingGSCs />
       <DeleteFFAccount />
     </div>

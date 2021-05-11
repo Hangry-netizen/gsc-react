@@ -23,18 +23,6 @@
   margin-bottom: 3vh;
 }
 
-#create-gsc-input {
-  margin-left: 10px;
-}
-
-#use-this-name {
-  margin: 5% 0;
-}
-
-#create-gsc-close-btn {
-  margin-right: 30px;
-}
-
 #ff-profile-page-click-note {
   box-sizing: border-box;
   width: 65vw;
@@ -71,12 +59,6 @@
   border-style: double;
   box-shadow: 0 0 0 1px #E9482B, 0 0 0 1px #E9482B inset;
   background: rgba(255, 255, 255, 0.4);
-}
-
-#create-gsc-modal-confirm-btn {
-  background-color: #e9482b !important;
-  color: white !important;
-  border-color: #e9482b;
 }
 
 #manage-profiles {
@@ -160,9 +142,5 @@
 
   #awaiting-txt {
     font-size: 12px;
-  }
-
-  #use-this-name {
-    margin-bottom: 10px;
   }
 }
