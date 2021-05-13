@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { HashLink } from "react-router-hash-link";
+import React from "react";
 import { Link } from 'react-router-dom';
 import { useAuth } from "../contexts/AuthContext"
 import styled from "styled-components";
@@ -14,7 +13,7 @@ const Ul = styled.ul`
     padding: 18px 10px;
     text-align: center;
   }
-  @media (max-width: 720px) {
+  @media (max-width: 800px) {
     flex-flow: column nowrap;
     background-color: #fad4cd;
     position: fixed;
@@ -52,9 +51,6 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
   const { currentUser } = useAuth()
   const { logout } = useAuth()
 
-  const [message, setMessage] = useState("")
-  const [error, setError] = useState("")
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -64,13 +60,10 @@ const SideNav = ({ openSideNav, setOpenSideNav }) => {
   }
   
   const handleLogout = () => {
-    setMessage("")
     try {
       logout()
-      setMessage("Successfully logout")
       setOpenSideNav(false)
     } catch {
-        setError("Failed to logout")
     }
   }
   return (

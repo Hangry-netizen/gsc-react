@@ -27,6 +27,10 @@
   justify-content: space-between;
 }
 
+.mobile-col {
+  display: none
+}
+
 #create-gsc-form-next-btn {
   background-color: #e9482b !important;
   color: white !important;
@@ -34,9 +38,67 @@
   font-size: 20px;
 }
 
-#create-gsc-form-prev-btn {
-  background-color: #1e365c;
-  color: #cccccc;
-  border-color: #1e365c;
-  font-size: 20px;
+@media (max-width: 1024px) {
+  .create-gsc-form-container {
+    width: 700px;
+    margin: auto;
+  }
+  
+  #create-gsc-form-header {
+    width: 600px;
+    margin: 30px auto 0;
+  }
+  
+  .create-gsc-form-body {
+    width: 600px;
+    margin: 30px auto;
+  }
+  
+  .create-gsc-form-header-content {
+    width: 600px;
+    margin: auto;
+  }
+
+  .mobile-col {
+    display: none
+  }  
+}
+
+@media (max-width: 720px) {
+  .create-gsc-form-container {
+    width: 320px;
+    margin: auto;
+  }
+  
+  .desktop-row {
+    display: none !important;
+  }
+
+  .mobile-col {
+    display: block;
+  }
+  
+  #create-gsc-form-header-logo-title {
+    display: block;
+    height: 60px !important;
+  }
+
+  #create-gsc-form-header-logo {
+    display: none;
+  }
+  
+  #create-gsc-form-header {
+    width: 300px;
+    margin: 30px auto 0;
+  }
+  
+  .create-gsc-form-body {
+    width: 300px;
+    margin: 30px auto;
+  }
+  
+  .create-gsc-form-header-content {
+    width: 300px;
+    margin: auto;
+  }
 }

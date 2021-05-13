@@ -32,6 +32,9 @@ body {
   h4 {
     font-size: 16px !important;
   }
+  .mobile-text-align-justify {
+    text-align: justify !important;
+  }
 }
 
 .font-size-large {

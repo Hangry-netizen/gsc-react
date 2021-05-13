@@ -5,7 +5,7 @@ import { url } from "../App";
 
 export default function ExistingGSCs() {
   const { currentUser } = useAuth()
-  const [ExistingGSCs, setExistingGSCs] = useState([])
+  const [existingGSCs, setExistingGSCs] = useState([])
 
   useEffect(() => {
     axios.get (`${url}/gscs/`)
@@ -20,22 +20,24 @@ export default function ExistingGSCs() {
   return (
     <div>
       {
-        ExistingGSCs.map((ExistingGSC) => {
-          if (ExistingGSC.ff_email === currentUser.email) {
-            if (ExistingGSC.is_approved === false) {
+        existingGSCs.map((existingGSC) => {
+          if (existingGSC.ff_email === currentUser.email) {
+            if (existingGSC.is_approved === false) {
               return (
                 <div>
-                  <button className="gsc-profile-button color-red Essays1743" key={ExistingGSC.id}>{ExistingGSC.name}</button>
+                  <button className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
                   <div id="awaiting-txt" className="color-red font-size-small">Awaiting consent and screening</div>
                 </div>
               )
             } else {
               return (
                 <div>
-                  <button id="existing-gsc-btn" className="gsc-profile-button color-red Essays1743" key={ExistingGSC.id}>{ExistingGSC.name}</button>
+                  <button id="existing-gsc-btn" className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
                 </div>
               )
             }
+          } else {
+            return null
           }
         })
       }
