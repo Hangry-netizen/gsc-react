@@ -13,7 +13,7 @@ export default function CreateGSCForm() {
   let history = useHistory();
   const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
-  const [GSC, setGSC] = useState()
+  const [gsc, setGsc] = useState()
   const [error, setError] = useState()
   const [form, setForm] = useState(
     {
@@ -122,8 +122,9 @@ export default function CreateGSCForm() {
     })
     .then(response => {
       if (response.data.status === "success") {
-        setGSC(response.data.gsc)
-        history.push("/my-good-single-christian-friends")
+        setGsc(response.data.gsc)
+        sendConsentForm()
+        history.push("/my-good-single-christians-friends")
       }
       else {
         setError(response.data.message)
@@ -135,6 +136,27 @@ export default function CreateGSCForm() {
     setIsLoading(false)
   }
 
+  const sendConsentForm = () => {
+    const sgMail = require('@sendgrid/mail')
+    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
+    const msg = {
+      to: form.email,
+      from: 'noreply@matchesup.com',
+      subject: 'MatchesUp: Consent?',
+      text: 'my first Sendgrid email',
+      html: '<h1>Welcome to Sendgrid</h1>'
+    }
+    sgMail
+    .send(msg)
+    .then(() => {
+      console.log('Email sent')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  console.log(form)
   return (
     <div>
       <div id="create-gsc-form-header">

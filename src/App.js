@@ -13,6 +13,7 @@ import ResourcesPage from './pages/ResourcesPage';
 import FAQPage from './pages/FAQPage';
 
 import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm';
+import ConsentForm from './GSCComponents/ConsentFormComponents/ConsentForm';
 
 /*Articles*/
 import Article1 from "./ResourcesComponents/Article1/Article1"
@@ -35,6 +36,7 @@ function App() {
         <Route exact path="/donation-info"><DonationPage /></Route>
         <Route exact path="/resources"><ResourcesPage /></Route>
         <Route exact path="/frequently-asked-questions"><FAQPage /></Route>
+        <Route path="/good-single-christian-friend-consent/:uuid/:name"><ConsentForm /></Route>
 
         {/* Articles */}
         <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>

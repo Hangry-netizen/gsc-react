@@ -11,7 +11,7 @@ export default function FormBasicData({ step, nextStep, handleChange }) {
         <div className="color-red">*Required</div>
       </div>
       <hr />
-      <div className="create-gsc-form-body color-blue">
+      <div className="create-gsc-form-body color-blue text-align-left">
         <Form onSubmit={nextStep}>
           <Form.Group controlId="formBasicGender">
             <Form.Label as="legend" column sm={4} className="without-left-padding Essays1743">

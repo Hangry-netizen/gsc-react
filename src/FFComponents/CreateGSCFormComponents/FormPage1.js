@@ -13,7 +13,7 @@ export default function FormPage1({ step, nextStep, handleChange }) {
         <div className="color-red">*Required</div>
       </div>
       <hr />
-      <div className="create-gsc-form-body color-blue mobile-text-align-justify">
+      <div className="create-gsc-form-body color-blue mobile-text-align-justify text-align-left">
         <div>Information on this page will NOT be shown on the database. Only those your GSCF LIKED will see their name. (Information AFTER this page will be VISIBLE on the database.)</div>
         <br />
         <Form onSubmit={nextStep}>

@@ -10,7 +10,7 @@ export default function FormPage3({ step, nextStep, handleChange, handleListChan
         <div className="color-red">*Required</div>
       </div>
       <hr />
-      <div className="create-gsc-form-body color-blue">
+      <div className="create-gsc-form-body color-blue text-align-left">
         <Form onSubmit={nextStep}>
           <Form.Group controlId="formBasicDescriptiveWords">
             <Form.Label as="legend" column sm={10} className="without-left-padding Essays1743">

@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
-import { Form, Col, Button, Alert } from 'react-bootstrap';
+import React from 'react';
+import { Form, Col, Button, Alert, Row } from 'react-bootstrap';
 
 export default function FormPage4({ step, submitForm, handleChange, isLoading, error }) {
-  const target = useRef(null)
 
   return (
     <div className="create-gsc-form-container">
@@ -12,7 +11,7 @@ export default function FormPage4({ step, submitForm, handleChange, isLoading, e
         <div className="color-red">*Required</div>
       </div>
       <hr />
-      <div className="create-gsc-form-body color-blue">
+      <div className="create-gsc-form-body color-blue text-align-left">
         <Form onSubmit={submitForm}>
           <Form.Group controlId="formBasicReasonsGSCFMakesAGoodPartner">
             <Form.Label className="Essays1743">Why do you think your GSCF would make a good partner? <span className="color-red">*</span></Form.Label>
@@ -27,83 +26,21 @@ export default function FormPage4({ step, submitForm, handleChange, isLoading, e
             </Col>
           </Form.Group>
           <p className="Essays1743">Willingness to relocate/move...</p>
-          <Form.Group controlId="formBasicMovingToADifferentTown">
-            <Form.Label as="legend" column sm={12} className="without-left-padding Essays1743">
-              ...to a different town within the same country
-            </Form.Label>
-            <Col className="without-left-padding" onChange={handleChange('moving_to_a_different_town')}> 
-              <Form.Text>not willing</Form.Text>
-              <Form.Check
-                type="radio"
-                label="1"
-                name="moving to a different town"
-                value="1"
-              />
-              <Form.Check
-                type="radio"
-                label="2"
-                name="moving to a different town"
-                value="2"
-              />
-              <Form.Check
-                type="radio"
-                label="3"
-                name="moving to a different town"
-                value="3"
-              />
-              <Form.Check
-                type="radio"
-                label="4"
-                name="moving to a different town"
-                value="4"
-              />
-              <Form.Check
-                type="radio"
-                label="5"
-                name="moving to a different town"
-                value="5"
-              />
-              <Form.Text>very willing</Form.Text>
-            </Col>
+          <Form.Group controlId="formBasicMovingToADifferentTown" className="without-left-padding Essays1743">
+            <Form.Label>...to a different town within the same country</Form.Label>
+            <Form.Control type="range" onChange={handleChange('moving_to_a_different_town')}/>
+            <div className="display-flex">
+              <div>unwilling</div>
+              <div>willing</div>
+            </div>
           </Form.Group>
-          <Form.Group controlId="formBasicMovingToADifferentCountry">
-            <Form.Label as="legend" column sm={12} className="without-left-padding Essays1743">
-              ...to a different country
-            </Form.Label>
-            <Col className="without-left-padding" onChange={handleChange('moving_to_a_different_country')}> 
-              <Form.Text>not willing</Form.Text>
-              <Form.Check
-                type="radio"
-                label="1"
-                name="moving to a different country"
-                value="1"
-              />
-              <Form.Check
-                type="radio"
-                label="2"
-                name="moving to a different country"
-                value="2"
-              />
-              <Form.Check
-                type="radio"
-                label="3"
-                name="moving to a different country"
-                value="3"
-              />
-              <Form.Check
-                type="radio"
-                label="4"
-                name="moving to a different country"
-                value="4"
-              />
-              <Form.Check
-                type="radio"
-                label="5"
-                name="moving to a different country"
-                value="5"
-              />
-              <Form.Text>very willing</Form.Text>
-            </Col>
+          <Form.Group controlId="formBasicMovingToADifferentCountry" className="without-left-padding Essays1743">
+            <Form.Label>...to a different town within the same country</Form.Label>
+            <Form.Control type="range" onChange={handleChange('moving_to_a_different_country')}/>
+            <div className="display-flex">
+              <div>unwilling</div>
+              <div>willing</div>
+            </div>
           </Form.Group>
           <Form.Group controlId="formBasicHasBeenMarriedOrHasKids">
             <Form.Label className="Essays1743">Has he/she ever been married? Or have kids?</Form.Label>
@@ -136,7 +73,7 @@ export default function FormPage4({ step, submitForm, handleChange, isLoading, e
           </div>
           <div className="display-flex">
             <div>Page {step} of 4</div>
-            <Button id="create-gsc-form-next-btn" ref={target} disabled={isLoading} type="submit" value="submit">Submit</Button>
+            <Button id="create-gsc-form-next-btn" disabled={isLoading} type="submit" value="submit">Submit</Button>
           </div>
           <br />
         </Form>
