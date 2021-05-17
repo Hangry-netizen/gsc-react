@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AdminApprovalTable from '../AdminComponents/AdminApprovalTable';
+import ApprovalTable from '../AdminComponents/ApprovalTable';
+import { url } from '../App';
+import "../AdminComponents/AdminApprovalPage.css"
 
 export default function AdminApprovalPage() {
-  const [titles, setTitles] = useState([])
-  const [datas, setDatas] = useState([])
+  const [gscs, setGscs] = useState([])
 
   useEffect(() => {
-    axios.get(`https://spreadsheets.google.com/feeds/cells/1BeUz5bOYM7h-WYRkblpo6pD7rkXhtsbcBbAcv1eieNA/otumiff/public/basic?alt=json`)
+    axios.get(`${url}/gscs/`)
       .then((response) => {
-        setTitles(response.data.feed.entry.slice(1, 31))
-        setDatas(response.data.feed.entry.slice(42,))
+        setGscs(response.data)
       })
       .catch((error) => {
         console.log(error)
@@ -18,9 +18,9 @@ export default function AdminApprovalPage() {
   }, [])
 
   return (
-    <div>
+    <div id="approval-page-container">
       <h1>Approval Page</h1>
-      <AdminApprovalTable titles={titles} datas={datas}/>
+      <ApprovalTable gscs={gscs}/>
     </div> 
   )
 }
