@@ -43,7 +43,11 @@ export default function ConsentForm() {
 
   const submitForm = e => {
     e.preventDefault()
+    updateGSC();
+    manageReferences();
+  }
 
+  const updateGSC = () => {
     setIsLoading(true)
 
     axios({
@@ -85,32 +89,116 @@ export default function ConsentForm() {
         preferred_contact_method: form.preferred_contact_method,
         contact_info: form.contact_info, 
         notification_frequency: form.notification_frequency,
-        what_is_important_to_me: form.what_is_important_to_me, 
-        first_referral_name: form.first_referral_name,
-        first_referral_email: form.first_referral_email,
-        second_referral_name: form.second_referral_name,
-        second_referral_email: form.second_referral_email,
+        what_is_important_to_me: form.what_is_important_to_me,
         is_approved: gsc.is_approved, 
         is_active: gsc.is_active,
         last_signed_in: form.last_signed_in
       }
     })
     .then(response => {
-      console.log(response)
+      history.push(`/good-single-christian-friend/${gsc.uuid}/${gsc.name}`)
     })
     .catch(error => {
       console.log(error)
     })
     setIsLoading(false)
+  };
+
+  const manageReferences = () => {
+    setIsLoading(true)
+    if (form.first_referral_name !== "" && form.first_referral_email !== "") {
+      axios({
+        method: 'POST',
+        url: `${url}/references/`,
+        data: {
+          gsc: gsc.id,
+          ref_name: form.first_referral_name,
+          ref_email: form.first_referral_email
+        }
+      })
+      .then(reponse => {
+        console.log('sending email 1')
+        sendReferralEmail1()
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
+    if (form.second_referral_name !== "" && form.second_referral_email !== "") {
+      axios({
+        method: 'POST',
+        url: `${url}/references/`,
+        data: {
+          gsc: gsc.id,
+          ref_name: form.second_referral_name,
+          ref_email: form.second_referral_name
+        }
+      })
+      .then(reponse => {
+        console.log('sending email 2')
+        sendReferralEmail2()
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
+    setIsLoading(false)
   }
+
+  const sendReferralEmail1 = () => {
+    const sgMail = require('@sendgrid/mail')
+    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
+    const consent = {
+      to: form.first_referral_email,
+      from: 'noreply@matchesup.com',
+      template_id: "d-6af1d902e5544dc68eeab4fe99809219",
+      dynamic_template_data: {
+        gscf_name: gsc.name,
+        ref_name: form.first_referral_name,
+        ref_url: `www.matchesup.com/good-single-christian-friend-reference/${gsc.uuid}/${form.first_referral_name}`
+      }
+    }
+    sgMail
+    .send(consent)
+    .then(() => {
+      console.log('Email sent to ref 1')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+  
+  const sendReferralEmail2 = () => {
+    const sgMail = require('@sendgrid/mail')
+    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
+    const consent = {
+      to: form.second_referral_email,
+      from: 'noreply@matchesup.com',
+      template_id: "d-6af1d902e5544dc68eeab4fe99809219",
+      dynamic_template_data: {
+        gscf_name: gsc.name,
+        ref_name: form.second_referral_name,
+        ref_url: `www.matchesup.com/good-single-christian-friend-reference/${gsc.uuid}/${form.second_referral_name}`
+      }
+    }
+    sgMail
+    .send(consent)
+    .then(() => {
+      console.log('Email sent to ref 2')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
   
   return (
     <div>
       <div id="consent-form-header">
         <div id="consent-form-header-logo-title" className="display-flex" style={{alignItems:"center", height: "150px"}}>
           <div className="Essays1743">
-            <h1 className="color-red">Welcome to MatchesUp.com,</h1>
-            <h1 className="color-blue"> {name}! ;)</h1>
+            <h1 className="color-red">Welcome to MatchesUp,</h1>
+            <h1 className="color-blue">{name}! ;)</h1>
           </div>
           <div>
             <img id="consent-form-header-logo" src={MatchesUpLogo} style={{width: "150px"}} alt="MatchesUpLogo"/>

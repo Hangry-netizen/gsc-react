@@ -10,7 +10,7 @@ export default function FormPage1({ step, nextStep, handleChange }) {
       <div className="create-gsc-form-header-content">
         <br />
         <p className="color-blue mobile-text-align-justify">These information will be sent to your Good Single Christian Friend (GSCF) to be reviewed/edited. Remember, they can help you fill in the answers you aren't sure about ;)</p>
-        <div className="color-red">*Required</div>
+        <div className="color-red text-align-left">*Required</div>
       </div>
       <hr />
       <div className="create-gsc-form-body color-blue mobile-text-align-justify text-align-left">
@@ -25,7 +25,7 @@ export default function FormPage1({ step, nextStep, handleChange }) {
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="Essays1743">GSCF's Email Address <span className="color-red">*</span></Form.Label>
-            <Form.Text mobile-text-align-justify>Please pause here to ask your GSCF for their preferred email address to use for this database, as it cannot be changed later. Your GSCF will need to give consent for participation through their email.</Form.Text>
+            <Form.Text className="mobile-text-align-justify">Please pause here to ask your GSCF for their preferred email address to use for this database, as it cannot be changed later. Your GSCF will need to give consent for participation through their email.</Form.Text>
             <Col className="without-left-padding">
               <Form.Control type="email" required onChange={handleChange('email')}/>
             </Col>

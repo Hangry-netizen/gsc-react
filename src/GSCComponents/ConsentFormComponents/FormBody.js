@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 export default function FormBody({ isLoading, handleChange, submitForm }) {
   return (
     <div>
-      <div className="create-gsc-form-container">
-        <div className="create-gsc-form-header-content text-align-left">
+      <div className="consent-form-container">
+        <div className="consent-form-header-content text-align-left">
           <br />
           <div className="color-red">*Required</div>
         </div>
         <hr />
-        <div className="create-gsc-form-body color-blue mobile-text-align-justify">
+        <div className="consent-form-body color-blue mobile-text-align-justify text-align-left">
           <Form onSubmit={submitForm}>
             <Form.Group>
               <Form.Check
@@ -157,7 +157,7 @@ export default function FormBody({ isLoading, handleChange, submitForm }) {
             </Form.Group>
             <br />
             <div className="text-align-right">
-              <Button id="create-gsc-form-next-btn" disabled={isLoading} type="submit" value="submit">Submit</Button>
+              <Button id="consent-form-next-btn" disabled={isLoading} type="submit" value="submit">Submit</Button>
             </div>
           </Form>
         </div>

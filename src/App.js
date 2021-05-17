@@ -11,9 +11,12 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import FFProfilePage from './pages/FFProfilePage';
 import ResourcesPage from './pages/ResourcesPage';
 import FAQPage from './pages/FAQPage';
-
 import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm';
+
+/* GSCF */
+import GSCProfilePage from './pages/GSCProfilePage';
 import ConsentForm from './GSCComponents/ConsentFormComponents/ConsentForm';
+import ReferenceForm from './GSCComponents/ReferenceForm/ReferenceForm';
 
 /*Articles*/
 import Article1 from "./ResourcesComponents/Article1/Article1"
@@ -36,7 +39,9 @@ function App() {
         <Route exact path="/donation-info"><DonationPage /></Route>
         <Route exact path="/resources"><ResourcesPage /></Route>
         <Route exact path="/frequently-asked-questions"><FAQPage /></Route>
+        <Route path="/good-single-christian-friend/:uuid/:name"><GSCProfilePage /></Route>
         <Route path="/good-single-christian-friend-consent/:uuid/:name"><ConsentForm /></Route>
+        <Route path="/good-single-christian-friend-reference/:uuid/:ref_name"><ReferenceForm /></Route>
 
         {/* Articles */}
         <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>

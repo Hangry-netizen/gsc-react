@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import FormPage1 from './FormPage1';
 import FormPage2 from './FormPage2';
 import FormPage3 from './FormPage3';
@@ -13,7 +13,7 @@ export default function CreateGSCForm() {
   let history = useHistory();
   const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
-  const [gsc, setGsc] = useState()
+  const [gsc, setGsc] = useState("")
   const [error, setError] = useState()
   const [form, setForm] = useState(
     {
@@ -123,8 +123,7 @@ export default function CreateGSCForm() {
     .then(response => {
       if (response.data.status === "success") {
         setGsc(response.data.gsc)
-        sendConsentForm()
-        history.push("/my-good-single-christians-friends")
+        history.push("/my-good-single-christian-friends")
       }
       else {
         setError(response.data.message)
@@ -136,27 +135,33 @@ export default function CreateGSCForm() {
     setIsLoading(false)
   }
 
-  const sendConsentForm = () => {
-    const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
-    const msg = {
-      to: form.email,
-      from: 'noreply@matchesup.com',
-      subject: 'MatchesUp: Consent?',
-      text: 'my first Sendgrid email',
-      html: '<h1>Welcome to Sendgrid</h1>'
+  useEffect(() => {
+    if (gsc !== "") {
+      const sgMail = require('@sendgrid/mail')
+      sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
+      const consent = {
+        to: gsc.email,
+        from: 'noreply@matchesup.com',
+        template_id: "d-fcb0e7483d4448319fa772341765a581",
+        dynamic_template_data: {
+          gscf_name: gsc.name,
+          ff_name: currentUser.displayName,
+          ff_email: currentUser.email,
+          consent_url: `www.matchesup.com/good-single-christian-friend-consent/${gsc.uuid}/${gsc.name}`,
+          gsc_profile_link: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/${gsc.name}`
+        }
+      }
+      sgMail
+      .send(consent)
+      .then(() => {
+        console.log('Email sent')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
-    sgMail
-    .send(msg)
-    .then(() => {
-      console.log('Email sent')
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
-
-  console.log(form)
+  }, [gsc])
+  
   return (
     <div>
       <div id="create-gsc-form-header">
