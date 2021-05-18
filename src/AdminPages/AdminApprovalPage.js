@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ApprovalTable from '../AdminComponents/ApprovalTable';
+import ApprovalTable from '../AdminComponents/ApprovalComponents/ApprovalTable';
 import { url } from '../App';
-import "../AdminComponents/AdminApprovalPage.css"
+import "../AdminComponents/ApprovalComponents/AdminApprovalPage.css";
 
 export default function AdminApprovalPage() {
-  const [isLoading, setIsLoading] = useState(false)
   const [gscs, setGscs] = useState([])
 
   useEffect(() => {
@@ -18,34 +17,11 @@ export default function AdminApprovalPage() {
       })
   }, [])
 
-  const handleApproval = e => {
-    let uuid = e.target.value
-    setIsLoading(true)
-
-    axios({
-      method: 'POST',
-      url: `${url}/gscs/status/${uuid}`,
-      data: {
-        is_approved: true,
-        is_active: false
-      }
-    })
-    .then(response => {
-      console.log(response)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-    setIsLoading(false)
-  }
-
   return (
     <div id="approval-page-container">
-      <h1>Approval Page</h1>
+      <h1 className="color-red" style={{margin:"50px auto"}}>Approval Page</h1>
       <ApprovalTable
         gscs={gscs}
-        isLoading={isLoading}
-        handleApproval={handleApproval}
       />
     </div> 
   )

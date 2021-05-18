@@ -26,7 +26,7 @@ Table thead th {
   background-color: #1e365c;
 }
 
-Table th thead:first-child {
+Table thead th:first-child {
   position: sticky;
   left: 0;
 }
@@ -34,6 +34,7 @@ Table th thead:first-child {
 Table tbody th {
   position: sticky;
   left: 0;
+  background-color: #1e365c;
 }
 
 Table td {
