@@ -1,6 +1,5 @@
 #approval-page-container {
-  width: 900px;
-  margin: 50px auto;
+  margin: 50px 20px;
 }
 
 #approval-table-head {
@@ -12,4 +11,31 @@
 #approval-table-body {
   font-size: 13px;
   font-weight: 200px;
+}
+
+Table {
+  overflow-y: scroll;
+  width: 2000px !important;
+  height: 700px;
+  display: block;
+}
+
+Table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #1e365c;
+}
+
+Table th thead:first-child {
+  position: sticky;
+  left: 0;
+}
+
+Table tbody th {
+  position: sticky;
+  left: 0;
+}
+
+Table td {
+  height: 4em;
 }
