@@ -39,4 +39,5 @@ Table tbody th {
 
 Table td {
   height: 4em;
+  overflow-y: hidden;
 }

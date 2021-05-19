@@ -8,8 +8,8 @@ export default function ApprovalTable({ gscs, handleApproval }) {
       <Table striped bordered hover variant="dark" responsive>
         <thead id="approval-table-head">
           <tr>
-            <th>#</th>
             <th>Alias</th>
+            <th>Age Range</th>
             <th>Height</th>
             <th>Languages</th>
             <th>Nationality/ Ethnicity</th>
