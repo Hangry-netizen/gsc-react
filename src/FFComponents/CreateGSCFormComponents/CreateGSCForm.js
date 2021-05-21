@@ -138,7 +138,7 @@ export default function CreateGSCForm() {
   useEffect(() => {
     if (gsc !== "") {
       const sgMail = require('@sendgrid/mail')
-      sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
+      sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
       const consent = {
         to: gsc.email,
         from: 'noreply@matchesup.com',
@@ -147,8 +147,8 @@ export default function CreateGSCForm() {
           gscf_name: gsc.name,
           ff_name: currentUser.displayName,
           ff_email: currentUser.email,
-          consent_url: `www.matchesup.com/good-single-christian-friend-consent/${gsc.uuid}/${gsc.name}`,
-          gsc_profile_link: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/${gsc.name}`
+          consent_url: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/consent`,
+          gsc_profile_link: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}`
         }
       }
       sgMail
@@ -160,7 +160,7 @@ export default function CreateGSCForm() {
         console.log(error)
       })
     }
-  }, [gsc])
+  })
   
   return (
     <div>

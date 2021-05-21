@@ -8,10 +8,12 @@ import { url } from '../../App';
 import './ConsentForm.css'
 
 export default function ConsentForm() {
-  let { uuid, name } = useParams();
+  let { uuid } = useParams();
   let history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
-  const [gsc, setGsc] = useState();
+  const [gsc, setGsc] = useState({});
+  const [ref1, setRef1] = useState("");
+  const [ref2, setRef2] = useState("");
   const [form, setForm] = useState(
     {
       consent: true,
@@ -30,7 +32,6 @@ export default function ConsentForm() {
     axios.get (`${url}/gscs/${uuid}`)
       .then((response) => {
         setGsc(response.data)
-        console.log(response.data)
       })
       .catch((error) => {
          console.log(error)
@@ -95,9 +96,9 @@ export default function ConsentForm() {
         last_signed_in: form.last_signed_in
       }
     })
-    .then(response => {
-      history.push(`/good-single-christian-friend/${gsc.uuid}/${gsc.name}`)
-    })
+    .then(
+      history.push(`/good-single-christian-friend/${gsc.uuid}`)
+    )
     .catch(error => {
       console.log(error)
     })
@@ -116,9 +117,8 @@ export default function ConsentForm() {
           ref_email: form.first_referral_email
         }
       })
-      .then(reponse => {
-        console.log('sending email 1')
-        sendReferralEmail1()
+      .then(response => {
+        setRef1(response.data.reference)
       })
       .catch(error => {
         console.log(error)
@@ -134,9 +134,8 @@ export default function ConsentForm() {
           ref_email: form.second_referral_name
         }
       })
-      .then(reponse => {
-        console.log('sending email 2')
-        sendReferralEmail2()
+      .then(response => {
+        setRef2(response.data.reference)
       })
       .catch(error => {
         console.log(error)
@@ -145,52 +144,55 @@ export default function ConsentForm() {
     setIsLoading(false)
   }
 
-  const sendReferralEmail1 = () => {
-    const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
-    const consent = {
-      to: form.first_referral_email,
-      from: 'noreply@matchesup.com',
-      template_id: "d-6af1d902e5544dc68eeab4fe99809219",
-      dynamic_template_data: {
-        gscf_name: gsc.name,
-        ref_name: form.first_referral_name,
-        ref_url: `www.matchesup.com/good-single-christian-friend-reference/${gsc.uuid}/${form.first_referral_name}`
+  useEffect(() => {
+    if (ref1 !== "") {
+      const sgMail = require('@sendgrid/mail')
+      sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
+      const reference = {
+        to: form.first_referral_email,
+        from: 'noreply@matchesup.com',
+        template_id: "d-6af1d902e5544dc68eeab4fe99809219",
+        dynamic_template_data: {
+          gscf_name: gsc.name,
+          ref_name: form.first_referral_name,
+          ref_url: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/${ref1.ref_id}/reference/${ref1.ref_name}`
+        }
       }
+      sgMail
+      .send(reference)
+      .then(() => {
+        console.log('Email sent to ref 1')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
-    sgMail
-    .send(consent)
-    .then(() => {
-      console.log('Email sent to ref 1')
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
-  
-  const sendReferralEmail2 = () => {
-    const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API)
-    const consent = {
-      to: form.second_referral_email,
-      from: 'noreply@matchesup.com',
-      template_id: "d-6af1d902e5544dc68eeab4fe99809219",
-      dynamic_template_data: {
-        gscf_name: gsc.name,
-        ref_name: form.second_referral_name,
-        ref_url: `www.matchesup.com/good-single-christian-friend-reference/${gsc.uuid}/${form.second_referral_name}`
-      }
-    }
-    sgMail
-    .send(consent)
-    .then(() => {
-      console.log('Email sent to ref 2')
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+  })
 
+  useEffect(() => {
+    if (ref2 !== "") {
+      const sgMail = require('@sendgrid/mail')
+      sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
+      const reference = {
+        to: form.second_referral_email,
+        from: 'noreply@matchesup.com',
+        template_id: "d-6af1d902e5544dc68eeab4fe99809219",
+        dynamic_template_data: {
+          gscf_name: gsc.name,
+          ref_name: form.second_referral_name,
+          ref_url: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/${ref2.ref_id}/reference${ref2.ref_name}`
+        }
+      }
+      sgMail
+      .send(reference)
+      .then(() => {
+        console.log('Email sent to ref 2')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
+  })
   
   return (
     <div>
@@ -198,7 +200,7 @@ export default function ConsentForm() {
         <div id="consent-form-header-logo-title" className="display-flex" style={{alignItems:"center", height: "150px"}}>
           <div className="Essays1743">
             <h1 className="color-red">Welcome to MatchesUp,</h1>
-            <h1 className="color-blue">{name}! ;)</h1>
+            <h1 className="color-blue">{gsc.name}! ;)</h1>
           </div>
           <div>
             <img id="consent-form-header-logo" src={MatchesUpLogo} style={{width: "150px"}} alt="MatchesUpLogo"/>

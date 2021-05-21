@@ -1,0 +1,49 @@
+#edit-profile-container {
+  width: 80vw;
+  margin: 50px auto;
+}
+
+#edit-profile, #edit-ref {
+  width: 420px;
+  margin: 25px auto;
+}
+
+.without-left-right-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.without-right-padding {
+  padding-right: 0 !important;
+}
+
+.overflow-wrap {
+  overflow: wrap;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.margin-bottom-zero {
+  margin-bottom: 0;
+}
+
+.margin-top-zero {
+  margin-top: 0 !important;
+}
+
+#descriptive-words-img, #spiritual-gifts-img {
+  width: 400px;
+}
+
+@media(max-width: 720px) {
+  #edit-profile, #edit-ref {
+    width: 300px;
+    margin: 25px auto;
+  }
+
+  #descriptive-words-img, #spiritual-gifts-img {
+    width: 300px;
+  }
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
-import GSCProfilePage from '../../pages/GSCProfilePage';
 
 export default function FormBody({ gsc, submitForm, handleChange, isLoading }) {
   return (

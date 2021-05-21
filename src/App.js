@@ -14,7 +14,10 @@ import FAQPage from './pages/FAQPage';
 import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm';
 
 /* GSCF */
-import GSCProfilePage from './pages/GSCProfilePage';
+import ProfilePage from './GSCPages/ProfilePage';
+import EditProfilePage from './GSCPages/EditProfilePage';
+import LikesPage from './GSCPages/LikesPage';
+import DatabasePage from './GSCPages/DatabasePage';
 import ConsentForm from './GSCComponents/ConsentFormComponents/ConsentForm';
 import ReferenceForm from './GSCComponents/ReferenceForm/ReferenceForm';
 
@@ -39,9 +42,12 @@ function App() {
         <Route exact path="/donation-info"><DonationPage /></Route>
         <Route exact path="/resources"><ResourcesPage /></Route>
         <Route exact path="/frequently-asked-questions"><FAQPage /></Route>
-        <Route path="/good-single-christian-friend/:uuid/:name"><GSCProfilePage /></Route>
-        <Route path="/good-single-christian-friend-consent/:uuid/:name"><ConsentForm /></Route>
-        <Route path="/good-single-christian-friend-reference/:uuid/:ref_name"><ReferenceForm /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid"><ProfilePage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/edit"><EditProfilePage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/likes"><LikesPage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/database"><DatabasePage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/consent"><ConsentForm /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/:ref_id/reference/:ref_name"><ReferenceForm /></Route>
 
         {/* Articles */}
         <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>

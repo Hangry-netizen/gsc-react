@@ -7,34 +7,34 @@ import FormBody from './FormBody';
 import './ReferenceForm.css';
 
 export default function ReferenceForm() {
-  let { uuid, ref_name } = useParams();
+  let { uuid, ref_id } = useParams();
   let history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
-  const [gsc, setGsc] = useState();
+  const [gsc, setGsc] = useState({});
+  const [ref, setRef] = useState("")
   const [form, setForm] = useState(
     {
-      consent: true,
-      social_media_profile_link: "",
-      preferred_contact_method: "",
-      contact_info: "",
-      notification_frequency: "",
-      what_is_important_to_me: "",
-      first_referral_name: "",
-      first_referral_email: "",
-      second_referral_name: "",
-      second_referral_email: ""
+      reasons_gscf_makes_a_good_partner: "",
+      good_match_for_gscf: ""
     });
   
   useEffect(() => {
     axios.get (`${url}/gscs/${uuid}`)
       .then((response) => {
         setGsc(response.data)
-        console.log(response.data)
       })
       .catch((error) => {
          console.log(error)
       })
-  }, [uuid])
+
+    axios.get(`${url}/references/${ref_id}`)
+      .then((response) => {
+        setRef(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, [uuid, ref_id])
 
   const handleChange = input => e => {
     setForm({...form, [input]: e.target.value});
@@ -47,21 +47,43 @@ export default function ReferenceForm() {
 
     axios({
       method: 'POST',
-      url: `${url}/references/`,
+      url: `${url}/references/${ref_id}`,
       data: {
-        gsc: gsc.id,
-        referral_name: form.referral_name,
         reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner,
         good_match_for_gscf: form.good_match_for_gscf
       }
     })
-    .then(response => {
-      console.log(response)
-    })
+    .then(
+      sendApprovalReference()
+    )
     .catch(error => {
       console.log(error)
     })
     setIsLoading(false)
+  }
+
+  const sendApprovalReference = () => {
+    const sgMail = require('@sendgrid/mail')
+    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
+    const reference_approval = {
+      to: gsc.email,
+      from: 'noreply@matchesup.com',
+      template_id: "d-b0df696531cb4b8fb4234b6ff1a05aa0",
+      dynamic_template_data: {
+        gscf_name: gsc.name,
+        ref_name: ref.ref_name,
+        edit_url: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/edit`
+      }
+    }
+    sgMail
+    .send(reference_approval)
+    .then(() => {
+      alert("Submitted reference successfully!")
+      history.push("/")
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
   
   return (
@@ -70,7 +92,7 @@ export default function ReferenceForm() {
         <div id="reference-form-header-logo-title" className="display-flex" style={{alignItems:"center", height: "150px"}}>
           <div className="Essays1743">
             <h1 className="color-red">Welcome to MatchesUp,</h1>
-            <h1 className="color-blue">{ref_name}! ;)</h1>
+            <h1 className="color-blue">{ref.ref_name}! ;)</h1>
           </div>
           <div>
             <img id="reference-form-header-logo" src={MatchesUpLogo} style={{width: "150px"}} alt="MatchesUpLogo"/>
