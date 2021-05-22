@@ -22,7 +22,7 @@ export default function ArticleCard1() {
             </h4>
           </Card.Title>
           <Card.Text className="color-blue article-content">
-            How do you know if you should click ‘like’ on a profile? Putting yourself out there is risky! What if you get rejected? Or worse, what if they don’t respond at all and leave your heart hanging on a question mark forever…
+            How do you know if you should click ‘say hi’ on a profile? Putting yourself out there is risky! What if you get rejected? Or worse, what if they don’t respond at all and leave your heart hanging on a question mark forever…
           </Card.Text>
         </Card.Body>
       </Card>

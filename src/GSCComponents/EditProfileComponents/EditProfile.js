@@ -15,7 +15,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
           <Form.Label column sm="4" className="Essays1743 text-align-left">Full Name <span className="color-red">*</span></Form.Label>
           <Col sm="8">
             <Form.Control type="name"  required onChange={handleChange('name')} value={form.name}/>
-            <Form.Text className="color-red font-size-x-small text-align-left">Only those you LIKED  will see your name.</Form.Text>
+            <Form.Text className="color-red font-size-x-small text-align-left">Only those you 'say hi' to will see your name.</Form.Text>
           </Col>
         </Form.Group>
         <Form.Group as={Row}>
@@ -56,21 +56,21 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
         </Form.Group>
         <Form.Group className="text-align-left">
           <Form.Label className="Essays1743">Preferred Contact Method <span className="color-red">*</span></Form.Label>
-          <Form.Text className="margin-top-zero italic mobile-text-align-justify">E.g., Whatsapp / Telegram / Signal / Email / FB Messenger. (This info will only be sent to those you LIKED for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
+          <Form.Text className="margin-top-zero italic mobile-text-align-justify">E.g., Whatsapp / Telegram / Signal / Email / FB Messenger. (This info will only be sent to those you 'say hi' to for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
           <Col className="without-left-right-padding">
             <Form.Control type="text" required onChange={handleChange('preferred_contact_method')} value={form.preferred_contact_method}/>
           </Col>
         </Form.Group>
         <Form.Group className="text-align-left">
           <Form.Label className="Essays1743">Contact Information <span className="color-red">*</span></Form.Label>
-          <Form.Text className="margin-top-zero italic mobile-text-align-justify">Number of the above contact method (include country code) / email address / profile link (This info will only be sent to those you LIKED for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
+          <Form.Text className="margin-top-zero italic mobile-text-align-justify">Number of the above contact method (include country code) / email address / profile link (This info will only be sent to those you 'say hi' to for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
           <Col className="without-left-right-padding">
             <Form.Control type="text" required onChange={handleChange('contact_info')} value={form.contact_info}/>
           </Col>
         </Form.Group>
         <Form.Group className="text-align-left">
           <Form.Label className="without-left-right-padding Essays1743">
-          How often do you want to receive email notifications giving you the link to those who LIKED you? <span className="color-red">*</span>
+          How often do you want to receive email notifications giving you the link to those who 'say hi' to you? <span className="color-red">*</span>
           </Form.Label>
           <Col className="without-left-right-padding" onChange={handleChange('notification_frequency')} value={form.notification_frequency}>
             <Form.Check

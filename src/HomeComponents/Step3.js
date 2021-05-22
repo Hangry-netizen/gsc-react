@@ -13,8 +13,8 @@ export default function Step3() {
       <div className="color-red">Review the profiles of potential matches with your GSCF!</div>
       <br />
       <p className="color-beach semibold">i. your GSCF will receive a link through email on the 1st of every month for a database of profiles (names and contact not shown)</p>
-      <p className="color-beach semibold">ii. your GSCF can LIKE up to three profiles on the database per month (will be increased to five later)</p>
-      <p className="color-beach semibold">iii. those LIKED will receive your GSCF's name and contact information</p>
+      <p className="color-beach semibold">ii. your GSCF can 'say hi' up to three profiles on the database per month (will be increased to five later)</p>
+      <p className="color-beach semibold">iii. those your GSCF 'say hi' to will receive your GSCF's name and contact information</p>
     </div>
   )
 }

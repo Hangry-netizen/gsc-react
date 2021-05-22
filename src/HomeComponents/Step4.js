@@ -17,7 +17,7 @@ export default function Step4() {
           <img src={Step4Icon} alt="Step 4 icon" className="right-steps-icon"/>
         </div>
       </div>
-      <div id="step-4-one-liner" className="color-red">Your GSCF receives name and contact information of those who LIKED them!</div>
+      <div id="step-4-one-liner" className="color-red">Your GSCF receives name and contact information of those who 'say hi' to them!</div>
       <br />
       <p id="step-4-content" className="color-blue semibold">Be your GSCF's second pair of eyes and encourage them to make contact if appropriate</p>
     </div>

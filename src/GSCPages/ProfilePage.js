@@ -26,8 +26,8 @@ export default function ProfilePage() {
     history.push(`/good-single-christian-friend/${gsc.uuid}/edit`)
   }
 
-  const toLikesPage = () => {
-    history.push(`/good-single-christian-friend/${gsc.uuid}/likes`)
+  const toHelloPage = () => {
+    history.push(`/good-single-christian-friend/${gsc.uuid}/hello`)
   }
   const toDatabasePage = () => {
     history.push(`/good-single-christian-friend/${gsc.uuid}/database`)
@@ -49,7 +49,7 @@ export default function ProfilePage() {
         :
         <>
           <div>
-            <button onClick={toLikesPage} className="gsc-profile-page-btn color-red">VIEW LIKES</button>
+            <button onClick={toHelloPage} className="gsc-profile-page-btn color-red">VIEW HEELOS</button>
           </div>
           <div>
             <button onClick={toDatabasePage} className="gsc-profile-page-btn color-red">VIEW THIS MONTH'S DATABASE</button>

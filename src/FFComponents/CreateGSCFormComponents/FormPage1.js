@@ -14,7 +14,7 @@ export default function FormPage1({ step, nextStep, handleChange }) {
       </div>
       <hr />
       <div className="create-gsc-form-body color-blue mobile-text-align-justify text-align-left">
-        <div>Information on this page will NOT be shown on the database. Only those your GSCF LIKED will see their name. (Information AFTER this page will be VISIBLE on the database.)</div>
+        <div>Information on this page will NOT be shown on the database. Only those your GSCF 'say hi' to will see their name. (Information AFTER this page will be VISIBLE on the database.)</div>
         <br />
         <Form onSubmit={nextStep}>
           <Form.Group controlId="formBasicName">

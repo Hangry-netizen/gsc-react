@@ -12,7 +12,7 @@ export default function Step5() {
       </div>
       <div className="color-red">Your GSCF initiates contact if interested!</div>
       <br />
-      <p className="color-beach semibold">i. your GSCF can manage their LIKE page by clicking "contacted", "not interested", or "report" questionable profiles</p>
+      <p className="color-beach semibold">i. your GSCF can manage their HELLO page by clicking "contacted", "not interested", or "report" questionable profiles</p>
       <p className="color-beach semibold">ii. your GSCF can "hide" profile for a few months or remove it anytime (if needed)</p>
     </div>
   )

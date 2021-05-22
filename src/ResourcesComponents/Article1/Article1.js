@@ -16,7 +16,7 @@ export default function Article1() {
         <div className="font-size-x-small italic">Photo credit: Kelly Sikkema - unsplash</div>
       </div>
       <div className="article-content text-align-justify color-blue">
-        <p>How do you know if you should click ‘like’ on a profile? Putting yourself out there is risky! What if you get rejected? Or worse, what if they don’t respond at all and leave your heart hanging on a question mark forever… Take a deep breath.</p>
+        <p>How do you know if you should click ‘say hi’ on a profile? Putting yourself out there is risky! What if you get rejected? Or worse, what if they don’t respond at all and leave your heart hanging on a question mark forever… Take a deep breath.</p>
         <p>There’s no doubt that entering the arena of romance requires risk. Love always requires risk. It requires risk at the beginning, and requires risk all the way through when you’re working through the hard parts. But if we remain shy, we remain hidden. If no one reaches out, no one finds love.</p>
         <p>One way to bolster your courage, is to find fellowship with Jesus in the risk of love he took. Jesus took a great risk in coming to earth to offer his life for the sins of mankind. What if humanity rejected him, despite his incredible gift of love? Jesus experienced both acceptance by friends like Peter and John, and rejection from so-called friends like Judas, and the religious leaders meant to teach people about his father. Jesus was very familiar with what rejection felt like. John writes about him, “He came to His own, and those who were His own did not receive Him” Jn 1:11. Isaiah 53:3 says,</p>
         <div className="margin-lr-auto width-400">

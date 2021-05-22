@@ -16,7 +16,7 @@ import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm'
 /* GSCF */
 import ProfilePage from './GSCPages/ProfilePage';
 import EditProfilePage from './GSCPages/EditProfilePage';
-import LikesPage from './GSCPages/LikesPage';
+import HelloPage from './GSCPages/HelloPage';
 import DatabasePage from './GSCPages/DatabasePage';
 import ConsentForm from './GSCComponents/ConsentFormComponents/ConsentForm';
 import ReferenceForm from './GSCComponents/ReferenceForm/ReferenceForm';
@@ -44,15 +44,15 @@ function App() {
         <Route exact path="/frequently-asked-questions"><FAQPage /></Route>
         <Route exact path="/good-single-christian-friend/:uuid"><ProfilePage /></Route>
         <Route exact path="/good-single-christian-friend/:uuid/edit"><EditProfilePage /></Route>
-        <Route exact path="/good-single-christian-friend/:uuid/likes"><LikesPage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/hello"><HelloPage /></Route>
         <Route exact path="/good-single-christian-friend/:uuid/database"><DatabasePage /></Route>
         <Route exact path="/good-single-christian-friend/:uuid/consent"><ConsentForm /></Route>
         <Route exact path="/good-single-christian-friend/:uuid/:ref_id/reference/:ref_name"><ReferenceForm /></Route>
 
         {/* Articles */}
         <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>
-        <Route exact path="/resources/articles/should-i-like-someone-in-a-different-country"><Article2 /></Route>
-        <Route exact path="/resources/articles/what-if-i-receive-a-like-from-someone-I'm-not-interested-in"><Article3 /></Route>
+        <Route exact path="/resources/articles/should-i-say-hi-someone-in-a-different-country"><Article2 /></Route>
+        <Route exact path="/resources/articles/what-if-i-receive-a-say-hi-from-someone-I'm-not-interested-in"><Article3 /></Route>
 
         {
         currentUser

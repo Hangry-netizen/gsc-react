@@ -7,18 +7,18 @@ export default function ArticleCard2() {
   const history = useHistory();
 
   function toArticle2() {
-    history.push("/resources/articles/should-i-like-someone-in-a-different-country")
+    history.push("/resources/articles/should-i-say-hi-someone-in-a-different-country")
     window.scrollTo(0,0)
   }
 
   return (
     <div className="article-card blue">
       <Card className="text-align-left" onClick={toArticle2}>
-        <Card.Img top width="100%" src={ArticleImg2} alt="Should I 'like' someone in a different country?" name="Should I 'like' someone in a different country?" />
+        <Card.Img top width="100%" src={ArticleImg2} alt="Should I 'say hi' someone in a different country?" name="Should I 'say hi' someone in a different country?" />
         <Card.Body>
           <Card.Title>
             <h4>
-              Should I 'like' someone in a different country?
+              Should I 'say hi' someone in a different country?
             </h4>
           </Card.Title>
           <Card.Text className="color-blue article-content">

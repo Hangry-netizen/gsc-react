@@ -42,7 +42,7 @@ export default function FormBody({ isLoading, handleChange, submitForm }) {
               <Form.Check
                 required
                 label={
-                  <div className="color-red">I understand that GSCs of the opposite gender who have signed up for this service, and their Faithful Friends, will be able to view all of this information (except for my real name and email address which will only be sent to the GSCs if I choose to “Like” them, or if I respond to their “Like” on my profile). I understand that I can hide or remove my profile at any time for any reason.</div>
+                  <div className="color-red">I understand that GSCs of the opposite gender who have signed up for this service, and their Faithful Friends, will be able to view all of this information (except for my real name and email address which will only be sent to the GSCs if I choose to “say hi” them, or if I respond to their “say hi” on my profile). I understand that I can hide or remove my profile at any time for any reason.</div>
                 }
                 feedback="You must agree before submitting."
               />
@@ -84,21 +84,21 @@ export default function FormBody({ isLoading, handleChange, submitForm }) {
             </Form.Group>
             <Form.Group controlId="formBasicPreferredContactMethod">
               <Form.Label className="Essays1743">Preferred Contact Method <span className="color-red">*</span></Form.Label>
-              <Form.Text className="mobile-text-align-justify">E.g., Whatsapp / Telegram / Signal / Email / FB Messenger. (This info will only be sent to those you LIKED for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
+              <Form.Text className="mobile-text-align-justify">E.g., Whatsapp / Telegram / Signal / Email / FB Messenger. (This info will only be sent to those you 'say hi' to for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
               <Col className="without-left-padding">
                 <Form.Control type="text" required onChange={handleChange('preferred_contact_method')}/>
               </Col>
             </Form.Group>
             <Form.Group controlId="formBasicContactInformation">
               <Form.Label className="Essays1743">Contact Information <span className="color-red">*</span></Form.Label>
-              <Form.Text className="mobile-text-align-justify">Number of the above contact method (include country code) / email address / profile link (This info will only be sent to those you LIKED for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
+              <Form.Text className="mobile-text-align-justify">Number of the above contact method (include country code) / email address / profile link (This info will only be sent to those you 'say hi' to for them to contact you, it will not be displayed on the monthly database sent to users of the opposite gender.)</Form.Text>
               <Col className="without-left-padding">
                 <Form.Control type="text" required onChange={handleChange('contact_info')}/>
               </Col>
             </Form.Group>
             <Form.Group controlId="formBasicSelectAnonymousity">
               <Form.Label className="without-left-padding Essays1743">
-              How often do you want to receive email notifications giving you the link to those who LIKED you? <span className="color-red">*</span>
+              How often do you want to receive email notifications giving you the link to those who 'say hi' to you? <span className="color-red">*</span>
               </Form.Label>
               <Col className="without-left-padding" onChange={handleChange('notification_frequency')}>
                 <Form.Check

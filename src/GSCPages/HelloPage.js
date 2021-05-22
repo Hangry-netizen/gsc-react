@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function LikesPage() {
+export default function HelloPage() {
   return (
     <div>
-      <h1>Likes Page</h1>
+      <h1>Hello Page</h1>
     </div>
   )
 }
