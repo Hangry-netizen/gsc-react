@@ -1,35 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import axios from 'axios';
-import { url } from '../../App';
 
-export default function GscModal({ gsc, showGscModal, handleCloseGscModal }) {
-  const [isLoading, setIsLoading] = useState(false)
-  const handleApproval = () => {
-    setIsLoading(true)
-
-    axios({
-      method: 'POST',
-      url: `${url}/gscs/status/${gsc.uuid}`,
-      data: {
-        is_approved: true,
-        is_active: false
-      }
-    })
-    .then(response => {
-      if (response.data.status === 'success') {
-        handleCloseGscModal();
-        window.location.reload();
-      }
-    })
-    .catch(error => {
-      console.log(error)
-    })
-    setIsLoading(false)
-  }
+export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal }) {
   return (
-    <>
-      <Modal
+    <Modal
         id="gsc-modal"
         show={showGscModal}
         onHide={handleCloseGscModal}
@@ -58,11 +32,7 @@ export default function GscModal({ gsc, showGscModal, handleCloseGscModal }) {
           <Button variant="secondary" onClick={handleCloseGscModal}>
             Close
           </Button>
-          <Button disabled={isLoading} variant="danger" onClick={handleApproval}>
-            Approve {gsc.alias}
-          </Button>
         </Modal.Footer>
       </Modal>
-    </>
   )
 }

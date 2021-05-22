@@ -1,12 +1,12 @@
 import React from 'react';
-import ApprovalRow from './ApprovalRow';
 import { Table } from 'react-bootstrap';
+import DatabaseRow from './DatabaseRow';
 
-export default function ApprovalTable({ gscs }) {
+export default function DatabaseTable({ gscs }) {
   return (
     <div>
       <Table striped bordered hover variant="dark" responsive>
-        <thead id="approval-table-head">
+        <thead id="database-table-head">
           <tr>
             <th>Alias</th>
             <th>Age Range</th>
@@ -25,11 +25,11 @@ export default function ApprovalTable({ gscs }) {
             <th>Hear from the GSC</th>
           </tr>
         </thead>
-        <tbody id="approval-table-body">
+        <tbody id="database-table-body">
         {
           gscs.map((gsc, i) => {
             return (
-              <ApprovalRow
+              <DatabaseRow
                 key={i}
                 gsc={gsc}
               />

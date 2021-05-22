@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import GscModal from './GscModal';
+import DatabaseModal from './DatabaseModal';
 
-export default function ApprovalRow({ gsc, handleApproval }) {
+export default function DatabaseRow({ gsc }) {
   const [showGscModal, setShowGscModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
@@ -56,37 +56,30 @@ export default function ApprovalRow({ gsc, handleApproval }) {
     }
   }, [])
 
-  
-
   return (
     <>
-    {
-      <>
-        <tr onClick={handleShowGscModal}>
-          <td>{gsc.alias}</td>
-          <td>{ageRange}</td>
-          <td>{gsc.height}</td>
-          <td>{gsc.languages}</td>
-          <td>{gsc.nationality}</td>
-          <td>{gsc.city}, {gsc.country}</td>
-          <td>Town: {gsc.moving_to_a_different_town}, Country: {gsc.moving_to_a_different_country}</td>
-          <td>{gsc.descriptive_words}</td>
-          <td>{personality}</td>
-          <td>{gsc.church_background}</td>
-          <td>{gsc.spiritual_maturity}</td>
-          <td>{gsc.spiritual_gifts}</td>
-          <td>{gsc.reasons_gscf_makes_a_good_partner}</td>
-          <td>{gsc.good_match_for_gscf}</td>
-          <td>{gsc.what_is_important_to_me}</td>
-        </tr>
-        <GscModal
-          gsc={gsc}
-          showGscModal={showGscModal}
-          handleCloseGscModal={handleCloseGscModal}
-        />
-      </>
-    }
-      
+      <tr onClick={handleShowGscModal}>
+        <td>{gsc.alias}</td>
+        <td>{ageRange}</td>
+        <td>{gsc.height}</td>
+        <td>{gsc.languages}</td>
+        <td>{gsc.nationality}</td>
+        <td>{gsc.city}, {gsc.country}</td>
+        <td>Town: {gsc.moving_to_a_different_town}, Country: {gsc.moving_to_a_different_country}</td>
+        <td>{gsc.descriptive_words}</td>
+        <td>{personality}</td>
+        <td>{gsc.church_background}</td>
+        <td>{gsc.spiritual_maturity}</td>
+        <td>{gsc.spiritual_gifts}</td>
+        <td>{gsc.reasons_gscf_makes_a_good_partner}</td>
+        <td>{gsc.good_match_for_gscf}</td>
+        <td>{gsc.what_is_important_to_me}</td>
+      </tr>
+      <DatabaseModal
+        gsc={gsc}
+        showGscModal={showGscModal}
+        handleCloseGscModal={handleCloseGscModal}
+      />
     </>
   )
 }

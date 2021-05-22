@@ -34,7 +34,9 @@ export default function AdminHomePage() {
         ?
         <>
           <div style={{marginTop:"20px"}}>
-            <button className="blue-button" style={{width:"300px", padding:"10px 20px"}}>View full database</button>
+            <Link to="/admin/database">
+              <button className="blue-button" style={{width:"300px", padding:"10px 20px"}}>View full database</button>
+            </Link>
           </div>
           <div style={{ marginTop:"20px"}}>
             <Link to="/admin/approval">
