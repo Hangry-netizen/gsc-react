@@ -33,9 +33,6 @@
   margin-top: 0 !important;
 }
 
-#descriptive-words-img, #spiritual-gifts-img {
-  width: 400px;
-}
 
 @media(max-width: 720px) {
   #edit-profile, #edit-ref {

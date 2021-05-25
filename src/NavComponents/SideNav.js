@@ -13,7 +13,7 @@ const Ul = styled.ul`
     padding: 18px 10px;
     text-align: center;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 720px) {
     flex-flow: column nowrap;
     background-color: #fad4cd;
     position: fixed;

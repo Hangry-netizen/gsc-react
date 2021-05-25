@@ -36,7 +36,6 @@ export default function Navbar() {
         </Link>
       </div>
       <div id="nav-right">
-        <Link to="/" id="home-link" onClick={scrollToTop}>HOME</Link>
         <Link to="/resources" id="resources-link" onClick={scrollToTop}>RESOURCES</Link>     
         <Link to="/frequently-asked-questions" id="faqs-link" onClick={scrollToTop}>FAQs</Link>     
         {currentUser 

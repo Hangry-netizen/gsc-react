@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Col, Row, Button } from 'react-bootstrap';
-import DescriptiveWords from '../../utils/DescriptiveWords.jpeg'
-import SpiritualGifts from '../../utils/SpiritualGifts.jpeg'
+import DescriptiveWords from '../../utils/Descriptors.png';
+import SpiritualGifts from '../../utils/SpiritualGifts.png';
 
 export default function EditProfile({ form, submitEdit, handleChange, isLoading }) {
   return (
@@ -48,6 +48,24 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
             <Form.Control type="text" required onChange={handleChange('nationality')} value={form.nationality}/>
           </Col>
         </Form.Group>
+        <p className="Essays1743 text-align-left">Willingness to relocate/move... <span className="color-red">*</span></p>
+        <Form.Group className="without-left-right-padding Essays1743">
+          <Form.Label>...to a different town within the same country:<span>{form.moving_to_a_different_town}%</span></Form.Label>
+          <Form.Control type="range" required onChange={handleChange('moving_to_a_different_town')} value={form.moving_to_a_different_town}/>
+          <div className="display-flex">
+            <div>unwilling</div>
+            <div>willing</div>
+          </div>
+        </Form.Group>
+        <Form.Group className="without-left-right-padding Essays1743">
+          <Form.Label>...to a different country:<span>{form.moving_to_a_different_country}%</span></Form.Label>
+          <Form.Control type="range" onChange={handleChange('moving_to_a_different_country')} value={form.moving_to_a_different_country}/>
+          <div className="display-flex">
+            <div>unwilling</div>
+            <div>willing</div>
+          </div>
+        </Form.Group>
+        <br />
         <Form.Group className="text-align-left">
           <Form.Label className="Essays1743">(Optional) Provide a link (url) or your name to be visible on the database if you do not wish to be anonymous</Form.Label>
           <Col className="without-left-right-padding">
@@ -110,7 +128,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
         <div className="italic color-red">GETTING TO KNOW ME</div>
         <div className="italic color-red">from my FF's perspective...</div>
         <br />
-        <img src={DescriptiveWords} id="descriptive-words-img" alt="Descriptive Words" />
+        <img src={DescriptiveWords} id="descriptive-words-img" alt="Descriptive Words" style={{width:"100%"}} />
         <Form.Group className="text-align-left">
           <Form.Label className="Essays1743">Pick 5-7 words that best describe your GSCF (please type in the space below) <span className="color-red">*</span></Form.Label>
           <Col className="without-left-right-padding">
@@ -179,7 +197,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
           </Col>
         </Form.Group>
         <br />
-        <img src={SpiritualGifts} id="spiritual-gifts-img" alt="Spiritual Gifts"/>
+        <img src={SpiritualGifts} id="spiritual-gifts-img" alt="Spiritual Gifts" style={{width:"100%"}}/>
         <Form.Group className="text-align-left">
           <Form.Label className="Essays1743">Select 4-8 spiritual gifts/characteristics that are demonstrated in his/her life (please type in the space below) <span className="color-red">*</span></Form.Label>
           <Col className="without-left-right-padding">
@@ -199,24 +217,6 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
           <Col className="without-left-right-padding">
             <Form.Control type="text" required onChange={handleChange('church_background')} value={form.church_background} />
           </Col>
-        </Form.Group>
-        <br />
-        <p className="Essays1743 text-align-left">Willingness to relocate/move... <span className="color-red">*</span></p>
-        <Form.Group className="without-left-right-padding Essays1743">
-          <Form.Label>...to a different town within the same country</Form.Label>
-          <Form.Control type="range" required onChange={handleChange('moving_to_a_different_town')} value={form.moving_to_a_different_town}/>
-          <div className="display-flex">
-            <div>unwilling</div>
-            <div>willing</div>
-          </div>
-        </Form.Group>
-        <Form.Group className="without-left-right-padding Essays1743">
-          <Form.Label>...to a different town within the same country</Form.Label>
-          <Form.Control type="range" onChange={handleChange('moving_to_a_different_country')} value={form.moving_to_a_different_country}/>
-          <div className="display-flex">
-            <div>unwilling</div>
-            <div>willing</div>
-          </div>
         </Form.Group>
         <br />
         <Form.Group className="text-align-left">
@@ -250,6 +250,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
             <Form.Control type="text" onChange={handleChange('favorite_topics')} value={form.favorite_topics} />
           </Col>
         </Form.Group>
+        <br />
         <Button variant="danger" type="submit" disabled={isLoading}>Submit</Button>
       </Form>
     </div>

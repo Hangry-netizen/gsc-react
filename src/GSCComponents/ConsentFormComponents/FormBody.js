@@ -132,25 +132,25 @@ export default function FormBody({ isLoading, handleChange, submitForm }) {
             <div>2. What are one or two qualities that would make a good match for him/her?</div>
             <br />
             <Form.Group controlId="formBasicFirstReferralName">
-              <Form.Label className="Essays1743">Name 1</Form.Label>
+              <Form.Label className="Essays1743">Reference Name 1</Form.Label>
               <Col className="without-left-padding">
                 <Form.Control type="name" onChange={handleChange('first_referral_name')}/>
               </Col>
             </Form.Group>
             <Form.Group controlId="formBasicFirstReferralEmail">
-              <Form.Label className="Essays1743">Email 1</Form.Label>
+              <Form.Label className="Essays1743">Reference Email 1</Form.Label>
               <Col className="without-left-padding">
                 <Form.Control type="email" onChange={handleChange('first_referral_email')}/>
               </Col>
             </Form.Group>
             <Form.Group controlId="formBasicSecondReferralName">
-              <Form.Label className="Essays1743">Name 2</Form.Label>
+              <Form.Label className="Essays1743">Reference Name 2</Form.Label>
               <Col className="without-left-padding">
                 <Form.Control type="name" onChange={handleChange('second_referral_name')}/>
               </Col>
             </Form.Group>
             <Form.Group controlId="formBasicSecondReferralEmail">
-              <Form.Label className="Essays1743">Email 2</Form.Label>
+              <Form.Label className="Essays1743">Reference Email 2</Form.Label>
               <Col className="without-left-padding">
                 <Form.Control type="email" onChange={handleChange('second_referral_email')}/>
               </Col>

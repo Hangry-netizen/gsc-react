@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { url } from '../App';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import EditProfile from '../GSCComponents/EditProfileComponents/EditProfile';
 import EditRef from '../GSCComponents/EditProfileComponents/EditRef';
 import '../GSCComponents/EditProfileComponents/EditProfilePage.css';
 
 export default function EditProfilePage() {
   const { uuid } = useParams();
+  let history = useHistory();
   const [form, setForm] = useState({});
   const [references, setReferences] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -101,10 +102,14 @@ export default function EditProfilePage() {
     })
   };
 
+  const backToProfile = () => {
+    history.push(`/good-single-christian-friend/${form.uuid}`)
+  }
+
   return (
     <div id="edit-profile-container">
       <div className="text-align-left">
-        <button className="red-button">BACK</button>
+        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>BACK</button>
       </div>
       {
         form && references 

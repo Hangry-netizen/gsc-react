@@ -11,7 +11,7 @@ export default function HideProfile({ gsc }) {
         </div>
         :
         <div>
-          <button className="gsc-profile-page-btn color-red">HIDE MY PROFILE</button>
+          <button className="gsc-profile-page-btn color-red">UNHIDE MY PROFILE</button>
         </div>
       }
     </div>

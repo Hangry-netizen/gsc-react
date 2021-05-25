@@ -35,7 +35,7 @@ export default function FormPage4({ form, prevStep, submitForm, handleChange, is
             </div>
           </Form.Group>
           <Form.Group controlId="formBasicMovingToADifferentCountry" className="without-left-padding Essays1743">
-            <Form.Label>...to a different town within the same country: <span>{form.moving_to_a_different_country}%</span></Form.Label>
+            <Form.Label>...to a different country: <span>{form.moving_to_a_different_country}%</span></Form.Label>
             <Form.Control type="range" onChange={handleChange('moving_to_a_different_country')} value={form.moving_to_a_different_country}/>
             <div className="display-flex">
               <div>unwilling</div>

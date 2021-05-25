@@ -43,13 +43,8 @@ export default function ProfilePage() {
           <div>
             <button onClick={toEditPage} className="gsc-profile-page-btn color-red">EDIT PROFILE</button>
           </div>
-          <HideProfile gsc={gsc}/>
-          <RemoveProfile />
-        </>
-        :
-        <>
           <div>
-            <button onClick={toHelloPage} className="gsc-profile-page-btn color-red">VIEW HEELOS</button>
+            <button onClick={toHelloPage} className="gsc-profile-page-btn color-red">VIEW HELLOS</button>
           </div>
           <div>
             <button onClick={toDatabasePage} className="gsc-profile-page-btn color-red">VIEW THIS MONTH'S DATABASE</button>
@@ -57,9 +52,15 @@ export default function ProfilePage() {
           <HideProfile gsc={gsc}/>
           <RemoveProfile />
         </>
+        :
+        <>
+          <div>
+            <button onClick={toEditPage} className="gsc-profile-page-btn color-red">EDIT PROFILE</button>
+          </div>
+          <HideProfile gsc={gsc}/>
+          <RemoveProfile />
+        </>
       }
-      
-      
     </div>
   )
 }

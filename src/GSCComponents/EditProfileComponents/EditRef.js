@@ -72,32 +72,42 @@ export default function EditRef({ reference }) {
     setIsLoading(false)
   };
 
+  console.log(reference)
+
   return (
     <div id="edit-ref" className="color-blue">
       <br />
-      <div className="color-red italic">REFERENCE BY <span className="color-blue">{reference.ref_name}</span></div>
-      <br />
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="text-align-left">
-          <Form.Label className="Essays1743">Why do you think your GSCF would make a good partner?</Form.Label>
-          <Col className="without-left-right-padding">
-            <Form.Control as="textarea" rows={3} type="text" required onChange={handleRefChange('reasons_gscf_makes_a_good_partner')} value={form.reasons_gscf_makes_a_good_partner} />
-          </Col>
-        </Form.Group>
-        <Form.Group className="text-align-left">
-          <Form.Label className="Essays1743">What kind of person would make a good match for your GSCF?</Form.Label>
-          <Col className="without-left-right-padding">
-            <Form.Control as="textarea" rows={3} type="text" required onChange={handleRefChange('good_match_for_gscf')} value={form.good_match_for_gscf} />
-          </Col>
-        </Form.Group>
-        {
-          form.is_approved 
-          ?
-          <Button variant="danger" disabled={isLoading} type="submit">Submit</Button>
-          :
-          <Button variant="danger" disabled={isLoading} onClick={handleRefApproval}>Approve</Button>
-        }
-      </Form>
+      {
+        reference.reasons_gscf_makes_a_good_partner !== null && reference.good_match_for_gscf !== null
+        ?
+        <>
+          <div className="color-red italic">REFERENCE BY <span className="color-blue">{reference.ref_name}</span></div>
+          <br />
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="text-align-left">
+              <Form.Label className="Essays1743">Why do you think your GSCF would make a good partner?</Form.Label>
+              <Col className="without-left-right-padding">
+                <Form.Control as="textarea" rows={3} type="text" required onChange={handleRefChange('reasons_gscf_makes_a_good_partner')} value={form.reasons_gscf_makes_a_good_partner} />
+              </Col>
+            </Form.Group>
+            <Form.Group className="text-align-left">
+              <Form.Label className="Essays1743">What kind of person would make a good match for your GSCF?</Form.Label>
+              <Col className="without-left-right-padding">
+                <Form.Control as="textarea" rows={3} type="text" required onChange={handleRefChange('good_match_for_gscf')} value={form.good_match_for_gscf} />
+              </Col>
+            </Form.Group>
+            {
+              form.is_approved 
+              ?
+              <Button variant="danger" disabled={isLoading} type="submit">Submit</Button>
+              :
+              <Button variant="danger" disabled={isLoading} onClick={handleRefApproval}>Approve</Button>
+            }
+          </Form>
+        </>
+        :
+        null
+      }
     </div>
   )
 }
