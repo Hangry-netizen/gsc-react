@@ -57,7 +57,7 @@ export default function FormPage4({ form, prevStep, submitForm, handleChange, is
           <Form.Group controlId="formBasicImportantInfoToKnow">
             <Form.Label className="Essays1743">Something else that's particularly important to know about him/her</Form.Label>
             <Col className="without-left-padding">
-              <Form.Control type="text" onChange={handleChange('important_info_to_know')} value={form.want_to_have_kids}/>
+              <Form.Control type="text" onChange={handleChange('important_info_to_know')} value={form.important_info_to_know}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicAlias">

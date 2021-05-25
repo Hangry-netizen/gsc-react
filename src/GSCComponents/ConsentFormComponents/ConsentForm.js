@@ -84,6 +84,7 @@ export default function ConsentForm() {
         want_to_have_kids: gsc.want_to_have_kids,
         important_info_to_know: gsc.important_info_to_know,
         alias: gsc.alias,
+        ff_name: gsc.ff_name,
         ff_email: gsc.ff_email,
         consent: form.consent,
         social_media_profile_link: form.social_media_profile_link, 

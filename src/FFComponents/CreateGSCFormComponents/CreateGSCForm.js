@@ -103,6 +103,7 @@ export default function CreateGSCForm() {
       method: 'POST',
       url: `${url}/gscs/`,
       data: {
+        ff_name: currentUser.displayName,
         ff_email: currentUser.email,
         name: form.name,
         email: form.email,
