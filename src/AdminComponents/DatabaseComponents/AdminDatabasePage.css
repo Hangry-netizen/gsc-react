@@ -1,0 +1,43 @@
+#database-page-container {
+  margin: 50px 20px;
+}
+
+#database-table-head {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: lighter;
+}
+
+#database-table-body {
+  font-size: 13px;
+  font-weight: 200px;
+}
+
+Table {
+  overflow-y: scroll;
+  width: 2000px !important;
+  height: 700px;
+  display: block;
+}
+
+Table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #1e365c;
+}
+
+Table thead th:first-child {
+  position: sticky;
+  left: 0;
+}
+
+Table tbody th {
+  position: sticky;
+  left: 0;
+  background-color: #1e365c;
+}
+
+Table td {
+  height: 4em;
+  overflow-y: hidden;
+}

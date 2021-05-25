@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Navbar from './NavComponents/Navbar';
@@ -14,10 +14,17 @@ import FAQPage from './pages/FAQPage';
 
 import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm';
 
-/*Articles*/
+/* Articles */
 import Article1 from "./ResourcesComponents/Article1/Article1"
 import Article2 from "./ResourcesComponents/Article2/Article2"
 import Article3 from "./ResourcesComponents/Article3/Article3"
+
+/* Admin */
+import AdminNavbar from './AdminComponents/AdminNavbar';
+import AdminLoginPage from './AdminPages/AdminLoginPage';
+import AdminHomePage from './AdminPages/AdminHomePage';
+import AdminApprovalPage from './AdminPages/AdminApprovalPage';
+import AdminDatabasePage from './AdminPages/AdminDatabasePage';
 
 import { useAuth } from "./contexts/AuthContext";
 
@@ -26,9 +33,19 @@ export const url = 'http://localhost:5000/api/v1';
 
 function App() {
   const { currentUser } = useAuth()
+  const [currentAdmin] = useState(localStorage.getItem('jwt_admin'))
+
   return (
     <div className="App">
-      <Navbar />
+
+      {
+        currentAdmin
+        ?
+        <AdminNavbar />
+        :
+        <Navbar />
+      }
+
       <Switch>
         <Route exact path="/"><HomePage /></Route>
         <Route exact path="/terms-and-privacy-policy"><TermsAndPrivacyPage /></Route>
@@ -41,19 +58,33 @@ function App() {
         <Route exact path="/resources/articles/should-i-like-someone-in-a-different-country"><Article2 /></Route>
         <Route exact path="/resources/articles/what-if-i-receive-a-like-from-someone-I'm-not-interested-in"><Article3 /></Route>
 
+        {/* currentAdmin */}
         {
-        currentUser
-        ?
-        <>
-          <Route exact path="/my-good-single-christian-friends"><FFProfilePage /></Route>
-          <Route exact path="/create-new-good-single-christian-friend-profile-form"><CreateGSCForm /></Route>
-        </>
+          currentAdmin
+          ?
+          <>
+            <Route exact path="/admin/home"><AdminHomePage /></Route>
+            <Route exact path="/admin/approval"><AdminApprovalPage /></Route>
+            <Route exact path="/admin/database"><AdminDatabasePage /></Route>
+          </>
+          :
+          <Route exact path="/admin/login"><AdminLoginPage /></Route>
+        }
+        
+        {/* currentUser*/}
+        {
+          currentUser
+          ?
+          <>
+            <Route exact path="/my-good-single-christian-friends"><FFProfilePage /></Route>
+            <Route exact path="/create-new-good-single-christian-friend-profile-form"><CreateGSCForm /></Route>
+          </>
         :
-        <>
-          <Route exact path="/faithful-friend-login"><FFLoginPage /></Route>
-          <Route exact path="/faithful-friend-sign-up"><FFSignUpPage /></Route>
-          <Route exact path="/forgot-password"><ForgotPasswordPage /></Route>
-        </>
+          <>
+            <Route exact path="/faithful-friend-login"><FFLoginPage /></Route>
+            <Route exact path="/faithful-friend-sign-up"><FFSignUpPage /></Route>
+            <Route exact path="/forgot-password"><ForgotPasswordPage /></Route>
+          </>
         }
 
         <Redirect to="/" />
