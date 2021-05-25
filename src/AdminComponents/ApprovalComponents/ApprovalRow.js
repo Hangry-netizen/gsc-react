@@ -63,13 +63,17 @@ export default function ApprovalRow({ gsc }) {
     { gsc.consent === true && gsc.is_approved === false ?
       <>
         <tr onClick={handleShowGscModal}>
+          <td>{gsc.name}</td>
+          <td>{gsc.email}</td>
+          <td>{gsc.ff_name}</td>
+          <td>{gsc.ff_email}</td>
           <td>{gsc.alias}</td>
           <td>{ageRange}</td>
+          <td>{gsc.city}, {gsc.country}</td>
+          <td>Town: {gsc.moving_to_a_different_town}, Country: {gsc.moving_to_a_different_country}</td>
           <td>{gsc.height}</td>
           <td>{gsc.languages}</td>
           <td>{gsc.nationality}</td>
-          <td>{gsc.city}, {gsc.country}</td>
-          <td>Town: {gsc.moving_to_a_different_town}, Country: {gsc.moving_to_a_different_country}</td>
           <td>{gsc.descriptive_words}</td>
           <td>{personality}</td>
           <td>{gsc.church_background}</td>
