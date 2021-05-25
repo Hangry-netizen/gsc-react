@@ -28,7 +28,7 @@
 }
 
 .mobile-col {
-  display: none
+  display: none !important;
 }
 
 #create-gsc-form-next-btn {
@@ -60,7 +60,7 @@
   }
 
   .mobile-col {
-    display: none
+    display: none !important;
   }  
 }
 
@@ -75,7 +75,8 @@
   }
 
   .mobile-col {
-    display: block;
+    display: flex !important;
+    flex-wrap: wrap;
   }
   
   #create-gsc-form-header-logo-title {

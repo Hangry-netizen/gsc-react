@@ -19,11 +19,10 @@ export default function Step2() {
       <div id="step-2-one-liner" className="color-red">Get consent, commendation, and screening!</div>
       <br />
       <div id="step-2-content" className="color-blue semibold text-align-left">
-        <div>Within 5 minutes after you've created your GSCF's profile...</div>
-        <div>i. your GSCF will receive an email to consent and edit their profile</div>
-        <div>ii. (optional) two questions will be emailed up to two friends to add to the GSCF profile</div>
+        <p>i. Within 5 minutes after you've created your GSCF's profile, your GSCF will receive an email to consent and edit their profile</p>
+        <p>ii. Two questions will be emailed to (up to) two friends to add to the GSCF profile (optional)</p>
+        <p>iii. After consent is received, our team will screen through and flag down questionable entries</p>
         <br />
-        <div>After consent is received, our team will screen through and flag down questionable entries.</div>
       </div>      
     </div>
   )

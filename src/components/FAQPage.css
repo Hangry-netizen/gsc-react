@@ -10,10 +10,18 @@
   }
 }
 
-.faq-hashlinks:hover {
+.faq-links:hover{
   color: #e9482b;
 }
 
-.faq-links:hover{
-  color: #e9482b;
+.faq-page-buttons {
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 5px 15px;
+  line-height: 30px;
+}
+
+.faq-page-buttons:hover {
+  background-color: #1e365c;
+  color: #cccccc;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
-export default function FormPage3({ step, nextStep, handleChange, handleListChange }) {
+export default function FormPage3({ form, prevStep, nextStep, handleChange, handleListChange, otherDescWords, setOtherDescWords, otherSpiritualGifts, setOtherSpiritualGifts, checkList }) {
   return (
     <div className="create-gsc-form-container">
       <div className="create-gsc-form-header-content mobile-text-align-justify">
@@ -12,825 +12,237 @@ export default function FormPage3({ step, nextStep, handleChange, handleListChan
       <hr />
       <div className="create-gsc-form-body color-blue text-align-left">
         <Form onSubmit={nextStep}>
-          <Form.Group controlId="formBasicDescriptiveWords">
-            <Form.Label as="legend" column sm={10} className="without-left-padding Essays1743">
+          <Form.Group>
+            <Form.Label className="without-left-right-padding Essays1743">
               Pick 5-7 words that best describe your GSCF <span className="color-red">*</span>
             </Form.Label>
-            <Row sm={5} className="without-left-padding desktop-row" onChange={handleListChange('descriptive_words')}> 
-              <Form.Check
-                type="checkbox"
-                label="Silly"
-                name="descriptive words"
-                value="Silly"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Witty"
-                name="descriptive words"
-                value="Witty"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Hard-working"
-                name="descriptive words"
-                value="Hard-working"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Independent"
-                name="descriptive words"
-                value="Independent"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Energetic"
-                name="descriptive words"
-                value="Energetic"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Funny"
-                name="descriptive words"
-                value="Funny"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Quirky"
-                name="descriptive words"
-                value="Quirky"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Adaptable"
-                name="descriptive words"
-                value="Adaptable"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Intelligent"
-                name="descriptive words"
-                value="Intelligent"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Knowledgeable"
-                name="descriptive words"
-                value="Knowledgeable"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Passionate"
-                name="descriptive words"
-                value="Passionate"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Adventurous"
-                name="descriptive words"
-                value="Adventurous"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Cheerful"
-                name="descriptive words"
-                value="Cheerful"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Wise"
-                name="descriptive words"
-                value="Wise"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Relaxed"
-                name="descriptive words"
-                value="Relaxed"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Friendly"
-                name="descriptive words"
-                value="Friendly"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Accepting"
-                name="descriptive words"
-                value="Accepting"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Determined"
-                name="descriptive words"
-                value="Determined"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Disciplined"
-                name="descriptive words"
-                value="Disciplined"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Idealistic"
-                name="descriptive words"
-                value="Idealistic"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Brave"
-                name="descriptive words"
-                value="Brave"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Calm"
-                name="descriptive words"
-                value="Calm"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Logical"
-                name="descriptive words"
-                value="Logical"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Caring"
-                name="descriptive words"
-                value="Caring"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Gentle"
-                name="descriptive words"
-                value="Gentle"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Dependable"
-                name="descriptive words"
-                value="Dependable"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Confident"
-                name="descriptive words"
-                value="Confident"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Giving"
-                name="descriptive words"
-                value="Giving"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Helpful"
-                name="descriptive words"
-                value="Helpful"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Kind"
-                name="descriptive words"
-                value="Kind"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Creative"
-                name="descriptive words"
-                value="Creative"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Warm"
-                name="descriptive words"
-                value="Warm"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Observant"
-                name="descriptive words"
-                value="Observant"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Loving"
-                name="descriptive words"
-                value="Loving"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Reflective"
-                name="descriptive words"
-                value="Reflective"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Shy"
-                name="descriptive words"
-                value="Shy"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Sensible"
-                name="descriptive words"
-                value="Sensible"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Organized"
-                name="descriptive words"
-                value="Organized"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Patient"
-                name="descriptive words"
-                value="Patient"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Flexible"
-                name="descriptive words"
-                value="Flexible"
-              />
+            <Row sm="5" className="desktop-row">
+              <Button value="Silly" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Silly") ? "danger" : "secondary"}>Silly</Button>
+              <Button value="Witty" onClick={handleListChange('descriptive_words')}  style={{margin:"5px"}} variant={form.descriptive_words.includes("Witty") ? "danger" : "secondary"}>Witty</Button>
+              <Button value="Hard-working" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Hard-working") ? "danger" : "secondary"}>Hard-working</Button>
+              <Button value="Independent" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Independent") ? "danger" : "secondary"}>Independent</Button>
+              <Button value="Energetic" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Energetic") ? "danger" : "secondary"}>Energetic</Button>
+              <Button value="Funny" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Funny") ? "danger" : "secondary"}>Funny</Button>
+              <Button value="Quirky" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Quirky") ? "danger" : "secondary"}>Quirky</Button>
+              <Button value="Adaptable" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Adaptable") ? "danger" : "secondary"}>Adaptable</Button>
+              <Button value="Intelligent" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Intelligent") ? "danger" : "secondary"}>Intelligent</Button>
+              <Button value="Knowledgeable" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Knowledgeable") ? "danger" : "secondary"}>Knowledgeable</Button>
+              <Button value="Passionate" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Passionate") ? "danger" : "secondary"}>Passionate</Button>
+              <Button value="Adventurous" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Adventurous") ? "danger" : "secondary"}>Adventurous</Button>
+              <Button value="Cheerful" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Cheerful") ? "danger" : "secondary"}>Cheerful</Button>
+              <Button value="Wise" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Wise") ? "danger" : "secondary"}>Wise</Button>
+              <Button value="Relaxed" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Relaxed") ? "danger" : "secondary"}>Relaxed</Button>
+              <Button value="Friendly" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Friendly") ? "danger" : "secondary"}>Friendly</Button>
+              <Button value="Accepting" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Accepting") ? "danger" : "secondary"}>Accepting</Button>
+              <Button value="Determined" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Determined") ? "danger" : "secondary"}>Determined</Button>
+              <Button value="Disciplined" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Disciplined") ? "danger" : "secondary"}>Disciplined</Button>
+              <Button value="Idealistic" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Idealistic") ? "danger" : "secondary"}>Idealistic</Button>
+              <Button value="Brave" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Brave") ? "danger" : "secondary"}>Brave</Button>
+              <Button value="Calm" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Calm") ? "danger" : "secondary"}>Calm</Button>
+              <Button value="Logical" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Logical") ? "danger" : "secondary"}>Logical</Button>
+              <Button value="Caring" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Caring") ? "danger" : "secondary"}>Caring</Button>
+              <Button value="Gentle" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Gentle") ? "danger" : "secondary"}>Gentle</Button>
+              <Button value="Dependable" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Dependable") ? "danger" : "secondary"}>Dependable</Button>
+              <Button value="Confident" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Confident") ? "danger" : "secondary"}>Confident</Button>
+              <Button value="Giving" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Giving") ? "danger" : "secondary"}>Giving</Button>
+              <Button value="Helpful" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Helpful") ? "danger" : "secondary"}>Helpful</Button>
+              <Button value="Kind" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Kind") ? "danger" : "secondary"}>Kind</Button>
+              <Button value="Creative" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Creative") ? "danger" : "secondary"}>Creative</Button>
+              <Button value="Warm" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Warm") ? "danger" : "secondary"}>Warm</Button>
+              <Button value="Observant" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Observant") ? "danger" : "secondary"}>Observant</Button>
+              <Button value="Loving" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Loving") ? "danger" : "secondary"}>Loving</Button>
+              <Button value="Reflective" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Reflective") ? "danger" : "secondary"}>Reflective</Button>
+              <Button value="Shy" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Shy") ? "danger" : "secondary"}>Shy</Button>
+              <Button value="Sensible" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Sensible") ? "danger" : "secondary"}>Sensible</Button>
+              <Button value="Organized" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Organized") ? "danger" : "secondary"}>Organized</Button>
+              <Button value="Patient" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Patient") ? "danger" : "secondary"}>Patient</Button>
+              <Button value="Flexible" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Flexible") ? "danger" : "secondary"}>Flexible</Button>
             </Row>
-            <Col className="without-left-padding mobile-col text-align-left" onChange={handleListChange('descriptive_words')}> 
-              <Form.Check
-                type="checkbox"
-                label="Silly"
-                name="descriptive words"
-                value="Silly"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Witty"
-                name="descriptive words"
-                value="Witty"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Hard-working"
-                name="descriptive words"
-                value="Hard-working"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Independent"
-                name="descriptive words"
-                value="Independent"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Energetic"
-                name="descriptive words"
-                value="Energetic"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Funny"
-                name="descriptive words"
-                value="Funny"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Quirky"
-                name="descriptive words"
-                value="Quirky"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Adaptable"
-                name="descriptive words"
-                value="Adaptable"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Intelligent"
-                name="descriptive words"
-                value="Intelligent"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Knowledgeable"
-                name="descriptive words"
-                value="Knowledgeable"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Passionate"
-                name="descriptive words"
-                value="Passionate"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Adventurous"
-                name="descriptive words"
-                value="Adventurous"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Cheerful"
-                name="descriptive words"
-                value="Cheerful"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Wise"
-                name="descriptive words"
-                value="Wise"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Relaxed"
-                name="descriptive words"
-                value="Relaxed"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Friendly"
-                name="descriptive words"
-                value="Friendly"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Accepting"
-                name="descriptive words"
-                value="Accepting"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Determined"
-                name="descriptive words"
-                value="Determined"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Disciplined"
-                name="descriptive words"
-                value="Disciplined"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Idealistic"
-                name="descriptive words"
-                value="Idealistic"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Brave"
-                name="descriptive words"
-                value="Brave"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Calm"
-                name="descriptive words"
-                value="Calm"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Logical"
-                name="descriptive words"
-                value="Logical"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Caring"
-                name="descriptive words"
-                value="Caring"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Gentle"
-                name="descriptive words"
-                value="Gentle"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Dependable"
-                name="descriptive words"
-                value="Dependable"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Confident"
-                name="descriptive words"
-                value="Confident"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Giving"
-                name="descriptive words"
-                value="Giving"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Helpful"
-                name="descriptive words"
-                value="Helpful"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Kind"
-                name="descriptive words"
-                value="Kind"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Creative"
-                name="descriptive words"
-                value="Creative"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Warm"
-                name="descriptive words"
-                value="Warm"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Observant"
-                name="descriptive words"
-                value="Observant"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Loving"
-                name="descriptive words"
-                value="Loving"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Reflective"
-                name="descriptive words"
-                value="Reflective"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Shy"
-                name="descriptive words"
-                value="Shy"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Sensible"
-                name="descriptive words"
-                value="Sensible"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Organized"
-                name="descriptive words"
-                value="Organized"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Patient"
-                name="descriptive words"
-                value="Patient"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Flexible"
-                name="descriptive words"
-                value="Flexible"
-              />
+            <Row className="mobile-col">
+              <Button value="Silly" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Silly") ? "danger" : "secondary"}>Silly</Button>
+              <Button value="Witty" onClick={handleListChange('descriptive_words')}  style={{margin:"5px"}} variant={form.descriptive_words.includes("Witty") ? "danger" : "secondary"}>Witty</Button>
+              <Button value="Hard-working" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Hard-working") ? "danger" : "secondary"}>Hard-working</Button>
+              <Button value="Independent" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Independent") ? "danger" : "secondary"}>Independent</Button>
+              <Button value="Energetic" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Energetic") ? "danger" : "secondary"}>Energetic</Button>
+              <Button value="Funny" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Funny") ? "danger" : "secondary"}>Funny</Button>
+              <Button value="Quirky" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Quirky") ? "danger" : "secondary"}>Quirky</Button>
+              <Button value="Adaptable" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Adaptable") ? "danger" : "secondary"}>Adaptable</Button>
+              <Button value="Intelligent" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Intelligent") ? "danger" : "secondary"}>Intelligent</Button>
+              <Button value="Knowledgeable" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Knowledgeable") ? "danger" : "secondary"}>Knowledgeable</Button>
+              <Button value="Passionate" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Passionate") ? "danger" : "secondary"}>Passionate</Button>
+              <Button value="Adventurous" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Adventurous") ? "danger" : "secondary"}>Adventurous</Button>
+              <Button value="Cheerful" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Cheerful") ? "danger" : "secondary"}>Cheerful</Button>
+              <Button value="Wise" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Wise") ? "danger" : "secondary"}>Wise</Button>
+              <Button value="Relaxed" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Relaxed") ? "danger" : "secondary"}>Relaxed</Button>
+              <Button value="Friendly" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Friendly") ? "danger" : "secondary"}>Friendly</Button>
+              <Button value="Accepting" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Accepting") ? "danger" : "secondary"}>Accepting</Button>
+              <Button value="Determined" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Determined") ? "danger" : "secondary"}>Determined</Button>
+              <Button value="Disciplined" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Disciplined") ? "danger" : "secondary"}>Disciplined</Button>
+              <Button value="Idealistic" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Idealistic") ? "danger" : "secondary"}>Idealistic</Button>
+              <Button value="Brave" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Brave") ? "danger" : "secondary"}>Brave</Button>
+              <Button value="Calm" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Calm") ? "danger" : "secondary"}>Calm</Button>
+              <Button value="Logical" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Logical") ? "danger" : "secondary"}>Logical</Button>
+              <Button value="Caring" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Caring") ? "danger" : "secondary"}>Caring</Button>
+              <Button value="Gentle" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Gentle") ? "danger" : "secondary"}>Gentle</Button>
+              <Button value="Dependable" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Dependable") ? "danger" : "secondary"}>Dependable</Button>
+              <Button value="Confident" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Confident") ? "danger" : "secondary"}>Confident</Button>
+              <Button value="Giving" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Giving") ? "danger" : "secondary"}>Giving</Button>
+              <Button value="Helpful" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Helpful") ? "danger" : "secondary"}>Helpful</Button>
+              <Button value="Kind" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Kind") ? "danger" : "secondary"}>Kind</Button>
+              <Button value="Creative" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Creative") ? "danger" : "secondary"}>Creative</Button>
+              <Button value="Warm" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Warm") ? "danger" : "secondary"}>Warm</Button>
+              <Button value="Observant" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Observant") ? "danger" : "secondary"}>Observant</Button>
+              <Button value="Loving" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Loving") ? "danger" : "secondary"}>Loving</Button>
+              <Button value="Reflective" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Reflective") ? "danger" : "secondary"}>Reflective</Button>
+              <Button value="Shy" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Shy") ? "danger" : "secondary"}>Shy</Button>
+              <Button value="Sensible" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Sensible") ? "danger" : "secondary"}>Sensible</Button>
+              <Button value="Organized" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Organized") ? "danger" : "secondary"}>Organized</Button>
+              <Button value="Patient" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Patient") ? "danger" : "secondary"}>Patient</Button>
+              <Button value="Flexible" onClick={handleListChange('descriptive_words')} style={{margin:"5px"}} variant={form.descriptive_words.includes("Flexible") ? "danger" : "secondary"}>Flexible</Button>
+            </Row>
+          </Form.Group>
+          <Form.Group as={Row}>
+            <Form.Label className="Essays1743">Others:</Form.Label>
+            <Col>
+              <Form.Control type="text" onChange={e => setOtherDescWords(e.target.value)} value={otherDescWords}/>
             </Col>
           </Form.Group>
           <br />
           <div className="Essays1743">PERSONALITY/TEMPERAMENT</div>
           <div>Feel free to fill in what are familiar with!</div>
           <br />
-          <Form.Group controlId="formBasicMBTI">
-            <Form.Label className="Essays1743">MBTI</Form.Label>
-            <Col className="without-left-padding">
-              <Form.Control type="text" onChange={handleChange('mbti')}/>
+          <Form.Group as={Row}>
+            <Form.Label column sm="4" className="Essays1743">MBTI</Form.Label>
+            <Col sm={8}>
+              <Form.Control type="text" onChange={handleChange('mbti')} value={form.mbti}/>
             </Col>
           </Form.Group>
-          <Form.Group controlId="formBasicEnneagram">
-            <Form.Label className="Essays1743">Enneagram</Form.Label>
-            <Col className="without-left-padding">
-              <Form.Control type="text" onChange={handleChange('enneagram')}/>
+          <Form.Group as={Row}>
+            <Form.Label column sm="4" className="Essays1743">Enneagram</Form.Label>
+            <Col sm={8}>
+              <Form.Control type="text" onChange={handleChange('enneagram')} value={form.enneagram}/>
             </Col>
           </Form.Group>
-          
-          <Form.Group controlId="formBasicDISC">
-            <Form.Label className="Essays1743">DISC</Form.Label>
-            <Col className="without-left-padding">
-              <Form.Control type="text" onChange={handleChange('disc')}/>
+          <Form.Group as={Row}>
+            <Form.Label column sm="4" className="Essays1743">DISC</Form.Label>
+            <Col sm={8}>
+              <Form.Control type="text" onChange={handleChange('disc')} value={form.disc}/>
             </Col>
           </Form.Group>
-          <Form.Group controlId="formBasicStrengthsFinder">
-            <Form.Label className="Essays1743">StrengthsFinder/Others</Form.Label>
-            <Col className="without-left-padding">
-              <Form.Control type="text" onChange={handleChange('strengths_finder')}/>
+          <Form.Group as={Row}>
+            <Form.Label column sm="4" className="Essays1743">StrengthsFinder/Others</Form.Label>
+            <Col sm={8}>
+              <Form.Control type="text" onChange={handleChange('strengths_finder')} value={form.strengths_finder}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicFavoriteTopics">
             <Form.Label className="Essays1743">What are some of his/her favorite topics of discussion?</Form.Label>
             <Form.Text>Include favorite music/movies/books if there are any notable ones!</Form.Text>
-            <Col className="without-left-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('favorite_topics')}/>
+            <Col className="without-left-right-padding">
+              <Form.Control as="textarea" type="text" onChange={handleChange('favorite_topics')} value={form.favorite_topics}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicChillActivities">
             <Form.Label className="Essays1743">What does he/she do to chill out?</Form.Label>
             <Form.Text>Netflix, outdoors, books, sleep, eat with friends etc.</Form.Text>
-            <Col className="without-left-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('chill_activities')}/>
+            <Col className="without-left-right-padding">
+              <Form.Control as="textarea" type="text" onChange={handleChange('chill_activities')} value={form.chill_activities}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicDo">
             <Form.Label className="Essays1743">What does he/she do (paid and/or unpaid)?</Form.Label>
-            <Col className="without-left-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('do')}/>
+            <Col className="without-left-right-padding">
+              <Form.Control as="textarea" type="text" onChange={handleChange('do')} value={form.do}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicSkillsAndTalents">
             <Form.Label className="Essays1743">What are some of his/her skills & talents?</Form.Label>
-            <Col className="without-left-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('skills_and_talents')}/>
+            <Col className="without-left-right-padding">
+              <Form.Control as="textarea" type="text" onChange={handleChange('skills_and_talents')} value={form.skills_and_talents}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicGrowthAndDevelopment">
             <Form.Label className="Essays1743">What areas would you like to see him/her grow and develop in?</Form.Label>
-            <Col className="without-left-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('growth_and_development')}/>
+            <Col className="without-left-right-padding">
+              <Form.Control as="textarea" type="text" onChange={handleChange('growth_and_development')} value={form.growth_and_development}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicSpiritualGifts">
             <Form.Label as="legend" column sm={12} className="without-left-padding Essays1743">
               Select 4-8 spiritual gifts/characteristics that are demonstrated in his/her life <span className="color-red">*</span>
             </Form.Label>
-            <Row sm={3} className="without-left-padding desktop-row" onChange={handleListChange('spiritual_gifts')}> 
-              <Form.Check
-                type="checkbox"
-                label="Devotion to the word"
-                name="descriptive words"
-                value="Devotion to the word"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Intercessory prayer"
-                name="descriptive words"
-                value="Intercessory prayer"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Worship"
-                name="descriptive words"
-                value="Worship"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Quiet time with God"
-                name="descriptive words"
-                value="Quiet time with God"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Giving wise counsel"
-                name="descriptive words"
-                value="Giving wise counsel"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Discipling others"
-                name="descriptive words"
-                value="Discipling others"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Mercy/Compassion"
-                name="descriptive words"
-                value="Mercy/Compassion"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Healing/Deliverance"
-                name="descriptive words"
-                value="Healing/Deliverance"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Teaching/Writing"
-                name="descriptive words"
-                value="Teaching/Writing"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Generosity with finances"
-                name="descriptive words"
-                value="Generosity with finances"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Passion for evangelism"
-                name="descriptive words"
-                value="Passion for evangelism"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Serving cheerfully"
-                name="descriptive words"
-                value="Serving cheerfully"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Prophetic discernment"
-                name="descriptive words"
-                value="Prophetic discernment"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Shepherding/Pastoring"
-                name="descriptive words"
-                value="Shepherding/Pastoring"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Serving children/families"
-                name="descriptive words"
-                value="Serving children/families"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Exhortation"
-                name="descriptive words"
-                value="Exhortation"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Preaching the word"
-                name="descriptive words"
-                value="Preaching the word"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Cross cultural ministry"
-                name="descriptive words"
-                value="Cross cultural ministry"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Hospitality"
-                name="descriptive words"
-                value="Hospitality"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Advocating justice"
-                name="descriptive words"
-                value="Advocating justice"
-              />
+            <Row sm={3} className="desktop-row" onChange={handleListChange('spiritual_gifts')}> 
+              <Button value="Devotion to the word" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Devotion to the word") ? "danger" : "secondary"}>Devotion to the word</Button>
+              <Button value="Intercessory prayer" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Intercessory prayer") ? "danger" : "secondary"}>Intercessory prayer</Button>
+              <Button value="Worship" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Worship") ? "danger" : "secondary"}>Worship</Button>
+              <Button value="Quiet time with God" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Quiet time with God") ? "danger" : "secondary"}>Quiet time with God</Button>
+              <Button value="Giving wise counsel" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Giving wise counsel") ? "danger" : "secondary"}>Giving wise counsel</Button>
+              <Button value="Discipling others" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Discipling others") ? "danger" : "secondary"}>Discipling others</Button>
+              <Button value="Mercy/Compassion" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Mercy/Compassion") ? "danger" : "secondary"}>Mercy/Compassion</Button>
+              <Button value="Healing/Deliverance" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Healing/Deliverance") ? "danger" : "secondary"}>Healing/Deliverance</Button>
+              <Button value="Teaching/Writing" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Teaching/Writing") ? "danger" : "secondary"}>Teaching/Writing</Button>
+              <Button value="Generosity with finances" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Generosity with finances") ? "danger" : "secondary"}>Generosity with finances</Button>
+              <Button value="Passion for evangelism" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Passion for evangelism") ? "danger" : "secondary"}>Passion for evangelism</Button>
+              <Button value="Serving cheerfully" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Serving cheerfully") ? "danger" : "secondary"}>Serving cheerfully</Button>
+              <Button value="Prophetic discernment" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Prophetic discernment") ? "danger" : "secondary"}>Prophetic discernment</Button>
+              <Button value="Shepherding/Pastoring" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Shepherding/Pastoring") ? "danger" : "secondary"}>Shepherding/Pastoring</Button>
+              <Button value="Serving children/families" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Serving children/families") ? "danger" : "secondary"}>Serving children/families</Button>
+              <Button value="Exhortation" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Exhortation") ? "danger" : "secondary"}>Exhortation</Button>
+              <Button value="Preaching the word" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Preaching the word") ? "danger" : "secondary"}>Preaching the word</Button>
+              <Button value="Cross cultural ministry" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Cross cultural ministry") ? "danger" : "secondary"}>Cross cultural ministry</Button>
+              <Button value="Hospitality" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Hospitality") ? "danger" : "secondary"}>Hospitality</Button>
+              <Button value="Advocating justice" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Advocating justice") ? "danger" : "secondary"}>Advocating justice</Button>
             </Row>
-            <Col className="without-left-padding mobile-col text-align-left" onChange={handleListChange('spiritual_gifts')}> 
-              <Form.Check
-                type="checkbox"
-                label="Devotion to the word"
-                name="descriptive words"
-                value="Devotion to the word"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Intercessory prayer"
-                name="descriptive words"
-                value="Intercessory prayer"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Worship"
-                name="descriptive words"
-                value="Worship"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Quiet time with God"
-                name="descriptive words"
-                value="Quiet time with God"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Giving wise counsel"
-                name="descriptive words"
-                value="Giving wise counsel"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Discipling others"
-                name="descriptive words"
-                value="Discipling others"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Mercy/Compassion"
-                name="descriptive words"
-                value="Mercy/Compassion"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Healing/Deliverance"
-                name="descriptive words"
-                value="Healing/Deliverance"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Teaching/Writing"
-                name="descriptive words"
-                value="Teaching/Writing"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Generosity with finances"
-                name="descriptive words"
-                value="Generosity with finances"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Passion for evangelism"
-                name="descriptive words"
-                value="Passion for evangelism"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Serving cheerfully"
-                name="descriptive words"
-                value="Serving cheerfully"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Prophetic discernment"
-                name="descriptive words"
-                value="Prophetic discernment"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Shepherding/Pastoring"
-                name="descriptive words"
-                value="Shepherding/Pastoring"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Serving children/families"
-                name="descriptive words"
-                value="Serving children/families"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Exhortation"
-                name="descriptive words"
-                value="Exhortation"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Preaching the word"
-                name="descriptive words"
-                value="Preaching the word"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Cross cultural ministry"
-                name="descriptive words"
-                value="Cross cultural ministry"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Hospitality"
-                name="descriptive words"
-                value="Hospitality"
-              />
-              <Form.Check
-                type="checkbox"
-                label="Advocating justice"
-                name="descriptive words"
-                value="Advocating justice"
-              />
+            <Row sm={1} className="mobile-col" onChange={handleListChange('spiritual_gifts')}> 
+              <Button value="Devotion to the word" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Devotion to the word") ? "danger" : "secondary"}>Devotion to the word</Button>
+              <Button value="Intercessory prayer" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Intercessory prayer") ? "danger" : "secondary"}>Intercessory prayer</Button>
+              <Button value="Worship" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Worship") ? "danger" : "secondary"}>Worship</Button>
+              <Button value="Quiet time with God" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Quiet time with God") ? "danger" : "secondary"}>Quiet time with God</Button>
+              <Button value="Giving wise counsel" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Giving wise counsel") ? "danger" : "secondary"}>Giving wise counsel</Button>
+              <Button value="Discipling others" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Discipling others") ? "danger" : "secondary"}>Discipling others</Button>
+              <Button value="Mercy/Compassion" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Mercy/Compassion") ? "danger" : "secondary"}>Mercy/Compassion</Button>
+              <Button value="Healing/Deliverance" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Healing/Deliverance") ? "danger" : "secondary"}>Healing/Deliverance</Button>
+              <Button value="Teaching/Writing" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Teaching/Writing") ? "danger" : "secondary"}>Teaching/Writing</Button>
+              <Button value="Generosity with finances" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Generosity with finances") ? "danger" : "secondary"}>Generosity with finances</Button>
+              <Button value="Passion for evangelism" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Passion for evangelism") ? "danger" : "secondary"}>Passion for evangelism</Button>
+              <Button value="Serving cheerfully" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Serving cheerfully") ? "danger" : "secondary"}>Serving cheerfully</Button>
+              <Button value="Prophetic discernment" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Prophetic discernment") ? "danger" : "secondary"}>Prophetic discernment</Button>
+              <Button value="Shepherding/Pastoring" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Shepherding/Pastoring") ? "danger" : "secondary"}>Shepherding/Pastoring</Button>
+              <Button value="Serving children/families" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Serving children/families") ? "danger" : "secondary"}>Serving children/families</Button>
+              <Button value="Exhortation" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Exhortation") ? "danger" : "secondary"}>Exhortation</Button>
+              <Button value="Preaching the word" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Preaching the word") ? "danger" : "secondary"}>Preaching the word</Button>
+              <Button value="Cross cultural ministry" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Cross cultural ministry") ? "danger" : "secondary"}>Cross cultural ministry</Button>
+              <Button value="Hospitality" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Hospitality") ? "danger" : "secondary"}>Hospitality</Button>
+              <Button value="Advocating justice" onClick={handleListChange('spiritual_gifts')} style={{margin:"5px"}} variant={form.spiritual_gifts.includes("Advocating justice") ? "danger" : "secondary"}>Advocating justice</Button>
+            </Row>
+          </Form.Group>
+          <Form.Group as={Row}>
+            <Form.Label column sm="2" className="Essays1743">Others:</Form.Label>
+            <Col>
+              <Form.Control type="text" onChange={e => setOtherSpiritualGifts(e.target.value)}/>
             </Col>
           </Form.Group>
           <br />
           <Form.Group controlId="formBasicSpiritualMaturity">
             <Form.Label className="Essays1743">How would you describe his/her spiritual maturity? <span className="color-red">*</span></Form.Label>
             <Form.Text>e.g. baby Christian, average faith, hungry for more, sold out</Form.Text>
-            <Col className="without-left-padding">
-              <Form.Control type="text" required onChange={handleChange('spiritual_maturity')}/>
+            <Col className="without-left-right-padding">
+              <Form.Control type="text" required onChange={handleChange('spiritual_maturity')} value={form.spiritual_maturity}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicChurchBackground">
             <Form.Label className="Essays1743">Church background <span className="color-red">*</span></Form.Label>
             <Form.Text>Denomination involed in (e.g. Baptist, Catholic, Methodist, Anglican, Charismatic, Pentecostal, HOP, YWAM, OMF)</Form.Text>
-            <Col className="without-left-padding">
-              <Form.Control type="text" required onChange={handleChange('church_background')}/>
+            <Col className="without-left-right-padding">
+              <Form.Control type="text" required onChange={handleChange('church_background')} value={form.church_background}/>
             </Col>
           </Form.Group>
           <br />
           <div className="display-flex">
-            <div>Page {step} of 4</div>
+            <Button variant="secondary" onClick={prevStep}>Back</Button>
             <Button id="create-gsc-form-next-btn" type="submit" value="submit">Next</Button>
           </div>
+          <div className="text-align-center">Page {form.step} of 4</div>
         </Form>
       </div>
     </div>

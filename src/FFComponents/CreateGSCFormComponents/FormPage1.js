@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import "./CreateGSCForm.css";
 
 
-export default function FormPage1({ step, nextStep, handleChange }) {
+export default function FormPage1({ form, prevStep, nextStep, handleChange }) {
   return (
     <div className="create-gsc-form-container">
       <div className="create-gsc-form-header-content">
@@ -20,14 +20,14 @@ export default function FormPage1({ step, nextStep, handleChange }) {
           <Form.Group controlId="formBasicName">
             <Form.Label className="Essays1743">GSCF's (Good Single Christian Friend) Full Name <span className="color-red">*</span></Form.Label>
             <Col className="without-left-padding">
-              <Form.Control type="name" required onChange={handleChange('name')}/>
+              <Form.Control type="name" required onChange={handleChange('name')} value={form.name}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="Essays1743">GSCF's Email Address <span className="color-red">*</span></Form.Label>
             <Form.Text className="mobile-text-align-justify">Please pause here to ask your GSCF for their preferred email address to use for this database, as it cannot be changed later. Your GSCF will need to give consent for participation through their email.</Form.Text>
             <Col className="without-left-padding">
-              <Form.Control type="email" required onChange={handleChange('email')}/>
+              <Form.Control type="email" required onChange={handleChange('email')} value={form.email}/>
             </Col>
           </Form.Group>
           <br />
@@ -53,7 +53,7 @@ export default function FormPage1({ step, nextStep, handleChange }) {
           </Form.Group>
           <br />
           <div className="display-flex">
-            <div>Page {step} of 4</div>
+            <div>Page {form.step} of 4</div>
             <Button id="create-gsc-form-next-btn" type="submit" value="submit">Next</Button>
           </div>
         </Form>

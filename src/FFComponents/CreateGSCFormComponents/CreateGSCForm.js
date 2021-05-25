@@ -15,6 +15,8 @@ export default function CreateGSCForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [gsc, setGsc] = useState("")
   const [error, setError] = useState()
+  const [otherDescWords, setOtherDescWords] = useState("");
+  const [otherSpiritualGifts, setOtherSpiritualGifts] = useState("");
   const [form, setForm] = useState(
     {
       step: 1,
@@ -51,6 +53,10 @@ export default function CreateGSCForm() {
     }
   );
 
+  const prevStep = () => {
+    setForm({...form, step: form.step - 1});
+    window.scrollTo(0,0);
+  };
 
   const nextStep = () => {
     setForm({...form, step: form.step + 1});
@@ -63,8 +69,18 @@ export default function CreateGSCForm() {
 
   const handleListChange = input => e => {
     if (form[input].includes(e.target.value)) {
-      let removeWord = form[input].replace(", " + e.target.value, "").trim();
-      setForm({...form, [input]: removeWord});
+      if(form[input].includes(", " + e.target.value)) {
+        let removeWord = form[input].replace(", " + e.target.value, "").trim();
+        setForm({...form, [input]: removeWord});
+      }
+      else if (form[input].includes(e.target.value + ",")) {
+        let removeWord = form[input].replace(e.target.value + ", ", "").trim();
+        setForm({...form, [input]: removeWord});
+      }
+      else {
+        let removeWord = form[input].replace(e.target.value, "").trim();
+        setForm({...form, [input]: removeWord});
+      }
     }
     else {
       if (form[input] === "") {
@@ -80,7 +96,7 @@ export default function CreateGSCForm() {
 
   const submitForm = e => {
     e.preventDefault()
-    
+
     setIsLoading(true)
     setError("")
     axios({
@@ -97,7 +113,7 @@ export default function CreateGSCForm() {
         nationality: form.nationality,
         city: form.city,
         country: form.country,
-        descriptive_words: form.descriptive_words,
+        descriptive_words: otherDescWords !== "" ? `${form.descriptive_words}, ${otherDescWords}` : form.descriptive_words,
         mbti: form.mbti,
         enneagram: form.enneagram,
         disc: form.disc,
@@ -107,7 +123,7 @@ export default function CreateGSCForm() {
         do: form.do,
         skills_and_talents: form.skills_and_talents,
         growth_and_development: form.growth_and_development,
-        spiritual_gifts: form.spiritual_gifts,
+        spiritual_gifts: otherSpiritualGifts !== "" ? `${form.spiritual_gifts}, ${otherSpiritualGifts}` : form.spiritual_gifts,
         spiritual_maturity: form.spiritual_maturity,
         church_background: form.church_background,
         reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner,
@@ -161,6 +177,8 @@ export default function CreateGSCForm() {
       })
     }
   })
+
+  console.log(form)
   
   return (
     <div>
@@ -180,7 +198,7 @@ export default function CreateGSCForm() {
           case 1:
             return (
               <FormPage1
-                step={form.step}
+                form={form}
                 nextStep={nextStep}
                 handleChange={handleChange}
               />
@@ -188,7 +206,8 @@ export default function CreateGSCForm() {
           case 2:
             return (
               <FormPage2
-                step={form.step}
+                form={form}
+                prevStep={prevStep}
                 nextStep={nextStep}
                 handleChange={handleChange}
               />
@@ -196,16 +215,22 @@ export default function CreateGSCForm() {
           case 3:
             return (
               <FormPage3
-                step={form.step}
+                form={form}
+                prevStep={prevStep}
                 nextStep={nextStep}
                 handleChange={handleChange}
                 handleListChange={handleListChange}
+                otherDescWords={otherDescWords}
+                setOtherDescWords={setOtherDescWords}
+                otherSpiritualGifts={otherSpiritualGifts}
+                setOtherSpiritualGifts={setOtherSpiritualGifts}
               />
             )
           case 4:
             return (
               <FormPage4
-                step={form.step}
+                form={form}
+                prevStep={prevStep}
                 handleChange={handleChange}
                 submitForm={submitForm}
                 isLoading={isLoading}
