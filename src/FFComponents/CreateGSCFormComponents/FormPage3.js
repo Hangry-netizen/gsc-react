@@ -136,35 +136,35 @@ export default function FormPage3({ form, prevStep, step3NextStep, handleChange,
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicFavoriteTopics">
-            <Form.Label className="Essays1743">What are some of his/her favorite topics of discussion? <span className="color-red">*</span></Form.Label>
+            <Form.Label className="Essays1743">What are some of his/her favorite topics of discussion?</Form.Label>
             <Form.Text>Include favorite music/movies/books if there are any notable ones!</Form.Text>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" required type="text" onChange={handleChange('favorite_topics')} value={form.favorite_topics}/>
+              <Form.Control as="textarea" type="text" onChange={handleChange('favorite_topics')} value={form.favorite_topics}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicChillActivities">
-            <Form.Label className="Essays1743">What does he/she do to chill out? <span className="color-red">*</span></Form.Label>
+            <Form.Label className="Essays1743">What does he/she do to chill out?</Form.Label>
             <Form.Text>Netflix, outdoors, books, sleep, eat with friends etc.</Form.Text>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" required type="text" onChange={handleChange('chill_activities')} value={form.chill_activities}/>
+              <Form.Control as="textarea" type="text" onChange={handleChange('chill_activities')} value={form.chill_activities}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicDo">
-            <Form.Label className="Essays1743">What does he/she do (paid and/or unpaid)? <span className="color-red">*</span></Form.Label>
+            <Form.Label className="Essays1743">What does he/she do (paid and/or unpaid)?</Form.Label>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" required type="text" onChange={handleChange('do')} value={form.do}/>
+              <Form.Control as="textarea" type="text" onChange={handleChange('do')} value={form.do}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicSkillsAndTalents">
-            <Form.Label className="Essays1743">What are some of his/her skills & talents? <span className="color-red">*</span></Form.Label>
+            <Form.Label className="Essays1743">What are some of his/her skills & talents?</Form.Label>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" required type="text" onChange={handleChange('skills_and_talents')} value={form.skills_and_talents}/>
+              <Form.Control as="textarea" type="text" onChange={handleChange('skills_and_talents')} value={form.skills_and_talents}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicGrowthAndDevelopment">
-            <Form.Label className="Essays1743">What areas would you like to see him/her grow and develop in? <span className="color-red">*</span></Form.Label>
+            <Form.Label className="Essays1743">What areas would you like to see him/her grow and develop in?</Form.Label>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" required type="text" onChange={handleChange('growth_and_development')} value={form.growth_and_development}/>
+              <Form.Control as="textarea" type="text" onChange={handleChange('growth_and_development')} value={form.growth_and_development}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicSpiritualGifts">
