@@ -20,14 +20,14 @@ export default function FFProfilePage() {
       <div id="welcome-ff" className="color-red Essays1743">
         Welcome, {currentUser.displayName} 
       </div>
-      <div id="ff-profile-page-click-note" className="color-red font-size-small">Click only when you are ready to take 10-15mins to fill out a form for your GSCF. You'll need your GSCF's preferred email address.</div>
+      <div id="ff-profile-page-click-note" className="color-red font-size-small">Create new GSCF profile function is halted until May 28</div>
       <div>
-        <button id="create-gsc-btn" className="red-button" onClick={goToCreateForm}>
+        <button id="create-gsc-btn" className="red-button">
           CREATE A NEW <span className="gscf light italic">GOOD SINGLE CHRISTIAN FRIEND</span> PROFILE
         </button>
       </div>
       <div>
-        <button id="create-gscf-btn" className="red-button" onClick={goToCreateForm}>
+        <button id="create-gscf-btn" className="red-button">
           Create A New GSCF Profile
         </button>
       </div>

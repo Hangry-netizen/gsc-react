@@ -91,7 +91,7 @@ function App() {
           ?
           <>
             <Route exact path="/my-good-single-christian-friends"><FFProfilePage /></Route>
-            <Route exact path="/create-new-good-single-christian-friend-profile-form"><CreateGSCForm /></Route>
+            {/*<Route exact path="/create-new-good-single-christian-friend-profile-form"><CreateGSCForm /></Route>*/}
           </>
         :
           <>
