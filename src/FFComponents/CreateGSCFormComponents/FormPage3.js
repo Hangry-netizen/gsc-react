@@ -1,17 +1,17 @@
 import React from 'react';
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button, Alert } from 'react-bootstrap';
 
-export default function FormPage3({ form, prevStep, nextStep, handleChange, handleListChange, otherDescWords, setOtherDescWords, otherSpiritualGifts, setOtherSpiritualGifts, checkList }) {
+export default function FormPage3({ form, prevStep, step3NextStep, handleChange, handleListChange, otherDescWords, setOtherDescWords, otherSpiritualGifts, setOtherSpiritualGifts, error }) {
   return (
     <div className="create-gsc-form-container">
       <div className="create-gsc-form-header-content mobile-text-align-justify">
         <br />
-        <p className="color-blue">Remember, your GSCF can fill in/correct answers you aren't sure about when they review this form.</p>
+        <p className="color-blue">These information will be sent to your Good Single Christian Friend (GSCF) to be reviewed/edited. If you don't know the answer, put a "?" for your GSCF to answer later.</p>
         <div className="color-red">*Required</div>
       </div>
       <hr />
       <div className="create-gsc-form-body color-blue text-align-left">
-        <Form onSubmit={nextStep}>
+        <Form onSubmit={step3NextStep}>
           <Form.Group>
             <Form.Label className="without-left-right-padding Essays1743">
               Pick 5-7 words that best describe your GSCF <span className="color-red">*</span>
@@ -136,35 +136,35 @@ export default function FormPage3({ form, prevStep, nextStep, handleChange, hand
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicFavoriteTopics">
-            <Form.Label className="Essays1743">What are some of his/her favorite topics of discussion?</Form.Label>
+            <Form.Label className="Essays1743">What are some of his/her favorite topics of discussion? <span className="color-red">*</span></Form.Label>
             <Form.Text>Include favorite music/movies/books if there are any notable ones!</Form.Text>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('favorite_topics')} value={form.favorite_topics}/>
+              <Form.Control as="textarea" required type="text" onChange={handleChange('favorite_topics')} value={form.favorite_topics}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicChillActivities">
-            <Form.Label className="Essays1743">What does he/she do to chill out?</Form.Label>
+            <Form.Label className="Essays1743">What does he/she do to chill out? <span className="color-red">*</span></Form.Label>
             <Form.Text>Netflix, outdoors, books, sleep, eat with friends etc.</Form.Text>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('chill_activities')} value={form.chill_activities}/>
+              <Form.Control as="textarea" required type="text" onChange={handleChange('chill_activities')} value={form.chill_activities}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicDo">
-            <Form.Label className="Essays1743">What does he/she do (paid and/or unpaid)?</Form.Label>
+            <Form.Label className="Essays1743">What does he/she do (paid and/or unpaid)? <span className="color-red">*</span></Form.Label>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('do')} value={form.do}/>
+              <Form.Control as="textarea" required type="text" onChange={handleChange('do')} value={form.do}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicSkillsAndTalents">
-            <Form.Label className="Essays1743">What are some of his/her skills & talents?</Form.Label>
+            <Form.Label className="Essays1743">What are some of his/her skills & talents? <span className="color-red">*</span></Form.Label>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('skills_and_talents')} value={form.skills_and_talents}/>
+              <Form.Control as="textarea" required type="text" onChange={handleChange('skills_and_talents')} value={form.skills_and_talents}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicGrowthAndDevelopment">
-            <Form.Label className="Essays1743">What areas would you like to see him/her grow and develop in?</Form.Label>
+            <Form.Label className="Essays1743">What areas would you like to see him/her grow and develop in? <span className="color-red">*</span></Form.Label>
             <Col className="without-left-right-padding">
-              <Form.Control as="textarea" type="text" onChange={handleChange('growth_and_development')} value={form.growth_and_development}/>
+              <Form.Control as="textarea" required type="text" onChange={handleChange('growth_and_development')} value={form.growth_and_development}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicSpiritualGifts">
@@ -219,7 +219,7 @@ export default function FormPage3({ form, prevStep, nextStep, handleChange, hand
           <Form.Group as={Row}>
             <Form.Label column sm="2" className="Essays1743">Others:</Form.Label>
             <Col>
-              <Form.Control type="text" onChange={e => setOtherSpiritualGifts(e.target.value)}/>
+              <Form.Control type="text" onChange={e => setOtherSpiritualGifts(e.target.value)} value={otherSpiritualGifts}/>
             </Col>
           </Form.Group>
           <br />
@@ -237,6 +237,7 @@ export default function FormPage3({ form, prevStep, nextStep, handleChange, hand
               <Form.Control type="text" required onChange={handleChange('church_background')} value={form.church_background}/>
             </Col>
           </Form.Group>
+          {error && <Alert className="color-red font-size-small">{error}</Alert>}
           <br />
           <div className="display-flex">
             <Button variant="secondary" onClick={prevStep}>Back</Button>

@@ -17,6 +17,8 @@ export default function CreateGSCForm() {
   const [error, setError] = useState()
   const [otherDescWords, setOtherDescWords] = useState("");
   const [otherSpiritualGifts, setOtherSpiritualGifts] = useState("");
+  const [descCounter, setDescCounter] = useState(0);
+  const [giftCounter, setGiftCounter] = useState(0);
   const [form, setForm] = useState(
     {
       step: 1,
@@ -58,6 +60,21 @@ export default function CreateGSCForm() {
     window.scrollTo(0,0);
   };
 
+  const step3NextStep = e => {
+    e.preventDefault()
+    setError("")
+    if (descCounter === 0) {
+      return setError("Please pick 5-7 words that best describe your GSCF")
+    }
+    if (giftCounter === 0) {
+      return setError("Please select 4-8 spiritual gifts/characteristics that are demonstrated in his/her life")
+    }
+    else {
+      setForm({...form, step: form.step + 1});
+      window.scrollTo(0,0);
+    }
+  }
+
   const nextStep = () => {
     setForm({...form, step: form.step + 1});
     window.scrollTo(0,0);
@@ -72,24 +89,49 @@ export default function CreateGSCForm() {
       if(form[input].includes(", " + e.target.value)) {
         let removeWord = form[input].replace(", " + e.target.value, "").trim();
         setForm({...form, [input]: removeWord});
+        if (input === 'descriptive_words') {
+          setDescCounter(descCounter - 1)
+        } else if (input === 'spiritual_gifts') {
+          setGiftCounter(giftCounter - 1)
+        }
       }
       else if (form[input].includes(e.target.value + ",")) {
         let removeWord = form[input].replace(e.target.value + ", ", "").trim();
         setForm({...form, [input]: removeWord});
+        if (input === 'descriptive_words') {
+          setDescCounter(descCounter - 1)
+        } else if (input === 'spiritual_gifts') {
+          setGiftCounter(giftCounter - 1)
+        }
       }
       else {
         let removeWord = form[input].replace(e.target.value, "").trim();
         setForm({...form, [input]: removeWord});
+        if (input === 'descriptive_words') {
+          setDescCounter(descCounter - 1)
+        } else if (input === 'spiritual_gifts') {
+          setGiftCounter(giftCounter - 1)
+        }
       }
     }
     else {
       if (form[input] === "") {
         let addWord = `${e.target.value}`;
         setForm({...form, [input]: addWord})
+        if (input === 'descriptive_words') {
+          setDescCounter(descCounter + 1)
+        } else if (input === 'spiritual_gifts') {
+          setGiftCounter(giftCounter + 1)
+        }
       }
       else {
         let addWord = `${form[input]}, ${e.target.value}`;
         setForm({...form, [input]: addWord})
+        if (input === 'descriptive_words') {
+          setDescCounter(descCounter + 1)
+        } else if (input === 'spiritual_gifts') {
+          setGiftCounter(giftCounter + 1)
+        }
       }
     }
   }
@@ -179,7 +221,7 @@ export default function CreateGSCForm() {
     }
   })
 
-  console.log(form)
+  console.log(error)
   
   return (
     <div>
@@ -218,13 +260,14 @@ export default function CreateGSCForm() {
               <FormPage3
                 form={form}
                 prevStep={prevStep}
-                nextStep={nextStep}
+                step3NextStep={step3NextStep}
                 handleChange={handleChange}
                 handleListChange={handleListChange}
                 otherDescWords={otherDescWords}
                 setOtherDescWords={setOtherDescWords}
                 otherSpiritualGifts={otherSpiritualGifts}
                 setOtherSpiritualGifts={setOtherSpiritualGifts}
+                error={error}
               />
             )
           case 4:
