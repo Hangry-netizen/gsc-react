@@ -1,6 +1,6 @@
 import React from 'react';
-import Terms from '../utils/Terms_and_Conditions_V2.pdf'
-import Privacy from '../utils/Privacy_Policy_V1.pdf'
+import Terms from '../utils/Terms_and_Conditions_V3.pdf'
+import Privacy from '../utils/Privacy_Policy_V2.pdf'
 
 export default function TermsAndPrivacyPage() {
   return (
@@ -10,13 +10,13 @@ export default function TermsAndPrivacyPage() {
         <div className="color-blue text-align-left" style={{marginBottom: "5%"}}>
           <span>Download and read our full Terms and Conditions of Use: </span>
           <a href={Terms} target="_blank" rel="noopener noreferrer">
-            <button className="color-red underline" style={{border:"none", background:"transparent"}}>Terms_and_Conditions_V2.pdf</button>
+            <button className="color-red underline" style={{border:"none", background:"transparent"}}>Terms_and_Conditions_V3.pdf</button>
           </a>
         </div>
         <div className="color-blue text-align-left" style={{marginBottom: "5%"}}>
         <span>Download and read our Privacy Policy: </span>
           <a href={Privacy} target="_blank" rel="noopener noreferrer">
-            <button className="color-red underline" style={{border:"none", background:"transparent"}}>Privacy_Policy_V1.pdf</button>
+            <button className="color-red underline" style={{border:"none", background:"transparent"}}>Privacy_Policy_V2.pdf</button>
           </a>
         </div>
       </div>
