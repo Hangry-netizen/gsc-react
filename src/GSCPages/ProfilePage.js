@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useHistory } from 'react-router-dom';
 import { url } from '../App';
-import HideProfile from '../GSCComponents/GSCProfileComponents/HideProfile';
-import RemoveProfile from '../GSCComponents/GSCProfileComponents/RemoveProfile';
 
 import '../GSCComponents/GSCProfileComponents/GSCProfilePage.css';
 
@@ -49,16 +47,12 @@ export default function ProfilePage() {
           <div>
             <button onClick={toDatabasePage} className="gsc-profile-page-btn color-red">VIEW THIS MONTH'S DATABASE</button>
           </div>
-          <HideProfile gsc={gsc}/>
-          <RemoveProfile />
         </>
         :
         <>
           <div>
             <button onClick={toEditPage} className="gsc-profile-page-btn color-red">EDIT PROFILE</button>
           </div>
-          <HideProfile gsc={gsc}/>
-          <RemoveProfile />
         </>
       }
     </div>
