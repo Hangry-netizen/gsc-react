@@ -15,13 +15,20 @@ export default function AdminDatabasePage() {
       .catch((error) => {
         console.log(error)
       })
+
   }, [])
   return (
     <div id="database-page-container">
       <h1 className="color-red" style={{margin:"50px auto"}}>Database Page</h1>
-      <DatabaseTable
-        gscs={gscs}
-      />
+      {
+        gscs
+        ? 
+        <DatabaseTable
+          gscs={gscs}
+        />
+        :
+        null
+      }
     </div> 
   )
 }

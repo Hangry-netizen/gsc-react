@@ -28,7 +28,7 @@ export default function HelloPage() {
         <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>BACK</button>
       </div>
       <br />
-      <h1>HELLO</h1>
+      <h1>HELLO {gsc.name}</h1>
     </div>
   )
 }

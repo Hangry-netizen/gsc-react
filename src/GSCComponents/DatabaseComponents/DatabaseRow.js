@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import DatabaseModal from './DatabaseModal';
+import axios from 'axios';
+import { url } from '../../App';
 
 export default function DatabaseRow({ gsc }) {
   const [showGscModal, setShowGscModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
+  const [refs, setRefs] = useState([]);
 
   const handleCloseGscModal = () => setShowGscModal(false);
   const handleShowGscModal = () => setShowGscModal(true);
 
   useEffect(() => {
+    axios.get(`${url}/gscs/references/${gsc.uuid}`)
+    .then((response) => {
+      setRefs(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+
     let current_year = new Date().getFullYear()
     let age = current_year - gsc.year_of_birth
     setAgeRange(age)
@@ -54,7 +65,7 @@ export default function DatabaseRow({ gsc }) {
         setPersonality(gsc.strengths_finder)
       }
     }
-  }, [])
+  }, [gsc, personality])
 
   return (
     <>
@@ -71,8 +82,30 @@ export default function DatabaseRow({ gsc }) {
         <td>{gsc.church_background}</td>
         <td>{gsc.spiritual_maturity}</td>
         <td>{gsc.spiritual_gifts}</td>
-        <td>{gsc.reasons_gscf_makes_a_good_partner}</td>
-        <td>{gsc.good_match_for_gscf}</td>
+        <td>{gsc.reasons_gscf_makes_a_good_partner}
+        {
+          refs.map((ref) => {
+            if (ref.is_approved) {
+              return (
+                `, ${ref.reasons_gscf_makes_a_good_partner}`
+              )
+            }
+            return null
+          })
+        }
+        </td>
+        <td>{gsc.good_match_for_gscf}
+        {
+          refs.map((ref) => {
+            if (ref.is_approved) {
+              return (
+                `, ${ref.good_match_for_gscf}`
+              )
+            }
+            return null
+          })
+        }
+        </td>
         <td>{gsc.what_is_important_to_me}</td>
       </tr>
       <DatabaseModal

@@ -19,14 +19,13 @@ export default function ManageFFAccountPage() {
 
   async function handleDeleteAccount(e) {
     e.preventDefault()
-    console.log("submitted")
     setMessage("")
     setError("")
 
     try {
       setIsLoading(true)
       await currentUser.delete()
-      setMessage("Successfully deleted account")
+      alert("Successfully deleted account")
       history.push("/")
     } catch {
       setError("Failed to delete account")
@@ -44,7 +43,6 @@ export default function ManageFFAccountPage() {
         <Modal.Body>This action is irreversible. Are you sure you want to delete your FF account?</Modal.Body>
         <div>
             {error && <Alert className="color-red font-size-small">{error}</Alert>}
-            {message && <Alert className="color-green font-size-small">{message}</Alert>}
         </div>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Close</Button>

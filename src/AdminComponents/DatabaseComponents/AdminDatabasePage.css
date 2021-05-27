@@ -26,18 +26,8 @@ Table thead th {
   background-color: #1e365c;
 }
 
-Table thead th:first-child {
-  position: sticky;
-  left: 0;
-}
-
-Table tbody th {
-  position: sticky;
-  left: 0;
-  background-color: #1e365c;
-}
-
 Table td {
-  height: 4em;
-  overflow-y: hidden;
+  height: 50px !important;
+  overflow-y: hidden !important;
+  text-overflow: ellipsis;
 }

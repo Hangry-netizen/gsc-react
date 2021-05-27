@@ -25,14 +25,12 @@ export default function SingleCommunities() {
         email: email
       }
     })
-    .then(response => {
-      console.log(response)
+    .then(() => {
       setMessage("Submited successfully")
       e.target.reset()
       setEmail("")
     })
-    .catch(error => {
-      console.log(error)
+    .catch(() => {
       setError("Failed to submit")
     })
     setIsLoading(false)

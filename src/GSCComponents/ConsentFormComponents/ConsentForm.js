@@ -163,7 +163,7 @@ export default function ConsentForm() {
       sgMail
       .send(reference)
       .then(() => {
-        console.log('Email sent to ref 1')
+        alert('Reference email has been sent to Reference 1')
       })
       .catch((error) => {
         console.log(error)
@@ -188,7 +188,7 @@ export default function ConsentForm() {
       sgMail
       .send(reference)
       .then(() => {
-        console.log('Email sent to ref 2')
+        alert('Reference email has been sent to Reference 2')
       })
       .catch((error) => {
         console.log(error)

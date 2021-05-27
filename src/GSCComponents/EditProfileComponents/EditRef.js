@@ -29,9 +29,7 @@ export default function EditRef({ reference }) {
       }
     })
     .then((response) => {
-      console.log(response)
       if (response.data.status === "success") {
-        console.log(response)
         alert(`You've approved ${reference.ref_name}'s reference!`)
         window.location.reload()
       } else {
@@ -58,7 +56,6 @@ export default function EditRef({ reference }) {
       }
     })
     .then((response) => {
-      console.log(response)
       if (response.data.status === "success") {
         alert(`You've successfully updated ${reference.ref_name}'s reference!`)
         window.location.reload()
@@ -71,8 +68,6 @@ export default function EditRef({ reference }) {
     })
     setIsLoading(false)
   };
-
-  console.log(reference)
 
   return (
     <div id="edit-ref" className="color-blue">
@@ -97,7 +92,7 @@ export default function EditRef({ reference }) {
               </Col>
             </Form.Group>
             {
-              form.is_approved 
+              form.is_approved === true
               ?
               <Button variant="danger" disabled={isLoading} type="submit">Submit</Button>
               :

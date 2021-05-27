@@ -10,30 +10,33 @@ export default function DatabaseTable({ gscs }) {
           <tr>
             <th>Alias</th>
             <th>Age Range</th>
+            <th>Location</th>
+            <th>Willingness to relocate</th>
             <th>Height</th>
             <th>Languages</th>
             <th>Nationality/ Ethnicity</th>
-            <th>Location</th>
-            <th>Willingness to relocate</th>
-            <th>Descriptors</th>
+            <th className="bg-red">Descriptors</th>
             <th>Personality/ Temperament</th>
             <th>Church background</th>
-            <th>Spiritual maturity</th>
-            <th>Spiritual characteristics</th>
-            <th>What qualities make him a good partner?</th>
-            <th>What kind of person will be a good match for him?</th>
-            <th>Hear from the GSC</th>
+            <th className="bg-red">Spiritual maturity</th>
+            <th className="bg-red">Spiritual characteristics</th>
+            <th className="bg-red">What qualities make him a good partner?</th>
+            <th className="bg-red">What kind of person will be a good match for him?</th>
+            <th>Words from the GSC</th>
           </tr>
         </thead>
         <tbody id="database-table-body">
         {
           gscs.map((gsc, i) => {
-            return (
-              <DatabaseRow
-                key={i}
-                gsc={gsc}
-              />
-            )
+            if (gsc.is_active) {
+              return (
+                <DatabaseRow
+                  key={i}
+                  gsc={gsc}
+                />
+              )
+            }
+            return null
           })
         }
         </tbody>

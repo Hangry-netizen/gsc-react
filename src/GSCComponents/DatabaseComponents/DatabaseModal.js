@@ -12,7 +12,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal }
         <Modal.Header closeButton className="bg-beach">
           <Modal.Title className="color-blue">{gsc.alias}</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="bg-beach" style={{height:"80%", overflowY:"auto"}}>
+        <Modal.Body className="bg-beach mobile-text-align-left" style={{height:"80%", overflowY:"auto"}}>
           <div className="color-red">Favorite topics/music/movies/books:</div>
           <div className="color-blue">{gsc.favorite_topics}</div>
           <div className="color-red">Chill out:</div>
