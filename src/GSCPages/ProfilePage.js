@@ -39,19 +39,19 @@ export default function ProfilePage() {
         ?
         <>
           <div>
-            <button onClick={toEditPage} className="gsc-profile-page-btn color-red">EDIT PROFILE</button>
+            <button onClick={toEditPage} className="gsc-profile-page-btn color-blue">edit profile</button>
           </div>
           <div>
-            <button onClick={toHelloPage} className="gsc-profile-page-btn color-red">VIEW HELLOS</button>
+            <button onClick={toHelloPage} className="gsc-profile-page-btn color-blue">view hellos</button>
           </div>
           <div>
-            <button onClick={toDatabasePage} className="gsc-profile-page-btn color-red">VIEW THIS MONTH'S DATABASE</button>
+            <button onClick={toDatabasePage} className="gsc-profile-page-btn color-blue">view this month's database</button>
           </div>
         </>
         :
         <>
           <div>
-            <button onClick={toEditPage} className="gsc-profile-page-btn color-red">EDIT PROFILE</button>
+            <button onClick={toEditPage} className="gsc-profile-page-btn color-blue">edit profile</button>
           </div>
         </>
       }

@@ -98,6 +98,7 @@ export default function ConsentForm() {
       }
     })
     .then(
+      alert("Your form has been submitted successfully"),
       history.push(`/good-single-christian-friend/${gsc.uuid}`)
     )
     .catch(error => {

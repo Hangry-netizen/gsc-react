@@ -46,8 +46,8 @@ export default function CreateGSCForm() {
       church_background: '',
       reasons_gscf_makes_a_good_partner: '',
       good_match_for_gscf: '',
-      moving_to_a_different_town: '',
-      moving_to_a_different_country: '',
+      moving_to_a_different_town: 50,
+      moving_to_a_different_country: 50,
       has_been_married_or_has_kids: '',
       want_to_have_kids: '',
       important_info_to_know: '',
@@ -182,7 +182,7 @@ export default function CreateGSCForm() {
     .then(response => {
       if (response.data.status === "success") {
         setGsc(response.data.gsc)
-        history.push("/my-good-single-christian-friends")
+        alert("Your form has been submitted successfully")
       }
       else {
         setError(response.data.message)
@@ -199,6 +199,9 @@ export default function CreateGSCForm() {
       const sgMail = require('@sendgrid/mail')
       sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
       const consent = {
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_SENDGRID_API_KEY
+        },
         to: gsc.email,
         from: 'noreply@matchesup.com',
         template_id: "d-fcb0e7483d4448319fa772341765a581",
@@ -213,15 +216,14 @@ export default function CreateGSCForm() {
       sgMail
       .send(consent)
       .then(() => {
-        console.log('Email sent')
+        alert("Consent email has been sent successfully")
+        history.push("/my-good-single-christian-friends")
       })
       .catch((error) => {
         console.log(error)
       })
     }
   })
-
-  console.log(error)
   
   return (
     <div>

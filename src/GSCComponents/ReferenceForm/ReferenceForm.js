@@ -50,7 +50,8 @@ export default function ReferenceForm() {
       url: `${url}/references/${ref_id}`,
       data: {
         reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner,
-        good_match_for_gscf: form.good_match_for_gscf
+        good_match_for_gscf: form.good_match_for_gscf,
+        is_approved: false
       }
     })
     .then(
@@ -66,6 +67,9 @@ export default function ReferenceForm() {
     const sgMail = require('@sendgrid/mail')
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
     const reference_approval = {
+      headers: {
+        Authorization: "Bearer " + process.env.REACT_APP_SENDGRID_API_KEY
+      },
       to: gsc.email,
       from: 'noreply@matchesup.com',
       template_id: "d-b0df696531cb4b8fb4234b6ff1a05aa0",
@@ -78,7 +82,7 @@ export default function ReferenceForm() {
     sgMail
     .send(reference_approval)
     .then(() => {
-      alert("Submitted reference successfully!")
+      alert("Your form has been submitted successfully!")
       history.push("/")
     })
     .catch((error) => {

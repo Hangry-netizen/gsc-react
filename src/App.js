@@ -35,8 +35,8 @@ import AdminDatabasePage from './AdminPages/AdminDatabasePage';
 
 import { useAuth } from "./contexts/AuthContext";
 
-export const url = 'https://matches-up-live.herokuapp.com/api/v1';
-/*https://matches-up.herokuapp.com/api/v1*/
+export const url = 'http://localhost:5000/api/v1';
+/*https://matches-up-live.herokuapp.com/api/v1*/
 /*http://localhost:5000/api/v1*/
 
 function App() {
