@@ -5,9 +5,10 @@ import { url } from '../../App';
 
 export default function DatabaseRow({ gsc }) {
   const [showGscModal, setShowGscModal] = useState(false);
-  const [ageRange, setAgeRange] = useState();
-  const [personality, setPersonality] = useState("");
+  const [ageRange, setAgeRange] = useState()
+  const [personality, setPersonality] = useState("")
   const [refs, setRefs] = useState([]);
+
   const handleCloseGscModal = () => setShowGscModal(false);
   const handleShowGscModal = () => setShowGscModal(true);
 
@@ -28,7 +29,7 @@ export default function DatabaseRow({ gsc }) {
     function between(age, minRange, maxRange) {
       return age >= minRange && age <= maxRange
     }
-    for (maxRange = 23; maxRange < 82; maxRange += 2) {
+    for (maxRange = 23; maxRange < 81; maxRange += 2) {
       minRange += 2
       if (between(age, minRange, maxRange)) {
         return (
@@ -64,18 +65,18 @@ export default function DatabaseRow({ gsc }) {
         setPersonality(gsc.strengths_finder)
       }
     }
-  }, [gsc.uuid, personality, gsc.mbti, gsc.enneagram, gsc.disc, gsc.strengths_finder, gsc.year_of_birth]);
+  }, [gsc, personality])
 
   return (
     <>
       <tr onClick={handleShowGscModal}>
         <td>{gsc.alias}</td>
         <td>{ageRange}</td>
-        <td>{gsc.city}, {gsc.country}</td>
-        <td>Town: {gsc.moving_to_a_different_town}%, Country: {gsc.moving_to_a_different_country}%</td>
         <td>{gsc.height}</td>
         <td>{gsc.languages}</td>
         <td>{gsc.nationality}</td>
+        <td>{gsc.city}, {gsc.country}</td>
+        <td>Town: {gsc.moving_to_a_different_town}, Country: {gsc.moving_to_a_different_country}</td>
         <td>{gsc.descriptive_words}</td>
         <td>{personality}</td>
         <td>{gsc.church_background}</td>
@@ -84,18 +85,24 @@ export default function DatabaseRow({ gsc }) {
         <td>{gsc.reasons_gscf_makes_a_good_partner}
         {
           refs.map((ref) => {
-            return (
-              `, ${ref.reasons_gscf_makes_a_good_partner}`
-            )
+            if (ref.is_approved) {
+              return (
+                `, ${ref.reasons_gscf_makes_a_good_partner}`
+              )
+            }
+            return null
           })
         }
         </td>
         <td>{gsc.good_match_for_gscf}
         {
           refs.map((ref) => {
-            return (
-              `, ${ref.good_match_for_gscf}`
-            )
+            if (ref.is_approved) {
+              return (
+                `, ${ref.good_match_for_gscf}`
+              )
+            }
+            return null
           })
         }
         </td>

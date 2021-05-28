@@ -50,7 +50,8 @@ export default function ReferenceForm() {
       url: `${url}/references/${ref_id}`,
       data: {
         reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner,
-        good_match_for_gscf: form.good_match_for_gscf
+        good_match_for_gscf: form.good_match_for_gscf,
+        is_approved: false
       }
     })
     .then((response) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import DatabaseRow from './DatabaseRow';
 
-export default function DatabaseTable({ gscs }) {
+export default function DatabaseTable({ gscs, currentGsc }) {
   return (
     <div>
       <Table striped bordered hover variant="dark" responsive>
@@ -29,12 +29,26 @@ export default function DatabaseTable({ gscs }) {
         {
           gscs.map((gsc, i) => {
             if (gsc.is_active) {
-              return (
-                <DatabaseRow
-                  key={i}
-                  gsc={gsc}
-                />
-              )
+              if (currentGsc.gender === "Male") {
+                if (gsc.gender === "Female") {
+                  return (
+                    <DatabaseRow
+                      key={i}
+                      gsc={gsc}
+                    />
+                  )
+                }
+              } 
+              else if (currentGsc.gender === "Female") {
+                if (gsc.gender === "Male") {
+                  return (
+                    <DatabaseRow
+                      key={i}
+                      gsc={gsc}
+                    />
+                  )
+                }
+              }   
             }
             return null
           })

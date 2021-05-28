@@ -54,7 +54,7 @@ export default function ApprovalRow({ gsc }) {
         setPersonality(gsc.strengths_finder)
       }
     }
-  }, [])
+  }, [gsc.disc, gsc.enneagram, gsc.mbti, gsc.strengths_finder, gsc.year_of_birth, personality])
 
   
 

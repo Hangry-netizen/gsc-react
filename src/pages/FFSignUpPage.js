@@ -31,8 +31,6 @@ const FFSignUpPage = ({ showLogin }) => {
       return setError ('Referral is required')
     }
 
-    console.log("submitted sign up")
-
     try {
       setError("")
       setIsLoading(true)

@@ -104,6 +104,7 @@ export default function EditProfilePage() {
 
   const backToProfile = () => {
     history.push(`/good-single-christian-friend/${form.uuid}`)
+    window.scrollTo(0,0)
   }
 
   return (

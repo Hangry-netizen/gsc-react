@@ -14,7 +14,6 @@ const ForgotPassword = () => {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    console.log("submitted")
     
     try {
       setMessage("")

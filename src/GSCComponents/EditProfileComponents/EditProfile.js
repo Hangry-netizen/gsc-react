@@ -15,7 +15,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
           <Form.Label column sm="4" className="Essays1743 text-align-left">Full Name <span className="color-red">*</span></Form.Label>
           <Col sm="8">
             <Form.Control type="name"  required onChange={handleChange('name')} value={form.name}/>
-            <Form.Text className="color-red font-size-x-small text-align-left">Only those you 'say hi' to will see your name.</Form.Text>
+            <Form.Text className="color-red font-size-x-small text-align-left">Only those you 'say hi' to and those who 'say hi' to you will see your name.</Form.Text>
           </Col>
         </Form.Group>
         <Form.Group as={Row}>
