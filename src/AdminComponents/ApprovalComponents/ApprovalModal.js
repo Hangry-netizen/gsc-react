@@ -13,13 +13,14 @@ export default function ApprovalModal({ gsc, showGscModal, handleCloseGscModal }
       url: `${url}/gscs/status/${gsc.uuid}`,
       data: {
         is_approved: true,
-        is_active: false
+        is_active: true
       }
     })
     .then(response => {
       if (response.data.status === 'success') {
         handleCloseGscModal();
-        sendApprovalNotification();
+        alert(`You have approved ${gsc.name}!`)
+        window.location.reload()
       }
     })
     .catch(error => {
@@ -27,29 +28,7 @@ export default function ApprovalModal({ gsc, showGscModal, handleCloseGscModal }
     })
     setIsLoading(false)
   }
-
-  const sendApprovalNotification = () => {
-    const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
-    const reference_approval = {
-      to: gsc.email,
-      from: 'noreply@matchesup.com',
-      template_id: "d-e0573f50445145e9ba6542744ff4053a",
-      dynamic_template_data: {
-        gscf_name: gsc.name,
-        edit_url: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}`
-      }
-    }
-    sgMail
-    .send(reference_approval)
-    .then(() => {
-      alert(`You've approved ${gsc.alias}!`);
-      window.location.reload();
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+  
   return (
     <>
       <Modal

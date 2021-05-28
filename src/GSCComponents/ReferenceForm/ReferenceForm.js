@@ -53,37 +53,16 @@ export default function ReferenceForm() {
         good_match_for_gscf: form.good_match_for_gscf
       }
     })
-    .then(
-      sendApprovalReference()
-    )
+    .then((response) => {
+      if (response.data.status === "success") {
+        alert("Form has been submitted successfully")
+        history.push("/")
+      }
+    })
     .catch(error => {
       console.log(error)
     })
     setIsLoading(false)
-  }
-
-  const sendApprovalReference = () => {
-    const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
-    const reference_approval = {
-      to: gsc.email,
-      from: 'noreply@matchesup.com',
-      template_id: "d-b0df696531cb4b8fb4234b6ff1a05aa0",
-      dynamic_template_data: {
-        gscf_name: gsc.name,
-        ref_name: ref.ref_name,
-        edit_url: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/edit`
-      }
-    }
-    sgMail
-    .send(reference_approval)
-    .then(() => {
-      alert("Submitted reference successfully!")
-      history.push("/")
-    })
-    .catch((error) => {
-      console.log(error)
-    })
   }
   
   return (

@@ -13,7 +13,6 @@ export default function CreateGSCForm() {
   let history = useHistory();
   const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
-  const [gsc, setGsc] = useState("")
   const [error, setError] = useState()
   const [otherDescWords, setOtherDescWords] = useState("");
   const [otherSpiritualGifts, setOtherSpiritualGifts] = useState("");
@@ -59,7 +58,7 @@ export default function CreateGSCForm() {
     setForm({...form, step: form.step - 1});
     window.scrollTo(0,0);
   };
-
+  
   const step3NextStep = e => {
     e.preventDefault()
     setError("")
@@ -181,7 +180,7 @@ export default function CreateGSCForm() {
     })
     .then(response => {
       if (response.data.status === "success") {
-        setGsc(response.data.gsc)
+        alert("Form has been submitted successfully")
         history.push("/my-good-single-christian-friends")
       }
       else {
@@ -193,35 +192,6 @@ export default function CreateGSCForm() {
     })
     setIsLoading(false)
   }
-
-  useEffect(() => {
-    if (gsc !== "") {
-      const sgMail = require('@sendgrid/mail')
-      sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
-      const consent = {
-        to: gsc.email,
-        from: 'noreply@matchesup.com',
-        template_id: "d-fcb0e7483d4448319fa772341765a581",
-        dynamic_template_data: {
-          gscf_name: gsc.name,
-          ff_name: currentUser.displayName,
-          ff_email: currentUser.email,
-          consent_url: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}/consent`,
-          gsc_profile_link: `www.matchesup.com/good-single-christian-friend/${gsc.uuid}`
-        }
-      }
-      sgMail
-      .send(consent)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-    }
-  })
-
-  console.log(error)
   
   return (
     <div>
@@ -244,6 +214,7 @@ export default function CreateGSCForm() {
                 form={form}
                 nextStep={nextStep}
                 handleChange={handleChange}
+                error={error}
               />
             )
           case 2:
