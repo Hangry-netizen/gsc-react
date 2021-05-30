@@ -20,7 +20,7 @@ export default function EditProfilePage() {
       .catch((error) => {
         console.log(error)
       })
-    axios.get(`${url}/gscs/references/${uuid}`)
+    axios.get(`${url}/references/gsc/${uuid}`)
       .then((response) => {
         setReferences(response.data)
       })

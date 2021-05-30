@@ -26,7 +26,9 @@ export default function ApprovalRow({ gsc }) {
         )
       }
     }
+  }, [gsc.year_of_birth])
 
+  useEffect(() => {
     if (gsc.mbti !== "") {
       setPersonality(`${gsc.mbti}`)
     }
@@ -35,7 +37,7 @@ export default function ApprovalRow({ gsc }) {
         setPersonality(`${personality}, Enneagram: ${gsc.enneagram}`)
       }
       else {
-        setPersonality(gsc.enneagram)
+        setPersonality(`Enneagram: ${gsc.enneagram}`)
       }
     }
     if (gsc.disc !== "") {
@@ -54,8 +56,8 @@ export default function ApprovalRow({ gsc }) {
         setPersonality(gsc.strengths_finder)
       }
     }
-  }, [gsc.disc, gsc.enneagram, gsc.mbti, gsc.strengths_finder, gsc.year_of_birth, personality])
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
 
   return (
@@ -70,7 +72,7 @@ export default function ApprovalRow({ gsc }) {
           <td>{gsc.alias}</td>
           <td>{ageRange}</td>
           <td>{gsc.city}, {gsc.country}</td>
-          <td>Town: {gsc.moving_to_a_different_town}, Country: {gsc.moving_to_a_different_country}</td>
+          <td>Town: {gsc.moving_to_a_different_town}%, Country: {gsc.moving_to_a_different_country}%</td>
           <td>{gsc.height}</td>
           <td>{gsc.languages}</td>
           <td>{gsc.nationality}</td>

@@ -6,38 +6,31 @@
   font-size: 14px;
   line-height: 14px;
   font-weight: lighter;
+  width: 200vw;
 }
 
 #approval-table-body {
   font-size: 13px;
   font-weight: 200px;
-}
-
-Table {
-  overflow-y: scroll;
-  width: 2000px !important;
-  height: 500px;
-  display: block;
+  width: 200vw;
 }
 
 Table thead th {
   position: sticky;
-  top: 0;
+  top: 0 !important;
   background-color: #1e365c;
+  max-height: 40px;
 }
 
 Table thead th:first-child {
   position: sticky;
-  left: 0;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 1;
 }
 
-Table tbody th {
+Table tbody td:first-child {
   position: sticky;
-  left: 0;
+  left: 0 !important;
   background-color: #1e365c;
-}
-
-Table td {
-  height: 4em;
-  overflow-y: hidden;
 }

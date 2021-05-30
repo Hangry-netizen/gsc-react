@@ -10,7 +10,7 @@ export default function ApprovalModal({ gsc, showGscModal, handleCloseGscModal }
 
     axios({
       method: 'POST',
-      url: `${url}/gscs/status/${gsc.uuid}`,
+      url: `${url}/gscs/approve/${gsc.uuid}`,
       data: {
         is_approved: true,
         is_active: true
@@ -43,9 +43,11 @@ export default function ApprovalModal({ gsc, showGscModal, handleCloseGscModal }
         <Modal.Body className="bg-beach" style={{height:"80%", overflowY:"auto"}}>
           <div className="color-red">Favorite topics/music/movies/books:</div>
           <div className="color-blue">{gsc.favorite_topics}</div>
-          <div className="color-red">Chill out:</div>
-          <div className="color-blue">{gsc.chill_activites}</div>
-          <div className="color-red">Skills:</div>
+          <div className="color-red">Paid/unpaid work:</div>
+          <div className="color-blue">{gsc.do}</div>
+          <div className="color-red">Chill out activities:</div>
+          <div className="color-blue">{gsc.chill_activities}</div>
+          <div className="color-red">Skills and talents:</div>
           <div className="color-blue">{gsc.skills_and_talents}</div>
           <div className="color-red">Area to develop:</div>
           <div className="color-blue">{gsc.growth_and_development}</div>

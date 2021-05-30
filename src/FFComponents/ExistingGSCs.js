@@ -19,19 +19,21 @@ export default function ExistingGSCs() {
 
   return (
     <div>
-      {
-        existingGSCs.map((existingGSC) => {
+      { 
+        existingGSCs
+        ?
+        existingGSCs.map((existingGSC, i) => {
           if (existingGSC.ff_email === currentUser.email) {
             if (existingGSC.is_approved === false) {
               return (
-                <div>
-                  <button className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
+                <div key={i}>
+                  <button className="gsc-profile-button color-red Essays1743">{existingGSC.name}</button>
                   <div id="awaiting-txt" className="color-red font-size-small">Awaiting consent and screening</div>
                 </div>
               )
             } else {
               return (
-                <div>
+                <div key={i}>
                   <button id="existing-gsc-btn" className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
                 </div>
               )
@@ -40,6 +42,8 @@ export default function ExistingGSCs() {
             return null
           }
         })
+        :
+        null
       }
     </div>
   )

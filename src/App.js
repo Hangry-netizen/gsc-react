@@ -16,8 +16,6 @@ import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm'
 /* GSCF */
 import ProfilePage from './GSCPages/ProfilePage';
 import EditProfilePage from './GSCPages/EditProfilePage';
-import HelloPage from './GSCPages/HelloPage';
-import DatabasePage from './GSCPages/DatabasePage';
 import ConsentForm from './GSCComponents/ConsentFormComponents/ConsentForm';
 import ReferenceForm from './GSCComponents/ReferenceForm/ReferenceForm';
 
@@ -35,7 +33,7 @@ import AdminDatabasePage from './AdminPages/AdminDatabasePage';
 
 import { useAuth } from "./contexts/AuthContext";
 
-export const url = 'http://localhost:5000/api/v1';
+export const url = 'https://matches-up-live.herokuapp.com/api/v1';
 /*https://matches-up-live.herokuapp.com/api/v1*/
 /*http://localhost:5000/api/v1*/
 
@@ -62,8 +60,6 @@ function App() {
         <Route exact path="/frequently-asked-questions"><FAQPage /></Route>
         <Route exact path="/good-single-christian-friend/:uuid"><ProfilePage /></Route>
         <Route exact path="/good-single-christian-friend/:uuid/edit"><EditProfilePage /></Route>
-        <Route exact path="/good-single-christian-friend/:uuid/hello"><HelloPage /></Route>
-        <Route exact path="/good-single-christian-friend/:uuid/database"><DatabasePage /></Route>
         <Route exact path="/good-single-christian-friend/:uuid/consent"><ConsentForm /></Route>
         <Route exact path="/good-single-christian-friend/:uuid/:ref_id/reference/:ref_name"><ReferenceForm /></Route>
 

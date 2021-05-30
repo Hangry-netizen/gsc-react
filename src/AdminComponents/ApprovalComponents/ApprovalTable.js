@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap';
 
 export default function ApprovalTable({ gscs }) {
   return (
-    <div>
+    <>
       <Table striped bordered hover variant="dark" responsive>
         <thead id="approval-table-head">
           <tr>
@@ -19,13 +19,13 @@ export default function ApprovalTable({ gscs }) {
             <th>Height</th>
             <th>Languages</th>
             <th>Nationality/ Ethnicity</th>
-            <th className="bg-red">Descriptors</th>
+            <th>Descriptors</th>
             <th>Personality/ Temperament</th>
             <th>Church background</th>
-            <th className="bg-red">Spiritual maturity</th>
-            <th className="bg-red">Spiritual characteristics</th>
-            <th className="bg-red">What qualities make him a good partner?</th>
-            <th className="bg-red">What kind of person will be a good match for him?</th>
+            <th>Spiritual maturity</th>
+            <th>Spiritual characteristics</th>
+            <th className="bg-red">Why do you think your GSCF would make a good partner?</th>
+            <th className="bg-red">What kind of person would make a good match for your GSCF?</th>
             <th>Words from the GSC</th>
           </tr>
         </thead>
@@ -42,6 +42,6 @@ export default function ApprovalTable({ gscs }) {
         }
         </tbody>
       </Table>
-    </div>
+    </>
   )
 }

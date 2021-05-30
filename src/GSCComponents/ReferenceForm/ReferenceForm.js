@@ -68,23 +68,31 @@ export default function ReferenceForm() {
   
   return (
     <div>
-      <div id="reference-form-header">
-        <div id="reference-form-header-logo-title" className="display-flex" style={{alignItems:"center", height: "150px"}}>
-          <div className="Essays1743">
-            <h1 className="color-red">Welcome to MatchesUp,</h1>
-            <h1 className="color-blue">{ref.ref_name}! ;)</h1>
+      {
+        gsc && ref
+        ?
+        <>
+          <div id="reference-form-header">
+            <div id="reference-form-header-logo-title" className="display-flex" style={{alignItems:"center", height: "150px"}}>
+              <div className="Essays1743">
+                <h1 className="color-red">Welcome to MatchesUp,</h1>
+                <h1 className="color-blue">{ref.ref_name}! ;)</h1>
+              </div>
+              <div>
+                <img id="reference-form-header-logo" src={MatchesUpLogo} style={{width: "150px"}} alt="MatchesUpLogo"/>
+              </div>
+            </div>
           </div>
-          <div>
-            <img id="reference-form-header-logo" src={MatchesUpLogo} style={{width: "150px"}} alt="MatchesUpLogo"/>
-          </div>
-        </div>
-      </div>
-     <FormBody
-      gsc={gsc}
-      isLoading={isLoading}
-      handleChange={handleChange}
-      submitForm={submitForm}
-     />
+          <FormBody
+            gsc={gsc}
+            isLoading={isLoading}
+            handleChange={handleChange}
+            submitForm={submitForm}
+          />
+        </>
+        :
+        null
+      }
     </div>
   )
 }

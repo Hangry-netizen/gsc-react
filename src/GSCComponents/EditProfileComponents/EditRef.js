@@ -21,7 +21,7 @@ export default function EditRef({ reference }) {
     setIsLoading(true)
     axios({
       method: 'POST',
-      url: `${url}/references/${reference.ref_id}`,
+      url: `${url}/references/edit/${reference.ref_id}`,
       data: {
         reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner,
         good_match_for_gscf: form.good_match_for_gscf,
@@ -48,7 +48,7 @@ export default function EditRef({ reference }) {
 
     axios({
       method: 'POST',
-      url: `${url}/references/${reference.ref_id}`,
+      url: `${url}/references/edit/${reference.ref_id}`,
       data: {
         reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner,
         good_match_for_gscf: form.good_match_for_gscf,

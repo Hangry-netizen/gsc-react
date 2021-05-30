@@ -20,7 +20,7 @@ export default function AdminApprovalPage() {
   return (
     <div id="approval-page-container">
       <h1 className="color-red" style={{margin:"50px auto"}}>Approval Page</h1>
-      <div className="color-red">*from the FF's perspective</div>
+      <div className="color-red">*from the perspective of this GSC's FF and references</div>
       <br />
       <ApprovalTable
         gscs={gscs}

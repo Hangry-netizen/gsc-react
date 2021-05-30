@@ -85,9 +85,6 @@ export default function ConsentForm() {
           ref_email: form.first_referral_email
         }
       })
-      .then(() => {
-        alert(`Successfully sent reference email to ${form.first_referral_name}`)
-      })
       .catch(error => {
         console.log(error)
       })
@@ -99,11 +96,8 @@ export default function ConsentForm() {
         data: {
           gsc_id: gsc.id,
           ref_name: form.second_referral_name,
-          ref_email: form.second_referral_name
+          ref_email: form.second_referral_email
         }
-      })
-      .then(() => {
-        alert(`Successfully sent reference email to ${form.second_referral_name}`)
       })
       .catch(error => {
         console.log(error)
@@ -114,22 +108,31 @@ export default function ConsentForm() {
   
   return (
     <div>
-      <div id="consent-form-header">
-        <div id="consent-form-header-logo-title" className="display-flex" style={{alignItems:"center", height: "150px"}}>
-          <div className="Essays1743">
-            <h1 className="color-red">Welcome to MatchesUp,</h1>
-            <h1 className="color-blue">{gsc.name}! ;)</h1>
+      {
+        gsc
+        ?
+        <>
+          <div id="consent-form-header">
+            <div id="consent-form-header-logo-title" className="display-flex" style={{alignItems:"center", height: "150px"}}>
+              <div className="Essays1743">
+                <h1 className="color-red">Welcome to MatchesUp,</h1>
+                <h1 className="color-blue">{gsc.name}! ;)</h1>
+              </div>
+              <div>
+                <img id="consent-form-header-logo" src={MatchesUpLogo} style={{width: "150px"}} alt="MatchesUpLogo"/>
+              </div>
+            </div>
           </div>
-          <div>
-            <img id="consent-form-header-logo" src={MatchesUpLogo} style={{width: "150px"}} alt="MatchesUpLogo"/>
-          </div>
-        </div>
-      </div>
-      <FormBody
-        handleChange={handleChange}
-        submitForm={submitForm}
-        isLoading={isLoading}
-      />
+          <FormBody
+            handleChange={handleChange}
+            submitForm={submitForm}
+            isLoading={isLoading}
+          />
+        </>
+        :
+        null
+      }
+      
     </div>
   )
 }

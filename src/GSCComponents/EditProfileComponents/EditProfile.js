@@ -48,6 +48,21 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
             <Form.Control type="text" required onChange={handleChange('nationality')} value={form.nationality}/>
           </Col>
         </Form.Group>
+        <div className="italic color-red">CURRENT LOCATION</div>
+        <br />
+        <Form.Group as={Row}>
+          <Form.Label column sm="4" className="Essays1743 text-align-left">City/Town <span className="color-red">*</span></Form.Label>
+          <Col sm="8">
+            <Form.Control type="text" required onChange={handleChange('city')} value={form.city}/>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="4" className="Essays1743 text-align-left">Country <span className="color-red">*</span></Form.Label>
+          <Col sm="8">
+            <Form.Control type="text" required onChange={handleChange('country')} value={form.country}/>
+          </Col>
+        </Form.Group>
+        <br />
         <p className="Essays1743 text-align-left">Willingness to relocate/move... <span className="color-red">*</span></p>
         <Form.Group className="without-left-right-padding Essays1743">
           <Form.Label>...to a different town within the same country:<span>{form.moving_to_a_different_town}%</span></Form.Label>
@@ -107,21 +122,6 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
               checked={form.notification_frequency === "weekly" ? "checked" : null}
               required
             />
-          </Col>
-        </Form.Group>
-        <br />
-        <div className="italic color-red">CURRENT LOCATION</div>
-        <br />
-        <Form.Group as={Row}>
-          <Form.Label column sm="4" className="Essays1743 text-align-left">City/Town <span className="color-red">*</span></Form.Label>
-          <Col sm="8">
-            <Form.Control type="text" required onChange={handleChange('city')} value={form.city}/>
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm="4" className="Essays1743 text-align-left">Country <span className="color-red">*</span></Form.Label>
-          <Col sm="8">
-            <Form.Control type="text" required onChange={handleChange('country')} value={form.country}/>
           </Col>
         </Form.Group>
         <br />

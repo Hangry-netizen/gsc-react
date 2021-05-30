@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FormPage1 from './FormPage1';
 import FormPage2 from './FormPage2';
 import FormPage3 from './FormPage3';
@@ -13,7 +13,7 @@ export default function CreateGSCForm() {
   let history = useHistory();
   const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState()
+  const [error, setError] = useState("")
   const [otherDescWords, setOtherDescWords] = useState("");
   const [otherSpiritualGifts, setOtherSpiritualGifts] = useState("");
   const [descCounter, setDescCounter] = useState(0);
