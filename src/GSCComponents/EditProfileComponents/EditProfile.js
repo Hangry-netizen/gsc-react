@@ -244,10 +244,10 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
           </Col>
         </Form.Group>
         <Form.Group className="text-align-left">
-          <Form.Label className="Essays1743">Something else that's particularly important to know about him/her</Form.Label>
+          <Form.Label className="Essays1743">Something else that's particularly important to know about your GSCF</Form.Label>
           <Form.Text></Form.Text>
           <Col className="without-left-right-padding">
-            <Form.Control type="text" onChange={handleChange('favorite_topics')} value={form.favorite_topics} />
+            <Form.Control type="text" onChange={handleChange('important_info_to_know')} value={form.important_info_to_know} />
           </Col>
         </Form.Group>
         <br />

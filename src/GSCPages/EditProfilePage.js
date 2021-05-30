@@ -65,13 +65,14 @@ export default function EditProfilePage() {
         want_to_have_kids: form.want_to_have_kids,
         important_info_to_know: form.important_info_to_know,
         alias: form.alias,
-        ff_email: form.ff_email,
         consent: form.consent,
         social_media_profile_link: form.social_media_profile_link, 
         preferred_contact_method: form.preferred_contact_method, 
         contact_info: form.contact_info, 
         notification_frequency: form.notification_frequency,
         what_is_important_to_me: form.what_is_important_to_me,
+        ff_name: form.ff_name,
+        ff_email: form.ff_email,
         is_approved: form.is_approved,
         is_active: form.is_active
       }
