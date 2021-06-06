@@ -74,7 +74,8 @@ export default function EditProfilePage() {
         ff_name: form.ff_name,
         ff_email: form.ff_email,
         is_approved: form.is_approved,
-        is_active: form.is_active
+        is_active: form.is_active,
+        monthly_hellos: form.monthly_hellos
       }
     })
     .then((response) => {

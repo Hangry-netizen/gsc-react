@@ -142,7 +142,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
         <Form.Group as={Row}>
           <Form.Label column sm="4" className="Essays1743 text-align-left">MBTI</Form.Label>
           <Col sm="8">
-            <Form.Control type="text" onChange={handleChange('height')} value={form.mbti}/>
+            <Form.Control type="text" onChange={handleChange('mbti')} value={form.mbti}/>
           </Col>
         </Form.Group>
         <Form.Group as={Row}>

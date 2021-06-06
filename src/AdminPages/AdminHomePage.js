@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export default function AdminHomePage() {
   const [admin, setAdmin] = useState({})
   const [error, setError] = useState("")
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     axios.get(`${url}/admins/me`,
@@ -16,10 +17,14 @@ export default function AdminHomePage() {
       }
     })
     .then((response) => {
-      setAdmin(response.data)
+      if (response.data.status === 'success') {
+        setAdmin(response.data)
+        setShow(true)
+      }
     })
     .catch(() => {
       setError("Try logging out and loggin in again")
+      setShow(false)
     })
   }, [])
 
@@ -30,7 +35,7 @@ export default function AdminHomePage() {
         {error && <Alert className="color-red font-size-small">{error}</Alert>}
       </div>
       {
-        admin 
+        show
         ?
         <>
           <div style={{marginTop:"20px"}}>

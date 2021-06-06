@@ -15,7 +15,6 @@ export default function AdminDatabasePage() {
       .catch((error) => {
         console.log(error)
       })
-
   }, [])
   return (
     <div id="database-page-container">

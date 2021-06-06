@@ -1,0 +1,14 @@
+#database-page-container {
+  width: 90%;
+  margin: auto;
+}
+
+#gsc-database-table {
+  table-layout: fixed;
+  width: auto;
+}
+
+.sticky-left{
+  position: sticky;
+  left: 0;
+}

@@ -1,0 +1,14 @@
+#hello-page-container {
+  width: 90%;
+  margin: auto;
+}
+
+#said-hi-table, #hi-recipient-table {
+  table-layout: fixed;
+  width: auto;
+}
+
+.sticky-left{
+  position: sticky;
+  left: 0;
+}
