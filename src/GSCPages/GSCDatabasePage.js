@@ -76,7 +76,7 @@ export default function GSCDatabasePage() {
        <div className="color-red">Your remaining 👋 for this month: {currentGsc.monthly_hellos}</div>
        <br />
       {
-        currentGsc && gscs
+        currentGsc && gscs && hellosReceived && hellosSaid
         ? 
         <DatabaseTable
           currentGsc={currentGsc}

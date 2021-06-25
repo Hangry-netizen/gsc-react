@@ -1,0 +1,28 @@
+Before June 30th
+
+Database Page:
+- change font (refer to old db)
+- smaller padding
+- container increase width and height
+ do not display when gsc has been contacted or removed
+ display 'say hi' status
+- don't show 'alias' when sidenav is open
+- personality (display all instead of only the last one)
+
+Hello Page:
+change db display to the same as GSC database page
+- add "key in alias" in both tables
+add 'contacted' section
+
+Hello Model:
+undo 'say hi' -> delete model instance
+postman to set monthly_hellos(3) for all current gscs
+
+Articles:
+update existing articles
+put up new article
+add prev and next articles
+
+GSC Profile Page functions:
+hide/unhide profile (toggle is_active)
+remove profile (remove gsc model instance)

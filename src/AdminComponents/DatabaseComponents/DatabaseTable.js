@@ -19,6 +19,7 @@ const StyledTableCell = withStyles((theme) => ({
       left: 0,
       zIndex: theme.zIndex.appBar + 1,
     },
+    maxWidth: '250px'
   },
   body: {
     fontSize: 14,

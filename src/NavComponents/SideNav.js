@@ -16,6 +16,7 @@ const Ul = styled.ul`
   @media (max-width: 720px) {
     flex-flow: column nowrap;
     background-color: #fad4cd;
+    z-index: 1;
     position: fixed;
     transform: ${({ openSideNav }) => openSideNav ? 'translateX(0)' : 'translateX(100%)'};
     top: 0;

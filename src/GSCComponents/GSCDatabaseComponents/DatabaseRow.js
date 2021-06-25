@@ -6,7 +6,10 @@ import TableRow from '@material-ui/core/TableRow';
 const StyledTableRow = withStyles((theme) => ({
   root: {
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+      backgroundColor: '#3a3a3a',
+    },
+    '&:nth-of-type(even)': {
+      backgroundColor: '#464646',
     },
   },
 }))(TableRow);
@@ -43,28 +46,13 @@ export default function DatabaseRow({ gsc, StyledTableCell, currentGsc }) {
       setPersonality(`${gsc.mbti}`)
     }
     if (gsc.enneagram !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, Enneagram: ${gsc.enneagram}`)
-      }
-      else {
-        setPersonality(`Enneagram: ${gsc.enneagram}`)
-      }
+      setPersonality(existing => `${existing} Enneagram: ${gsc.enneagram}`)
     }
     if (gsc.disc !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, ${gsc.disc}`)
-      }
-      else {
-        setPersonality(gsc.disc)
-      }
+      setPersonality(existing => `${existing} ${gsc.disc}`)
     }
     if (gsc.strengths_finder !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, ${gsc.strengths_finder}`)
-      }
-      else {
-        setPersonality(gsc.strengths_finder)
-      }
+      setPersonality(existing => `${existing} ${gsc.strengths_finder}`)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -73,10 +61,10 @@ export default function DatabaseRow({ gsc, StyledTableCell, currentGsc }) {
   return (
     <>
       <StyledTableRow onClick={handleShowGscModal}>
-        <StyledTableCell style={{whiteSpace:'nowrap', background:'#1e365c', color:'#fad4cd'}} className="sticky-left">{gsc.alias}</StyledTableCell>
+        <StyledTableCell style={{whiteSpace:'nowrap', background:'#1e365c'}} className="sticky-left">{gsc.alias}</StyledTableCell>
         <StyledTableCell>{ageRange}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
-        <StyledTableCell>Town:{gsc.moving_to_a_different_town}%, Country:{gsc.moving_to_a_different_country}%</StyledTableCell>
+        <StyledTableCell style={{whiteSpace:'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
         <StyledTableCell>{gsc.height}</StyledTableCell>
         <StyledTableCell>{gsc.languages}</StyledTableCell>
         <StyledTableCell>{gsc.nationality}</StyledTableCell>
@@ -87,7 +75,7 @@ export default function DatabaseRow({ gsc, StyledTableCell, currentGsc }) {
         <StyledTableCell>{gsc.spiritual_gifts}</StyledTableCell>
         <StyledTableCell>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
         <StyledTableCell>{gsc.good_match_for_gscf}</StyledTableCell>
-        <StyledTableCell style={{width:'250px'}}>{gsc.what_is_important_to_me}</StyledTableCell>
+        <StyledTableCell>{gsc.what_is_important_to_me}</StyledTableCell>
       </StyledTableRow>
       <DatabaseModal
         gsc={gsc}

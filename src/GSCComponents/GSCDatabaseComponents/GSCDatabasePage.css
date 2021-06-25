@@ -1,14 +1,8 @@
 #database-page-container {
-  width: 90%;
-  margin: auto;
+  margin: 50px 20px;
 }
 
 #gsc-database-table {
   table-layout: fixed;
   width: auto;
-}
-
-.sticky-left{
-  position: sticky;
-  left: 0;
 }

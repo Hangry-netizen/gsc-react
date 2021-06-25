@@ -138,10 +138,13 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
           <div className="color-red">Social media profile link</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
-          <form onSubmit={handleSayHi}>
-            <div>
-              <label className="color-blue">Say hi to </label>
-              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder="Key in this profile's alias to say hi!"/>
+          <form onSubmit={handleSayHi} className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
+            <div className="display-flex">
+              <div style={{marginRight:"5px", whiteSpace:"nowrap"}}>Say hi to </div>
+              <div style={{marginLeft: "5px"}}>
+                <input style={{border:"white", padding:"auto 10px", width:"60%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)}/>
+                <label className="font-size-small color-beach">Key in this profile's alias to say hi!</label>
+              </div>
             </div>
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}
