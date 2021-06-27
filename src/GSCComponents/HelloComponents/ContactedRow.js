@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SaidHiModal from './SaidHiModal';
+import ContactedModal from './ContactedModal';
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
 
@@ -14,13 +14,13 @@ const StyledTableRow = withStyles(() => ({
   },
 }))(TableRow);
 
-export default function SaidHiRow({ gsc, StyledTableCell, currentGsc }) {
-  const [showSaidHiModal, setShowSaidHiModal] = useState(false);
+export default function ContactedRow({ gsc, StyledTableCell, currentGsc }) {
+  const [showContactedModal, setShowContactedModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
 
-  const handleCloseSaidHiModal = () => setShowSaidHiModal(false);
-  const handleShowSaidHiModal = () => setShowSaidHiModal(true);
+  const handleCloseContactedModal = () => setShowContactedModal(false);
+  const handleShowContactedModal = () => setShowContactedModal(true);
 
   useEffect(() => {
     let current_year = new Date().getFullYear()
@@ -46,34 +46,21 @@ export default function SaidHiRow({ gsc, StyledTableCell, currentGsc }) {
       setPersonality(`${gsc.mbti}`)
     }
     if (gsc.enneagram !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, Enneagram: ${gsc.enneagram}`)
-      }
-      else {
-        setPersonality(`Enneagram: ${gsc.enneagram}`)
-      }
+      setPersonality(existing => `${existing} Enneagram: ${gsc.enneagram}`)
     }
     if (gsc.disc !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, ${gsc.disc}`)
-      }
-      else {
-        setPersonality(gsc.disc)
-      }
+      setPersonality(existing => `${existing} ${gsc.disc}`)
     }
     if (gsc.strengths_finder !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, ${gsc.strengths_finder}`)
-      }
-      else {
-        setPersonality(gsc.strengths_finder)
-      }
+      setPersonality(existing => `${existing} ${gsc.strengths_finder}`)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
   return (
     <>
-      <StyledTableRow onClick={handleShowSaidHiModal}>
+      <StyledTableRow onClick={handleShowContactedModal}>
         <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.name}</StyledTableCell>
         <StyledTableCell>{ageRange}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
@@ -90,10 +77,10 @@ export default function SaidHiRow({ gsc, StyledTableCell, currentGsc }) {
         <StyledTableCell>{gsc.good_match_for_gscf}</StyledTableCell>
         <StyledTableCell>{gsc.what_is_important_to_me}</StyledTableCell>
       </StyledTableRow>
-      <SaidHiModal
+      <ContactedModal
         gsc={gsc}
-        showSaidHiModal={showSaidHiModal}
-        handleCloseSaidHiModal={handleCloseSaidHiModal}
+        showContactedModal={showContactedModal}
+        handleCloseContactedModal={handleCloseContactedModal}
         personality={personality}
         currentGsc={currentGsc}
         ageRange={ageRange}

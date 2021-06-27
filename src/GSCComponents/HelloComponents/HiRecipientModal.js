@@ -4,19 +4,19 @@ import axios from 'axios';
 import { url } from "../../App";
 
 
-export default function HiRecipientModal({ gsc, showHiRecipientModal, handleCloseHiRecipientModal, personality, currentGsc, ageRange }) {
+export default function HiRecipientModal({ gsc, showHiRecipientModal, handleCloseHiRecipientModal, personality, ageRange }) {
   const [isLoading, setIsLoading] = useState(true)
   const [answer, setAnswer] = useState("")
   const [error, setError] = useState("")
 
   useEffect(() => {
-    if (answer === gsc.alias){
+    if (answer === gsc.name){
       setIsLoading(false)
     }
     else (
       setIsLoading(true)
     )
-  }, [answer, gsc.alias])
+  }, [answer, gsc.name])
 
   const handleContacted = (e) => {
     e.preventDefault()
@@ -76,7 +76,7 @@ export default function HiRecipientModal({ gsc, showHiRecipientModal, handleClos
         scrollable={true}
       >
         <Modal.Header closeButton className="bg-beach">
-          <Modal.Title className="color-blue">{gsc.alias}</Modal.Title>
+          <Modal.Title className="color-blue">{gsc.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-beach" style={{height:"80vh", overflowY:"auto"}}>
           <div className="color-red">Name</div>
@@ -157,10 +157,10 @@ export default function HiRecipientModal({ gsc, showHiRecipientModal, handleClos
           <div className="color-red">Social media profile link</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
-          <form>
+          <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
-              <label className="color-blue">To enable contacted or remove button:</label>
-              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder="Key in this profile's alias"/>
+              <label className="color-red font-size-small">Key in this profile's name to enable contacted/remove buttons:</label>
+              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} />
             </div>
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { url } from '../App';
 import SaidHiTable from '../GSCComponents/HelloComponents/SaidHiTable';
 import HiRecipientTable from '../GSCComponents/HelloComponents/HiRecipientTable';
+import ContactedTable from '../GSCComponents/HelloComponents/ContactedTable';
 import '../GSCComponents/HelloComponents/HelloPage.css';
 
 export default function HelloPage() {
@@ -50,20 +51,36 @@ export default function HelloPage() {
         <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>BACK</button>
       </div>
       <br />
-      <h1 className="color-red">Your Hellos</h1>
-      <br />
-      <h3 className="color-red">GSCs you have said hi to</h3>
-      <SaidHiTable
-      currentGsc={currentGsc}
-      saidHellos={saidHellos}
-      />
-      <br />
-      <h3 className="color-red">GSCs who have said hi to you</h3>
-      <HiRecipientTable
-      currentGsc={currentGsc}
-      receivedHellos={receivedHellos}
-      />
-      <br />
+      {
+        currentGsc && saidHellos && receivedHellos
+        ?
+        <>
+          <h1 className="color-red">Your Hellos</h1>
+          <br />
+          <h3 className="color-blue">GSCs you have 👋 (said hi) to</h3>
+          <SaidHiTable
+            currentGsc={currentGsc}
+            saidHellos={saidHellos}
+          />
+          <br />
+          <h3 className="color-blue">GSCs who have 👋 (said hi) to you</h3>
+          <HiRecipientTable
+            currentGsc={currentGsc}
+            receivedHellos={receivedHellos}
+          />
+          <br />
+          <h3 className="color-blue">GSCs you've contacted</h3>
+          <ContactedTable
+            currentGsc={currentGsc}
+            saidHellos={saidHellos}
+            receivedHellos={receivedHellos}
+          />
+          <br />
+          <br />
+        </>
+        :
+        null
+      }
     </div>
   )
 }

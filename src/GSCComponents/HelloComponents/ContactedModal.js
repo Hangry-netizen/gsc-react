@@ -3,109 +3,75 @@ import { Modal, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from "../../App";
 
-export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, personality, currentGsc }) {
-  const [answer, setAnswer] = useState("")
-  
+
+export default function ContactedModal({ gsc, showContactedModal, handleCloseContactedModal, personality, ageRange }) {
   const [isLoading, setIsLoading] = useState(true)
+  const [answer, setAnswer] = useState("")
   const [error, setError] = useState("")
 
   useEffect(() => {
-    if (answer === gsc.alias){
+    if (answer === gsc.name){
       setIsLoading(false)
     }
     else (
       setIsLoading(true)
     )
-  }, [answer, gsc.alias])
+  }, [answer, gsc.name])
 
-  const handleSayHi = (e) => {
+  const handleRemove = (e) => {
     e.preventDefault()
     setError("")
-
-    if (currentGsc.monthly_hellos === 0) {
-      return alert("You have no more 'say hi's remaining for this month")
-    }
-
     setIsLoading(true)
 
     axios({
       method: "POST",
-      url: `${url}/hellos/`,
+      url: `${url}/hellos/remove/${gsc.hello_id}`,
       data: {
-        said_hi: currentGsc.id,
-        hi_recipient: gsc.id
+        remove: true
       }
     })
     .then((response) => {
       if (response.data.status === "success") {
         alert(response.data.message)
-        updateMonthlyHellos()
+        handleCloseContactedModal()
       }
     })
-    .catch(() => {
-      setError("Failed to like")
+    .catch((error) => {
+      setError(error)
     })
 
     setIsLoading(false)
   };
-
-  const handleUndoHi = (e) => {
-    e.preventDefault()
-    setError("")
-
-    setIsLoading(true)
-
-    axios({
-      method: "POST",
-      url: `${url}/hellos/delete/${gsc.hello_id}`
-    })
-    .then((response) => {
-      if (response.data.status === "success") {
-        alert("You have undone your 'hi' successfully")
-      }
-      else {
-        setError("Failed to undo your 'hi'")
-      }
-    })
-    .catch(() => {
-      setError("Failed to undo your 'hi'")
-    })
-
-    setIsLoading(false)
-  };
-
-  const updateMonthlyHellos = () => {
-    let update_hellos = currentGsc.monthly_hellos - 1 
-    axios({
-      method: "POST",
-      url: `${url}/gscs/monthly-hellos/${currentGsc.uuid}`,
-      data: {
-        monthly_hellos: update_hellos
-      }
-    })
-    .then((response) => {
-      if (response.data.status === "success") {
-        window.location.reload()
-      }
-    })
-    .catch(() => {
-      setError("Failed to like")
-    })
-  };
-
   return (
     <>
       <Modal
         id="gsc-modal"
-        show={showGscModal}
-        onHide={handleCloseGscModal}
+        show={showContactedModal}
+        onHide={handleCloseContactedModal}
         scrollable={true}
       >
         <Modal.Header closeButton className="bg-beach">
-          <Modal.Title className="color-blue">{gsc.alias}</Modal.Title>
+          <Modal.Title className="color-blue">{gsc.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-beach" style={{height:"80vh", overflowY:"auto"}}>
-          <div className="color-blue font-size-small">*scroll down to 'say hi'</div>
+          <div className="color-red">Name</div>
+          <div className="color-blue">{gsc.name}</div>
+          <br />
+          <div className="color-red">Contact Info</div>
+          <div className="color-blue">{gsc.contact_info}</div>
+          <br />
+          <div className="color-red">Age Range</div>
+          <div className="color-blue">{ageRange}</div>
+          <br />
+          <div className="color-red">Location</div>
+          <div className="color-blue">{gsc.city}, {gsc.country}</div>
+          <br />
+          <div className="color-red">Willingness to relocate</div>
+          <div className="color-blue">Town: {gsc.moving_to_a_different_town}%, Country: {gsc.moving_to_a_different_country}%</div>
+          <br />
+          <div className="color-red">Height</div>
+          <div className="color-blue">{gsc.height}</div>
+          <br />
           <div className="color-red">Languages</div>
           <div className="color-blue">{gsc.languages}</div>
           <br />
@@ -164,48 +130,29 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
           <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
-            <div className="display-flex">
-              <div style={{marginRight:"5px", whiteSpace:"nowrap"}}>Say hi to </div>
-              <div style={{marginLeft: "5px"}}>
-                <input style={{border:"white", padding:"auto 10px", width:"60%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)}/>
-                {
-                  gsc.said_hi
-                  ?
-                  <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">undo</span> your 'hi'!</label>
-                  :
-                  <label className="font-size-small color-beach">Key in this profile's alias to say hi!</label>
-                }
-              </div>
+            <div>
+              <label className="color-red">Key in this profile's name to enable the remove button:</label>
+              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} />
             </div>
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}
             </div>
             <br />
-            <div className="text-align-right">
-              <Button variant="secondary" onClick={handleCloseGscModal} style={{marginRight:"20px"}}>Close</Button>
-              {
-                isLoading
-                ?
-                <>
-                  {
-                    gsc.said_hi === false
-                    ?
-                    <Button variant="secondary" disabled={isLoading}>Say hi 👋</Button>
-                    :
-                    <Button variant="secondary" disabled={isLoading}>Undo 'hi' 👋</Button>
-                  }
-                </>
-                :
-                <>
-                  {
-                    gsc.said_hi === false
-                    ?
-                    <Button variant="danger" disabled={isLoading} onClick={handleSayHi}>Say hi 👋</Button>
-                    :
-                    <Button variant="danger" disabled={isLoading} onClick={handleUndoHi}>Undo "hi" 👋</Button>
-                  }
-                </>
-              }
+            <div style={{display:'flex', boxSizing:'border-box', width:'100%', justifyContent:'space-between'}}>
+              <Button variant="secondary" onClick={handleCloseContactedModal}>Close</Button>
+              <div>
+                {
+                  isLoading
+                  ?
+                  <>
+                    <Button variant="secondary" disabled={isLoading} onClick={handleRemove}>Remove</Button>
+                  </>
+                  :
+                  <>
+                    <Button variant="danger" disabled={isLoading} onClick={handleRemove}>Remove</Button>
+                  </>             
+                }
+              </div>
             </div>
           </form>
         </Modal.Body>

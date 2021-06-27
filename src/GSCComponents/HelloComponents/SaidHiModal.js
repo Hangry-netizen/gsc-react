@@ -3,7 +3,7 @@ import { Modal, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from "../../App";
 
-export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiModal, personality, currentGsc, ageRange }) {
+export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiModal, personality, ageRange }) {
   const [isLoading, setIsLoading] = useState(true)
   const [answer, setAnswer] = useState("")
   const [error, setError] = useState("")
@@ -150,10 +150,10 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
           <div className="color-red">Social media profile link</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
-          <form>
+          <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
-              <label className="color-blue">To enable contacted or remove button:</label>
-              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder="Key in this profile's alias"/>
+              <label className="color-red">Key in this profile's name to enable contacted/remove buttons:</label>
+              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} />
             </div>
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}

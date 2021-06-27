@@ -14,7 +14,7 @@ const StyledTableCell = withStyles((theme) => ({
     color: theme.palette.common.white,
     fontFamily: 'Josefin Sans',
     maxWidth: '300px',
-    '&:nth-of-type(1)': {
+    '&:nth-of-type(2)': {
       position: 'sticky',
       left: 0,
       maxWidth: '100px',
@@ -33,13 +33,14 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell)
 
-export default function DatabaseTable({ gscs, currentGsc, hellosReceived, hellosSaid }) {
+export default function DatabaseTable({ gscs, currentGsc }) {
   return (
     <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
       <Table stickyHeader id="gsc-database-table">
         <TableHead>
+          <StyledTableCell>Actions</StyledTableCell>
           <StyledTableCell>Alias</StyledTableCell>
-          <StyledTableCell>Age Range</StyledTableCell>
+          <StyledTableCell>Age range</StyledTableCell>
           <StyledTableCell>Location</StyledTableCell>
           <StyledTableCell>Willingness to relocate</StyledTableCell>
           <StyledTableCell>Height</StyledTableCell>

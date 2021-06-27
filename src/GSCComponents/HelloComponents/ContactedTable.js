@@ -1,5 +1,5 @@
-import React from 'react';
-import SaidHiRow from './SaidHiRow';
+import React, { useState, useEffect } from 'react';
+import ContactedRow from './ContactedRow';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -30,7 +30,39 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell)
 
-export default function SaidHiTable({ saidHellos, currentGsc }) {
+export default function ContactedTable({ currentGsc, saidHellos, receivedHellos }) {
+  const [contactedHellos, setContactedHellos] = useState([]);
+  const [check_duplicate, setCheckDuplicate] = useState([]);
+
+  const setContacted = (gsc) => {
+    if (check_duplicate.includes(gsc.id)) {
+      return null
+    }
+    else {
+      setCheckDuplicate(existing => [...existing, gsc.id])
+      setContactedHellos(existing => [...existing, gsc])
+    }
+  }
+
+  useEffect(() => {
+    saidHellos.map((gsc) => {
+      if (gsc.hello_contacted === true) {
+        setContacted(gsc)
+        return null
+      }
+      return null
+    })
+
+    receivedHellos.map((gsc) => {
+      if (gsc.hello_contacted === true) {
+        setContacted(gsc)
+        return null
+      }
+      return null
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [receivedHellos, saidHellos])
+
   return (
     <div>
       <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
@@ -54,20 +86,15 @@ export default function SaidHiTable({ saidHellos, currentGsc }) {
           </TableHead>
           <TableBody>
           {
-            saidHellos.map((gsc, i) => {
-              if (gsc.hello_contacted === false) {
-                return (
-                  <SaidHiRow
-                    key={i}
-                    gsc={gsc}
-                    StyledTableCell={StyledTableCell}
-                    currentGsc={currentGsc}
-                  />
-                )
-              }
-              else {
-                return null
-              }
+            contactedHellos.map((gsc, i) => {
+              return (
+                <ContactedRow
+                  key={i}
+                  gsc={gsc}
+                  StyledTableCell={StyledTableCell}
+                  currentGsc={currentGsc}
+                />
+              )
             })
           }
           </TableBody>

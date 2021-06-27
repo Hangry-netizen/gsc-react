@@ -12,15 +12,21 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: '#1e365c',
     color: theme.palette.common.white,
-    whiteSpace: 'nowrap',
-    "&:nth-child(1)": {
+    fontFamily: 'Josefin Sans',
+    maxWidth: '300px',
+    '&:nth-of-type(1)': {
       position: 'sticky',
       left: 0,
+      maxWidth: '100px',
+      zIndex: 3,
     },
   },
   body: {
     fontSize: 14,
-    color: '#1e365c',
+    color: theme.palette.common.white,
+    fontFamily: 'Josefin Sans',
+    fontWeight: 200,
+    padding: '5px 10px',
   },
 }))(TableCell)
 
@@ -30,33 +36,40 @@ export default function HiRecipientTable({ receivedHellos, currentGsc }) {
       <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
         <Table stickyHeader id="gsc-database-table">
           <TableHead>
-            <StyledTableCell style={{position:'sticky', left:0, zIndex:2}}>Alias</StyledTableCell>
-            <StyledTableCell>Age Range</StyledTableCell>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell>Preferred Contact Method</StyledTableCell>
+            <StyledTableCell>Contact info</StyledTableCell>
+            <StyledTableCell>Age range</StyledTableCell>
             <StyledTableCell>Location</StyledTableCell>
             <StyledTableCell>Willingness to relocate</StyledTableCell>
             <StyledTableCell>Height</StyledTableCell>
             <StyledTableCell>Languages</StyledTableCell>
             <StyledTableCell>Nationality/ Ethnicity</StyledTableCell>
-            <StyledTableCell>Descriptors</StyledTableCell>
+            <StyledTableCell style={{paddingRight: '150px'}}>Descriptors</StyledTableCell>
             <StyledTableCell>Personality/ Temperament</StyledTableCell>
             <StyledTableCell>Church background</StyledTableCell>
-            <StyledTableCell>Spiritual maturity</StyledTableCell>
-            <StyledTableCell>Spiritual characteristics</StyledTableCell>
-            <StyledTableCell>Why do you think your GSCF would make a good partner?</StyledTableCell>
-            <StyledTableCell>What kind of person would make a good match for your GSCF?</StyledTableCell>
-            <StyledTableCell>Words from the GSC</StyledTableCell>
+            <StyledTableCell style={{paddingRight: '100px'}}>Spiritual maturity</StyledTableCell>
+            <StyledTableCell style={{paddingRight: '150px'}}>Spiritual characteristics</StyledTableCell>
+            <StyledTableCell style={{whiteSpace:'nowrap'}}>Why do you think your GSCF would make <br /> a good partner?</StyledTableCell>
+            <StyledTableCell style={{whiteSpace:'nowrap'}}>What kind of person would make a good <br /> match for your GSCF?</StyledTableCell>
+            <StyledTableCell style={{whiteSpace:'nowrap', paddingRight: '300px'}}>Words from the GSC</StyledTableCell>
           </TableHead>
           <TableBody>
           {
             receivedHellos.map((gsc, i) => {
-              return (
-                <HiRecipientRow
-                  key={i}
-                  gsc={gsc}
-                  StyledTableCell={StyledTableCell}
-                  currentGsc={currentGsc}
-                />
-              )
+              if (gsc.hello_contacted === false) {
+                return (
+                  <HiRecipientRow
+                    key={i}
+                    gsc={gsc}
+                    StyledTableCell={StyledTableCell}
+                    currentGsc={currentGsc}
+                  />
+                )
+              }
+              else {
+                return null
+              }
             })
           }
           </TableBody>

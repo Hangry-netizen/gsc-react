@@ -3,7 +3,7 @@ import DatabaseModal from './DatabaseModal';
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
 
-const StyledTableRow = withStyles((theme) => ({
+const StyledTableRow = withStyles(() => ({
   root: {
     '&:nth-of-type(odd)': {
       backgroundColor: '#3a3a3a',
@@ -14,7 +14,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-export default function DatabaseRow({ gsc, StyledTableCell, currentGsc }) {
+export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
   const [showGscModal, setShowGscModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
@@ -56,12 +56,18 @@ export default function DatabaseRow({ gsc, StyledTableCell, currentGsc }) {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
 
   return (
     <>
       <StyledTableRow onClick={handleShowGscModal}>
-        <StyledTableCell style={{whiteSpace:'nowrap', background:'#1e365c'}} className="sticky-left">{gsc.alias}</StyledTableCell>
+        {
+          gsc.said_hi === true
+          ?
+          <StyledTableCell className="text-align-center">👋</StyledTableCell>
+          :
+          <StyledTableCell></StyledTableCell>
+        }
+        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
         <StyledTableCell>{ageRange}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
         <StyledTableCell style={{whiteSpace:'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>

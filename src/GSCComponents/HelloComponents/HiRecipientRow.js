@@ -3,10 +3,13 @@ import HiRecipientModal from './HiRecipientModal';
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
 
-const StyledTableRow = withStyles((theme) => ({
+const StyledTableRow = withStyles(() => ({
   root: {
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+      backgroundColor: '#3a3a3a',
+    },
+    '&:nth-of-type(even)': {
+      backgroundColor: '#464646',
     },
   },
 }))(TableRow);
@@ -43,49 +46,38 @@ export default function HiRecipientRow({ gsc, StyledTableCell, currentGsc }) {
       setPersonality(`${gsc.mbti}`)
     }
     if (gsc.enneagram !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, Enneagram: ${gsc.enneagram}`)
-      }
-      else {
-        setPersonality(`Enneagram: ${gsc.enneagram}`)
-      }
+      setPersonality(existing => `${existing} Enneagram: ${gsc.enneagram}`)
     }
     if (gsc.disc !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, ${gsc.disc}`)
-      }
-      else {
-        setPersonality(gsc.disc)
-      }
+      setPersonality(existing => `${existing} ${gsc.disc}`)
     }
     if (gsc.strengths_finder !== "") {
-      if (personality !== "") {
-        setPersonality(`${personality}, ${gsc.strengths_finder}`)
-      }
-      else {
-        setPersonality(gsc.strengths_finder)
-      }
+      setPersonality(existing => `${existing} ${gsc.strengths_finder}`)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
   return (
     <>
       <StyledTableRow onClick={handleShowHiRecipientModal}>
-        <StyledTableCell>{gsc.alias}</StyledTableCell>
+        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.name}</StyledTableCell>
+        <StyledTableCell>{gsc.preferred_contact_method}</StyledTableCell>
+        <StyledTableCell>{gsc.contact_info}</StyledTableCell>
         <StyledTableCell>{ageRange}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
-        <StyledTableCell style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%, Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
+        <StyledTableCell style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
         <StyledTableCell>{gsc.height}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'200px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.languages}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'200px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.nationality}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'200px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.descriptive_words}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'200px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{personality}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'200px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.church_background}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'200px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.spiritual_maturity}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'400px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.spiritual_gifts}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'500px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'500px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.good_match_for_gscf}</StyledTableCell>
-        <StyledTableCell style={{maxWidth:'500px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{gsc.what_is_important_to_me}</StyledTableCell>
+        <StyledTableCell>{gsc.languages}</StyledTableCell>
+        <StyledTableCell>{gsc.nationality}</StyledTableCell>
+        <StyledTableCell>{gsc.descriptive_words}</StyledTableCell>
+        <StyledTableCell>{personality}</StyledTableCell>
+        <StyledTableCell>{gsc.church_background}</StyledTableCell>
+        <StyledTableCell>{gsc.spiritual_maturity}</StyledTableCell>
+        <StyledTableCell>{gsc.spiritual_gifts}</StyledTableCell>
+        <StyledTableCell>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
+        <StyledTableCell>{gsc.good_match_for_gscf}</StyledTableCell>
+        <StyledTableCell>{gsc.what_is_important_to_me}</StyledTableCell>
       </StyledTableRow>
       <HiRecipientModal
         gsc={gsc}
