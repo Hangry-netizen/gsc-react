@@ -34,6 +34,7 @@ export default function ContactedModal({ gsc, showContactedModal, handleCloseCon
       if (response.data.status === "success") {
         alert(response.data.message)
         handleCloseContactedModal()
+        window.location.reload()
       }
     })
     .catch((error) => {

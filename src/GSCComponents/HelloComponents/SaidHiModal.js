@@ -33,6 +33,7 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
       if (response.data.status === "success") {
         alert(response.data.message)
         handleCloseSaidHiModal()
+        window.location.reload()
       }
     })
     .catch((error) => {
@@ -58,6 +59,7 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
       if (response.data.status === "success") {
         alert(response.data.message)
         handleCloseSaidHiModal()
+        window.location.reload()
       }
     })
     .catch((error) => {

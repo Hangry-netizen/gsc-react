@@ -39,7 +39,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
     .then((response) => {
       if (response.data.status === "success") {
         alert(response.data.message)
-        updateMonthlyHellos()
+        window.location.reload()
       }
     })
     .catch(() => {
@@ -62,6 +62,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
     .then((response) => {
       if (response.data.status === "success") {
         alert("You have undone your 'hi' successfully")
+        window.location.reload()
       }
       else {
         setError("Failed to undo your 'hi'")
@@ -73,25 +74,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
 
     setIsLoading(false)
   };
-
-  const updateMonthlyHellos = () => {
-    let update_hellos = currentGsc.monthly_hellos - 1 
-    axios({
-      method: "POST",
-      url: `${url}/gscs/monthly-hellos/${currentGsc.uuid}`,
-      data: {
-        monthly_hellos: update_hellos
-      }
-    })
-    .then((response) => {
-      if (response.data.status === "success") {
-        window.location.reload()
-      }
-    })
-    .catch(() => {
-      setError("Failed to like")
-    })
-  };
+  console.log(gsc)
 
   return (
     <>

@@ -34,6 +34,7 @@ export default function HiRecipientModal({ gsc, showHiRecipientModal, handleClos
       if (response.data.status === "success") {
         alert(response.data.message)
         handleCloseHiRecipientModal()
+        window.location.reload()
       }
     })
     .catch((error) => {
@@ -59,6 +60,7 @@ export default function HiRecipientModal({ gsc, showHiRecipientModal, handleClos
       if (response.data.status === "success") {
         alert(response.data.message)
         handleCloseHiRecipientModal()
+        window.location.reload()
       }
     })
     .catch((error) => {
