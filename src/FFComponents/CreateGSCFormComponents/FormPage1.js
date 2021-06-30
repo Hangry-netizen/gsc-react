@@ -53,9 +53,12 @@ export default function FormPage1({ form, prevStep, nextStep, handleChange }) {
           </Form.Group>
           <br />
           <div className="display-flex">
-            <div>Page {form.step} of 4</div>
+            <Link to="/my-good-single-christian-friends">
+              <Button variant="secondary">Cancel</Button>
+            </Link>
             <Button id="create-gsc-form-next-btn" type="submit" value="submit">Next</Button>
           </div>
+          <div className="text-align-center">Page {form.step} of 4</div>
         </Form>
       </div>
     </div>
