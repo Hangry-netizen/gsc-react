@@ -16,16 +16,26 @@ Hello Page:
 
 Hello Model:
 - undo 'say hi' -> delete model instance
-postman to set monthly_hellos(3) for all current gscs
+- postman to set monthly_hellos(3) for all current gscs
 
-Approve new gscs:
-set is_active
+Admin:
+- set up monthly email api to call from postman for July 1
+
+Hello notification:
+- set up email notification to notify same_day hi recipient of new hello (no scheduler for now)
+- set up api to retrieve data of hellos (hello id)
+- set up api to send weekly hello notification email
+link article after adding the new articles (in sendgrid email notification template)
+
 
 Articles:
 update existing articles
 put up new article
 add prev and next articles
 
-GSC Profile Page functions:
-hide/unhide profile (toggle is_active)
-remove profile (remove gsc model instance)
+Edits:
+- Change all the "back" buttons to small letters
+- Wave to show on hello receiver's database and replace 'say hi' button with "{alias} has said hi {wave icon} to you!"
+- On Hello page, both "said hi" don't need brackets
+- Helpful pointers 3 - delete the one hour line.
+- Check for contacted showing in database

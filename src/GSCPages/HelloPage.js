@@ -48,7 +48,7 @@ export default function HelloPage() {
   return (
     <div id="hello-page-container">
       <div className="text-align-left" style={{marginTop:"20px"}}>
-        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>BACK</button>
+        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>back</button>
       </div>
       <br />
       {
@@ -57,13 +57,13 @@ export default function HelloPage() {
         <>
           <h1 className="color-red">Your Hellos</h1>
           <br />
-          <h3 className="color-blue">GSCs you have 👋 (said hi) to</h3>
+          <h3 className="color-blue">GSCs you have 👋 said hi to</h3>
           <SaidHiTable
             currentGsc={currentGsc}
             saidHellos={saidHellos}
           />
           <br />
-          <h3 className="color-blue">GSCs who have 👋 (said hi) to you</h3>
+          <h3 className="color-blue">GSCs who have 👋 said hi to you</h3>
           <HiRecipientTable
             currentGsc={currentGsc}
             receivedHellos={receivedHellos}

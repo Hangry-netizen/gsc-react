@@ -44,7 +44,7 @@ export default function GSCDatabasePage() {
   return (
     <div id="database-page-container">
       <div className="text-align-left" style={{marginTop:"20px"}}>
-        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>BACK</button>
+        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>back</button>
       </div>
       {
         currentGsc && gscs

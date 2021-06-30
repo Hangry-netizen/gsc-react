@@ -18,7 +18,7 @@ export default function PointersModal({ showPointersModal, handleClosePointersMo
           <br />
           <div>2. Click “maybe” 🤔 to track interesting profiles before you decide to say hi (only you can see this).</div>
           <br />
-          <div>3. Click “say hi” 👋 to send your name and contact info to that person. You have one hour to undo this action before the person receives any notification.</div>
+          <div>3. Click “say hi” 👋 to send your name and contact info to that person.</div>
           <br />
           <div>4. To encourage prayerful choices, you can only “say hi” 👋 to up to 3 people every month.</div>
         </Modal.Body>

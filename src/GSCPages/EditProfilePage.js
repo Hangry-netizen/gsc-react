@@ -112,7 +112,7 @@ export default function EditProfilePage() {
   return (
     <div id="edit-profile-container">
       <div className="text-align-left">
-        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>BACK</button>
+        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>back</button>
       </div>
       {
         form && references 

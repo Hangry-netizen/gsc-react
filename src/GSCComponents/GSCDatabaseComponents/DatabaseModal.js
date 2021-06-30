@@ -3,7 +3,7 @@ import { Modal, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from "../../App";
 
-export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, personality, currentGsc }) {
+export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, personality, currentGsc, action }) {
   const [answer, setAnswer] = useState("")
   
   const [isLoading, setIsLoading] = useState(true)
@@ -23,7 +23,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
     setError("")
 
     if (currentGsc.monthly_hellos === 0) {
-      return alert("You have no more 'say hi's remaining for this month")
+      return alert("You have no more 👋 'say hi's remaining for this month")
     }
 
     setIsLoading(true)
@@ -61,20 +61,49 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert("You have undone your 'hi' successfully")
+        alert("You have undone your 👋")
         window.location.reload()
       }
       else {
-        setError("Failed to undo your 'hi'")
+        setError("Failed to undo your 👋")
       }
     })
     .catch(() => {
-      setError("Failed to undo your 'hi'")
+      setError("Failed to undo your 👋")
     })
 
     setIsLoading(false)
   };
   console.log(gsc)
+
+  const handleRemoveHi = (e) => {
+    e.preventDefault()
+    setError("")
+
+    setIsLoading(true)
+
+    axios({
+      method: "POST",
+      url: `${url}/hellos/remove/${gsc.hello_id}`,
+      data: {
+        remove: true
+      }
+    })
+    .then((response) => {
+      if (response.data.status === "success") {
+        alert(`You have removed ${gsc.alias}'s 👋`)
+        window.location.reload()
+      }
+      else {
+        setError(`Failed to remove ${gsc.alias}'s 👋`)
+      }
+    })
+    .catch(() => {
+      setError(`Failed to remove ${gsc.alias}'s 👋`)
+    })
+
+    setIsLoading(false)
+  };
 
   return (
     <>
@@ -87,8 +116,22 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
         <Modal.Header closeButton className="bg-beach">
           <Modal.Title className="color-blue">{gsc.alias}</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="bg-beach" style={{height:"80vh", overflowY:"auto"}}>
-          <div className="color-blue font-size-small">*scroll down to 'say hi'</div>
+        <Modal.Body className="bg-beach text-align-left" style={{height:"80vh", overflowY:"auto"}}>
+          {
+            action === "said_hi" || action === "hi_recipient"
+            ?
+            <>
+            {
+              action === "said_hi"
+              ?
+              <div className="color-blue font-size-small">*scroll down to undo your 👋</div>
+              :
+              <div className="color-blue font-size-small">*scroll down to remove {gsc.alias}'s 👋</div>
+            }
+            </>
+            :
+            <div className="color-blue font-size-small">*scroll down to 👋</div>
+          }
           <div className="color-red">Languages</div>
           <div className="color-blue">{gsc.languages}</div>
           <br />
@@ -146,20 +189,42 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
           <div className="color-red">Social media profile link</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
-          <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
-            <div className="display-flex">
-              <div style={{marginRight:"5px", whiteSpace:"nowrap"}}>Say hi to </div>
-              <div style={{marginLeft: "5px"}}>
-                <input style={{border:"white", padding:"auto 10px", width:"60%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)}/>
-                {
-                  gsc.said_hi
-                  ?
-                  <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">undo</span> your 'hi'!</label>
-                  :
-                  <label className="font-size-small color-beach">Key in this profile's alias to say hi!</label>
-                }
+          <form className="bg-blue color-red" style={{padding:"15px", borderRadius:"10px"}}>
+            {
+              action === "said_hi" || action === "hi_recipient"
+              ?
+              <>
+              {
+                action === "said_hi"
+                ?
+                <div className="text-align-left">
+                  <div>You have 👋 at {gsc.alias}!</div>
+                  <br />
+                  <div style={{marginLeft: "5px"}}>
+                    <input style={{border:"white", padding:" 5px 15px", width:"90%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.alias}/>
+                    <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">undo</span> your 👋</label>
+                  </div>
+                </div>
+                :
+                <div className="text-align-left">
+                  <div>{gsc.alias} has 👋 at you!</div>
+                  <br />
+                  <div>
+                    <input style={{border:"white", padding:" 5px 15px", width:"90%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.alias}/>
+                    <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">remove</span> 👋</label>
+                  </div>
+                </div>
+              }
+              </>
+              :
+              <div className="display-flex text-align-left">
+                <div style={{margin:" 5px 15px auto 0", whiteSpace:"nowrap"}}>'Say hi' 👋 to </div>
+                <div style={{marginLeft: "5px"}}>
+                  <input style={{border:"white", padding:" 5px 15px", width:"90%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.alias}/>
+                  <label className="font-size-small color-beach">Key in this profile's alias to 👋!</label>
+                </div>
               </div>
-            </div>
+            }
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}
             </div>
@@ -167,27 +232,20 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
             <div className="text-align-right">
               <Button variant="secondary" onClick={handleCloseGscModal} style={{marginRight:"20px"}}>Close</Button>
               {
-                isLoading
+                action === "said_hi" || action === "hi_recipient"
                 ?
                 <>
-                  {
-                    gsc.said_hi === false
-                    ?
-                    <Button variant="secondary" disabled={isLoading}>Say hi 👋</Button>
-                    :
-                    <Button variant="secondary" disabled={isLoading}>Undo 'hi' 👋</Button>
-                  }
+                {
+                  action === "said_hi"
+                  ?
+                  <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleUndoHi}>Undo 'hi' 👋</Button>
+                  :
+                  <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleRemoveHi}>Remove 'hi' 👋</Button>
+
+                }
                 </>
                 :
-                <>
-                  {
-                    gsc.said_hi === false
-                    ?
-                    <Button variant="danger" disabled={isLoading} onClick={handleSayHi}>Say hi 👋</Button>
-                    :
-                    <Button variant="danger" disabled={isLoading} onClick={handleUndoHi}>Undo "hi" 👋</Button>
-                  }
-                </>
+                <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSayHi}>Say 'hi' 👋</Button>
               }
             </div>
           </form>
