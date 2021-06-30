@@ -40,7 +40,6 @@ export default function GSCDatabasePage() {
     window.scrollTo(0,0)
   }
 
-  console.log(gscs)
   return (
     <div id="database-page-container">
       <div className="text-align-left" style={{marginTop:"20px"}}>

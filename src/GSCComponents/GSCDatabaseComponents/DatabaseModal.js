@@ -74,7 +74,6 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
 
     setIsLoading(false)
   };
-  console.log(gsc)
 
   const handleRemoveHi = (e) => {
     e.preventDefault()
