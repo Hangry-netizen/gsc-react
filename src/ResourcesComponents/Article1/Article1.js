@@ -40,11 +40,11 @@ export default function Article1() {
       </div>
       <hr />
       <div className="display-flex">
-        <div className="text-align-left">
-          <Link to='/resources/articles/should-i-talk-to-more-than-one-person-at-a-time' className="color-red hover-blue" onClick={scrollToTop}>🡠 PREVIOUS</Link>
-          <div className="color-blue" style={{fontSize:"12px"}}>Should I talk to more than one person at a time?</div>
+        <div className="text-align-left" style={{maxWidth:"45%"}}>
+          <Link to='/resources/articles/i-received-a-hello-notification' className="color-red hover-blue" onClick={scrollToTop}>🡠 PREVIOUS</Link>
+          <div className="color-blue" style={{fontSize:"12px"}}>I received a 'hello' notification... what should I do?</div>
         </div>
-        <div className="text-align-right">
+        <div className="text-align-right" style={{maxWidth:"45%"}}>
           <Link to='/resources/articles/should-i-say-hi-to-someone-in-a-different-country' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
           <div className="color-blue" style={{fontSize:"12px"}}>Should I 'say hi' to someone in a different country?</div>
         </div>

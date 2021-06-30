@@ -40,11 +40,11 @@ export default function Article2() {
       </div>
       <hr />
       <div className='display-flex'>
-        <div className="text-align-left">
+        <div className="text-align-left" style={{maxWidth:"45%"}}>
           <Link to='/resources/articles/should-i-put-myself-out-there' className="color-red hover-blue" onClick={scrollToTop}>🡠 PREVIOUS</Link>
           <div className="color-blue" style={{fontSize:"12px"}}>Should I put myself out there?</div>
         </div>
-        <div className="text-align-right">
+        <div className="text-align-right" style={{maxWidth:"45%"}}>
           <Link to='/resources/articles/what-if-someone-i-know-says-hi-to-me-and-i-dont-like-them' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
           <div className="color-blue" style={{fontSize:"12px"}}>What if someone I know 'says hi' to me & I don't like them?</div>
         </div>
