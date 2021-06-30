@@ -11,16 +11,16 @@ export default function FAQPage() {
     <div>
       <h1 className="text-align-center color-red" style={{margin:"60px"}}>Frequently Asked Questions (FAQs)</h1>
       <div id="faq-links-container" style={{display:"flex", justifyContent:"space-between", width:"800px", margin:"0 auto 30px", alignItems:"center"}}>
-        <h3>
+        <div>
           <Link to="#faq-gscs-container" className="color-blue underline">
             <button className="red-button faq-page-buttons">For GSCs</button>
           </Link>
-        </h3>
-        <h3>
+        </div>
+        <div>
           <Link to="#faq-ffs-container" className="color-blue underline">
             <button className="red-button faq-page-buttons">For FFs</button>
           </Link>
-        </h3>
+        </div>
       </div>
       <div id="faq-gscs-container" className="bg-blue" style={{width:"100%", padding:"30px"}}>
         <div id="faq-content-container" className="color-red" style={{width: "800px", margin: "auto"}}>
