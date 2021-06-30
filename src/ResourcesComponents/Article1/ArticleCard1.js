@@ -14,8 +14,8 @@ export default function ArticleCard1() {
   return (
     <div className="article-card blue">
       <Card className="text-align-left" onClick={toArticle1}>
-        <Card.Img top width="100%" src={ArticleImg1} alt="Should I put myself out there?" name="Should I put myself out there?" />
-        <Card.Body>
+        <Card.Img width="100%" src={ArticleImg1} alt="Should I put myself out there?" name="Should I put myself out there?" />
+        <Card.Body style={{boxSizing:"border-box", height:"50%"}}>
           <Card.Title>
             <h4>
               Should I put myself out there?

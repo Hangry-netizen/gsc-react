@@ -43,6 +43,15 @@
   padding-left: 20px;
 }
 
+.red-link:hover {
+  color: #e9482b;
+}
+
+.hover-blue:hover {
+  color: #1e365c;
+  text-decoration: none;
+}
+
 @media(max-width: 1024px) {
   .article-container {
     width: 650px;

@@ -23,9 +23,11 @@ import GSCDatabasePage from './GSCPages/GSCDatabasePage';
 import HelloPage from './GSCPages/HelloPage';
 
 /* Articles */
-import Article1 from "./ResourcesComponents/Article1/Article1"
-import Article2 from "./ResourcesComponents/Article2/Article2"
-import Article3 from "./ResourcesComponents/Article3/Article3"
+import Article1 from "./ResourcesComponents/Article1/Article1";
+import Article2 from "./ResourcesComponents/Article2/Article2";
+import Article3 from "./ResourcesComponents/Article3/Article3";
+import Article4 from "./ResourcesComponents/Article4/Article4";
+import Article5 from "./ResourcesComponents/Article5/Article5";
 
 /* Admin */
 import AdminNavbar from './AdminComponents/AdminNavbar';
@@ -36,7 +38,7 @@ import AdminDatabasePage from './AdminPages/AdminDatabasePage';
 
 import { useAuth } from "./contexts/AuthContext";
 
-export const url = 'http://localhost:5000/api/v1';
+export const url = 'https://matches-up-live.herokuapp.com/api/v1';
 /*https://matches-up-live.herokuapp.com/api/v1*/
 /*http://localhost:5000/api/v1*/
 
@@ -70,8 +72,10 @@ function App() {
 
         {/* Articles */}
         <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>
-        <Route exact path="/resources/articles/should-i-say-hi-someone-in-a-different-country"><Article2 /></Route>
-        <Route exact path="/resources/articles/what-if-i-receive-a-say-hi-from-someone-I'm-not-interested-in"><Article3 /></Route>
+        <Route exact path="/resources/articles/should-i-say-hi-to-someone-in-a-different-country"><Article2 /></Route>
+        <Route exact path="/resources/articles/what-if-someone-i-know-says-hi-to-me-and-i-dont-like-them"><Article3 /></Route>
+        <Route exact path="/resources/articles/i-received-a-hello-notification"><Article4 /></Route>
+        <Route exact path="/resources/articles/should-i-talk-to-more-than-one-person-at-a-time"><Article5 /></Route>
 
         {/* currentAdmin */}
         {

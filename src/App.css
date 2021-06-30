@@ -41,6 +41,11 @@ body {
   }
 }
 
+.hover-underline:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
 .font-size-large {
   font-size: 30px;
 }
