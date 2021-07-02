@@ -72,7 +72,6 @@ export default function HelloPage() {
           <h3 className="color-blue">GSCs you've contacted</h3>
           <ContactedTable
             currentGsc={currentGsc}
-            saidHellos={saidHellos}
             receivedHellos={receivedHellos}
           />
           <br />

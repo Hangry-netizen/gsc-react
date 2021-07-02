@@ -17,57 +17,32 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
     )
   }, [answer, gsc.alias])
 
-  const handleContacted = (e) => {
+  const handleUndoHi = (e) => {
     e.preventDefault()
     setError("")
+
     setIsLoading(true)
 
     axios({
       method: "POST",
-      url: `${url}/hellos/contacted/${gsc.hello_id}`,
-      data: {
-        contacted: true
-      }
+      url: `${url}/hellos/delete/${gsc.hello_id}`
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert(response.data.message)
-        handleCloseSaidHiModal()
+        alert("You have undone your 👋")
         window.location.reload()
       }
+      else {
+        setError("Failed to undo your 👋")
+      }
     })
-    .catch((error) => {
-      console.log(error)
+    .catch(() => {
+      setError("Failed to undo your 👋")
     })
 
     setIsLoading(false)
   };
 
-  const handleRemove = (e) => {
-    e.preventDefault()
-    setError("")
-    setIsLoading(true)
-
-    axios({
-      method: "POST",
-      url: `${url}/hellos/remove/${gsc.hello_id}`,
-      data: {
-        remove: true
-      }
-    })
-    .then((response) => {
-      if (response.data.status === "success") {
-        alert(response.data.message)
-        handleCloseSaidHiModal()
-        window.location.reload()
-      }
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-
-    setIsLoading(false)
-  };
   return (
     <>
       <Modal
@@ -154,7 +129,7 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
           <br />
           <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
-              <label className="color-red">Key in this profile's name to enable contacted/remove buttons:</label>
+              <label className="color-red">Key in this profile's name to enable the remove button:</label>
               <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} />
             </div>
             <div>
@@ -168,13 +143,11 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
                   isLoading
                   ?
                   <>
-                    <Button variant="secondary" disabled={isLoading} onClick={handleContacted} style={{marginRight:'20px'}}>Contacted</Button>
-                    <Button variant="secondary" disabled={isLoading} onClick={handleRemove}>Remove</Button>
+                    <Button variant="secondary" disabled={isLoading} onClick={handleUndoHi}>Undo 'hi' 👋</Button>
                   </>
                   :
                   <>
-                    <Button variant="primary" disabled={isLoading} onClick={handleContacted} style={{marginRight:'20px'}}>Contacted</Button>
-                    <Button variant="danger" disabled={isLoading} onClick={handleRemove}>Remove</Button>
+                    <Button variant="danger" disabled={isLoading} onClick={handleUndoHi}>Undo 'hi' 👋</Button>
                   </>             
                 }
               </div>

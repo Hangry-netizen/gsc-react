@@ -30,7 +30,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell)
 
-export default function ContactedTable({ currentGsc, saidHellos, receivedHellos }) {
+export default function ContactedTable({ currentGsc, receivedHellos }) {
   const [contactedHellos, setContactedHellos] = useState([]);
   const [check_duplicate, setCheckDuplicate] = useState([]);
 
@@ -45,14 +45,6 @@ export default function ContactedTable({ currentGsc, saidHellos, receivedHellos 
   }
 
   useEffect(() => {
-    saidHellos.map((gsc) => {
-      if (gsc.hello_contacted === true) {
-        setContacted(gsc)
-        return null
-      }
-      return null
-    })
-
     receivedHellos.map((gsc) => {
       if (gsc.hello_contacted === true) {
         setContacted(gsc)
@@ -61,7 +53,7 @@ export default function ContactedTable({ currentGsc, saidHellos, receivedHellos 
       return null
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [receivedHellos, saidHellos])
+  }, [receivedHellos])
 
   return (
     <div>

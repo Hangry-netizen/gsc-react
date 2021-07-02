@@ -143,11 +143,11 @@ export default function ContactedModal({ gsc, showContactedModal, handleCloseCon
                   isLoading
                   ?
                   <>
-                    <Button variant="secondary" disabled={isLoading} onClick={handleRemove}>Remove</Button>
+                    <Button variant="secondary" disabled={isLoading} onClick={handleRemove}>Remove 👋</Button>
                   </>
                   :
                   <>
-                    <Button variant="danger" disabled={isLoading} onClick={handleRemove}>Remove</Button>
+                    <Button variant="danger" disabled={isLoading} onClick={handleRemove}>Remove 👋</Button>
                   </>             
                 }
               </div>
