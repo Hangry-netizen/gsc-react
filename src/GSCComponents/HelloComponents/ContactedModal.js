@@ -58,9 +58,6 @@ export default function ContactedModal({ gsc, showContactedModal, handleCloseCon
           <div className="color-red">Name</div>
           <div className="color-blue">{gsc.name}</div>
           <br />
-          <div className="color-red">Contact Info</div>
-          <div className="color-blue">{gsc.contact_info}</div>
-          <br />
           <div className="color-red">Age Range</div>
           <div className="color-blue">{ageRange}</div>
           <br />
