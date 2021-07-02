@@ -27,7 +27,7 @@ export default function ContactedModal({ gsc, showContactedModal, handleCloseCon
       method: "POST",
       url: `${url}/hellos/remove/${gsc.hello_id}`,
       data: {
-        remove: true
+        removed: true
       }
     })
     .then((response) => {
