@@ -188,6 +188,7 @@ export default function CreateGSCForm() {
       }
     })
     .catch(error => {
+      setError("Sorry, an error occurred in submission! Please make sure all required fields are filled and try again. If the problem persist, please let us know at matchesup@gmail.com so we can fix the problem!")
       console.log(error)
     })
     setIsLoading(false)
