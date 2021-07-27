@@ -26,12 +26,20 @@ export default function ProfilePageBody({ gsc }) {
             <div>
               <button onClick={toEditPage} className="gsc-profile-page-btn color-blue">edit profile</button>
             </div>
-            <div>
-              <button onClick={toDatabasePage} className="gsc-profile-page-btn color-blue">view database</button>
-            </div>
-            <div>
-              <button onClick={toHelloPage} className="gsc-profile-page-btn color-blue">view hellos</button>
-            </div>
+            {
+              gsc.is_active
+              ?
+              <>
+                <div>
+                  <button onClick={toDatabasePage} className="gsc-profile-page-btn color-blue">view database</button>
+                </div>
+                <div>
+                  <button onClick={toHelloPage} className="gsc-profile-page-btn color-blue">view hellos</button>
+                </div>
+              </>
+              :
+              null
+            }
           </>
           :
           <>
