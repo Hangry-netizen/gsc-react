@@ -36,10 +36,12 @@ const FFLoginPage = () => {
   return (
     <div id="login-container" className="text-align-center bg-blue color-red">
       <div id="login-title">LOGIN</div>
+      <div className="color-beach" style={{padding:"10px 30px"}}>This sign-in is for Faithful Friends only. GSCs please access your profile through the link sent to your email!</div>
       <div id="login-alert-div">
         {message && <Alert variant="success" className="font-size-small">{message}</Alert>}
         {error && <Alert variant="danger" className="font-size-small">{error}</Alert>}
       </div>
+      <br />
       <form id="login-form" onSubmit={handleLogin}>
         <div className="login-input-fields">
           <label className="login-labels">email</label>
