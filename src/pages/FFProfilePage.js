@@ -11,7 +11,7 @@ export default function FFProfilePage() {
   let history = useHistory();
 
   const goToCreateForm = () => {
-    history.push('/create-new-good-single-christian-friend-profile-form')
+    history.push('/my-good-single-christian-friends/create')
     window.scrollTo(0,0)
   }
 

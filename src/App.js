@@ -12,6 +12,7 @@ import FFProfilePage from './pages/FFProfilePage';
 import ResourcesPage from './pages/ResourcesPage';
 import FAQPage from './pages/FAQPage';
 import CreateGSCForm from './FFComponents/CreateGSCFormComponents/CreateGSCForm';
+import FFDatabasePage from './pages/FFDatabasePage';
 
 /* GSCF */
 import ProfilePage from './GSCPages/ProfilePage';
@@ -94,7 +95,8 @@ function App() {
           ?
           <>
             <Route exact path="/my-good-single-christian-friends"><FFProfilePage /></Route>
-            <Route exact path="/create-new-good-single-christian-friend-profile-form"><CreateGSCForm /></Route>
+            <Route exact path="/my-good-single-christian-friends/create"><CreateGSCForm /></Route>
+            <Route exact path="/my-good-single-christian-friend/:uuid"><FFDatabasePage /></Route>
           </>
         :
           <>

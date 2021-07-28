@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from "../contexts/AuthContext";
 import { url } from "../App";
+import { Link } from 'react-router-dom';
 
 export default function ExistingGSCs() {
   const { currentUser } = useAuth()
@@ -34,7 +35,9 @@ export default function ExistingGSCs() {
             } else {
               return (
                 <div key={i}>
-                  <button id="existing-gsc-btn" className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
+                  <Link to={`/my-good-single-christian-friend/${existingGSC.uuid}`}>
+                    <button id="existing-gsc-btn" className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
+                  </Link>
                 </div>
               )
             }
