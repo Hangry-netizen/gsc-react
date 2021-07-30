@@ -314,7 +314,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
                     }
                     </>
                     :
-                    null
+                    <Button variant={isLoading ? "secondary" : "primary"} disabled={isLoading} style={{marginRight:"20px"}} onClick={handleMaybe}>Maybe 🤔</Button>
                   }
                   <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSayHi}>Say 'hi' 👋</Button>
                 </>

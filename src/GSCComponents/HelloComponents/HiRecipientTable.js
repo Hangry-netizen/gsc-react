@@ -57,7 +57,22 @@ export default function HiRecipientTable({ receivedHellos, currentGsc }) {
           <TableBody>
           {
             receivedHellos.map((gsc, i) => {
-              if (!currentGsc.contacted.includes(gsc.id)) {
+              if(currentGsc.contacted) {
+                if (!currentGsc.contacted.includes(gsc.id)) {
+                  return (
+                    <HiRecipientRow
+                      key={i}
+                      gsc={gsc}
+                      StyledTableCell={StyledTableCell}
+                      currentGsc={currentGsc}
+                    />
+                  )
+                }
+                else {
+                  return null
+                }
+              }
+              else {
                 return (
                   <HiRecipientRow
                     key={i}
@@ -66,9 +81,6 @@ export default function HiRecipientTable({ receivedHellos, currentGsc }) {
                     currentGsc={currentGsc}
                   />
                 )
-              }
-              else {
-                return null
               }
             })
           }

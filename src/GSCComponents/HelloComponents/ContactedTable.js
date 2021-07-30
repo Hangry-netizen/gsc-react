@@ -31,7 +31,6 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell)
 
 export default function ContactedTable({ currentGsc, gscs }) {
-  console.log(gscs)
   return (
     <div>
       <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>

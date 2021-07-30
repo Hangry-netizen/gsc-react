@@ -61,9 +61,15 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
     <>
       <StyledTableRow onClick={handleShowGscModal}>
         {
-          currentGsc.suggested.includes(gsc.id)
+          currentGsc.suggested
           ?
-          <StyledTableCell className="text-align-center" style={{fontSize:"large"}}>🔍</StyledTableCell>
+          <>
+            currentGsc.suggested.includes(gsc.id)
+            ?
+            <StyledTableCell className="text-align-center" style={{fontSize:"large"}}>🔍</StyledTableCell>
+            :
+            <StyledTableCell></StyledTableCell>
+          </>
           :
           <StyledTableCell></StyledTableCell>
         }

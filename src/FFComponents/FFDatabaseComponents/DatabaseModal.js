@@ -75,9 +75,17 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
         </Modal.Header>
         <Modal.Body className="bg-beach text-align-left" style={{height:"80vh", overflowY:"auto"}}>
           {
-            currentGsc.suggested.includes(gsc.id)
+            currentGsc.suggested
             ?
-            <div className="color-blue font-size-small">*scroll down to remove your suggestion 🔍</div>
+            <>
+              {
+                currentGsc.suggested.includes(gsc.id)
+                ?
+                <div className="color-blue font-size-small">*scroll down to remove your suggestion 🔍</div>
+                :
+                <div className="color-blue font-size-small">*scroll down to suggest to {currentGsc.name}</div>
+              }
+            </>
             :
             <div className="color-blue font-size-small">*scroll down to suggest to {currentGsc.name}</div>
           }
@@ -145,9 +153,17 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
           <div className="text-align-right">
             <Button variant="secondary" onClick={handleCloseGscModal} style={{marginRight:"20px"}}>Close</Button>
             {
-              currentGsc.suggested.includes(gsc.id)
+              currentGsc.suggested
               ?
-              <Button variant={isLoading ? "secondary" : "secondary"} disabled={isLoading} onClick={handleRemoveSuggestion}>Remove 🔍</Button>
+              <>
+                {
+                  currentGsc.suggested.includes(gsc.id)
+                  ?
+                  <Button variant={isLoading ? "secondary" : "secondary"} disabled={isLoading} onClick={handleRemoveSuggestion}>Remove 🔍</Button>
+                  :
+                  <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSuggest}>Suggest 🔍</Button>
+                }
+              </>
               :
               <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSuggest}>Suggest 🔍</Button>
             }

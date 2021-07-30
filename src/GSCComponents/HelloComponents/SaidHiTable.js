@@ -55,7 +55,22 @@ export default function SaidHiTable({ saidHellos, currentGsc }) {
           <TableBody>
           {
             saidHellos.map((gsc, i) => {
-              if (gsc.hello_contacted === false) {
+              if(currentGsc.contacted) {
+                if (!currentGsc.contacted.includes(gsc.id)) {
+                  return (
+                    <SaidHiRow
+                      key={i}
+                      gsc={gsc}
+                      StyledTableCell={StyledTableCell}
+                      currentGsc={currentGsc}
+                    />
+                  )
+                }
+                else {
+                  return null
+                }
+              }
+              else {
                 return (
                   <SaidHiRow
                     key={i}
@@ -64,9 +79,6 @@ export default function SaidHiTable({ saidHellos, currentGsc }) {
                     currentGsc={currentGsc}
                   />
                 )
-              }
-              else {
-                return null
               }
             })
           }

@@ -34,7 +34,6 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell)
 
 export default function DatabaseTable({ gscs, currentGsc }) {
-  console.log("current user contacted list" + currentGsc.contacted)
   return (
     <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
       <Table stickyHeader id="gsc-database-table">
