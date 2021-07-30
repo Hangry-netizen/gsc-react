@@ -5,10 +5,10 @@ Login page:
 
 FF Database Page:
 - add database display
- add suggest function
+- add suggest function
 
 GSC Database Page:
- add maybe function
+- add maybe function
 
 Hello Page:
  add contacted function
@@ -21,7 +21,7 @@ Backend:
 - set up api call to remove item from the 'suggested', 'maybe', and 'contacted' array [post request id]
 
 Local frontend:
-set up 'suggest' and 'maybe'
+- set up 'suggest' and 'maybe'
 Edit 'contacted' code on frontend
 set up delete in 'contacted'
 

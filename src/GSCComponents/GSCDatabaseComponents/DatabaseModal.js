@@ -104,6 +104,62 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
     setIsLoading(false)
   };
 
+  const handleMaybe = (e) => {
+    e.preventDefault()
+    setError("")
+
+    setIsLoading(true)
+
+    axios({
+      method: "POST",
+      url: `${url}/gscs/maybe/${currentGsc.uuid}`,
+      data: {
+        "maybe": gsc.id
+      }
+    })
+    .then((response) => {
+      if (response.data.status === "success") {
+        window.location.reload()
+      }
+      else {
+        setError(`Failed to add your 'maybe' 🤔`)
+      }
+    })
+    .catch(() => {
+      setError(`Failed to add your 'maybe' 🤔`)
+    })
+
+    setIsLoading(false)
+  };
+
+  const handleRemoveMaybe = (e) => {
+    e.preventDefault()
+    setError("")
+
+    setIsLoading(true)
+
+    axios({
+      method: "POST",
+      url: `${url}/gscs/remove-maybe/${currentGsc.uuid}`,
+      data: {
+        "remove-maybe": gsc.id
+      }
+    })
+    .then((response) => {
+      if (response.data.status === "success") {
+        window.location.reload()
+      }
+      else {
+        setError(`Failed to remove your 'maybe' 🤔`)
+      }
+    })
+    .catch(() => {
+      setError(`Failed to remove your 'maybe' 🤔`)
+    })
+
+    setIsLoading(false)
+  };
+
   return (
     <>
       <Modal
@@ -244,7 +300,16 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
                 }
                 </>
                 :
-                <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSayHi}>Say 'hi' 👋</Button>
+                <>
+                  {
+                    currentGsc.maybe.includes(gsc.id)
+                    ?
+                    <Button variant={isLoading ? "secondary" : "primary"} disabled={isLoading} style={{marginRight:"20px"}} onClick={handleRemoveMaybe}>Remove 🤔</Button>
+                    :
+                    <Button variant={isLoading ? "secondary" : "primary"} disabled={isLoading} style={{marginRight:"20px"}} onClick={handleMaybe}>Maybe 🤔</Button>
+                  }
+                  <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSayHi}>Say 'hi' 👋</Button>
+                </>
               }
             </div>
           </form>

@@ -60,13 +60,29 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
   return (
     <>
       <StyledTableRow onClick={handleShowGscModal}>
-        {
-          gsc.action === "said_hi" || gsc.action === "hi_recipient"
-          ?
-          <StyledTableCell className="text-align-center">👋</StyledTableCell>
-          :
-          <StyledTableCell></StyledTableCell>
-        }
+        <StyledTableCell className="text-align-center" style={{fontSize: "large"}}>
+          {
+            gsc.action === "said_hi" || gsc.action === "hi_recipient"
+            ?
+            <span>👋</span>
+            :
+            null
+          }
+          {
+            currentGsc.suggested.includes(gsc.id)
+            ?
+            <span>🔍</span>
+            :
+            null
+          }
+          {
+            currentGsc.maybe.includes(gsc.id)
+            ?
+            <span>🤔</span>
+            :
+            null
+          }
+        </StyledTableCell>
         <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
         <StyledTableCell>{ageRange}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
