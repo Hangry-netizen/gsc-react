@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { url } from '../App';
-import PointersModal from '../GSCComponents/GSCDatabaseComponents/PointersModal';
 import DatabaseTable from '../FFComponents/FFDatabaseComponents/DatabaseTable';
 
 export default function FFDatabasePage() {
@@ -10,10 +9,6 @@ export default function FFDatabasePage() {
   let { uuid } = useParams();
   const [currentGsc, setCurrentGsc] = useState();
   const [gscs, setGscs] = useState();
-  const [showPointersModal, setShowPointersModal] = useState(false);
-
-  const handleClosePointersModal = () => setShowPointersModal(false);
-  const handleShowPointersModal = () => setShowPointersModal(true);
 
   useEffect(() => {
     axios.get (`${url}/gscs/${uuid}`)
@@ -48,18 +43,10 @@ export default function FFDatabasePage() {
         ?
         <>
           <h1 className="color-red" style={{margin:"50px auto"}}>{currentGsc.name}'s Database <div className="font-size-small">(updated on the 1st of every month)</div></h1>
-          <div className="color-red">Note: This is for your eyes only. Please refrain from viewing or discussing this database with others except for {currentGsc.name}. Thank you for honoring your sisters/brothers!</div>
+          <div className="color-red"> Click anywhere on a profile to view the full profile. As a Faithful Friend, you can suggest this profile to your GSCF ({currentGsc.name}) at the bottom of the full profile view.</div>
           <br />
-          <div>
-            <button className="red-button" style={{padding: "5px 15px", borderRadius:"10px"}} onClick={handleShowPointersModal}>See helpful pointers</button>
-          </div>
-          <PointersModal
-          showPointersModal={showPointersModal}
-          handleClosePointersModal={handleClosePointersModal}
-          />
           <br />
-          <div className="color-red">{currentGsc.name}'s remaining 👋 for this month: {currentGsc.monthly_hellos}</div>
-          <br />
+          <div className="color-blue">Note: This is for your eyes only. Please refrain from viewing or discussing this database with others except for {currentGsc.name}. Thank you for honoring your sisters/brothers!</div>
           {
             currentGsc && gscs
             ? 

@@ -1,55 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from "../../App";
 
 export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, personality, currentGsc, action }) {
-  const [answer, setAnswer] = useState("")
-  
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
 
-  useEffect(() => {
-    if (answer === gsc.alias){
-      setIsLoading(false)
-    }
-    else (
-      setIsLoading(true)
-    )
-  }, [answer, gsc.alias])
-
-  const handleSayHi = (e) => {
+  const handleSuggest = (e) => {
     e.preventDefault()
     setError("")
-
-    if (currentGsc.monthly_hellos === 0) {
-      return alert("You have no more 👋 'say hi's remaining for this month")
-    }
 
     setIsLoading(true)
 
     axios({
       method: "POST",
-      url: `${url}/hellos/`,
+      url: `${url}/gscs/suggested/${currentGsc.uuid}`,
       data: {
-        said_hi: currentGsc.id,
-        hi_recipient: gsc.id
+        "suggested": gsc.id
       }
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert(response.data.message)
+        alert(`You've suggested ${gsc.name} to ${currentGsc.name}!`)
         window.location.reload()
       }
     })
     .catch(() => {
-      setError("Failed to like")
+      setError("Failed to suggest")
     })
 
     setIsLoading(false)
   };
 
-  const handleUndoHi = (e) => {
+  const handleRemoveSuggestion = (e) => {
     e.preventDefault()
     setError("")
 
@@ -57,48 +41,22 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
 
     axios({
       method: "POST",
-      url: `${url}/hellos/delete/${gsc.hello_id}`
-    })
-    .then((response) => {
-      if (response.data.status === "success") {
-        alert("You have undone your 👋")
-        window.location.reload()
-      }
-      else {
-        setError("Failed to undo your 👋")
-      }
-    })
-    .catch(() => {
-      setError("Failed to undo your 👋")
-    })
-
-    setIsLoading(false)
-  };
-
-  const handleRemoveHi = (e) => {
-    e.preventDefault()
-    setError("")
-
-    setIsLoading(true)
-
-    axios({
-      method: "POST",
-      url: `${url}/hellos/remove/${gsc.hello_id}`,
+      url: `${url}/remove-suggested/${currentGsc.uuid}`,
       data: {
-        removed: true
+        "remove-suggested": gsc.id
       }
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert(`You have removed ${gsc.alias}'s 👋`)
+        alert("You have removed your suggestion.")
         window.location.reload()
       }
       else {
-        setError(`Failed to remove ${gsc.alias}'s 👋`)
+        setError("Failed to remove your suggestion")
       }
     })
     .catch(() => {
-      setError(`Failed to remove ${gsc.alias}'s 👋`)
+      setError("Failed to remove your suggestion")
     })
 
     setIsLoading(false)
@@ -117,19 +75,11 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
         </Modal.Header>
         <Modal.Body className="bg-beach text-align-left" style={{height:"80vh", overflowY:"auto"}}>
           {
-            action === "said_hi" || action === "hi_recipient"
+            currentGsc.suggested.includes(gsc.id)
             ?
-            <>
-            {
-              action === "said_hi"
-              ?
-              <div className="color-blue font-size-small">*scroll down to undo your 👋</div>
-              :
-              <div className="color-blue font-size-small">*scroll down to remove {gsc.alias}'s 👋</div>
-            }
-            </>
+            <div className="color-blue font-size-small">*scroll down to remove your suggestion 🔍</div>
             :
-            <div className="color-blue font-size-small">*scroll down to 👋</div>
+            <div className="color-blue font-size-small">*scroll down to suggest to {currentGsc.name}</div>
           }
           <div className="color-red">Languages</div>
           <div className="color-blue">{gsc.languages}</div>
@@ -188,66 +138,20 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
           <div className="color-red">Social media profile link</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
-          <form className="bg-blue color-red" style={{padding:"15px", borderRadius:"10px"}}>
+          <div>
+            {error && <Alert className="color-red font-size-small">{error}</Alert>}
+          </div>
+          <br />
+          <div className="text-align-right">
+            <Button variant="secondary" onClick={handleCloseGscModal} style={{marginRight:"20px"}}>Close</Button>
             {
-              action === "said_hi" || action === "hi_recipient"
+              currentGsc.suggested.includes(gsc.id)
               ?
-              <>
-              {
-                action === "said_hi"
-                ?
-                <div className="text-align-left">
-                  <div>You have 👋 at {gsc.alias}!</div>
-                  <br />
-                  <div style={{marginLeft: "5px"}}>
-                    <input style={{border:"white", padding:" 5px 15px", width:"90%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.alias}/>
-                    <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">undo</span> your 👋</label>
-                  </div>
-                </div>
-                :
-                <div className="text-align-left">
-                  <div>{gsc.alias} has 👋 at you!</div>
-                  <br />
-                  <div>
-                    <input style={{border:"white", padding:" 5px 15px", width:"90%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.alias}/>
-                    <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">remove</span> 👋</label>
-                  </div>
-                </div>
-              }
-              </>
+              <Button variant={isLoading ? "secondary" : "secondary"} disabled={isLoading} onClick={handleRemoveSuggestion}>Remove 🔍</Button>
               :
-              <div className="display-flex text-align-left">
-                <div style={{margin:" 5px 15px auto 0", whiteSpace:"nowrap"}}>'Say hi' 👋 to </div>
-                <div style={{marginLeft: "5px"}}>
-                  <input style={{border:"white", padding:" 5px 15px", width:"90%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.alias}/>
-                  <label className="font-size-small color-beach">Key in this profile's alias to 👋!</label>
-                </div>
-              </div>
+              <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSuggest}>Suggest 🔍</Button>
             }
-            <div>
-              {error && <Alert className="color-red font-size-small">{error}</Alert>}
-            </div>
-            <br />
-            <div className="text-align-right">
-              <Button variant="secondary" onClick={handleCloseGscModal} style={{marginRight:"20px"}}>Close</Button>
-              {
-                action === "said_hi" || action === "hi_recipient"
-                ?
-                <>
-                {
-                  action === "said_hi"
-                  ?
-                  <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleUndoHi}>Undo 'hi' 👋</Button>
-                  :
-                  <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleRemoveHi}>Remove 'hi' 👋</Button>
-
-                }
-                </>
-                :
-                <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleSayHi}>Say 'hi' 👋</Button>
-              }
-            </div>
-          </form>
+          </div>
         </Modal.Body>
       </Modal>
     </>

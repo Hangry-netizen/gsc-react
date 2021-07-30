@@ -61,9 +61,9 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
     <>
       <StyledTableRow onClick={handleShowGscModal}>
         {
-          gsc.action === "said_hi" || gsc.action === "hi_recipient"
+          currentGsc.suggested.includes(gsc.id)
           ?
-          <StyledTableCell className="text-align-center">👋</StyledTableCell>
+          <StyledTableCell className="text-align-center" style={{fontSize:"large"}}>🔍</StyledTableCell>
           :
           <StyledTableCell></StyledTableCell>
         }
@@ -89,7 +89,6 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
         handleCloseGscModal={handleCloseGscModal}
         personality={personality}
         currentGsc={currentGsc}
-        action={gsc.action}
       />
     </>
   )
