@@ -1,44 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, Button, Alert } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from "../../App";
 
 
-export default function ContactedModal({ gsc, showContactedModal, handleCloseContactedModal, personality, ageRange }) {
-  const [isLoading, setIsLoading] = useState(true)
-  const [answer, setAnswer] = useState("")
-  const [error, setError] = useState("")
+export default function ContactedModal({ gsc, currentGsc, showContactedModal, handleCloseContactedModal, personality, ageRange }) {
+  const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    if (answer === gsc.name){
-      setIsLoading(false)
-    }
-    else (
-      setIsLoading(true)
-    )
-  }, [answer, gsc.name])
-
-  const handleRemove = (e) => {
+  const handleDelete = (e) => {
     e.preventDefault()
-    setError("")
     setIsLoading(true)
 
     axios({
       method: "POST",
-      url: `${url}/hellos/remove/${gsc.hello_id}`,
+      url: `${url}/gscs/delete-contacted/${currentGsc.uuid}`,
       data: {
-        removed: true
+        "delete-contacted": gsc.id
       }
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert(response.data.message)
         handleCloseContactedModal()
         window.location.reload()
       }
     })
     .catch((error) => {
-      setError(error)
+      console.log(error)
     })
 
     setIsLoading(false)
@@ -127,32 +114,22 @@ export default function ContactedModal({ gsc, showContactedModal, handleCloseCon
           <div className="color-red">Social media profile link</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
-          <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
+          <div style={{display:'flex', boxSizing:'border-box', width:'100%', justifyContent:'space-between'}}>
+            <Button variant="secondary" onClick={handleCloseContactedModal}>Close</Button>
             <div>
-              <label className="color-red">Key in this profile's name to enable the remove button:</label>
-              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} />
+              {
+                isLoading
+                ?
+                <>
+                  <Button variant="secondary" disabled={isLoading} onClick={handleDelete}>Delete</Button>
+                </>
+                :
+                <>
+                  <Button variant="danger" disabled={isLoading} onClick={handleDelete}>Delete</Button>
+                </>             
+              }
             </div>
-            <div>
-              {error && <Alert className="color-red font-size-small">{error}</Alert>}
-            </div>
-            <br />
-            <div style={{display:'flex', boxSizing:'border-box', width:'100%', justifyContent:'space-between'}}>
-              <Button variant="secondary" onClick={handleCloseContactedModal}>Close</Button>
-              <div>
-                {
-                  isLoading
-                  ?
-                  <>
-                    <Button variant="secondary" disabled={isLoading} onClick={handleRemove}>Remove 👋</Button>
-                  </>
-                  :
-                  <>
-                    <Button variant="danger" disabled={isLoading} onClick={handleRemove}>Remove 👋</Button>
-                  </>             
-                }
-              </div>
-            </div>
-          </form>
+          </div>
         </Modal.Body>
       </Modal>
     </>

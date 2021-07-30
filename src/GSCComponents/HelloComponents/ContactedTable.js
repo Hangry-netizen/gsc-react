@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ContactedRow from './ContactedRow';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -30,31 +30,8 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell)
 
-export default function ContactedTable({ currentGsc, receivedHellos }) {
-  const [contactedHellos, setContactedHellos] = useState([]);
-  const [check_duplicate, setCheckDuplicate] = useState([]);
-
-  const setContacted = (gsc) => {
-    if (check_duplicate.includes(gsc.id)) {
-      return null
-    }
-    else {
-      setCheckDuplicate(existing => [...existing, gsc.id])
-      setContactedHellos(existing => [...existing, gsc])
-    }
-  }
-
-  useEffect(() => {
-    receivedHellos.map((gsc) => {
-      if (gsc.hello_contacted === true) {
-        setContacted(gsc)
-        return null
-      }
-      return null
-    })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [receivedHellos])
-
+export default function ContactedTable({ currentGsc, gscs }) {
+  console.log(gscs)
   return (
     <div>
       <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
@@ -78,15 +55,25 @@ export default function ContactedTable({ currentGsc, receivedHellos }) {
           </TableHead>
           <TableBody>
           {
-            contactedHellos.map((gsc, i) => {
-              return (
-                <ContactedRow
-                  key={i}
-                  gsc={gsc}
-                  StyledTableCell={StyledTableCell}
-                  currentGsc={currentGsc}
-                />
-              )
+            gscs.map((gsc, i) => {
+              if (currentGsc.contacted) {
+                if (currentGsc.contacted.includes(gsc.id) && !currentGsc.deleted.includes(gsc.id)) {
+                  return (
+                    <ContactedRow
+                      key={i}
+                      gsc={gsc}
+                      StyledTableCell={StyledTableCell}
+                      currentGsc={currentGsc}
+                    />
+                  )
+                }
+                else {
+                  return null
+                }
+              }
+              else {
+                return null
+              }
             })
           }
           </TableBody>

@@ -69,16 +69,32 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
             null
           }
           {
-            currentGsc.suggested.includes(gsc.id)
+            currentGsc.suggested
             ?
-            <span>🔍</span>
+            <>
+            {
+              currentGsc.suggested.includes(gsc.id)
+              ?
+              <span>🔍</span>
+              :
+              null
+            }
+            </>
             :
             null
           }
           {
-            currentGsc.maybe.includes(gsc.id)
+            currentGsc.maybe
             ?
-            <span>🤔</span>
+            <>
+            {
+              currentGsc.maybe.includes(gsc.id)
+              ?
+              <span>🤔</span>
+              :
+              null
+            }
+            </>
             :
             null
           }

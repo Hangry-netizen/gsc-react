@@ -10,11 +10,20 @@ import '../GSCComponents/HelloComponents/HelloPage.css';
 export default function HelloPage() {
   let history = useHistory();
   const { uuid } = useParams();
+  const [gscs, setGscs] = useState([]);
   const [currentGsc, setCurrentGsc] = useState({});
   const [saidHellos, setSaidHellos] = useState([]);
   const [receivedHellos, setReceivedHellos] = useState([]);
 
   useEffect(() => {
+    axios.get (`${url}/gscs/database-display/${uuid}`)
+      .then((response) => {
+        setGscs(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
     axios.get (`${url}/gscs/${uuid}`)
       .then((response) => {
         setCurrentGsc(response.data)
@@ -72,7 +81,7 @@ export default function HelloPage() {
           <h3 className="color-blue">GSCs you've contacted</h3>
           <ContactedTable
             currentGsc={currentGsc}
-            receivedHellos={receivedHellos}
+            gscs={gscs}
           />
           <br />
           <br />

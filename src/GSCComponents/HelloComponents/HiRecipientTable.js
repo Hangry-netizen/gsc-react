@@ -57,7 +57,7 @@ export default function HiRecipientTable({ receivedHellos, currentGsc }) {
           <TableBody>
           {
             receivedHellos.map((gsc, i) => {
-              if (gsc.hello_contacted === false) {
+              if (!currentGsc.contacted.includes(gsc.id)) {
                 return (
                   <HiRecipientRow
                     key={i}

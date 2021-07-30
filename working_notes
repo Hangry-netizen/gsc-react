@@ -22,8 +22,8 @@ Backend:
 
 Local frontend:
 - set up 'suggest' and 'maybe'
-Edit 'contacted' code on frontend
-set up delete in 'contacted'
+- Edit 'contacted' code on frontend
+- set up delete in 'contacted'
 
 push backend
 fix Melissa's contacted

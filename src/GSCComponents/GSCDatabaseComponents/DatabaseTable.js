@@ -34,6 +34,7 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell)
 
 export default function DatabaseTable({ gscs, currentGsc }) {
+  console.log("current user contacted list" + currentGsc.contacted)
   return (
     <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
       <Table stickyHeader id="gsc-database-table">
@@ -58,25 +59,54 @@ export default function DatabaseTable({ gscs, currentGsc }) {
         <TableBody>
         {
           gscs.map((gsc, i) => {
-            if(currentGsc.gender === "Male" && gsc.gender === "Female") {
-              return (
-                <DatabaseRow
-                  key={i}
-                  gsc={gsc}
-                  StyledTableCell={StyledTableCell}
-                  currentGsc={currentGsc}
-                />
-              )
-            }
-            else if (currentGsc.gender === "Female" && gsc.gender === "Male") {
-              return (
-                <DatabaseRow
-                  key={i}
-                  gsc={gsc}
-                  StyledTableCell={StyledTableCell}
-                  currentGsc={currentGsc}
-                />
-              )
+            if(currentGsc.contacted) {
+              if(!currentGsc.contacted.includes(gsc.id)) {
+                if(currentGsc.gender === "Male" && gsc.gender === "Female") {
+                  return (
+                    <DatabaseRow
+                      key={i}
+                      gsc={gsc}
+                      StyledTableCell={StyledTableCell}
+                      currentGsc={currentGsc}
+                    />
+                  )
+                }
+                else if (currentGsc.gender === "Female" && gsc.gender === "Male") {
+                  return (
+                    <DatabaseRow
+                      key={i}
+                      gsc={gsc}
+                      StyledTableCell={StyledTableCell}
+                      currentGsc={currentGsc}
+                    />
+                  )
+                }
+              }
+              else {
+                return null
+              }
+            } 
+            else {
+              if(currentGsc.gender === "Male" && gsc.gender === "Female") {
+                return (
+                  <DatabaseRow
+                    key={i}
+                    gsc={gsc}
+                    StyledTableCell={StyledTableCell}
+                    currentGsc={currentGsc}
+                  />
+                )
+              }
+              else if (currentGsc.gender === "Female" && gsc.gender === "Male") {
+                return (
+                  <DatabaseRow
+                    key={i}
+                    gsc={gsc}
+                    StyledTableCell={StyledTableCell}
+                    currentGsc={currentGsc}
+                  />
+                )
+              }
             }
             return null
           })

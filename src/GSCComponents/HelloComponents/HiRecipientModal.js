@@ -4,7 +4,7 @@ import axios from 'axios';
 import { url } from "../../App";
 
 
-export default function HiRecipientModal({ gsc, showHiRecipientModal, handleCloseHiRecipientModal, personality, ageRange }) {
+export default function HiRecipientModal({ gsc, currentGsc, showHiRecipientModal, handleCloseHiRecipientModal, personality, ageRange }) {
   const [isLoading, setIsLoading] = useState(true)
   const [answer, setAnswer] = useState("")
   const [error, setError] = useState("")
@@ -25,16 +25,19 @@ export default function HiRecipientModal({ gsc, showHiRecipientModal, handleClos
 
     axios({
       method: "POST",
-      url: `${url}/hellos/contacted/${gsc.hello_id}`,
+      url: `${url}/gscs/contacted/${currentGsc.uuid}`,
       data: {
-        contacted: true
+        "contacted": gsc.id
       }
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert(response.data.message)
+        alert(`${gsc.alias} had been marked as contacted`)
         handleCloseHiRecipientModal()
         window.location.reload()
+      }
+      else if (response.data.status === "failed") {
+        setError(response.data.message)
       }
     })
     .catch((error) => {
@@ -44,6 +47,7 @@ export default function HiRecipientModal({ gsc, showHiRecipientModal, handleClos
     setIsLoading(false)
   };
 
+  console.log(gsc.id)
   const handleRemove = (e) => {
     e.preventDefault()
     setError("")
@@ -162,7 +166,7 @@ export default function HiRecipientModal({ gsc, showHiRecipientModal, handleClos
           <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
               <label className="color-red font-size-small">Key in this profile's name to enable contacted/remove buttons:</label>
-              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} />
+              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.name}/>
             </div>
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}

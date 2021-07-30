@@ -3,7 +3,7 @@ import { Modal, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from "../../App";
 
-export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiModal, personality, ageRange }) {
+export default function SaidHiModal({ gsc, currentGsc, showSaidHiModal, handleCloseSaidHiModal, personality, ageRange }) {
   const [isLoading, setIsLoading] = useState(true)
   const [answer, setAnswer] = useState("")
   const [error, setError] = useState("")
@@ -16,6 +16,32 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
       setIsLoading(true)
     )
   }, [answer, gsc.alias])
+
+  const handleContacted = (e) => {
+    e.preventDefault()
+    setError("")
+    setIsLoading(true)
+
+    axios({
+      method: "POST",
+      url: `${url}/gscs/contacted/${currentGsc.uuid}`,
+      data: {
+        contacted: gsc.id
+      }
+    })
+    .then((response) => {
+      if (response.data.status === "success") {
+        alert(`${gsc.alias} had been marked as contacted`)
+        handleCloseSaidHiModal()
+        window.location.reload()
+      }
+    })
+    .catch((error) => {
+      setError(error)
+    })
+
+    setIsLoading(false)
+  };
 
   const handleUndoHi = (e) => {
     e.preventDefault()
@@ -130,7 +156,7 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
           <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
               <label className="color-red">Key in this profile's name to enable the remove button:</label>
-              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} />
+              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.name}/>
             </div>
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}
@@ -143,10 +169,12 @@ export default function SaidHiModal({ gsc, showSaidHiModal, handleCloseSaidHiMod
                   isLoading
                   ?
                   <>
+                    <Button variant="secondary" disabled={isLoading} onClick={handleContacted} style={{marginRight:'20px'}}>Contacted</Button>
                     <Button variant="secondary" disabled={isLoading} onClick={handleUndoHi}>Undo 'hi' 👋</Button>
                   </>
                   :
                   <>
+                    <Button variant="primary" disabled={isLoading} onClick={handleContacted} style={{marginRight:'20px'}}>Contacted</Button>
                     <Button variant="danger" disabled={isLoading} onClick={handleUndoHi}>Undo 'hi' 👋</Button>
                   </>             
                 }
