@@ -22,7 +22,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert(`You've suggested ${gsc.name} to ${currentGsc.name}!`)
+        alert(`You've suggested ${gsc.alias} to ${currentGsc.name}!`)
         window.location.reload()
       }
     })
@@ -41,7 +41,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
 
     axios({
       method: "POST",
-      url: `${url}/remove-suggested/${currentGsc.uuid}`,
+      url: `${url}/gscs/remove-suggested/${currentGsc.uuid}`,
       data: {
         "remove-suggested": gsc.id
       }

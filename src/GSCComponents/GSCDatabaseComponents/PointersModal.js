@@ -21,6 +21,8 @@ export default function PointersModal({ showPointersModal, handleClosePointersMo
           <div>3. Click “say hi” 👋 to send your name and contact info to that person.</div>
           <br />
           <div>4. To encourage prayerful choices, you can only “say hi” 👋 to up to 3 people every month.</div>
+          <br />
+          <div>5.  Profiles with 🔍 are suggested by your FF for you to check them out!</div>
         </Modal.Body>
         <Modal.Footer className="bg-beach">
           <Button variant="secondary" onClick={handleClosePointersModal}>Close</Button>

@@ -64,11 +64,13 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
           currentGsc.suggested
           ?
           <>
+          {
             currentGsc.suggested.includes(gsc.id)
             ?
             <StyledTableCell className="text-align-center" style={{fontSize:"large"}}>🔍</StyledTableCell>
             :
             <StyledTableCell></StyledTableCell>
+          }
           </>
           :
           <StyledTableCell></StyledTableCell>
