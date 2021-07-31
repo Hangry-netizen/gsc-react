@@ -11,8 +11,8 @@ GSC Database Page:
 - add maybe function
 
 Hello Page:
- add contacted function
- add delete to contacted function
+- add contacted function
+- add delete to contacted function
 
 Backend:
 - add 'suggested','maybe', and 'contacted' as empty Array Field to gsc model
@@ -36,10 +36,13 @@ edit Admin approval function to set [is_approved True], [is_activated False], [i
 edit GSC profile page display [activated True - display all] else [activated False - only edit profile]
 
 Aug 1
+- set all monthly hellos to 3
+FF can see their GSC's profile info
+set up monthly email for FF (check for duplication)
 push frontend
-set all monthly hellos to 3
-send monthly database email [month: August]
-
+push backend
+send monthly database email
+figure out reload with Chris
 
 
 Before June 30th
