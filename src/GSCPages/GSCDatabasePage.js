@@ -40,17 +40,15 @@ export default function GSCDatabasePage() {
     window.scrollTo(0,0)
   }
 
-  console.log(gscs)
-
   return (
     <div id="database-page-container">
-      <div className="text-align-left" style={{marginTop:"20px"}}>
-        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>back</button>
-      </div>
       {
         currentGsc && gscs
         ?
         <>
+          <div className="text-align-left" style={{marginTop:"20px"}}>
+            <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>back</button>
+          </div>
           <h1 className="color-red" style={{margin:"50px auto"}}>Database Page</h1>
           <div className="color-red">Note: This is for your eyes only. Please refrain from viewing or discussing this database with others except your Faithful Friend who signed you up. Thank you for honoring your sisters/brothers!</div>
           <br />

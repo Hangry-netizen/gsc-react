@@ -47,7 +47,6 @@ export default function HiRecipientModal({ gsc, currentGsc, showHiRecipientModal
     setIsLoading(false)
   };
 
-  console.log(gsc.id)
   const handleRemove = (e) => {
     e.preventDefault()
     setError("")

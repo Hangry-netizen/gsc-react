@@ -1,3 +1,13 @@
+figure out reload with Chris
+
+Fix approval display for admin:
+Set up 'activated' field (to be changed to true on the first of the month for approved gscs):
+add 'is_activated' field default false to gsc model
+add 'is_activated' to gsc status api
+edit Admin approval function to set [is_approved True], [is_activated False], [is_active False]
+edit GSC profile page display [activated True - display all] else [activated False - only edit profile]
+
+
 Before July 31st
 
 Login page:
@@ -25,24 +35,13 @@ Local frontend:
 - Edit 'contacted' code on frontend
 - set up delete in 'contacted'
 
-push backend
-fix Melissa's contacted
-check if there are any other 'contacted' in hellos
-
-Set up 'activated' field (to be changed to true on the first of the month for approved gscs):
-add 'is_activated' field default false to gsc model
-add 'is_activated' to gsc status api
-edit Admin approval function to set [is_approved True], [is_activated False], [is_active False]
-edit GSC profile page display [activated True - display all] else [activated False - only edit profile]
-
 Aug 1
 - set all monthly hellos to 3
-FF can see their GSC's profile info
-set up monthly email for FF (check for duplication)
-push frontend
-push backend
-send monthly database email
-figure out reload with Chris
+- FF can see their GSC's profile info
+- set up monthly email for FF (check for duplication)
+- push backend
+- push frontend
+- send monthly database email
 
 
 Before June 30th

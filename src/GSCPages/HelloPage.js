@@ -6,6 +6,7 @@ import SaidHiTable from '../GSCComponents/HelloComponents/SaidHiTable';
 import HiRecipientTable from '../GSCComponents/HelloComponents/HiRecipientTable';
 import ContactedTable from '../GSCComponents/HelloComponents/ContactedTable';
 import '../GSCComponents/HelloComponents/HelloPage.css';
+import PointersModal from '../GSCComponents/HelloComponents/PointersModal';
 
 export default function HelloPage() {
   let history = useHistory();
@@ -14,6 +15,11 @@ export default function HelloPage() {
   const [currentGsc, setCurrentGsc] = useState({});
   const [saidHellos, setSaidHellos] = useState([]);
   const [receivedHellos, setReceivedHellos] = useState([]);
+
+  const [showPointersModal, setShowPointersModal] = useState(false);
+
+  const handleClosePointersModal = () => setShowPointersModal(false);
+  const handleShowPointersModal = () => setShowPointersModal(true);
 
   useEffect(() => {
     axios.get (`${url}/gscs/database-display/${uuid}`)
@@ -56,15 +62,24 @@ export default function HelloPage() {
 
   return (
     <div id="hello-page-container">
-      <div className="text-align-left" style={{marginTop:"20px"}}>
-        <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>back</button>
-      </div>
-      <br />
       {
         currentGsc && saidHellos && receivedHellos
         ?
         <>
+          <div className="text-align-left" style={{marginTop:"20px"}}>
+            <button className="red-button" onClick={backToProfile} style={{padding:"5px 15px", borderRadius:"5px"}}>back</button>
+          </div>
+          <br />
           <h1 className="color-red">Your Hellos</h1>
+          <br />
+          <div>
+            <button className="red-button" style={{padding: "5px 15px", borderRadius:"10px"}} onClick={handleShowPointersModal}>See helpful pointers</button>
+          </div>
+          <PointersModal
+          showPointersModal={showPointersModal}
+          handleClosePointersModal={handleClosePointersModal}
+          />
+          <br />
           <br />
           <h3 className="color-blue">GSCs you have 👋 said hi to</h3>
           <SaidHiTable
