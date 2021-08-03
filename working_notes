@@ -1,4 +1,17 @@
-figure out reload with Chris
+Before Aug 15
+
+Article:
+Put up "Should I talk to more than one person?"
+
+Database (FF and GSC):
+Search
+Filter
+
+Report
+
+GSC Profile Page:
+Hide/unhide function
+Remove profile function
 
 Fix approval display for admin:
 Set up 'activated' field (to be changed to true on the first of the month for approved gscs):
@@ -6,6 +19,9 @@ add 'is_activated' field default false to gsc model
 add 'is_activated' to gsc status api
 edit Admin approval function to set [is_approved True], [is_activated False], [is_active False]
 edit GSC profile page display [activated True - display all] else [activated False - only edit profile]
+
+figure out reload (Chris suggest to look into websocket)
+
 
 
 Before July 31st

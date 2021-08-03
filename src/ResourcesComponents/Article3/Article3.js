@@ -1,9 +1,13 @@
-import React from 'react';
-import ArticleImg3 from '../resources-utils/3.png';
+import React, { useState, useEffect } from 'react';
+import src from '../resources-utils/3.png';
+import placeholder from '../resources-utils/3-placeholder.png';
 import "../Article.css";
 import { Link } from 'react-router-dom';
 
 export default function Article3() {
+  const [loading, setLoading] = useState(true);
+  const [currentSrc, updateSrc] = useState(placeholder);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,6 +15,16 @@ export default function Article3() {
       behavior: "smooth"
     })
   }
+
+  useEffect(() => {
+    const imageToLoad = new Image();
+    imageToLoad.src = src;
+    imageToLoad.onload = () => {
+      setLoading(false);
+      updateSrc(src)
+    }
+  }, [])
+
   return (
     <div className="article-container">
       <h1 className="article-header color-red">What if someone I know 'says hi' to me & I don't like them?</h1>
@@ -20,7 +34,15 @@ export default function Article3() {
       </div>
       <hr />
       <div className="text-align-center article-img-div">
-        <img src={ArticleImg3} className="article-img" alt="Should I put myself out there?"/>
+        <img
+          src={currentSrc}
+          style={{
+            opacity: loading ? 0.5 : 1,
+            transition: "opacity .15s linear"
+          }}
+          className="article-img"
+          alt="Should I put myself out there?"
+        />
         <div className="font-size-x-small italic">Photo credit: Tim Mossholder - unsplash</div>
       </div>
       <div className="article-content text-align-justify color-blue">

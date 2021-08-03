@@ -1,9 +1,13 @@
-import React from 'react';
-import ArticleImg4 from '../resources-utils/4.jpg';
+import React, { useState, useEffect } from 'react';
+import src from '../resources-utils/4.jpg';
+import placeholder from '../resources-utils/4-placeholder.jpg';
 import { Link } from 'react-router-dom';
 import "../Article.css";
 
 export default function Article4() {
+  const [loading, setLoading] = useState(true);
+  const [currentSrc, updateSrc] = useState(placeholder);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,6 +15,16 @@ export default function Article4() {
       behavior: "smooth"
     })
   }
+
+  useEffect(() => {
+    const imageToLoad = new Image();
+    imageToLoad.src = src;
+    imageToLoad.onload = () => {
+      setLoading(false);
+      updateSrc(src)
+    }
+  }, [])
+
   return (
     <div className="article-container">
       <h1 className="article-header color-red">I received a 'hello' notification... what should I do?</h1>
@@ -20,7 +34,15 @@ export default function Article4() {
       </div>
       <hr />
       <div className="text-align-center article-img-div">
-        <img src={ArticleImg4} className="article-img" alt="I received a 'hello' notification... what should I do?"/>
+        <img
+          src={currentSrc}
+          className="article-img"
+          style={{
+            opacity: loading ? 0.5 : 1,
+            transition: "opacity .15s linear"
+          }}
+          alt="I received a 'hello' notification... what should I do?"
+        />
         <div className="font-size-x-small italic">Photo credit: Drew Beamer - unsplash</div>
       </div>
       <div className="article-content text-align-justify color-blue">
@@ -40,7 +62,7 @@ export default function Article4() {
         </div>
         <br />
         <p>From there, let it flow naturally. Hopefully you’ll communicate back and forth for a while, focusing on getting to know one another at a deeper level first. At MatchesUp we notice that <span className="color-red">friendship comes first</span> in all the best relationships. So leave the flirting and romancing to the side, until you’ve strongly established this person is really suited to you, that over time there are no ‘red flags’, and they seem worthy to be considered as a life-long partner.</p>
-        <p>Option 3: Politely decline. You may choose to decline for several reasons - maybe you’re just too busy to start a new friendship, or maybe you’re already chatting with someone else and it has already taken a romantic turn. It wouldn’t be fair to string another along if you’re already getting serious elsewhere. Honesty is the best policy. Say something like:</p>
+        <p>Option 3: Politely decline. You may choose to decline for several reasons - maybe you’re just too busy to start a new friendship, or maybe you’re already chatting with someone else and it has already taken a romantic turn. It wouldn’t be fair to string another along if you’re already getting serious elsewhere (<span className="italic">read more about this in our article - <Link to="/resources/articles/should-i-talk-to-more-than-one-person-at-a-time" className="color-red red-link underline">Should I Talk to More Than One Person at a Time?</Link></span>). Honesty is the best policy. Say something like:</p>
         <div>
           <p className="padding-left-20">• Thanks so much for your ‘hi’ on MatchesUp. I’m honored you liked my profile. This isn’t about you, but I am not available at the moment to pursue further conversation. If things change, I’ll get back to you. Thanks again for your interest.</p>
           <p className="padding-left-20">• I just wanted to acknowledge the notification I received that you liked my profile. While I’m honored, this is not something I feel to pursue at this time. I wish you all the best in your search for who God has for you.</p>
@@ -56,8 +78,8 @@ export default function Article4() {
           <div className="color-blue" style={{fontSize:"12px"}}>What if someone I know 'says hi' to me & I don't like them?</div>
         </div>
         <div className="text-align-right" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/should-i-put-myself-out-there' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
-          <div className="color-blue" style={{fontSize:"12px"}}>Should I put myself out there?</div>
+          <Link to='/resources/articles/should-i-talk-to-more-than-one-person-at-a-time' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
+          <div className="color-blue" style={{fontSize:"12px"}}>Should I talk to more than one person at a time?</div>
         </div>
       </div>
       <br />

@@ -1,9 +1,13 @@
-import React from 'react';
-import ArticleImg1 from '../resources-utils/1.png';
+import React, { useState, useEffect } from 'react';
+import src from '../resources-utils/1.jpg';
+import placeholder from '../resources-utils/1-placeholder.jpg';
 import "../Article.css";
 import { Link } from 'react-router-dom';
 
 export default function Article1() {
+  const [loading, setLoading] = useState(true);
+  const [currentSrc, updateSrc] = useState(placeholder);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,6 +15,16 @@ export default function Article1() {
       behavior: "smooth"
     })
   }
+
+  useEffect(() => {
+    const imageToLoad = new Image();
+    imageToLoad.src = src;
+    imageToLoad.onload = () => {
+      setLoading(false);
+      updateSrc(src)
+    }
+  }, [])
+
   return (
     <div className="article-container">
       <h1 className="article-header color-red text-align-left">Should I put myself out there?</h1>
@@ -20,7 +34,15 @@ export default function Article1() {
       </div>
       <hr />
       <div className="text-align-center article-img-div">
-        <img src={ArticleImg1} className="article-img" alt="Should I put myself out there?"/>
+        <img
+          src={currentSrc}
+          className="article-img"
+          style={{
+            opacity: loading ? 0.5 : 1,
+            transition: "opacity .15s linear"
+          }}
+          alt="Should I put myself out there?"
+        />
         <div className="font-size-x-small italic">Photo credit: Kelly Sikkema - unsplash</div>
       </div>
       <div className="article-content text-align-justify color-blue">
