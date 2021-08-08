@@ -94,7 +94,7 @@ export default function EditRef({ reference }) {
             {
               form.is_approved === true
               ?
-              <Button variant="danger" disabled={isLoading} type="submit">Submit</Button>
+              <Button variant="danger" disabled={isLoading} type="submit">Save changes</Button>
               :
               <Button variant="danger" disabled={isLoading} onClick={handleRefApproval}>Approve</Button>
             }
