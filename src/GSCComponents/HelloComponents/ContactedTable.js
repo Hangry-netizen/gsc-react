@@ -56,15 +56,31 @@ export default function ContactedTable({ currentGsc, gscs }) {
           {
             gscs.map((gsc, i) => {
               if (currentGsc.contacted) {
-                if (currentGsc.contacted.includes(gsc.id) && !currentGsc.deleted.includes(gsc.id)) {
-                  return (
-                    <ContactedRow
-                      key={i}
-                      gsc={gsc}
-                      StyledTableCell={StyledTableCell}
-                      currentGsc={currentGsc}
-                    />
-                  )
+                if (currentGsc.contacted.includes(gsc.id)) {
+                  if (currentGsc.deleted) {
+                    if (!currentGsc.deleted.includes(gsc.id)) {
+                      return (
+                        <ContactedRow
+                          key={i}
+                          gsc={gsc}
+                          StyledTableCell={StyledTableCell}
+                          currentGsc={currentGsc}
+                        />
+                      )
+                    }
+                    else {
+                      return null
+                    }
+                  } else {
+                    return (
+                      <ContactedRow
+                        key={i}
+                        gsc={gsc}
+                        StyledTableCell={StyledTableCell}
+                        currentGsc={currentGsc}
+                      />
+                    )
+                  }
                 }
                 else {
                   return null

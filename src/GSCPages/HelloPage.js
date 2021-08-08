@@ -63,7 +63,7 @@ export default function HelloPage() {
   return (
     <div id="hello-page-container">
       {
-        currentGsc && saidHellos && receivedHellos
+        currentGsc && saidHellos && receivedHellos && gscs
         ?
         <>
           <div className="text-align-left" style={{marginTop:"20px"}}>
