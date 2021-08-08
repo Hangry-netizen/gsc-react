@@ -27,7 +27,7 @@ export default function ArticleCard1() {
   return (
     <div className="article-card blue">
       <Card className="text-align-left" onClick={toArticle1}>
-        <Card.Img
+        <Card.Img className="card-imgs"
           width="100%"
           height="250px"
           src={currentSrc}
@@ -37,7 +37,7 @@ export default function ArticleCard1() {
           }}
           alt="Should I put myself out there?"
         />
-        <Card.Body style={{boxSizing:"border-box", height:"300px"}}>
+        <Card.Body className="cards-body">
           <Card.Title>
             <h4>
               Should I put myself out there?

@@ -1,7 +1,11 @@
 Before Aug 15
 
+Edits
+- fixed resource cards' body height on mobile
+better error message for 400 error on FF forget password page
+
 Article:
-Put up "Should I talk to more than one person?"
+- Put up "Should I talk to more than one person?"
 
 Database (FF and GSC):
 Search

@@ -26,7 +26,7 @@ export default function ArticleCard3() {
   return (
     <div className="article-card blue">
       <Card className="text-align-left" onClick={toArticle3}>
-        <Card.Img
+        <Card.Img className="card-imgs"
           top width="100%"
           height="250px"
           src={currentSrc}
@@ -36,7 +36,7 @@ export default function ArticleCard3() {
           }}
           alt="What if someone I know 'says hi' to me & I don't like them?"
         />
-        <Card.Body style={{boxSizing:"border-box", height:"300px"}}>
+        <Card.Body className="cards-body">
           <Card.Title>
             <h4>
               What if someone I know <span style={{whiteSpace:"nowrap"}}>'says hi'</span> to me & I don't like them?

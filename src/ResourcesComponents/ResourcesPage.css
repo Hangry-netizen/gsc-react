@@ -26,6 +26,11 @@
   font-size: 18px;
 }
 
+.cards-body {
+  box-sizing: border-box;
+  height: 300px;
+}
+
 @media(max-width: 1024px) {
   #resources-page-container {
     width: 600px;
@@ -49,5 +54,14 @@
   .article-content {
     font-size: 12px !important;
     padding: 0 !important;
+  }
+
+  .cards-body {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .card-imgs {
+    height: 200px;
   }
 }

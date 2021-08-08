@@ -27,7 +27,7 @@ export default function ArticleCard2() {
   return (
     <div className="article-card blue">
       <Card className="text-align-left" onClick={toArticle2}>
-        <Card.Img
+        <Card.Img className="card-imgs"
           width="100%"
           height="250px"
           src={currentSrc}
@@ -36,7 +36,7 @@ export default function ArticleCard2() {
             transition: "opacity .15s linear"
           }}
           alt="Should I 'say hi' to someone in a different country?" name="Should I 'say hi' to someone in a different country?" />
-        <Card.Body style={{boxSizing:"border-box", height:"300px"}}>
+        <Card.Body className="cards-body">
           <Card.Title>
             <h4>
               Should I 'say hi' to someone in a different country?

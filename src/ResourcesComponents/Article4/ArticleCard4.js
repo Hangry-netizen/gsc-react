@@ -27,7 +27,7 @@ export default function ArticleCard4() {
   return (
     <div className="article-card blue">
       <Card className="text-align-left" onClick={toArticle4}>
-        <Card.Img
+        <Card.Img className="card-imgs"
           top width="100%"
           height="250px"
           src={currentSrc}
@@ -37,7 +37,7 @@ export default function ArticleCard4() {
           }}
           alt="I received a 'hello' notification... what should I do"
         />
-        <Card.Body style={{boxSizing:"border-box", height:"300px"}}>
+        <Card.Body className="cards-body">
           <Card.Title>
             <h4>
               I received a 'hello' notification... what should I do?

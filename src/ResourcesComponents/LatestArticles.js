@@ -7,7 +7,7 @@ import ArticleCard5 from './Article5/ArticleCard5';
 
 export default function LatestArticles() {
     return (
-      <div >
+      <div>
         <h2 className="text-align-left">LATEST</h2>
         <div className="display-flex-wrap">
           <ArticleCard5 />
