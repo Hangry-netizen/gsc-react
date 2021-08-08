@@ -21,7 +21,7 @@ const ForgotPassword = () => {
       await resetPassword(email)
       setMessage("Check your inbox for further instructions")
     } catch {
-      setError("Failed to reset password")
+      setError("There is no existing Faithful Friend account with this email. Please ensure that you have entered the correct email address and try again. If the problem persists, please contact us at matchesup@gmail.com.")
     }
     setIsLoading(false)
   }
@@ -29,7 +29,7 @@ const ForgotPassword = () => {
   return (
     <div id="forgot-password-container">
       <div id="forgot-password-title">RESET PASSWORD</div>
-      <div id="alert-div">
+      <div id="alert-div" className="font-size-small">
         {error && <Alert variant="danger">{error}</Alert>}
         {message && <Alert variant="success">{message}</Alert>}
       </div>

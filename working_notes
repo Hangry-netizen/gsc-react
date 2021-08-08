@@ -4,7 +4,7 @@ Edits
 - fixed resource cards' body height on mobile
 - changed 'submit' button on edit profile and edit ref forms to 'save changes'
 - fixed bug on Contacted Table page in Hello Page
-better error message for 400 error on FF forget password page
+- better error message for 400 error on FF forget password page
 
 Article:
 - Put up "Should I talk to more than one person?"
