@@ -6,8 +6,8 @@ export default function FormBody({ gsc, submitForm, handleChange, isLoading }) {
       <div className="reference-form-container">
         <div className="reference-form-header-content text-align-left">
           <br />
-          <div className="color-blue">Thank you for agreeing to answer some questions on your Good Single Christian Friend (GSCF): <span className="color-red">{gsc.name}</span>. It's always helpful to get several perspectives!</div>
-          <br />
+          <p className="color-blue">Thank you for agreeing to answer some questions on your Good Single Christian Friend (GSCF): <span className="color-red">{gsc.name}</span>. It's always helpful to get several perspectives!</p>
+          <p className="color-blue">Remember NOT to use your friend’s name in your description as they may want to remain anonymous.</p>
           <div className="color-red">*Required</div>
         </div>
         <hr />

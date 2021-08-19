@@ -7,6 +7,7 @@ export default function FormPage3({ form, prevStep, step3NextStep, handleChange,
       <div className="create-gsc-form-header-content mobile-text-align-justify">
         <br />
         <p className="color-blue">These information will be sent to your Good Single Christian Friend (GSCF) to be reviewed/edited. If you don't know the answer, put a "?" for your GSCF to answer later.</p>
+        <p className="color-blue">Remember NOT to use your friend’s name in your description as they may want to remain anonymous.</p>
         <div className="color-red">*Required</div>
       </div>
       <hr />

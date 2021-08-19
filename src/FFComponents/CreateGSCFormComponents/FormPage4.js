@@ -8,6 +8,7 @@ export default function FormPage4({ form, prevStep, submitForm, handleChange, is
       <div className="create-gsc-form-header-content mobile-text-align-justify">
         <br />
         <p className="color-blue">Remember, your GSCF can fill in/correct answers you aren't sure about when they review this form.</p>
+        <p className="color-blue">Remember NOT to use your friend’s name in your description as they may want to remain anonymous.</p>
         <div className="color-red">*Required</div>
       </div>
       <hr />

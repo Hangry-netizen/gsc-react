@@ -9,6 +9,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
       <Form onSubmit={submitEdit}>
         <div className="italic color-red">PERSONAL DETAILS</div>
         <br />
+        <p className="color-red font-size-small">If you don’t want your name to be revealed, make sure your name is not mentioned in the descriptions.</p>
         <div className="color-red font-size-small">Required *</div>
         <br />
         <Form.Group as={Row}>

@@ -1,13 +1,8 @@
-Before Aug 15
+Before Aug 15-22
 
-Edits
-- fixed resource cards' body height on mobile
-- changed 'submit' button on edit profile and edit ref forms to 'save changes'
-- fixed bug on Contacted Table page in Hello Page
-- better error message for 400 error on FF forget password page
-
-Article:
-- Put up "Should I talk to more than one person?"
+GSC Profile Page:
+Hide/unhide function
+Remove profile function
 
 Database (FF and GSC):
 Search
@@ -17,10 +12,6 @@ Report
 
 Functional Donation Page
 
-GSC Profile Page:
-Hide/unhide function
-Remove profile function
-
 Fix approval display for admin:
 Set up 'activated' field (to be changed to true on the first of the month for approved gscs):
 add 'is_activated' field default false to gsc model
@@ -28,8 +19,15 @@ add 'is_activated' to gsc status api
 edit Admin approval function to set [is_approved True], [is_activated False], [is_active False]
 edit GSC profile page display [activated True - display all] else [activated False - only edit profile]
 
-figure out reload (Chris suggest to look into websocket)
+Article:
+- Put up "Should I talk to more than one person?"
 
+Edits
+- fixed resource cards' body height on mobile
+- changed 'submit' button on edit profile and edit ref forms to 'save changes'
+- fixed bug on Contacted Table page in Hello Page
+- better error message for 400 error on FF forget password page
+- add do not mention gsc name msg in FF form, Reference form, and Edit profile page
 
 
 Before July 31st
