@@ -16,7 +16,7 @@ Fix approval display for admin:
 - Set up 'activated' field (to be changed to true on the first of the month for approved gscs):
 - add 'is_activated' field default false to gsc model
 - add 'is_activated' to gsc status api
-edit Admin approval function to set [is_approved True] (change url to approval api)
+- edit Admin approval function to set [is_approved True]
 - edit GSC profile page display [activated True - display all] else [activated False - only edit profile]
 
 Article:

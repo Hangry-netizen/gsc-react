@@ -12,8 +12,7 @@ export default function ApprovalModal({ gsc, showGscModal, handleCloseGscModal }
       method: 'POST',
       url: `${url}/gscs/approve/${gsc.uuid}`,
       data: {
-        is_approved: true,
-        is_active: false
+        is_approved: true
       }
     })
     .then(response => {
