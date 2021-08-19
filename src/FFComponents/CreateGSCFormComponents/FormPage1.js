@@ -18,7 +18,7 @@ export default function FormPage1({ form, prevStep, nextStep, handleChange }) {
         <br />
         <Form onSubmit={nextStep}>
           <Form.Group controlId="formBasicName">
-            <Form.Label className="Essays1743">GSCF's (Good Single Christian Friend) Full Name <span className="color-red">*</span></Form.Label>
+            <Form.Label className="Essays1743">GSCF's (Good Single Christian Friend) First and Last Name <span className="color-red">*</span></Form.Label>
             <Col className="without-left-padding">
               <Form.Control type="name" required onChange={handleChange('name')} value={form.name}/>
             </Col>
