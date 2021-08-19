@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Alert } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -20,19 +20,24 @@ export default function DeleteFFAccount() {
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
 
+  useEffect(() => {
+    if (answer === randomNum){
+      setIsLoading(false)
+    }
+    else (
+      setIsLoading(true)
+    )
+  }, [answer, randomNum])
+
   async function handleDeleteAccount(e) {
     e.preventDefault()
     setMessage("")
     setError("")
 
-    if (answer !== randomNum) {
-      return setError("Numbers do not match")
-    }
-
     try {
       setIsLoading(true)
       await currentUser.delete()
-      setMessage("Successfully deleted account")
+      alert("Successfully deleted your FF account")
       history.push("/")
     } catch {
       setError("Failed to delete account. Try logging out and signing in again before deleting if this problem persists.")
@@ -69,9 +74,10 @@ export default function DeleteFFAccount() {
               {error && <Alert className="color-red font-size-small">{error}</Alert>}
               {message && <Alert className="color-green font-size-small">{message}</Alert>}
             </div>
+            <br />
             <div className="text-align-right">
               <Button variant="secondary" onClick={handleCloseDeleteModal} style={{marginRight:"20px"}}>Close</Button>
-              <Button variant="danger" disabled={isLoading} type="submit">Delete</Button>
+              <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} type="submit">Delete</Button>
             </div>
           </form>
         </Modal.Body>
