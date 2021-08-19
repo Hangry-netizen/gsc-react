@@ -36,7 +36,7 @@ const FFLoginPage = () => {
   return (
     <div id="login-container" className="text-align-center bg-blue color-red">
       <div id="login-title">LOGIN</div>
-      <div className="color-beach" style={{padding:"10px 30px"}}>This sign-in is for Faithful Friends only. GSCs please access your profile through the link sent to your email!</div>
+      <div className="color-beach" style={{padding:"10px 30px"}}>This Login is only for Faithful Friends. Good Single Christians (GSCs), please access your profile through the link in your email. Do check promotional tab or spam if you do not see the emails from MatchesUp.</div>
       <div id="login-alert-div">
         {message && <Alert variant="success" className="font-size-small">{message}</Alert>}
         {error && <Alert variant="danger" className="font-size-small">{error}</Alert>}
