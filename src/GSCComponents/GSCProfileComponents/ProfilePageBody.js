@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { url } from '../../App';
+import axios from 'axios';
 
-export default function ProfilePageBody({ gsc }) {
+export default function ProfilePageBody({ gsc, setActive, active }) {
   let history = useHistory();
+  const [loading, setLoading] = useState(false)
 
   const toEditPage = () => {
     history.push(`/good-single-christian-friend/${gsc.uuid}/edit`)
@@ -16,6 +19,23 @@ export default function ProfilePageBody({ gsc }) {
     history.push(`/good-single-christian-friend/${gsc.uuid}/hellos`)
   }
 
+  const handleActiveToggle = () => {
+    axios.post(`${url}/gscs/active-status/toggle/${gsc.id}`)
+    .then(() => {
+      setLoading(false)
+    })
+    .catch((error) => {
+      console.log(error)
+      setLoading(false)
+    })
+  }
+
+  const toggleHideProfile = () => {
+    setLoading(true)
+    setActive(!active)
+    handleActiveToggle()
+  }
+
   return (
     <div>
       {
@@ -27,7 +47,7 @@ export default function ProfilePageBody({ gsc }) {
               <button onClick={toEditPage} className="gsc-profile-page-btn color-blue">edit profile</button>
             </div>
             {
-              gsc.is_active
+              gsc.is_activated
               ?
               <>
                 <div>
@@ -35,6 +55,20 @@ export default function ProfilePageBody({ gsc }) {
                 </div>
                 <div>
                   <button onClick={toHelloPage} className="gsc-profile-page-btn color-blue">view hellos</button>
+                </div>
+                {
+                  active
+                  ?
+                  <div>
+                    <button onClick={toggleHideProfile} disabled={loading} className="gsc-profile-page-btn color-blue">hide profile</button>
+                  </div>
+                  :
+                  <div>
+                    <button onClick={toggleHideProfile} disabled={loading} className="gsc-profile-page-btn color-blue">unhide profile</button>
+                  </div>
+                }
+                <div>
+                  <button onClick={toHelloPage} className="gsc-profile-page-btn color-blue">delete profile</button>
                 </div>
               </>
               :

@@ -9,20 +9,23 @@ import ProfilePageBody from '../GSCComponents/GSCProfileComponents/ProfilePageBo
 export default function ProfilePage() {
   const { uuid } = useParams();
   const [gsc, setGsc] = useState();
+  const[active, setActive] = useState()
 
   useEffect(() => {
     axios.get (`${url}/gscs/${uuid}`)
       .then((response) => {
         setGsc(response.data)
+        setActive(response.data.is_active)
       })
       .catch((error) => {
         console.log(error)
       })
-  }, [uuid])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div id="gsc-profile-page-container">
-      {gsc ? <ProfilePageBody gsc={gsc}/> : null}
+      {gsc ? <ProfilePageBody gsc={gsc} active={active} setActive={setActive}/> : null}
     </div>
   )
 }
