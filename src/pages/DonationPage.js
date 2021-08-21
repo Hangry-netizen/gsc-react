@@ -1,6 +1,7 @@
 import React from 'react';
 import Malaysia from "../DonationComponents/Malaysia";
 import Singapore from "../DonationComponents/Singapore";
+import Philippines from '../DonationComponents/Philippines';
 import Others from "../DonationComponents/Others";
 import "../DonationComponents/DonationPage.css";
 
@@ -19,6 +20,7 @@ export default function DonationPage() {
       <div id="countries">
         <Malaysia/>
         <Singapore />
+        <Philippines />
         <Others />
       </div>
     </span>
