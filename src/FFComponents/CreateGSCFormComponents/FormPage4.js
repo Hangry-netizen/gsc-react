@@ -70,7 +70,7 @@ export default function FormPage4({ form, prevStep, submitForm, handleChange, is
           </Form.Group>
           <br />
           <div>
-            {error && <Alert className="color-red font-size-small" variant="danger">{error}. Please check with your GSCF. For futher inquires or assistance, don't hesitate to contact your friends at MatchesUp by emailing to matchesup@gmail.com!</Alert>}
+            {error && <Alert className="color-red font-size-small" variant="danger">{error}</Alert>}
           </div>
           <div className="display-flex">
             <Button variant="secondary" onClick={prevStep}>Back</Button>
