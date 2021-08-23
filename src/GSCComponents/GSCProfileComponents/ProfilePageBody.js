@@ -6,7 +6,8 @@ import axios from 'axios';
 
 export default function ProfilePageBody({ gsc, setActive, active }) {
   let history = useHistory();
-  const [loading, setLoading] = useState(false);
+  const [toggleLoading, setToggleLoading] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(true);
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
 
@@ -33,16 +34,16 @@ export default function ProfilePageBody({ gsc, setActive, active }) {
   const handleActiveToggle = () => {
     axios.post(`${url}/gscs/active-status/toggle/${gsc.id}`)
     .then(() => {
-      setLoading(false)
+      setToggleLoading(false)
     })
     .catch((error) => {
       console.log(error)
-      setLoading(false)
+      setToggleLoading(false)
     })
   }
 
   const toggleHideProfile = () => {
-    setLoading(true)
+    setToggleLoading(true)
     setActive(!active)
     handleActiveToggle()
   }
@@ -54,15 +55,15 @@ export default function ProfilePageBody({ gsc, setActive, active }) {
 
   useEffect(() => {
     if (answer === randomNum){
-      setLoading(false)
+      setDeleteLoading(false)
     }
     else (
-      setLoading(true)
+      setDeleteLoading(true)
     )
   }, [answer, randomNum])
 
   const handleDeleteProfile = () => {
-    setLoading(true)
+    setDeleteLoading(true)
     setMessage("")
     setError("")
 
@@ -112,12 +113,12 @@ export default function ProfilePageBody({ gsc, setActive, active }) {
                       <button onClick={toHelloPage} className="gsc-profile-page-btn color-blue">view hellos</button>
                     </div>
                     <div>
-                      <button onClick={toggleHideProfile} disabled={loading} className="gsc-profile-page-btn color-blue">hide profile</button>
+                      <button onClick={toggleHideProfile} disabled={toggleLoading} className="gsc-profile-page-btn color-blue">hide profile</button>
                     </div>
                   </>
                   :
                   <div>
-                    <button onClick={toggleHideProfile} disabled={loading} className="gsc-profile-page-btn color-blue">unhide profile</button>
+                    <button onClick={toggleHideProfile} disabled={toggleLoading} className="gsc-profile-page-btn color-blue">unhide profile</button>
                   </div>
                 }
                 <div>
@@ -153,7 +154,7 @@ export default function ProfilePageBody({ gsc, setActive, active }) {
             <br />
             <div className="text-align-right">
               <Button variant="secondary" onClick={handleCloseDeleteModal} style={{marginRight:"20px"}}>Close</Button>
-              <Button variant={loading ? "secondary" : "danger"} disabled={loading} type="submit">Delete</Button>
+              <Button variant={deleteLoading ? "secondary" : "danger"} disabled={deleteLoading} type="submit">Delete</Button>
             </div>
           </form>
         </Modal.Body>
