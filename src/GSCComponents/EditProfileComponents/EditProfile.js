@@ -83,6 +83,13 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
         </Form.Group>
         <br />
         <Form.Group className="text-align-left">
+          <Form.Label className="Essays1743">Now’s the time for you to tell your potential matches: What's important to you, whether in life or in a partner?</Form.Label>
+          <Form.Text className="mobile-text-align-justify">Optional, but imagine how helpful it'd be to hear directly from you! This can be as macro as sharing your passion or calling, or as micro as wanting a partner who likes Chinese food and Netflix. I’m sure there’s a lot on your wish list, but try and list some essentials to give them a gist of what’s most important to you personally (max. 1500 characters).</Form.Text>
+          <Col className="without-left-right-padding">
+            <Form.Control as="textarea" rows={3} type="text" onChange={handleChange('what_is_important_to_me')} value={form.what_is_important_to_me} />
+          </Col>
+        </Form.Group>
+        <Form.Group className="text-align-left">
           <Form.Label className="Essays1743">(Optional) Provide a link (url) or your name to be visible on the database if you do not wish to be anonymous</Form.Label>
           <Col className="without-left-right-padding">
             <Form.Control type="text" onChange={handleChange('social_media_profile_link')} value={form.social_media_profile_link}/>

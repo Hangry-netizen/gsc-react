@@ -111,7 +111,7 @@ export default function ConsentForm() {
   return (
     <div>
       {
-        gsc
+        gsc.id
         ?
         <>
           <div id="consent-form-header">
