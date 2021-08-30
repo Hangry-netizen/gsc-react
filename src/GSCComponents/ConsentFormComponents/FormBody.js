@@ -1,8 +1,8 @@
 import React from 'react';
-import { Form, Button, Col } from 'react-bootstrap';
+import { Form, Button, Col, Alert } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
-export default function FormBody({ isLoading, handleChange, submitForm }) {
+export default function FormBody({ isLoading, handleChange, submitForm, error }) {
   return (
     <div>
       <div className="consent-form-container">
@@ -156,6 +156,9 @@ export default function FormBody({ isLoading, handleChange, submitForm }) {
               </Col>
             </Form.Group>
             <br />
+            <div className="text-align-center">
+              {error && <Alert className="color-red font-size-small">{error}</Alert>}
+            </div>
             <div className="text-align-right">
               <Button id="consent-form-next-btn" disabled={isLoading} type="submit" value="submit">Submit</Button>
             </div>

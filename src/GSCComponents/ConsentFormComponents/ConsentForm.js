@@ -12,6 +12,7 @@ export default function ConsentForm() {
   let history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [gsc, setGsc] = useState({});
+  const [error, setError] = useState("")
   const [form, setForm] = useState(
     {
       social_media_profile_link: "",
@@ -68,13 +69,14 @@ export default function ConsentForm() {
       history.push(`/good-single-christian-friend/${gsc.uuid}`)
     })
     .catch(error => {
-      console.log(error)
+      setError(error)
     })
     setIsLoading(false)
   };
 
   const manageReferences = () => {
     setIsLoading(true)
+    setError("")
     if (form.first_referral_name !== "" && form.first_referral_email !== "") {
       axios({
         method: 'POST',
@@ -86,7 +88,7 @@ export default function ConsentForm() {
         }
       })
       .catch(error => {
-        console.log(error)
+        setError(error)
       })
     }
     if (form.second_referral_name !== "" && form.second_referral_email !== "") {
@@ -100,7 +102,7 @@ export default function ConsentForm() {
         }
       })
       .catch(error => {
-        console.log(error)
+        setError(error)
       })
     }
     setIsLoading(false)
@@ -127,6 +129,7 @@ export default function ConsentForm() {
             handleChange={handleChange}
             submitForm={submitForm}
             isLoading={isLoading}
+            error={error}
           />
         </>
         :
