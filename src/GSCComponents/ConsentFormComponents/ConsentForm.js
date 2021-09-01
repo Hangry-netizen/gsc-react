@@ -18,14 +18,21 @@ export default function ConsentForm() {
       year_of_birth: 0,
       height: "",
       languages: "",
+      church_background: "",
       nationality: "",
       city: "",
       country: "",
+      moving_to_a_different_town: 50,
+      moving_to_a_different_country: 50,
       social_media_profile_link: "",
       preferred_contact_method: "",
       contact_info: "",
       notification_frequency: "",
       what_is_important_to_me: "",
+      mbti: "",
+      enneagram: "",
+      disc: "",
+      strengths_finder: "",
       first_referral_name: "",
       first_referral_email: "",
       second_referral_name: "",
@@ -63,14 +70,21 @@ export default function ConsentForm() {
         year_of_birth: form.year_of_birth,
         height: form.height,
         languages: form.languages,
+        church_background: form.church_background,
         nationality: form.nationality,
         city: form.city,
         country: form.country,
+        moving_to_a_different_town: form.moving_to_a_different_town,
+        moving_to_a_different_country: form.moving_to_a_different_country,
         social_media_profile_link: form.social_media_profile_link, 
         preferred_contact_method: form.preferred_contact_method,
         contact_info: form.contact_info, 
         notification_frequency: form.notification_frequency,
-        what_is_important_to_me: form.what_is_important_to_me
+        what_is_important_to_me: form.what_is_important_to_me,
+        mbti: form.mbti,
+        enneagram: form.enneagram,
+        disc: form.disc,
+        strengths_finder: form.strengths_finder
       }
     })
     .then((response) => {
@@ -138,6 +152,7 @@ export default function ConsentForm() {
             </div>
           </div>
           <FormBody
+            form={form}
             handleChange={handleChange}
             submitForm={submitForm}
             isLoading={isLoading}

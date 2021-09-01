@@ -39,7 +39,7 @@ import AdminDatabasePage from './AdminPages/AdminDatabasePage';
 
 import { useAuth } from "./contexts/AuthContext";
 
-export const url = process.env.REACT_APP_LOCALHOST_API;
+export const url = process.env.REACT_APP_HEROKU_API;
 
 function App() {
   const { currentUser } = useAuth()

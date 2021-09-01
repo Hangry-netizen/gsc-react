@@ -131,34 +131,6 @@ export default function FormPage2({ form, prevStep, step3NextStep, handleChange,
               <Form.Control type="text" onChange={e => setOtherDescWords(e.target.value)} value={otherDescWords}/>
             </Col>
           </Form.Group>
-          <br />
-          <div className="Essays1743">PERSONALITY/TEMPERAMENT</div>
-          <div>Feel free to fill in what are familiar with!</div>
-          <br />
-          <Form.Group as={Row}>
-            <Form.Label column sm="4" className="Essays1743">MBTI</Form.Label>
-            <Col sm={8}>
-              <Form.Control type="text" onChange={handleChange('mbti')} value={form.mbti}/>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row}>
-            <Form.Label column sm="4" className="Essays1743">Enneagram</Form.Label>
-            <Col sm={8}>
-              <Form.Control type="text" onChange={handleChange('enneagram')} value={form.enneagram}/>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row}>
-            <Form.Label column sm="4" className="Essays1743">DISC</Form.Label>
-            <Col sm={8}>
-              <Form.Control type="text" onChange={handleChange('disc')} value={form.disc}/>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row}>
-            <Form.Label column sm="4" className="Essays1743">StrengthsFinder/Others</Form.Label>
-            <Col sm={8}>
-              <Form.Control type="text" onChange={handleChange('strengths_finder')} value={form.strengths_finder}/>
-            </Col>
-          </Form.Group>
           <Form.Group controlId="formBasicFavoriteTopics">
             <Form.Label className="Essays1743">What are some of his/her favorite topics of discussion?</Form.Label>
             <Form.Text>Include favorite music/movies/books if there are any notable ones!</Form.Text>
@@ -252,13 +224,6 @@ export default function FormPage2({ form, prevStep, step3NextStep, handleChange,
             <Form.Text>e.g. baby Christian, average faith, hungry for more, sold out</Form.Text>
             <Col className="without-left-right-padding">
               <Form.Control type="text" required onChange={handleChange('spiritual_maturity')} value={form.spiritual_maturity}/>
-            </Col>
-          </Form.Group>
-          <Form.Group controlId="formBasicChurchBackground">
-            <Form.Label className="Essays1743">Church background <span className="color-red">*</span></Form.Label>
-            <Form.Text>Denomination involed in (e.g. Baptist, Catholic, Methodist, Anglican, Charismatic, Pentecostal, HOP, YWAM, OMF)</Form.Text>
-            <Col className="without-left-right-padding">
-              <Form.Control type="text" required onChange={handleChange('church_background')} value={form.church_background}/>
             </Col>
           </Form.Group>
           {error && <Alert className="color-red font-size-small">{error}</Alert>}

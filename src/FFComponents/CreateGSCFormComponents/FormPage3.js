@@ -26,23 +26,6 @@ export default function FormPage3({ form, prevStep, submitForm, handleChange, is
               <Form.Control as="textarea" required type="text" onChange={handleChange('good_match_for_gscf')} value={form.good_match_for_gscf}/>
             </Col>
           </Form.Group>
-          <p className="Essays1743">Willingness to relocate/move...</p>
-          <Form.Group controlId="formBasicMovingToADifferentTown" className="without-left-padding Essays1743">
-            <Form.Label>...to a different town within the same country: <span>{form.moving_to_a_different_town}%</span></Form.Label>
-            <Form.Control type="range" onChange={handleChange('moving_to_a_different_town')} value={form.moving_to_a_different_town}/>
-            <div className="display-flex">
-              <div>unwilling</div>
-              <div>willing</div>
-            </div>
-          </Form.Group>
-          <Form.Group controlId="formBasicMovingToADifferentCountry" className="without-left-padding Essays1743">
-            <Form.Label>...to a different country: <span>{form.moving_to_a_different_country}%</span></Form.Label>
-            <Form.Control type="range" onChange={handleChange('moving_to_a_different_country')} value={form.moving_to_a_different_country}/>
-            <div className="display-flex">
-              <div>unwilling</div>
-              <div>willing</div>
-            </div>
-          </Form.Group>
           <Form.Group controlId="formBasicHasBeenMarriedOrHasKids">
             <Form.Label className="Essays1743">Has he/she ever been married? Or have kids?</Form.Label>
             <Col className="without-left-padding">
