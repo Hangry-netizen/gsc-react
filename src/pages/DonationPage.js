@@ -10,7 +10,7 @@ export default function DonationPage() {
     <span id="donation-page-container" className="bg-beach">
       <div id="donation-info" className="color-red padding-left">DONATION INFO</div>
       <p id="donation-p" className="color-blue">
-        To cover our cost of running this service, we ask for a small donation of a minimum of RM5/SGD3/PHP50 for each GSC profile created. Click for transfer details for your country.
+        To cover our cost of running this service, we ask for a small donation of a minimum of RM5 / SGD3 / PHP50 / THB40 for each GSC profile created. Click for transfer details for your country.
       </p>
       <p id="donation-p" className="color-blue">
         If we do have surplus, donations will be channeled to fund similar ventures.

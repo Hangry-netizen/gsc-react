@@ -51,9 +51,9 @@ export default function FFProfilePage() {
         </div>
         <div>
           <div id="ff-profile-page-donation" className="color-red">
-            To cover our cost of running this service, we ask for a small donation of a minimum of RM5/SGD3/PHP50 for each GSC profile created. <Link to="/donation-info" id="ff-page-donation-info-link">See donation info.</Link> Thank you for helping us maintain this service for the body of Christ!
+            To cover our cost of running this service, we ask for a small donation of a minimum of RM5 / SGD3 / PHP50 /THB40 for each GSC profile created. <Link to="/donation-info" id="ff-page-donation-info-link">See donation info.</Link> Thank you for helping us maintain this service for the body of Christ!
           </div>
-          <div id="profile-page-donation-waived-stamp" className="text-align-center color-red bold">waived for the first batch</div>
+          <div id="profile-page-donation-waived-stamp" className="text-align-center color-red bold">waived for sign ups before 1st October 2021</div>
         </div>
         <div id="manage-profiles" className="color-blue bold font-size-large">MANAGE GSCF PROFILES</div>
         <ExistingGSCs

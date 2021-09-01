@@ -30,9 +30,9 @@ export default function Introduction() {
       </div>
       <p className="color-red text-align-left">We hope this inspires you to say, “Match us up!” </p>
       <div id="to-cover-cost" className="color-blue text-align-left">
-        To cover our cost of running this service, we ask for a small donation of a minimum of RM5/SGD3/PHP50 for each GSC profile created. <Link to="/donation-info" id="donation-info-link">See donation info.</Link> Thank you for helping us maintain this service for the body of Christ!
+        To cover our cost of running this service, we ask for a small donation of a minimum of RM5 / SGD3 / PHP50 /THB40 for each GSC profile created. <Link to="/donation-info" id="donation-info-link">See donation info.</Link> Thank you for helping us maintain this service for the body of Christ!
       </div>
-      <div id="donation-waived-stamp" className=" text-align-center color-red bold">waived for the first batch</div>
+      <div id="donation-waived-stamp" className=" text-align-center color-red bold">waived for sign ups before 1st October 2021</div>
     </div>
   )
 }
