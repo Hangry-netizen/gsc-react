@@ -122,7 +122,7 @@ export default function FormBody({ isLoading, form, handleChange, submitForm, er
             </Form.Group>
             <br />
             <div className="Essays1743">PERSONALITY/TEMPERAMENT</div>
-            <div>Feel free to fill in what are familiar with! (optional)</div>
+            <Form.Text>Feel free to fill in what are familiar with! (optional)</Form.Text>
             <br />
             <Form.Group as={Row}>
               <Form.Label column sm="4" className="Essays1743">MBTI</Form.Label>
@@ -186,7 +186,7 @@ export default function FormBody({ isLoading, form, handleChange, submitForm, er
             </Form.Group>
             <br />
             <br />
-            <div>The info below will only be sent to those you 'say hi' to for them to contact you. It will not be displayed on the monthly database sent to users of the opposite gender.</div>
+            <div className="color-red">The info below will only be sent to those you 'say hi' to for them to contact you. It will not be displayed on the monthly database sent to users of the opposite gender.</div>
             <hr />
             <Form.Group controlId="formBasicPreferredContactMethod">
               <Form.Label className="Essays1743">Preferred Contact Method <span className="color-red">*</span></Form.Label>
@@ -224,7 +224,8 @@ export default function FormBody({ isLoading, form, handleChange, submitForm, er
               </Col>
             </Form.Group> 
             <br />
-            <p className="Essays1743">REFERENCES (optional)</p>
+            <p className="color-red">REFERENCES (optional)</p>
+            <hr />
             <p>It's always helpful to get several perspectives. Can you recommend two other friends who would be able and willing to answer two questions about you? (This part is optional.)</p>
             <p>They will only need to answer two questions:</p>
             <div>1. What qualities within him/her would make them a good partner? </div>

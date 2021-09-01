@@ -24,7 +24,7 @@ export default function FAQPage() {
       </div>
       <div id="faq-gscs-container" className="bg-blue" style={{width:"100%", padding:"30px"}}>
         <div id="faq-content-container" className="color-red" style={{width: "800px", margin: "auto"}}>
-          <h3 className="color-beach" style={{margin:"50px 0"}}>QUESTION FOR THE GOOD SINGLE CHRISTIANS (GSCs):</h3>
+          <h3 className="color-beach" style={{margin:"50px 0"}}>QUESTIONS FOR THE GOOD SINGLE CHRISTIANS (GSCs):</h3>
           <h4 className="text-align-left">Q: What if I don’t like what my ‘Faithful Friend’ (FF) wrote about me in my profile?</h4>
           <p className="color-beach text-align-justify">A: Don’t worry! As the GSC you have complete authority over what is published about you! When the FF submits their answers about you, it first goes to you, to edit or approve their answers before anything goes live on the site. This is also true of the two other friend commendations submitted to your profile. It’s important the profile represents you accurately, so seriously consider your friend’s answers before adjusting them.</p>
           <h4 className="text-align-left">Q: Is my information anonymous? Who will see my real name and personal contact information?</h4>

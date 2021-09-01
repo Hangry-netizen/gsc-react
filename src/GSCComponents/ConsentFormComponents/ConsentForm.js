@@ -56,7 +56,6 @@ export default function ConsentForm() {
   const submitForm = e => {
     e.preventDefault()
     updateGSC();
-    manageReferences();
   }
 
   const updateGSC = () => {
@@ -91,8 +90,6 @@ export default function ConsentForm() {
       if (response.data.status === "success") {
         manageReferences()
       }
-      alert("Form has been submitted successfully")
-      history.push(`/good-single-christian-friend/${gsc.uuid}`)
     })
     .catch(error => {
       setError(error)
@@ -132,6 +129,8 @@ export default function ConsentForm() {
       })
     }
     setIsLoading(false)
+    alert("Form has been submitted successfully")
+    history.push(`/good-single-christian-friend/${gsc.uuid}`)
   }
   
   return (

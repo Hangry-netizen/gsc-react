@@ -43,6 +43,13 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
             <Form.Control type="text" required onChange={handleChange('languages')} value={form.languages}/>
           </Col>
         </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="4" className="Essays1743 text-align-left">Church background <span className="color-red">*</span></Form.Label>
+          <Col sm="8">
+            <Form.Control type="text" required onChange={handleChange('church_background')} value={form.church_background}/>
+            <Form.Text className="margin-top-zero italic">Denomination involved in (e.g. Baptist, Catholic, Methodist, Anglican, Charismatic, Pentecostal, HOP, YWAM, OMF)</Form.Text>
+          </Col>
+        </Form.Group>
         <Form.Group as={Row} className="align-items-center">
           <Form.Label column sm="4" className="Essays1743 overflow-wrap text-align-left" >Nationality & Ethnicity <span className="color-red">*</span></Form.Label>
           <Col sm="8">
@@ -80,6 +87,34 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
             <div>unwilling</div>
             <div>willing</div>
           </div>
+        </Form.Group>
+        <br />
+        <div>Personality/Temperament</div>
+        <div className="font-size-small italic">Feel free to fill in what you are familiar with!</div>
+        <br />
+        <Form.Group as={Row}>
+          <Form.Label column sm="4" className="Essays1743 text-align-left">MBTI</Form.Label>
+          <Col sm="8">
+            <Form.Control type="text" onChange={handleChange('mbti')} value={form.mbti}/>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="4" className="Essays1743 text-align-left">Enneagram</Form.Label>
+          <Col sm="8">
+            <Form.Control type="text" onChange={handleChange('enneagram')} value={form.enneagram}/>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row}>
+          <Form.Label column sm="4" className="Essays1743 text-align-left">DISC</Form.Label>
+          <Col sm="8">
+            <Form.Control type="text" onChange={handleChange('disc')} value={form.disc}/>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="overflow-wrap align-items-center text-align-left">
+          <Form.Label column sm="4" className="Essays1743">StrengthsFinder / Others</Form.Label>
+          <Col sm="8">
+            <Form.Control as="textarea" rows={3} type="text" onChange={handleChange('strengths_finder')} value={form.strengths_finder}/>
+          </Col>
         </Form.Group>
         <br />
         <Form.Group className="text-align-left">
@@ -144,34 +179,6 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
           </Col>
         </Form.Group>
         <br />
-        <div>Personality/Temperament</div>
-        <div className="font-size-small italic">Feel free to fill in what you are familiar with!</div>
-        <br />
-        <Form.Group as={Row}>
-          <Form.Label column sm="4" className="Essays1743 text-align-left">MBTI</Form.Label>
-          <Col sm="8">
-            <Form.Control type="text" onChange={handleChange('mbti')} value={form.mbti}/>
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm="4" className="Essays1743 text-align-left">Enneagram</Form.Label>
-          <Col sm="8">
-            <Form.Control type="text" onChange={handleChange('enneagram')} value={form.enneagram}/>
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Form.Label column sm="4" className="Essays1743 text-align-left">DISC</Form.Label>
-          <Col sm="8">
-            <Form.Control type="text" onChange={handleChange('disc')} value={form.disc}/>
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="overflow-wrap align-items-center text-align-left">
-          <Form.Label column sm="4" className="Essays1743">StrengthsFinder / Others</Form.Label>
-          <Col sm="8">
-            <Form.Control as="textarea" rows={3} type="text" onChange={handleChange('strengths_finder')} value={form.strengths_finder}/>
-          </Col>
-        </Form.Group>
-        <br />
         <Form.Group className="text-align-left">
           <Form.Label className="Essays1743 margin-bottom-zero">What are some of his/her favorite topics of discussion?</Form.Label>
           <Form.Text className="margin-top-zero italic">Include favorite music/movies/books if there are any notable ones!</Form.Text>
@@ -219,14 +226,6 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
             <Form.Control type="text" required onChange={handleChange('spiritual_maturity')} value={form.spiritual_maturity} />
           </Col>
         </Form.Group>
-        <Form.Group className="text-align-left">
-          <Form.Label className="Essays1743 margin-bottom-zero">Church background <span className="color-red">*</span></Form.Label>
-          <Form.Text className="margin-top-zero italic">Denomination involved in (e.g. Baptist, Catholic, Methodist, Anglican, Charismatic, Pentecostal, HOP, YWAM, OMF)</Form.Text>
-          <Col className="without-left-right-padding">
-            <Form.Control type="text" required onChange={handleChange('church_background')} value={form.church_background} />
-          </Col>
-        </Form.Group>
-        <br />
         <Form.Group className="text-align-left">
           <Form.Label className="Essays1743">Has he/she ever been married? Or have kids?</Form.Label>
           <Col className="without-left-right-padding">
