@@ -54,6 +54,45 @@ export default function FormBody({ isLoading, handleChange, submitForm, error })
                 feedback="You must agree before submitting."
               />
             </Form.Group>
+            <Form.Group controlId="formBasicYearOfBirth">
+              <Form.Label className="Essays1743">Year of Birth <span className="color-red">*</span></Form.Label>
+              <Col className="without-left-padding">
+                <Form.Control type="text" required onChange={handleChange('year_of_birth')} />
+              </Col>
+            </Form.Group>
+            <Form.Group controlId="formBasicHeight" >
+              <Form.Label className="Essays1743">Height (cm) <span className="color-red">*</span></Form.Label>
+              <Col className="without-left-padding">
+                <Form.Control type="text" required onChange={handleChange('height')} />
+              </Col>
+            </Form.Group>
+            <Form.Group controlId="formBasicLanguages">
+              <Form.Label className="Essays1743">Languages <span className="color-red">*</span></Form.Label>
+              <Col className="without-left-padding">
+                <Form.Control type="text" required onChange={handleChange('languages')} />
+              </Col>
+            </Form.Group>
+            <Form.Group controlId="formBasicNationality">
+              <Form.Label className="Essays1743">Nationality & Ethnicity <span className="color-red">*</span></Form.Label>
+              <Form.Text>Nationality = citizenship; Ethnicity = cultural background (e.g. Chinese)</Form.Text>
+              <Col className="without-left-padding">
+                <Form.Control type="text" required onChange={handleChange('nationality')} />
+              </Col>
+            </Form.Group>
+            <br />
+            <p className="Essays1743">CURRENT LOCATION</p>
+            <Form.Group controlId="formBasicCity">
+              <Form.Label className="Essays1743">City/Town <span className="color-red">*</span></Form.Label>
+              <Col className="without-left-padding">
+                <Form.Control type="text" required onChange={handleChange('city')} />
+              </Col>
+            </Form.Group>
+            <Form.Group controlId="formBasicCountry">
+              <Form.Label className="Essays1743">Country <span className="color-red">*</span></Form.Label>
+              <Col className="without-left-padding">
+                <Form.Control type="text" required onChange={handleChange('country')} />
+              </Col>
+            </Form.Group>
             <Form.Group controlId="formBasicSelectAnonymousity">
               <Form.Label className="without-left-padding Essays1743">
                 Because we have chosen not to upload pictures and name as a part of the available biodata, would you like to link an identifier to be visible on the database or remain anonymous?<span className="color-red">*</span>
@@ -75,7 +114,7 @@ export default function FormBody({ isLoading, handleChange, submitForm, error })
                   required
                 />
               </Col>
-            </Form.Group> 
+            </Form.Group>
             <Form.Group controlId="formBasicNotAnonymous">
               <Form.Label className="Essays1743">If you selected "Yes" above, please provide a link (url) or your name to be visible on the database</Form.Label>
               <Col className="without-left-padding">

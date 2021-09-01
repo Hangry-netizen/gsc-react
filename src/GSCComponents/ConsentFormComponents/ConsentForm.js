@@ -15,6 +15,12 @@ export default function ConsentForm() {
   const [error, setError] = useState("")
   const [form, setForm] = useState(
     {
+      year_of_birth: 0,
+      height: "",
+      languages: "",
+      nationality: "",
+      city: "",
+      country: "",
       social_media_profile_link: "",
       preferred_contact_method: "",
       contact_info: "",
@@ -54,6 +60,12 @@ export default function ConsentForm() {
       url: `${url}/gscs/consent/${uuid}`,
       data: {
         consent: true,
+        year_of_birth: form.year_of_birth,
+        height: form.height,
+        languages: form.languages,
+        nationality: form.nationality,
+        city: form.city,
+        country: form.country,
         social_media_profile_link: form.social_media_profile_link, 
         preferred_contact_method: form.preferred_contact_method,
         contact_info: form.contact_info, 

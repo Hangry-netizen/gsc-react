@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import FormPage1 from './FormPage1';
 import FormPage2 from './FormPage2';
 import FormPage3 from './FormPage3';
-import FormPage4 from './FormPage4';
 import MatchesUpLogo from "./../../utils/MatchesUpLogo.png";
 import { useAuth } from "../../contexts/AuthContext";
 import axios from 'axios';
@@ -149,12 +148,6 @@ export default function CreateGSCForm() {
         name: form.name,
         email: form.email,
         gender: form.gender,
-        year_of_birth: form.year_of_birth,
-        height: form.height,
-        languages: form.languages,
-        nationality: form.nationality,
-        city: form.city,
-        country: form.country,
         descriptive_words: otherDescWords !== "" ? `${form.descriptive_words}, ${otherDescWords}` : form.descriptive_words,
         mbti: form.mbti,
         enneagram: form.enneagram,
@@ -224,15 +217,6 @@ export default function CreateGSCForm() {
               <FormPage2
                 form={form}
                 prevStep={prevStep}
-                nextStep={nextStep}
-                handleChange={handleChange}
-              />
-            )
-          case 3:
-            return (
-              <FormPage3
-                form={form}
-                prevStep={prevStep}
                 step3NextStep={step3NextStep}
                 handleChange={handleChange}
                 handleListChange={handleListChange}
@@ -243,9 +227,9 @@ export default function CreateGSCForm() {
                 error={error}
               />
             )
-          case 4:
+          case 3:
             return (
-              <FormPage4
+              <FormPage3
                 form={form}
                 prevStep={prevStep}
                 handleChange={handleChange}

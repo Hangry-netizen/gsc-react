@@ -58,7 +58,7 @@ export default function FormPage1({ form, prevStep, nextStep, handleChange }) {
             </Link>
             <Button id="create-gsc-form-next-btn" type="submit" value="submit">Next</Button>
           </div>
-          <div className="text-align-center">Page {form.step} of 4</div>
+          <div className="text-align-center">Page {form.step} of 3</div>
         </Form>
       </div>
     </div>
