@@ -30,7 +30,7 @@ export default function Article5() {
       <h1 className="article-header color-red">Should I talk to more than one person at a time?</h1>
       <div className="color-red flex-space-between italic">
         <div>By Jennifer Gumienny</div>
-        <div>June 2021</div>
+        <div>August 2021</div>
       </div>
       <hr />
       <div className="text-align-center article-img-div">

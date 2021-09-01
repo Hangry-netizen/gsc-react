@@ -30,7 +30,7 @@ export default function Article4() {
       <h1 className="article-header color-red">I received a 'hello' notification... what should I do?</h1>
       <div className="color-red flex-space-between italic">
         <div>By Jennifer Gumienny</div>
-        <div>May 2021</div>
+        <div>July 2021</div>
       </div>
       <hr />
       <div className="text-align-center article-img-div">
