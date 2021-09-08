@@ -135,7 +135,7 @@ export default function CreateGSCForm() {
         ff_name: currentUser.displayName,
         ff_email: currentUser.email,
         name: form.name.trim(),
-        email: form.email,
+        email: form.email.trim(),
         gender: form.gender,
         descriptive_words: otherDescWords !== "" ? `${form.descriptive_words}, ${otherDescWords}` : form.descriptive_words,
         favorite_topics: form.favorite_topics,
