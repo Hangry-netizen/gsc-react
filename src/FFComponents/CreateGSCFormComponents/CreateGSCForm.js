@@ -134,7 +134,7 @@ export default function CreateGSCForm() {
       data: {
         ff_name: currentUser.displayName,
         ff_email: currentUser.email,
-        name: form.name,
+        name: form.name.trim(),
         email: form.email,
         gender: form.gender,
         descriptive_words: otherDescWords !== "" ? `${form.descriptive_words}, ${otherDescWords}` : form.descriptive_words,
@@ -150,7 +150,7 @@ export default function CreateGSCForm() {
         has_been_married_or_has_kids: form.has_been_married_or_has_kids,
         want_to_have_kids: form.want_to_have_kids,
         important_info_to_know: form.important_info_to_know,
-        alias: form.alias
+        alias: form.alias.trim()
       }
     })
     .then(response => {

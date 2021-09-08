@@ -10,7 +10,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
   const [error, setError] = useState("")
 
   useEffect(() => {
-    if (answer === gsc.alias){
+    if (answer.trim().toLowerCase() === gsc.alias.trim().toLowerCase()){
       setIsLoading(false)
     }
     else (

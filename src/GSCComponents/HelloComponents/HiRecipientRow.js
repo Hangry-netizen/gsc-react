@@ -61,7 +61,8 @@ export default function HiRecipientRow({ gsc, StyledTableCell, currentGsc }) {
   return (
     <>
       <StyledTableRow onClick={handleShowHiRecipientModal}>
-        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.name}</StyledTableCell>
+        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
+        <StyledTableCell>{gsc.name}</StyledTableCell>
         <StyledTableCell>{gsc.preferred_contact_method}</StyledTableCell>
         <StyledTableCell>{gsc.contact_info}</StyledTableCell>
         <StyledTableCell>{ageRange}</StyledTableCell>

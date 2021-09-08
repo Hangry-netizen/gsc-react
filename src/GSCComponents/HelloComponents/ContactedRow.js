@@ -61,7 +61,8 @@ export default function ContactedRow({ gsc, StyledTableCell, currentGsc }) {
   return (
     <>
       <StyledTableRow onClick={handleShowContactedModal}>
-        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.name}</StyledTableCell>
+        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
+        <StyledTableCell>{gsc.name}</StyledTableCell>
         <StyledTableCell>{ageRange}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
         <StyledTableCell style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>

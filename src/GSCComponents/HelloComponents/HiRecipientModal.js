@@ -10,7 +10,7 @@ export default function HiRecipientModal({ gsc, currentGsc, showHiRecipientModal
   const [error, setError] = useState("")
 
   useEffect(() => {
-    if (answer === gsc.name){
+    if (answer.trim().toLowerCase() === gsc.name.trim().toLowerCase()){
       setIsLoading(false)
     }
     else (

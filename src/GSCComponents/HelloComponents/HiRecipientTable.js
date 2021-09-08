@@ -36,6 +36,7 @@ export default function HiRecipientTable({ receivedHellos, currentGsc }) {
       <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
         <Table stickyHeader id="gsc-database-table">
           <TableHead>
+            <StyledTableCell>Alias</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Preferred Contact Method</StyledTableCell>
             <StyledTableCell>Contact info</StyledTableCell>

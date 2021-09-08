@@ -9,13 +9,13 @@ export default function SaidHiModal({ gsc, currentGsc, showSaidHiModal, handleCl
   const [error, setError] = useState("")
 
   useEffect(() => {
-    if (answer === gsc.alias){
+    if (answer.trim().toLowerCase() === gsc.name.trim().toLowerCase()){
       setIsLoading(false)
     }
     else (
       setIsLoading(true)
     )
-  }, [answer, gsc.alias])
+  }, [answer, gsc.name])
 
   const handleContacted = (e) => {
     e.preventDefault()
@@ -78,7 +78,7 @@ export default function SaidHiModal({ gsc, currentGsc, showSaidHiModal, handleCl
         scrollable={true}
       >
         <Modal.Header closeButton className="bg-beach">
-          <Modal.Title className="color-blue">{gsc.alias}</Modal.Title>
+          <Modal.Title className="color-blue">{gsc.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-beach" style={{height:"80vh", overflowY:"auto"}}>
           <div className="color-red">Name</div>
