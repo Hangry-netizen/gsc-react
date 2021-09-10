@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DatabaseModal from './DatabaseModal';
-import { withStyles } from '@material-ui/core/styles';
-import TableRow from '@material-ui/core/TableRow';
+import { withStyles, TableRow } from '@material-ui/core';
 
 const StyledTableRow = withStyles((theme) => ({
   root: {

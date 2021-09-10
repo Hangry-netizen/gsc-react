@@ -1,12 +1,6 @@
 import React from 'react';
 import DatabaseRow from './DatabaseRow';
-import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import Paper from '@material-ui/core/Paper';
+import { withStyles, Table, TableBody, TableCell, TableContainer, TableHead, Paper } from '@material-ui/core';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {

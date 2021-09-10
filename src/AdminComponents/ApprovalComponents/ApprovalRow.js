@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ApprovalModal from './ApprovalModal';
+import { withStyles, TableRow } from '@material-ui/core';
 
-export default function ApprovalRow({ gsc }) {
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
+
+export default function ApprovalRow({ gsc, StyledTableCell }) {
   const [showGscModal, setShowGscModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
@@ -64,27 +73,27 @@ export default function ApprovalRow({ gsc }) {
     <>
     { gsc.consent === true && gsc.is_approved === false ?
       <>
-        <tr onClick={handleShowGscModal}>
-          <td>{gsc.name}</td>
-          <td>{gsc.email}</td>
-          <td>{gsc.ff_name}</td>
-          <td>{gsc.ff_email}</td>
-          <td>{gsc.alias}</td>
-          <td>{ageRange}</td>
-          <td>{gsc.city}, {gsc.country}</td>
-          <td>Town: {gsc.moving_to_a_different_town}%, Country: {gsc.moving_to_a_different_country}%</td>
-          <td>{gsc.height}</td>
-          <td>{gsc.languages}</td>
-          <td>{gsc.nationality}</td>
-          <td>{gsc.descriptive_words}</td>
-          <td>{personality}</td>
-          <td>{gsc.church_background}</td>
-          <td>{gsc.spiritual_maturity}</td>
-          <td>{gsc.spiritual_gifts}</td>
-          <td>{gsc.reasons_gscf_makes_a_good_partner}</td>
-          <td>{gsc.good_match_for_gscf}</td>
-          <td>{gsc.what_is_important_to_me}</td>
-        </tr>
+        <StyledTableRow onClick={handleShowGscModal}>
+          <StyledTableCell style={{whiteSpace:'nowrap', background:'#1e365c', color:'#fad4cd'}} className="sticky-left">{gsc.name}</StyledTableCell>
+          <StyledTableCell>{gsc.email}</StyledTableCell>
+          <StyledTableCell>{gsc.ff_name}</StyledTableCell>
+          <StyledTableCell>{gsc.ff_email}</StyledTableCell>
+          <StyledTableCell>{gsc.alias}</StyledTableCell>
+          <StyledTableCell>{ageRange}</StyledTableCell>
+          <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
+          <StyledTableCell style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%, Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
+          <StyledTableCell>{gsc.height}</StyledTableCell>
+          <StyledTableCell>{gsc.languages}</StyledTableCell>
+          <StyledTableCell>{gsc.nationality}</StyledTableCell>
+          <StyledTableCell>{gsc.descriptive_words}</StyledTableCell>
+          <StyledTableCell>{personality}</StyledTableCell>
+          <StyledTableCell>{gsc.church_background}</StyledTableCell>
+          <StyledTableCell>{gsc.spiritual_maturity}</StyledTableCell>
+          <StyledTableCell>{gsc.spiritual_gifts}</StyledTableCell>
+          <StyledTableCell>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
+          <StyledTableCell>{gsc.good_match_for_gscf}</StyledTableCell>
+          <StyledTableCell>{gsc.what_is_important_to_me}</StyledTableCell>
+        </StyledTableRow>
         <ApprovalModal
           gsc={gsc}
           showGscModal={showGscModal}

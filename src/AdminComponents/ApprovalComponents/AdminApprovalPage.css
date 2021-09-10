@@ -1,0 +1,13 @@
+#approval-page-container{
+  margin: 50px 20px;
+}
+
+#admin-approval-table {
+  table-layout: fixed;
+  width: auto;
+}
+
+.sticky-left{
+  position: sticky;
+  left: 0;
+}
