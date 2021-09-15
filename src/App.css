@@ -41,6 +41,11 @@ body {
   }
 }
 
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .hover-underline:hover {
   text-decoration: underline;
   color: inherit;

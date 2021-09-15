@@ -6,14 +6,14 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: '#1e365c',
     color: theme.palette.common.white,
-    whiteSpace: 'nowrap',
-    "&:nth-child(1)": {
+    fontFamily: 'Josefin Sans',
+    maxWidth: '300px',
+    '&:nth-of-type(2)': {
       position: 'sticky',
-      top: 0,
       left: 0,
-      zIndex: theme.zIndex.appBar + 1,
+      maxWidth: '100px',
+      zIndex: 3,
     },
-    maxWidth: '250px'
   },
   body: {
     fontSize: 14,
@@ -21,12 +21,14 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell)
 
+
 export default function ApprovalTable({ gscs }) {
   return (
     <>
       <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
         <Table stickyHeader id="admin-approval-table">
           <TableHead>
+            <StyledTableCell style={{paddingRight: "50px"}}>Status</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell>Email</StyledTableCell>
             <StyledTableCell>FF name</StyledTableCell>

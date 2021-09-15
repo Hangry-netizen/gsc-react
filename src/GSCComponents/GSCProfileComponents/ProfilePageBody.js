@@ -91,7 +91,7 @@ export default function ProfilePageBody({ gsc, setActive, active }) {
   return (
     <div>
       {
-      gsc.is_approved
+      gsc.name
           ?
           <>
             <h1 className="color-red Essays1743" style={{margin:"50px auto 80px"}}>Welcome, {gsc.name}!</h1>
@@ -130,12 +130,7 @@ export default function ProfilePageBody({ gsc, setActive, active }) {
             }
           </>
           :
-          <>
-            <h1 className="color-red Essays1743" style={{margin:"50px auto 80px"}}>Welcome, {gsc.name}!</h1>
-            <div>
-              <button onClick={toEditPage} className="gsc-profile-page-btn color-blue">edit profile</button>
-            </div>
-          </>
+          null
       }
       <Modal show={showDeleteModal} onHide={handleCloseDeleteModal}>
         <Modal.Header className="bg-beach color-red">Permanently delete your GSCF profile?</Modal.Header>

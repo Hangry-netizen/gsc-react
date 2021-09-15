@@ -43,7 +43,7 @@ export default function GSCDatabasePage() {
   return (
     <div id="database-page-container">
       {
-        currentGsc && gscs
+        currentGsc.is_active && gscs
         ?
         <>
           <div className="text-align-left" style={{marginTop:"20px"}}>

@@ -74,6 +74,13 @@ export default function ApprovalRow({ gsc, StyledTableCell }) {
     { gsc.consent === true && gsc.is_approved === false ?
       <>
         <StyledTableRow onClick={handleShowGscModal}>
+          {
+            gsc.is_rejected
+            ?
+            <StyledTableCell>Requesting for more info</StyledTableCell>
+            :
+            <StyledTableCell>Ready for approval</StyledTableCell>
+          }
           <StyledTableCell style={{whiteSpace:'nowrap', background:'#1e365c', color:'#fad4cd'}} className="sticky-left">{gsc.name}</StyledTableCell>
           <StyledTableCell>{gsc.email}</StyledTableCell>
           <StyledTableCell>{gsc.ff_name}</StyledTableCell>
