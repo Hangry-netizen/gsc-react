@@ -79,7 +79,7 @@ export default function ApprovalRow({ gsc, StyledTableCell }) {
             ?
             <StyledTableCell>Requesting for more info</StyledTableCell>
             :
-            <StyledTableCell>Ready for approval</StyledTableCell>
+            <StyledTableCell></StyledTableCell>
           }
           <StyledTableCell style={{whiteSpace:'nowrap', background:'#1e365c', color:'#fad4cd'}} className="sticky-left">{gsc.name}</StyledTableCell>
           <StyledTableCell>{gsc.email}</StyledTableCell>
