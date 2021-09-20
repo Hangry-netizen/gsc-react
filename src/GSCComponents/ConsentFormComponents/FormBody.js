@@ -3,6 +3,8 @@ import { Form, Button, Col, Alert, Row } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 export default function FormBody({ isLoading, form, handleChange, submitForm, error }) {
+  let current_year = new Date().getFullYear()
+
   return (
     <div>
       <div className="consent-form-container">
@@ -60,13 +62,13 @@ export default function FormBody({ isLoading, form, handleChange, submitForm, er
             <Form.Group as={Row}>
               <Form.Label column sm="4" className="Essays1743">Year of Birth <span className="color-red">*</span></Form.Label>
               <Col sm={8}>
-                <Form.Control type="text" required onChange={handleChange('year_of_birth')} />
+                <Form.Control type="number" min={current_year - 80} max={current_year - 21} required onChange={handleChange('year_of_birth')} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm="4" className="Essays1743">Height (cm) <span className="color-red">*</span></Form.Label>
               <Col sm={8}>
-                <Form.Control type="text" required onChange={handleChange('height')} />
+                <Form.Control type="number" required onChange={handleChange('height')} />
               </Col>
             </Form.Group>
             <Form.Group as={Row}>

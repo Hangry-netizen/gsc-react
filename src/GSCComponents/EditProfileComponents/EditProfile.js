@@ -4,6 +4,8 @@ import DescriptiveWords from '../../utils/Descriptors.png';
 import SpiritualGifts from '../../utils/SpiritualGifts.png';
 
 export default function EditProfile({ form, submitEdit, handleChange, isLoading }) {
+  let current_year = new Date().getFullYear()
+  
   return (
     <div id="edit-profile" className="color-blue">
       <Form onSubmit={submitEdit}>
@@ -28,13 +30,13 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
         <Form.Group as={Row}>
           <Form.Label column sm="4" className="Essays1743 text-align-left without-right-padding">Year of birth <span className="color-red">*</span></Form.Label>
           <Col sm="8">
-            <Form.Control type="text" required onChange={handleChange('year_of_birth')} value={form.year_of_birth}/>
+            <Form.Control type="number" min={current_year - 80} max={current_year - 21} required onChange={handleChange('year_of_birth')} value={form.year_of_birth}/>
           </Col>
         </Form.Group>
         <Form.Group as={Row}>
           <Form.Label column sm="4" className="Essays1743 text-align-left">Height (cm) <span className="color-red">*</span></Form.Label>
           <Col sm="8">
-            <Form.Control type="text" required onChange={handleChange('height')} value={form.height}/>
+            <Form.Control type="number" required onChange={handleChange('height')} value={form.height}/>
           </Col>
         </Form.Group>
         <Form.Group as={Row}>
