@@ -36,8 +36,32 @@ export default function DatabaseTable({ gscs, currentGsc }) {
   const [ageFilter, setAgeFilter] = useState(0)
   const [locationFilter, setLocationFilter] = useState("")
   const [locationOptions] = useState([
-    "Malaysia","Philippines","Singapore","Others"
+    "Malaysia",
+    "Philippines",
+    "Singapore",
+    "Others"
   ])
+
+  const [sortedGscs, setSortedGscs] = useState([])
+
+  function compare (a,b) {
+    const id_of_a = a.id;
+    const id_of_b = b.id;
+
+    let comparison = 0;
+
+    if (id_of_a < id_of_b) {
+      comparison = 1;
+    }
+    else if (id_of_a > id_of_b) {
+      comparison = -1;
+    }
+    return comparison
+  }
+
+  useEffect(() => {
+    setSortedGscs(gscs.sort(compare))
+  }, [gscs])
 
   let current_year = new Date().getFullYear()
 
@@ -163,7 +187,7 @@ export default function DatabaseTable({ gscs, currentGsc }) {
         </TableHead>
         <TableBody>
         {
-          gscs.map((gsc, i) => {
+          sortedGscs.map((gsc, i) => {
             let age = current_year - gsc.year_of_birth
             
             if (ageFilter || locationFilter) {

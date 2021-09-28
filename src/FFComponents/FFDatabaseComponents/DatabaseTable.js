@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DatabaseRow from './DatabaseRow';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -34,6 +34,27 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell)
 
 export default function DatabaseTable({ gscs, currentGsc }) {
+  const [sortedGscs, setSortedGscs] = useState([])
+
+  function compare (a,b) {
+    const id_of_a = a.id;
+    const id_of_b = b.id;
+
+    let comparison = 0;
+
+    if (id_of_a < id_of_b) {
+      comparison = 1;
+    }
+    else if (id_of_a > id_of_b) {
+      comparison = -1;
+    }
+    return comparison
+  }
+
+  useEffect(() => {
+    setSortedGscs(gscs.sort(compare))
+  }, [gscs])
+
   return (
     <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
       <Table stickyHeader id="gsc-database-table">
@@ -57,28 +78,15 @@ export default function DatabaseTable({ gscs, currentGsc }) {
         </TableHead>
         <TableBody>
         {
-          gscs.map((gsc, i) => {
-            if(currentGsc.gender === "Male" && gsc.gender === "Female") {
-              return (
-                <DatabaseRow
-                  key={i}
-                  gsc={gsc}
-                  StyledTableCell={StyledTableCell}
-                  currentGsc={currentGsc}
-                />
-              )
-            }
-            else if (currentGsc.gender === "Female" && gsc.gender === "Male") {
-              return (
-                <DatabaseRow
-                  key={i}
-                  gsc={gsc}
-                  StyledTableCell={StyledTableCell}
-                  currentGsc={currentGsc}
-                />
-              )
-            }
-            return null
+          sortedGscs.map((gsc, i) => {
+            return (
+              <DatabaseRow
+                key={i}
+                gsc={gsc}
+                StyledTableCell={StyledTableCell}
+                currentGsc={currentGsc}
+              />
+            )
           })
         }
         </TableBody>
