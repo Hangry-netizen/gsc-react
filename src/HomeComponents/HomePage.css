@@ -2,41 +2,31 @@
   padding: 5vh 7vw;
 }
 
+#intro-video-laptop {
+  width: 45vw;
+  height: 25.3vw;
+}
+
 #intro-video {
-  width: 80vw;
-  height: 45vw;
+  width: 100vw;
+  height: 56.25vw;
+  display: none;
 }
 
 #intro-flex {
   display: flex;
-  padding-top: none;
-  margin-bottom: 55px;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
 }
 
-#intro-right {
-  position:absolute;
-  bottom: 0;
-  right: 0;
-}
-
-#matches-up-logo-intro {
-  width: 200px;
+#matchesup-logo-intro {
+  width: 20vw;
   height: auto;
 }
 
 #what-is-matches-up-title {
   font-size: 50px;
   line-height: 50px;
-}
-
-#finally {
-  font-size: 22px;
-}
-
-#finally-mobile {
-  display: none;
 }
 
 #step-1-title, #step-2-title, #step-3-title, #step-4-title, #step-5-title {
@@ -215,46 +205,31 @@
 }
 
 /* 1024px */
-@media (max-width: 1024px) {
+@media (max-width: 1020px) {
   #intro-flex {
     flex-direction: column;
   }
 
-  #intro-left {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
+  #intro-video-laptop {
+    display: none;
   }
 
-  #matches-up-logo-intro {
-    width: 250px;
+  #intro-video {
+    display: block;
+  }
+
+  #matchesup-logo-intro {
+    width: 250px !important;
     height: auto;
     display: block;
     margin: auto;
   }
-
-  #intro-right {
-    margin: 0;
-    position: relative;
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
-    padding-top: 5%;
-  }
   
   #what-is-matches-up-title {
-    display: block;
     display: block;
     width: 100%;
     font-size: 40px;
     line-height: 40px;
-  }
-  
-  #finally {
-    font-size: 25px;
-    text-align: center;
   }
 
   #donation-waived-stamp {
