@@ -2,6 +2,11 @@
   padding: 5vh 7vw;
 }
 
+#intro-video {
+  width: 80vw;
+  height: 45vw;
+}
+
 #intro-flex {
   display: flex;
   padding-top: none;

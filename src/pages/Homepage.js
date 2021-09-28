@@ -1,4 +1,5 @@
 import React from 'react';
+import IntroVideo from '../HomeComponents/IntroVideo';
 import Introduction from "../HomeComponents/Introduction";
 import Step1 from "../HomeComponents/Step1";
 import Step2 from "../HomeComponents/Step2";
@@ -14,6 +15,7 @@ import '../HomeComponents/HomePage.css'
 export default function HomePage() {
   return (
     <div id="homepage">
+      <IntroVideo />
       <Introduction />
       <Step1 />
       <Step2 />
