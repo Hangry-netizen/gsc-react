@@ -14,7 +14,7 @@ const StyledTableRow = withStyles(() => ({
   },
 }))(TableRow);
 
-export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
+export default function DatabaseRow({ StyledTableCell, gsc, currentGsc, ageOptions }) {
   const [showGscModal, setShowGscModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
@@ -22,24 +22,18 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
   const handleCloseGscModal = () => setShowGscModal(false);
   const handleShowGscModal = () => setShowGscModal(true);
 
+  let current_year = new Date().getFullYear()
+  let age = current_year - gsc.year_of_birth
+  
   useEffect(() => {
-    let current_year = new Date().getFullYear()
-    let age = current_year - gsc.year_of_birth
-    setAgeRange(age)
-    let minRange = 19
-    let maxRange = 23
-    function between(age, minRange, maxRange) {
-      return age >= minRange && age <= maxRange
-    }
-    for (maxRange = 23; maxRange < 81; maxRange += 2) {
-      minRange += 2
-      if (between(age, minRange, maxRange)) {
-        return (
-          setAgeRange(`${minRange}-${maxRange}`)
-        )
+    // eslint-disable-next-line array-callback-return
+    ageOptions.map(minAge => {
+      let maxAge = minAge + 2
+      if ( age >=  minAge && age < maxAge + 1) {
+        setAgeRange(`${minAge} - ${maxAge}`)
       }
-    }
-  }, [gsc.year_of_birth])
+    })
+  })
 
   useEffect(() => {
     if (gsc.mbti !== "") {

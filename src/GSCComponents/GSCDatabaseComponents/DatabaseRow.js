@@ -14,10 +14,10 @@ const StyledTableRow = withStyles(() => ({
   },
 }))(TableRow);
 
-export default function DatabaseRow({ StyledTableCell, gsc, currentGsc, ageRange, ageOptions }) {
+export default function DatabaseRow({ StyledTableCell, gsc, currentGsc, ageOptions }) {
   const [showGscModal, setShowGscModal] = useState(false);
   const [personality, setPersonality] = useState("")
-  const [ageRange1, setAgeRange1] = useState("")
+  const [ageRange, setAgeRange] = useState("")
 
   const handleCloseGscModal = () => setShowGscModal(false);
   const handleShowGscModal = () => setShowGscModal(true);
@@ -30,7 +30,7 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc, ageRange
     ageOptions.map(minAge => {
       let maxAge = minAge + 2
       if ( age >=  minAge && age < maxAge + 1) {
-        setAgeRange1(`${minAge} - ${maxAge}`)
+        setAgeRange(`${minAge} - ${maxAge}`)
       }
     })
   })
@@ -94,7 +94,7 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc, ageRange
           }
         </StyledTableCell>
         <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
-        <StyledTableCell className="text-align-center">{ageRange}{ageRange1}</StyledTableCell>
+        <StyledTableCell className="text-align-center">{ageRange}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
         <StyledTableCell style={{whiteSpace:'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
         <StyledTableCell>{gsc.height}</StyledTableCell>
