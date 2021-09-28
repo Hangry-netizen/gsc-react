@@ -14,32 +14,26 @@ const StyledTableRow = withStyles(() => ({
   },
 }))(TableRow);
 
-export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
+export default function DatabaseRow({ StyledTableCell, gsc, currentGsc, ageRange, ageOptions }) {
   const [showGscModal, setShowGscModal] = useState(false);
-  const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
+  const [ageRange1, setAgeRange1] = useState("")
 
   const handleCloseGscModal = () => setShowGscModal(false);
   const handleShowGscModal = () => setShowGscModal(true);
 
+  let current_year = new Date().getFullYear()
+  let age = current_year - gsc.year_of_birth
+  
   useEffect(() => {
-    let current_year = new Date().getFullYear()
-    let age = current_year - gsc.year_of_birth
-    setAgeRange(age)
-    let minRange = 19
-    let maxRange = 23
-    function between(age, minRange, maxRange) {
-      return age >= minRange && age <= maxRange
-    }
-    for (maxRange = 23; maxRange < 81; maxRange += 2) {
-      minRange += 2
-      if (between(age, minRange, maxRange)) {
-        return (
-          setAgeRange(`${minRange}-${maxRange}`)
-        )
+    // eslint-disable-next-line array-callback-return
+    ageOptions.map(minAge => {
+      let maxAge = minAge + 2
+      if ( age >=  minAge && age < maxAge + 1) {
+        setAgeRange1(`${minAge} - ${maxAge}`)
       }
-    }
-  }, [gsc.year_of_birth])
+    })
+  })
 
   useEffect(() => {
     if (gsc.mbti !== "") {
@@ -64,7 +58,7 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
           {
             gsc.action === "said_hi" || gsc.action === "hi_recipient"
             ?
-            <span>👋</span>
+            <span>👋 </span>
             :
             null
           }
@@ -75,7 +69,7 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
             {
               currentGsc.suggested.includes(gsc.id)
               ?
-              <span>🔍</span>
+              <span>🔍 </span>
               :
               null
             }
@@ -90,7 +84,7 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
             {
               currentGsc.maybe.includes(gsc.id)
               ?
-              <span>🤔</span>
+              <span>🤔 </span>
               :
               null
             }
@@ -100,7 +94,7 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc }) {
           }
         </StyledTableCell>
         <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
-        <StyledTableCell>{ageRange}</StyledTableCell>
+        <StyledTableCell className="text-align-center">{ageRange}{ageRange1}</StyledTableCell>
         <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
         <StyledTableCell style={{whiteSpace:'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
         <StyledTableCell>{gsc.height}</StyledTableCell>
