@@ -29,6 +29,7 @@ import Article2 from "./ResourcesComponents/Article2/Article2";
 import Article3 from "./ResourcesComponents/Article3/Article3";
 import Article4 from "./ResourcesComponents/Article4/Article4";
 import Article5 from "./ResourcesComponents/Article5/Article5";
+import Article6 from "./ResourcesComponents/Article6/Article6";
 
 /* Admin */
 import AdminNavbar from './AdminComponents/AdminNavbar';
@@ -39,7 +40,7 @@ import AdminDatabasePage from './AdminPages/AdminDatabasePage';
 
 import { useAuth } from "./contexts/AuthContext";
 
-export const url = process.env.REACT_APP_LOCALHOST_API;
+export const url = process.env.REACT_APP_HEROKU_API;
 
 function App() {
   const { currentUser } = useAuth()
@@ -75,6 +76,7 @@ function App() {
         <Route exact path="/resources/articles/what-if-someone-i-know-says-hi-to-me-and-i-dont-like-them"><Article3 /></Route>
         <Route exact path="/resources/articles/i-received-a-hello-notification"><Article4 /></Route>
         <Route exact path="/resources/articles/should-i-talk-to-more-than-one-person-at-a-time"><Article5 /></Route>
+        <Route exact path="/resources/articles/how-to-break-things-off-well"><Article6 /></Route>
 
         {/* currentAdmin */}
         {

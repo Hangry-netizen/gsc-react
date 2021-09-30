@@ -59,8 +59,8 @@ export default function Article5() {
           <div className="color-blue" style={{fontSize:"12px"}}>I received a 'hello' notification... what should I do?</div>
         </div>
         <div className="text-align-right" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/should-i-put-myself-out-there' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
-          <div className="color-blue" style={{fontSize:"12px"}}>Should I put myself out there?</div>
+          <Link to='/resources/articles/how-to-break-things-off-well' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
+          <div className="color-blue" style={{fontSize:"12px"}}>How to break things off well</div>
         </div>
       </div>
       <br />
