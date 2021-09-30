@@ -37,7 +37,7 @@ export default function Malaysia() {
             />
           </div>
           <br />
-          <p>Step 3: Insert donation amount and confirm payment</p>
+          <p>Step 3: Insert donation amount and include “MatchesUp” in reason/note/comments (optional but helpful for us to track)</p>
           <br />
           <h4 className="color-blue text-align-center">B. Transfer via Touch ’n Go eWallet</h4>
           <br />
@@ -51,7 +51,7 @@ export default function Malaysia() {
             />
           </div>
           <br />
-          <div>Step 3: Insert donation amount and confirm payment</div>
+          <div>Step 3: Insert donation amount and include “MatchesUp” in reason/note/comments (optional but helpful for us to track)</div>
         </Modal.Body>
         <Modal.Footer className="bg-beach">
           <Button variant="secondary" onClick={handleCloseMalaysiaModal}>Close</Button>

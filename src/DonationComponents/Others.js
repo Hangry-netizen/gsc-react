@@ -36,7 +36,7 @@ export default function Others() {
             />
           </div>
           <br />
-          <div>Step 3: Insert donation amount and confirm payment</div>
+          <div>Step 3: Insert donation amount and include “MatchesUp” in reason/note/comments (optional but helpful for us to track)</div>
         </Modal.Body>
         <Modal.Footer className="bg-beach">
           <Button variant="secondary" onClick={handleCloseOthersModal}>Close</Button>
