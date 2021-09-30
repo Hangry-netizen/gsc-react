@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import src from '../resources-utils/4.jpg';
 import placeholder from '../resources-utils/4-placeholder.jpg';
 import { Link } from 'react-router-dom';
+import { ArrowForward, ArrowBack } from '@material-ui/icons';
 import "../Article.css";
 
 export default function Article4() {
@@ -74,11 +75,11 @@ export default function Article4() {
       <hr />
       <div className='display-flex'>
         <div className="text-align-left" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/what-if-someone-i-know-says-hi-to-me-and-i-dont-like-them' className="color-red hover-blue" onClick={scrollToTop}>🡠 PREVIOUS</Link>
+          <Link to='/resources/articles/what-if-someone-i-know-says-hi-to-me-and-i-dont-like-them' className="color-red hover-blue" onClick={scrollToTop}><ArrowBack /> PREVIOUS</Link>
           <div className="color-blue" style={{fontSize:"12px"}}>What if someone I know 'says hi' to me & I don't like them?</div>
         </div>
         <div className="text-align-right" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/should-i-talk-to-more-than-one-person-at-a-time' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
+          <Link to='/resources/articles/should-i-talk-to-more-than-one-person-at-a-time' className="color-red hover-blue" onClick={scrollToTop}>NEXT <ArrowForward /></Link>
           <div className="color-blue" style={{fontSize:"12px"}}>Should I talk to more than one person at a time?</div>
         </div>
       </div>

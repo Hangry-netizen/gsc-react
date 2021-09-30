@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import src from '../resources-utils/6.jpg';
 import placeholder from '../resources-utils/6-placeholder.jpg';
 import { Link } from 'react-router-dom';
+import { ArrowForward, ArrowBack } from '@material-ui/icons';
 import "../Article.css";
 
 export default function Article6() {
@@ -53,15 +54,13 @@ export default function Article6() {
         <div className="padding-left-20">- <span className="bold">Ghost them</span> - just stop responding without any explanation (Ouch!)</div>
         <div className="padding-left-20">- <span className="bold">Lie about it</span> - make up excuses that aren’t really true (WWJD?!)</div>
         <div className="padding-left-20">- <span className="bold">Send a blunt text</span> - “it’s over” “I’m dating someone else” “I don’t like you” (Rude.)</div>
-        <br />
 
         <p>There are better ways. They take courage, but they display the honesty of Christ, and consideration for the other person’s feelings. Afterall, “treat others as you want to be treated” - right?? Take a moment to think about that. If they were breaking up with you, how would you want them to do it?</p>
         
         <div className="underline">Ideal God-honoring ways:</div>
         <div className="padding-left-20">- <span className="bold">Face to face</span> - this shows value for them and how far you’ve come. It takes away room for miscommunication and gives them space to respond to you in person. It may help them to talk it through. Give them this chance. </div>
         <div className="padding-left-20">- <span className="bold">Phone call </span> - still better than text, because they can hear your tone of voice, which will hopefully have caring sensitivity in it. It’s never easy being dumped. Aim to help them receive the message well. </div>
-        <div className="padding-left-20">- <span className="bold">Letter/ or long typed message</span> - If you prefer to write your feelings, to give you and the other person space before actually talking about it in person, that’s ok too. But be sure to invite them to respond. You’ve had a two way relationship up to this point, and ending it, has to be a two-way conversation too - or else it’s like getting a door slammed in your face! </div>
-        <br />
+        <div className="padding-left-20">- <span className="bold">Letter or long-typed message</span> - If you prefer to write your feelings, to give you and the other person space before actually talking about it in person, that’s ok too. But be sure to invite them to respond. You’ve had a two way relationship up to this point, and ending it, has to be a two-way conversation too - or else it’s like getting a door slammed in your face! </div>
 
         <p>But what to say?!?!</p>
         <p className="padding-left-20">1) Before you say anything, be really clear in your own self what you are feeling and why. This will give you strength and clarity when you open up to them. It may help to write down your reasons on paper so you can see them for yourself.</p>
@@ -81,11 +80,11 @@ export default function Article6() {
       <hr />
       <div className='display-flex'>
         <div className="text-align-left" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/should-i-talk-to-more-than-one-person-at-a-time' className="color-red hover-blue" onClick={scrollToTop}>🡠 PREVIOUS</Link>
+          <Link to='/resources/articles/should-i-talk-to-more-than-one-person-at-a-time' className="color-red hover-blue" onClick={scrollToTop}><ArrowBack /> PREVIOUS</Link>
           <div className="color-blue" style={{fontSize:"12px"}}>Should I talk to more than one person at a time?</div>
         </div>
         <div className="text-align-right" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/should-i-put-myself-out-there' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
+          <Link to='/resources/articles/should-i-put-myself-out-there' className="color-red hover-blue" onClick={scrollToTop}>NEXT <ArrowForward /></Link>
           <div className="color-blue" style={{fontSize:"12px"}}>Should I put myself out there?</div>
         </div>
       </div>

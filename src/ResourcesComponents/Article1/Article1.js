@@ -3,6 +3,7 @@ import src from '../resources-utils/1.jpg';
 import placeholder from '../resources-utils/1-placeholder.jpg';
 import "../Article.css";
 import { Link } from 'react-router-dom';
+import { ArrowForward, ArrowBack } from '@material-ui/icons';
 
 export default function Article1() {
   const [loading, setLoading] = useState(true);
@@ -63,11 +64,11 @@ export default function Article1() {
       <hr />
       <div className="display-flex">
         <div className="text-align-left" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/i-received-a-hello-notification' className="color-red hover-blue" onClick={scrollToTop}>🡠 PREVIOUS</Link>
+          <Link to='/resources/articles/i-received-a-hello-notification' className="color-red hover-blue" onClick={scrollToTop}><ArrowBack /> PREVIOUS</Link>
           <div className="color-blue" style={{fontSize:"12px"}}>I received a 'hello' notification... what should I do?</div>
         </div>
         <div className="text-align-right" style={{maxWidth:"45%"}}>
-          <Link to='/resources/articles/should-i-say-hi-to-someone-in-a-different-country' className="color-red hover-blue" onClick={scrollToTop}>NEXT 🡢</Link>
+          <Link to='/resources/articles/should-i-say-hi-to-someone-in-a-different-country' className="color-red hover-blue" onClick={scrollToTop}>NEXT <ArrowForward /></Link>
           <div className="color-blue" style={{fontSize:"12px"}}>Should I 'say hi' to someone in a different country?</div>
         </div>
       </div>
