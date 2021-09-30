@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FormPage1 from './FormPage1';
 import FormPage2 from './FormPage2';
 import FormPage3 from './FormPage3';
@@ -17,6 +17,8 @@ export default function CreateGSCForm() {
   const [otherSpiritualGifts, setOtherSpiritualGifts] = useState("");
   const [descCounter, setDescCounter] = useState(0);
   const [giftCounter, setGiftCounter] = useState(0);
+  const [gscs, setGscs] = useState([]);
+  const [existingEmails] = useState([]);
   const [form, setForm] = useState(
     {
       step: 1,
@@ -41,6 +43,34 @@ export default function CreateGSCForm() {
       alias: ''
     }
   );
+
+  useEffect(() => {
+    axios.get (`${url}/gscs/`)
+    .then((response) => {
+      setGscs(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
+  useEffect(() => {
+    gscs.map((gsc) => {
+      return existingEmails.push(gsc.email)
+    })
+  })
+
+  const handleGscEmailChange = input => e => {
+    setError("")
+    if (existingEmails.includes(e.target.value)) {
+      setError("Sorry, there is an existing GSCF profile with this email. Please check with your Good Single Christian Friend before proceeding!")
+    }
+
+    if (currentUser.email === e.target.value) {
+      setError("Sorry, we do not receive singles who sign themselves up, to include some form of peer filter! Please contact a friend who can be your Faithful Friend and ask them to sign up on our website, and create a GSCF account for you!")
+    }
+    setForm({...form, [input]: e.target.value});
+  }
 
   const prevStep = () => {
     setForm({...form, step: form.step - 1});
@@ -192,6 +222,7 @@ export default function CreateGSCForm() {
                 nextStep={nextStep}
                 handleChange={handleChange}
                 error={error}
+                handleGscEmailChange={handleGscEmailChange}
               />
             )
           case 2:

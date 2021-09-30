@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form, Button, Col } from 'react-bootstrap';
+import { Form, Button, Col, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./CreateGSCForm.css";
 
 
-export default function FormPage1({ form, prevStep, nextStep, handleChange }) {
+export default function FormPage1({ form, nextStep, handleChange, handleGscEmailChange, error }) {
   return (
     <div className="create-gsc-form-container">
       <div className="create-gsc-form-header-content">
@@ -19,16 +19,17 @@ export default function FormPage1({ form, prevStep, nextStep, handleChange }) {
         <Form onSubmit={nextStep}>
           <Form.Group controlId="formBasicName">
             <Form.Label className="Essays1743">GSCF's (Good Single Christian Friend) First and Last Name <span className="color-red">*</span></Form.Label>
-            <Col className="without-left-padding">
+            <Col className="without-left-right-padding">
               <Form.Control type="name" required onChange={handleChange('name')} value={form.name}/>
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="Essays1743">GSCF's Email Address <span className="color-red">*</span></Form.Label>
             <Form.Text className="mobile-text-align-justify">Please pause here to ask your GSCF for their preferred email address to use for this database, as it cannot be changed later. Your GSCF will need to give consent for participation through their email.</Form.Text>
-            <Col className="without-left-padding">
-              <Form.Control type="email" required onChange={handleChange('email')} value={form.email}/>
+            <Col className="without-left-right-padding">
+              <Form.Control type="email" required onChange={handleGscEmailChange('email')} value={form.email}/>
             </Col>
+            {error && <Alert variant="danger" className="color-red font-size-small">{error}</Alert>}
           </Form.Group>
           <br />
           <Form.Group>
@@ -56,7 +57,7 @@ export default function FormPage1({ form, prevStep, nextStep, handleChange }) {
             <Link to="/my-good-single-christian-friends">
               <Button variant="secondary">Cancel</Button>
             </Link>
-            <Button id="create-gsc-form-next-btn" type="submit" value="submit">Next</Button>
+            <Button id="create-gsc-form-next-btn" variant={error ? "secondary" : "danger"} disabled={error} type="submit" value="submit">Next</Button>
           </div>
           <div className="text-align-center">Page {form.step} of 3</div>
         </Form>
