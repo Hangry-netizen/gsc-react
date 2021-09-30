@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatabaseRow from './DatabaseRow';
 import { withStyles } from '@material-ui/core/styles';
-import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, IconButton, Menu, MenuItem, Divider } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -183,7 +183,7 @@ export default function DatabaseTable({ gscs, currentGsc }) {
           <StyledTableCell style={{paddingRight: '150px'}}>Spiritual characteristics</StyledTableCell>
           <StyledTableCell style={{whiteSpace:'nowrap'}}>Why do you think your GSCF would make <br/> a good partner?</StyledTableCell>
           <StyledTableCell style={{whiteSpace:'nowrap'}}>What kind of person would make a good <br/> match for your GSCF?</StyledTableCell>
-          <StyledTableCell style={{whiteSpace:'nowrap', paddingRight: '300px'}}>Words from the GSC</StyledTableCell>
+          <StyledTableCell style={{whiteSpace:'nowrap', paddingRight: '300px', borderLeft:"1px white solid"}}>Words from the GSC</StyledTableCell>
         </TableHead>
         <TableBody>
         {

@@ -83,7 +83,7 @@ export default function DatabaseRow({ StyledTableCell, gsc, currentGsc, ageOptio
         <StyledTableCell>{gsc.spiritual_gifts}</StyledTableCell>
         <StyledTableCell>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
         <StyledTableCell>{gsc.good_match_for_gscf}</StyledTableCell>
-        <StyledTableCell>{gsc.what_is_important_to_me}</StyledTableCell>
+        <StyledTableCell style={{borderLeft:"1px solid white"}}>{gsc.what_is_important_to_me}</StyledTableCell>
       </StyledTableRow>
       <DatabaseModal
         gsc={gsc}

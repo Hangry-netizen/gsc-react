@@ -182,7 +182,7 @@ export default function DatabaseTable({ gscs, currentGsc }) {
           <StyledTableCell style={{paddingRight: '150px'}}>Spiritual characteristics</StyledTableCell>
           <StyledTableCell style={{whiteSpace:'nowrap'}}>Why do you think your GSCF would make <br/> a good partner?</StyledTableCell>
           <StyledTableCell style={{whiteSpace:'nowrap'}}>What kind of person would make a good <br/> match for your GSCF?</StyledTableCell>
-          <StyledTableCell style={{whiteSpace:'nowrap', paddingRight: '300px'}}>Words from the GSC</StyledTableCell>
+          <StyledTableCell style={{whiteSpace:'nowrap', paddingRight: '300px', borderLeft:"1px solid white"}}>Words from the GSC</StyledTableCell>
         </TableHead>
         <TableBody>
         {
