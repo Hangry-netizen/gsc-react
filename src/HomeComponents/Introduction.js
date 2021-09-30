@@ -35,10 +35,10 @@ export default function Introduction() {
         <p className="padding-left">3) Designed for those who are serious about pursuing a genuine friendship in hopes that it might result in a lasting committed romantic relationship (this is not a casual hook-up site!)</p>
       </div>
       <p className="color-red text-align-left">We hope this inspires you to say, “Match us up!” </p>
+      <br />
       <div id="to-cover-cost" className="color-blue text-align-left">
         To cover our cost of running this service, we ask for a small donation of a minimum of RM5 / SGD3 / PHP50 /THB40 for each GSC profile created. <Link to="/donation-info" id="donation-info-link">See donation info.</Link> Thank you for helping us maintain this service for the body of Christ!
       </div>
-      <div id="donation-waived-stamp" className=" text-align-center color-red bold">waived for sign ups before 1st October 2021</div>
     </div>
   )
 }

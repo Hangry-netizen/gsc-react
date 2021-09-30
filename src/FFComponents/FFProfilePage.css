@@ -47,20 +47,6 @@
   color: #1e365c;
 }
 
-#profile-page-donation-waived-stamp {
-  box-sizing: border-box;
-  position: relative;
-  margin-left: 55%;
-  margin-top: -2.5%;
-  width: 230px;
-  border: 4px #E9482B;
-  letter-spacing: 2px;
-  transform: rotate(-10deg);
-  border-style: double;
-  box-shadow: 0 0 0 1px #E9482B, 0 0 0 1px #E9482B inset;
-  background: rgba(255, 255, 255, 0.4);
-}
-
 #manage-profiles {
   margin-top: 5vh;
   margin-bottom: 3vh;
@@ -116,11 +102,6 @@
   #ff-profile-page-donation {
     text-align: justify;
     margin-top: 10vw;
-  }
-
-  #profile-page-donation-waived-stamp {
-    margin-left: 26%;
-    margin-top: -3%;
   }
 
   #create-gsc-btn {

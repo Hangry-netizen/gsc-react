@@ -65,7 +65,7 @@
 
 #to-cover-cost {
   box-sizing: content-box;
-  padding-bottom: 5%
+  padding-bottom: 2%;
 }
 
 #donation-info-link{
@@ -75,20 +75,6 @@
 
 #donation-info-link:hover {
   color: #E9482B;
-}
-
-#donation-waived-stamp {
-  box-sizing: border-box;
-  position: relative;
-  width: 250px;
-  margin-top: -10%;
-  margin-left: 55%;
-  transform: rotate(-8deg);
-  border: 8px #E9482B;
-  border-style: double;
-  box-shadow: 0 0 0 1px #E9482B, 0 0 0 1px #E9482B inset;
-  letter-spacing: 4px;
-  background: rgba(255, 255, 255, 0.5);
 }
 
 #create-acc-and-start-now-div {
@@ -232,20 +218,6 @@
     line-height: 40px;
   }
 
-  #donation-waived-stamp {
-    box-sizing: border-box;
-    position: relative;
-    width: 250px;
-    margin-top: -4%;
-    margin-left: 40%;
-    transform: rotate(-6deg);
-    border: 8px #E9482B;
-    border-style: double;
-    box-shadow: 0 0 0 1px #E9482B, 0 0 0 1px #E9482B inset;
-    letter-spacing: 4px;
-    background: rgba(255, 255, 255, 0.5);
-  }
-
   #start-now-and-few-words-div {
     padding-top: 4%;
     text-align: center;
@@ -309,14 +281,6 @@
   
   #finally {
     display: none;
-  }
-
-  #donation-waived-stamp {
-    width: 180px;
-    margin-top: -13%;
-    margin-left: 20%;
-    border: 4px #E9482B;
-    letter-spacing: 2px;
   }
 
   .steps-flex-container {
