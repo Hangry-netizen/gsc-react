@@ -25,7 +25,6 @@ export default function Singapore() {
         </Modal.Header>
         <Modal.Body className="bg-beach color-red text-align-left">
           <h4 className="color-blue text-align-center">Transfer via PayNow<br />(or PromptPay in Thailand)</h4>
-          <br />
           <p>Step 1: Login to your Mobile Banking and look for a place where you can “Scan & Pay/Transfer” </p>
           <p>Step 2: Scan this QR code </p>
           <div className="text-align-center">

@@ -26,7 +26,6 @@ export default function Malaysia() {
         </Modal.Header>
         <Modal.Body className="bg-beach color-red text-align-left">
           <h4 className="color-blue text-align-center">A. Transfer via Duitnow</h4>
-          <br />
           <p>Step 1: Login to your Mobile Banking and look for a place to scan “DuitNowQR” or “QRPAY”</p>
           <p>Step 2: Scan this DuitNow QR code</p>
           <div className="text-align-center">
@@ -40,7 +39,6 @@ export default function Malaysia() {
           <p>Step 3: Insert donation amount and include “MatchesUp” in reason/note/comments (optional but helpful for us to track)</p>
           <br />
           <h4 className="color-blue text-align-center">B. Transfer via Touch ’n Go eWallet</h4>
-          <br />
           <p>Step 1: Open your TnGo eWallet app and select “Scan”</p>
           <p>Step 2: Scan this QR code </p>
           <div className="text-align-center">

@@ -25,7 +25,6 @@ export default function Others() {
         </Modal.Header>
         <Modal.Body className="bg-beach color-red text-align-left">
           <h4 className="color-blue text-align-center">Transfer via BigPay</h4>
-          <br />
           <p>Step 1: Login to your BigPay app and select “Payments” on the bottom tab</p>
           <p>Step 2: Select “QR Code” and scan this code</p>
           <div className="text-align-center">
