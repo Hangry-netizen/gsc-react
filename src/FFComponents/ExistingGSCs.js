@@ -9,12 +9,15 @@ export default function ExistingGSCs({ existingGSCs }) {
   const { currentUser } = useAuth();
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showReadyDeleteModal, setShowReadyDeleteModal] = useState(false);
 
   const [answer, setAnswer] = useState("");
   const [randomNum, setRandomNum] = useState();
 
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
+  const handleCloseReadyDeleteModal = () => setShowReadyDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
+  const handleShowReadyDeleteModal = () => setShowReadyDeleteModal(true);
 
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState("")
@@ -37,6 +40,13 @@ export default function ExistingGSCs({ existingGSCs }) {
   const DeleteModalOnClick = () => {
     getRandomNum();
     handleShowDeleteModal()
+    setMessage("")
+    setError("")
+  }
+
+  const ReadyDeleteModalOnClick = () => {
+    getRandomNum();
+    handleShowReadyDeleteModal()
     setMessage("")
     setError("")
   }
@@ -66,7 +76,50 @@ export default function ExistingGSCs({ existingGSCs }) {
       {
         existingGSCs.map((existingGSC, i) => {
           if (existingGSC.ff_email === currentUser.email) {
-            if (existingGSC.is_approved === false) {
+            if (existingGSC.is_activated) {
+              return (
+                <div key={i}>
+                  <Link to={`/my-good-single-christian-friend/${existingGSC.uuid}`}>
+                    <button id="existing-gsc-btn" className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
+                  </Link>
+                </div>
+              )
+            }
+            else if (existingGSC.is_approved === true) {
+              return (
+                <div key={i}>
+                  <button onClick={ReadyDeleteModalOnClick} className="gsc-profile-button color-red Essays1743">{existingGSC.name}</button>
+                  <div id="awaiting-txt" className="color-red font-size-small">Profile is ready!</div>
+                  <Modal show={showReadyDeleteModal} onHide={handleCloseReadyDeleteModal}>
+                    <Modal.Header className="bg-beach color-red">{existingGSC.name}</Modal.Header>
+                    <Modal.Body className="bg-beach">
+                      <div className="color-blue">Profile will be visible on the database on the 1st of the next month!</div>
+                      <br />
+                      <form onSubmit={() => handleDeleteAccount(existingGSC)}>
+                        <div>
+                          <div className="color-blue">If you'd like to delete this profile, key in <span className="color-blue">{randomNum}</span>.</div>
+                          <br />
+                          <div className="color-red">ATTENTION:</div>
+                          <div className="color-red">This step is irreversible.</div>
+                          <br />
+                          <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"70px", borderRadius:"10px"}} type="text" onChange={e => setAnswer(e.target.value)} placeholder="0000"/>
+                        </div>
+                        <div>
+                          {error && <Alert className="color-red font-size-small">{error}</Alert>}
+                          {message && <Alert className="color-green font-size-small">{message}</Alert>}
+                        </div>
+                        <br />
+                        <div className="text-align-right">
+                          <Button variant="secondary" onClick={handleCloseReadyDeleteModal} style={{marginRight:"20px"}}>Close</Button>
+                          <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} type="submit">Delete</Button>
+                        </div>
+                      </form>
+                    </Modal.Body>
+                  </Modal>
+                </div>
+              )
+            } 
+            else {
               return (
                 <div key={i}>
                   <button onClick={DeleteModalOnClick} className="gsc-profile-button color-red Essays1743">{existingGSC.name}</button>
@@ -81,7 +134,7 @@ export default function ExistingGSCs({ existingGSCs }) {
                           <div className="color-blue">If you'd like to delete this profile, key in <span className="color-blue">{randomNum}</span>.</div>
                           <br />
                           <div className="color-red">ATTENTION:</div>
-                          <div className="color-red"> Your GSCF will not be able to consent if you delete now, and this step is irreversible.</div>
+                          <div className="color-red">Your GSCF will not be able to consent if you delete now, and this step is irreversible.</div>
                           <br />
                           <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"70px", borderRadius:"10px"}} type="text" onChange={e => setAnswer(e.target.value)} placeholder="0000"/>
                         </div>
@@ -97,15 +150,6 @@ export default function ExistingGSCs({ existingGSCs }) {
                       </form>
                     </Modal.Body>
                   </Modal>
-                </div>
-              )
-            } 
-            else {
-              return (
-                <div key={i}>
-                  <Link to={`/my-good-single-christian-friend/${existingGSC.uuid}`}>
-                    <button id="existing-gsc-btn" className="gsc-profile-button color-red Essays1743" key={existingGSC.id}>{existingGSC.name}</button>
-                  </Link>
                 </div>
               )
             }
