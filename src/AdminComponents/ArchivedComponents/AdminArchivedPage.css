@@ -1,0 +1,13 @@
+#archived-page-container {
+  margin: 50px 20px;
+}
+
+#admin-archived-table {
+  table-layout: fixed;
+  width: auto;
+}
+
+.sticky-left{
+  position: sticky;
+  left: 0;
+}

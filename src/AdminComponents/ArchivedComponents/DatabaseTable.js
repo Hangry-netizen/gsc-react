@@ -24,7 +24,7 @@ const StyledTableCell = withStyles((theme) => ({
 export default function DatabaseTable({ gscs }) {
   return (
     <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
-      <Table stickyHeader id="admin-database-table">
+      <Table stickyHeader id="admin-archived-table">
         <TableHead>
           <StyledTableCell>Alias</StyledTableCell>
           <StyledTableCell>Name</StyledTableCell>
@@ -48,7 +48,7 @@ export default function DatabaseTable({ gscs }) {
         <TableBody>
         {
           gscs.map((gsc, i) => {
-            if (gsc.is_active && gsc.admin_archived === false) {
+            if (gsc.admin_archived) {
               return (
                 <DatabaseRow
                   key={i}

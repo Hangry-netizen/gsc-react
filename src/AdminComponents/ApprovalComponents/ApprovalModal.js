@@ -54,6 +54,26 @@ export default function ApprovalModal({ gsc, showGscModal, handleCloseGscModal }
     })
     setIsLoading(false)
   }
+
+  const handleArchive = () => {
+    setIsLoading(true)
+
+    axios({ 
+      method: 'POST',
+      url: `${url}/gscs/admin-archive/toggle/${gsc.uuid}`
+    })
+    .then(response => {
+      if (response.data.status === 'success') {
+        handleCloseGscModal();
+        alert(`Successfully archived ${gsc.name}'s profile!`)
+        window.location.reload()
+      }
+    })
+    .catch(error => {
+      setError(error)
+    })
+    setIsLoading(false)
+  }
   
   return (
     <>
@@ -109,7 +129,7 @@ export default function ApprovalModal({ gsc, showGscModal, handleCloseGscModal }
             {error && <Alert className="color-red font-size-small">{error}</Alert>}
           </div>
           <div className="display-flex">
-          <Button variant="secondary" onClick={handleCloseGscModal}>Close</Button>
+          <Button variant="secondary" onClick={handleArchive}>Archive profile</Button>
           {
             reasons
             ?

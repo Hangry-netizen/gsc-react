@@ -49,7 +49,14 @@ export default function AdminHomePage() {
             </Link>
           </div>
           <div style={{marginTop:"20px"}}>
-            <button className="blue-button" style={{width:"300px", padding:"10px 20px"}}>Reports</button>
+            <Link to="/admin/reports">
+              <button className="blue-button" style={{width:"300px", padding:"10px 20px"}}>Reports</button>
+            </Link>
+          </div>
+          <div style={{marginTop:"20px"}}>
+            <Link to="/admin/archived">
+              <button className="blue-button" style={{width:"300px", padding:"10px 20px"}}>Archived</button>
+            </Link>
           </div>
         </>
         :

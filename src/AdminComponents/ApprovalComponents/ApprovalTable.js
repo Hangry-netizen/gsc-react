@@ -52,13 +52,16 @@ export default function ApprovalTable({ gscs }) {
           <TableBody>
           {
             gscs.map((gsc, i) => {
-              return (
-                <ApprovalRow
-                  key={i}
-                  gsc={gsc}
-                  StyledTableCell={StyledTableCell}
-                />
-              )
+              if (gsc.admin_archived === false) {
+                return (
+                  <ApprovalRow
+                    key={i}
+                    gsc={gsc}
+                    StyledTableCell={StyledTableCell}
+                  />
+                )
+              }
+              else return null
             })
           }
           </TableBody>

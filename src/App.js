@@ -37,6 +37,7 @@ import AdminLoginPage from './AdminPages/AdminLoginPage';
 import AdminHomePage from './AdminPages/AdminHomePage';
 import AdminApprovalPage from './AdminPages/AdminApprovalPage';
 import AdminDatabasePage from './AdminPages/AdminDatabasePage';
+import AdminArchivedPage from './AdminPages/AdminArchivedPage';
 
 import { useAuth } from "./contexts/AuthContext";
 
@@ -86,6 +87,7 @@ function App() {
             <Route exact path="/admin/home"><AdminHomePage /></Route>
             <Route exact path="/admin/approval"><AdminApprovalPage /></Route>
             <Route exact path="/admin/database"><AdminDatabasePage /></Route>
+            <Route exact path="/admin/archived"><AdminArchivedPage /></Route>
           </>
           :
           <Route exact path="/admin/login"><AdminLoginPage /></Route>
