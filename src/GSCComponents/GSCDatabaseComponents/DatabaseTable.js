@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatabaseRow from './DatabaseRow';
 import { withStyles } from '@material-ui/core/styles';
-import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, IconButton, Menu, MenuItem, Divider } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, IconButton, Menu, MenuItem } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
 const StyledTableCell = withStyles((theme) => ({

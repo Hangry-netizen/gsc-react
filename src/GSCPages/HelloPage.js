@@ -22,7 +22,7 @@ export default function HelloPage() {
   const handleShowPointersModal = () => setShowPointersModal(true);
 
   useEffect(() => {
-    axios.get (`${url}/gscs/database-display/${uuid}`)
+    axios.get (`${url}/gscs/`)
       .then((response) => {
         setGscs(response.data)
       })

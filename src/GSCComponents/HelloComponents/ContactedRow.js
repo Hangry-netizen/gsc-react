@@ -60,23 +60,30 @@ export default function ContactedRow({ gsc, StyledTableCell, currentGsc }) {
 
   return (
     <>
-      <StyledTableRow onClick={handleShowContactedModal}>
-        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
-        <StyledTableCell>{gsc.name}</StyledTableCell>
-        <StyledTableCell>{ageRange}</StyledTableCell>
-        <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
-        <StyledTableCell style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
-        <StyledTableCell>{gsc.height}</StyledTableCell>
-        <StyledTableCell>{gsc.languages}</StyledTableCell>
-        <StyledTableCell>{gsc.nationality}</StyledTableCell>
-        <StyledTableCell>{gsc.descriptive_words}</StyledTableCell>
-        <StyledTableCell>{personality}</StyledTableCell>
-        <StyledTableCell>{gsc.church_background}</StyledTableCell>
-        <StyledTableCell>{gsc.spiritual_maturity}</StyledTableCell>
-        <StyledTableCell>{gsc.spiritual_gifts}</StyledTableCell>
-        <StyledTableCell>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
-        <StyledTableCell>{gsc.good_match_for_gscf}</StyledTableCell>
-        <StyledTableCell>{gsc.what_is_important_to_me}</StyledTableCell>
+      <StyledTableRow>
+        <StyledTableCell>
+          {
+            <span>reported</span>
+          }
+        </StyledTableCell>
+        <>
+          <StyledTableCell onClick={handleShowContactedModal} className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.name}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{ageRange}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.city}, {gsc.country}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal} style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.height}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.languages}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.nationality}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.descriptive_words}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{personality}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.church_background}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.spiritual_maturity}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.spiritual_gifts}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.good_match_for_gscf}</StyledTableCell>
+          <StyledTableCell onClick={handleShowContactedModal}>{gsc.what_is_important_to_me}</StyledTableCell>
+        </>
       </StyledTableRow>
       <ContactedModal
         gsc={gsc}
