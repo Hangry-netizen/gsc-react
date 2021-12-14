@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ContactedModal from './ContactedModal';
+import ReportModal from './ReportModal';
+import ReportedModal from './ReportedModal';
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
+import ReportProblemIcon from '@material-ui/icons/ReportProblem';
+import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
 
 const StyledTableRow = withStyles(() => ({
   root: {
@@ -16,11 +20,19 @@ const StyledTableRow = withStyles(() => ({
 
 export default function ContactedRow({ gsc, StyledTableCell, currentGsc }) {
   const [showContactedModal, setShowContactedModal] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [showReportedModal, setShowReportedModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
 
   const handleCloseContactedModal = () => setShowContactedModal(false);
   const handleShowContactedModal = () => setShowContactedModal(true);
+
+  const handleCloseReportModal = () => setShowReportModal(false);
+  const handleShowReportModal = () => setShowReportModal(true);
+
+  const handleCloseReportedModal = () => setShowReportedModal(false);
+  const handleShowReportedModal = () => setShowReportedModal(true);
 
   useEffect(() => {
     let current_year = new Date().getFullYear()
@@ -63,7 +75,11 @@ export default function ContactedRow({ gsc, StyledTableCell, currentGsc }) {
       <StyledTableRow>
         <StyledTableCell>
           {
-            <span>reported</span>
+            currentGsc.reports.includes(gsc.id)
+            ?
+            <div className="text-align-center"><ReportProblemOutlinedIcon onClick={handleShowReportedModal} className="color-red"/></div>
+            :
+            <div className="text-align-center"><ReportProblemOutlinedIcon onClick={handleShowReportModal} /></div>
           }
         </StyledTableCell>
         <>
@@ -92,6 +108,18 @@ export default function ContactedRow({ gsc, StyledTableCell, currentGsc }) {
         personality={personality}
         currentGsc={currentGsc}
         ageRange={ageRange}
+      />
+      <ReportModal
+        gsc={gsc}
+        showReportModal={showReportModal}
+        handleCloseReportModal={handleCloseReportModal}
+        currentGsc={currentGsc}
+        handleShowReportedModal={handleShowReportedModal}
+      />
+      <ReportedModal
+        gsc={gsc}
+        showReportedModal={showReportedModal}
+        handleCloseReportedModal={handleCloseReportedModal}
       />
     </>
   )
