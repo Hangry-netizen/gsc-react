@@ -38,10 +38,11 @@ import AdminHomePage from './AdminPages/AdminHomePage';
 import AdminApprovalPage from './AdminPages/AdminApprovalPage';
 import AdminDatabasePage from './AdminPages/AdminDatabasePage';
 import AdminArchivedPage from './AdminPages/AdminArchivedPage';
+import AdminReportsPage from './AdminPages/AdminReportPage';
 
 import { useAuth } from "./contexts/AuthContext";
 
-export const url = process.env.REACT_APP_LOCALHOST_API;
+export const url = process.env.REACT_APP_HEROKU_API;
 
 function App() {
   const { currentUser } = useAuth()
@@ -88,6 +89,7 @@ function App() {
             <Route exact path="/admin/approval"><AdminApprovalPage /></Route>
             <Route exact path="/admin/database"><AdminDatabasePage /></Route>
             <Route exact path="/admin/archived"><AdminArchivedPage /></Route>
+            <Route exact path="/admin/reports"><AdminReportsPage /></Route>
           </>
           :
           <Route exact path="/admin/login"><AdminLoginPage /></Route>

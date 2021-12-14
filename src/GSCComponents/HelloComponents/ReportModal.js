@@ -18,7 +18,6 @@ export default function ReportModal({ gsc, currentGsc, showReportModal, handleCl
     )
   }, [answer, gsc.name, reason])
 
-
   const handleReport = (e) => {
     e.preventDefault()
     setIsLoading(true)
@@ -46,6 +45,7 @@ export default function ReportModal({ gsc, currentGsc, showReportModal, handleCl
 
     setIsLoading(false)
   };
+  
   return (
     <>
       <Modal
@@ -76,7 +76,7 @@ export default function ReportModal({ gsc, currentGsc, showReportModal, handleCl
             <br />
             <div style={{display:'flex', boxSizing:'border-box', width:'100%', justifyContent:'space-between'}}>
               <Button variant="secondary" onClick={handleCloseReportModal}>Close</Button>
-              <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading}>Report</Button>
+              <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleReport}>Report</Button>
             </div>
           </Form>
         </Modal.Body>
