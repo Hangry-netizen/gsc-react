@@ -41,6 +41,8 @@ export default function ReportsModal({ report, showReportsModal, handleCloseRepo
 
     setIsLoading(false)
   };
+
+  
   return (
     <>
       <Modal
@@ -52,7 +54,7 @@ export default function ReportsModal({ report, showReportsModal, handleCloseRepo
         <Modal.Header closeButton className="bg-beach">
           <Modal.Title className="color-red">Report No. {report.id}</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="bg-beach" style={{height:"80vh", overflowY:"auto"}}>
+        <Modal.Body className="bg-beach">
           <div className="color-red">Reported by:</div>
           <div className="color-blue">{report.reported_by_name}</div>
           <div className="color-blue">{report.reported_by_email}</div>
@@ -71,6 +73,7 @@ export default function ReportsModal({ report, showReportsModal, handleCloseRepo
                 <Form.Control as="textarea" rows={3} type="textarea" required onChange={e => setRemarks(e.target.value)} value={remarks}/>
               </Col>
             </Form.Group>
+            <br />
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}
             </div>

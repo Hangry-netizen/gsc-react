@@ -36,7 +36,7 @@ export default function ContactedTable({ currentGsc, gscs }) {
       <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
         <Table stickyHeader id="gsc-database-table">
           <TableHead>
-            <StyledTableCell>Actions</StyledTableCell>
+            <StyledTableCell></StyledTableCell>
             <>
               <StyledTableCell>Alias</StyledTableCell>
               <StyledTableCell>Name</StyledTableCell>

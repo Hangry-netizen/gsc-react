@@ -4,8 +4,8 @@ import ReportModal from './ReportModal';
 import ReportedModal from './ReportedModal';
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
-import ReportProblemIcon from '@material-ui/icons/ReportProblem';
-import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
+import { Button } from 'react-bootstrap';
+
 
 const StyledTableRow = withStyles(() => ({
   root: {
@@ -77,9 +77,13 @@ export default function ContactedRow({ gsc, StyledTableCell, currentGsc }) {
           {
             currentGsc.reports.includes(gsc.id)
             ?
-            <div className="text-align-center"><ReportProblemOutlinedIcon onClick={handleShowReportedModal} className="color-red"/></div>
+            <div className="text-align-center">
+              <Button onClick={handleShowReportedModal} variant="secondary">Reported</Button>
+            </div>
             :
-            <div className="text-align-center"><ReportProblemOutlinedIcon onClick={handleShowReportModal} /></div>
+            <div className="text-align-center">
+              <Button onClick={handleShowReportModal} variant='danger'>Report</Button>
+            </div>
           }
         </StyledTableCell>
         <>

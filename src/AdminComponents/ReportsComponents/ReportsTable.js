@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReportsRow from './ReportsRow';
 import { withStyles, Table, TableBody, TableCell, TableContainer, TableHead, Paper } from '@material-ui/core';
 
@@ -27,28 +27,50 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell)
 
 export default function ReportsTable({ reports }) {
+  const [sortedReports, setSortedReports] = useState([])
+
+  function compare (a,b) {
+    const resolve_status_of_a = a.resolve;
+    const resolve_status_of_b = b.resolve;
+
+    let comparison = 0;
+
+    if (resolve_status_of_a === true) {
+      comparison = 1;
+    }
+    else if (resolve_status_of_b === true) {
+      comparison = -1;
+    }
+    return comparison
+  }
+
+  useEffect(() => {
+    setSortedReports(reports.sort(compare))
+  }, [reports])
+
+
   return (
     <TableContainer componenet={Paper} style={{maxHeight:"70vh", overflowX:"auto"}}>
       <Table stickyHeader id="admin-database-table">
         <TableHead>
+          <StyledTableCell></StyledTableCell>
           <StyledTableCell>Report no.</StyledTableCell>
           <StyledTableCell>Reported by</StyledTableCell>
           <StyledTableCell>Report target</StyledTableCell>
-          <StyledTableCell>Reason</StyledTableCell>
+          <StyledTableCell style={{width:'200px'}}>Recommended action</StyledTableCell>
+          <StyledTableCell style={{width:'500px'}}>Concerns</StyledTableCell>
           <StyledTableCell className="color-red" style={{borderLeft:"1px white solid"}}>Remarks by admin</StyledTableCell>
         </TableHead>
         <TableBody>
         {
-          reports.map((report, i) => {
-            if (report.archived === false) {
-              return (
-                <ReportsRow
-                  key={i}
-                  report={report}
-                  StyledTableCell={StyledTableCell}
-                />
-              )
-            } else return null
+          sortedReports.map((report, i) => {
+            return (
+              <ReportsRow
+                key={i}
+                report={report}
+                StyledTableCell={StyledTableCell}
+              />
+            )
           })
         }
         </TableBody>
