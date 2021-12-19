@@ -77,7 +77,7 @@ export default function ReportModal({ gsc, currentGsc, showReportModal, handleCl
             <br />
             <>
               <Form.Control as="select" required onChange={e => setRecommendedAction(e.target.value)}>
-                <option value="">Recommended action</option>
+                <option value="">Recommended action (please select one to proceed)</option>
                 <option value="Keep an eye on them / suspicious activity">Keep an eye on them / suspicious activity</option>
                 <option value="Send them a warning">Send them a warning</option>
                 <option value="Terminate immediately">Terminate immediately</option>

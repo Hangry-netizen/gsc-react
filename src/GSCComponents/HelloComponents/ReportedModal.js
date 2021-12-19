@@ -15,7 +15,7 @@ export default function ReportedModal({ gsc, showReportedModal, handleCloseRepor
           <Modal.Title className="color-red">You have reported {gsc.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-beach color-blue">
-            <div>Thank you for reporting. We appreciate your help to keep this site full of quality profiles. We will take your comments under advisement and will follow up if necessary.</div>
+            <div>Thank you for reporting. We appreciate your help to keep this site full of quality profiles. We will take your comments under consideration and will follow up if necessary.</div>
             <br />
             <div>
               <Button variant="secondary" onClick={handleCloseReportedModal}>Close</Button>
