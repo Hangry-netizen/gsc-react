@@ -1,0 +1,5 @@
+Step 1
+create toggle (use const '' to hold 3 values)
+if '' show only Step 1
+FF button on click -> show FF step 1 display
+GSC button on click -> show GSC step 1 display
