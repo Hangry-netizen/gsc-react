@@ -3,7 +3,6 @@ import FFContent from './FFContent';
 import GSCContent from './GSCContent';
 import CelebrationOutlinedIcon from '@mui/icons-material/CelebrationOutlined';
 
-
 export default function Step1() {
   const [FFtoggle, setFFToggle] = useState(false)
   const [GSCtoggle, setGSCToggle] = useState(false)

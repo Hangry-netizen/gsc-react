@@ -31,7 +31,7 @@
 
 #step-1-title, #step-2-title, #step-3-title, #step-4-title, #step-5-title {
   font-weight: 700;
-  margin: 0;
+  margin: auto;
   text-shadow: 2px 2px #D9D9D9;
   text-decoration: underline 5px #E9482B;
 }
@@ -122,7 +122,6 @@
   border-left: 280px solid transparent;
   border-right: 280px solid transparent;
   margin: auto;
-
   border-bottom: 20px solid #1E365C;
 }
 
@@ -177,6 +176,73 @@
   border: 1px solid #D7CCBC;
   border-radius: 10px;
   margin-top: 15px;
+}
+
+#step-two-3-chance-circle {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  background: white;
+  border: 1px solid white;
+  color: #1E365C;
+  text-align: center;
+  position: absolute;
+  margin-left: 240px;
+  opacity: 1;
+}
+
+#step-three-hello-page-button {
+  width: 400px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+#step-three-hello-page-arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  margin: auto;
+  border-bottom: 15px solid #1E365C;
+}
+
+#step-three-hello-page-arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  margin: auto;
+  border-top: 15px solid #1E365C;
+}
+
+#step-three-toggle-div {
+  margin: auto;
+  width: 620px;
+}
+
+.step-three-toggle-buttons {
+  background: #1E365C;
+  border: 1px solid #1E365C;
+  width: 350px;
+  padding: 10px;
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.step-three-content-buttons {
+  width: 100%;
+  padding: 10px;
+  background: #D7CCBC;
+  border: 1px solid #D7CCBC;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.step-three-content-words-div {
+  width: 550px;
 }
 
 #for-people {

@@ -10,6 +10,7 @@ export default function GSCContent() {
       <div className="step-two-content-buttons">
         <div className="color-red font-size-large">👋 "SAY HI"</div>
         <div className="color-blue">to someone! (They will see your name and contact info)</div>
+        <div style={{fontWeight:"lighter", color:"black"}}>3 chances every month</div>
       </div>
     </div>
   )
