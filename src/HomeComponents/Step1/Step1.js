@@ -111,7 +111,7 @@ export default function Step1() {
         </div>
       }
       {
-        FFtoggle || GSCtoggle
+        GSCtoggle
         ?
         <>
           <div id="step-one-profile-db-arrow-up"></div>

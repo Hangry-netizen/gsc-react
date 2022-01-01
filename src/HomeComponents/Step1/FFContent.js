@@ -70,13 +70,6 @@ export default function FFContent() {
           </div>
         </button>
       </div>
-      <br />
-      <div className="color-blue text-align-center" style={{width:"200px", border:"3px black dotted", padding:"5px", margin:"auto"}}>
-        <div>Profile undergoes</div>
-        <div>MatchesUp</div>
-        <div className="color-red font-size-large">SCREENING</div>
-      </div>
-      <br />
     </div>
   )
 }
