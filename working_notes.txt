@@ -1,10 +1,19 @@
-Before Aug 15-22
+
+
+Report
+- can make report
+- can retrieve GSCs that the current GSC reported
+- display report and reported icons
+- report modal to create report
+- reported modal
+- notify matchesup@gmail.com of report
+admin can see report details
+admin can add remarks to the report
+admin can archive report
 
 Database (FF and GSC):
 Search
-Filter
-
-Report
+- Filter
 
 GSC Profile Page:
 - Hide/unhide function
