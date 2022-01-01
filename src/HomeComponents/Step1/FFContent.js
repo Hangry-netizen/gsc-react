@@ -17,13 +17,14 @@ export default function FFContent() {
 
   return (
     <div className="step-one-content-div">
+      <br />
       <div className="display-flex">
         <div className="step-one-left-number-circles">1</div>
         {currentUser 
             ?
             <button className="step-one-content-buttons display-flex align-items" onClick={goToFFProfilePage}>
               <div><AssignmentIndSharp style={{fontSize:"80px"}} /></div>
-              <div className="text-align-left color-blue">
+              <div className="text-align-right color-blue">
                 <div><span className="color-red">Create</span> a Faithful Friend</div>
                 <div className="color-red font-size-large">ACCOUNT</div>
                 <div>on MatchesUp</div>
@@ -63,9 +64,8 @@ export default function FFContent() {
               <span>a GSCF </span>
             </div>
             <div>
-              <span className="color-red font-size-large">PROFILE </span>
-              <span>for your </span>
-              <span>friend</span>
+              <div className="color-red font-size-large">PROFILE </div>
+              <span>for your friend</span>
             </div>
           </div>
         </button>
@@ -76,6 +76,7 @@ export default function FFContent() {
         <div>MatchesUp</div>
         <div className="color-red font-size-large">SCREENING</div>
       </div>
+      <br />
     </div>
   )
 }

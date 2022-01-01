@@ -54,13 +54,6 @@
   padding: 10px;
 }
 
-.step-one-toggle-buttons-fixed-height {
-  background: #1E365C;
-  border: 1px solid #1E365C;
-  width: 250px;
-  padding: 10px;
-}
-
 .step-one-arrow-down {
   width: 0; 
   height: 0; 
@@ -140,6 +133,50 @@
   border-right: 280px solid transparent;
   margin: auto;
   border-top: 20px solid #1E365C;
+}
+
+#step-two-database-div {
+  width: 380px;
+  padding: 20px;
+  background: #D7CCBC;
+  border: 1px solid #D7CCBC;
+  border-radius: 15px;
+  margin: auto;
+}
+
+#step-two-toggle-div {
+  width: 100%;
+  margin: auto;
+  max-width: 720px;
+}
+
+.step-two-toggle-buttons {
+  background: #1E365C;
+  border: 1px solid #1E365C;
+  width: 300px;
+  padding: 10px;
+}
+
+.step-two-arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+
+  border-top: 20px solid #1E365C;
+}
+
+.step-two-content-div {
+  width: 300px;
+}
+
+.step-two-content-buttons {
+  width: 100%;
+  padding: 4%;
+  background: #D7CCBC;
+  border: 1px solid #D7CCBC;
+  border-radius: 10px;
+  margin-top: 15px;
 }
 
 #for-people {

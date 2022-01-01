@@ -15,7 +15,7 @@ export default function Step1() {
       <div className="text-align-center color-blue semibold font-size-large">I want to</div>
       <div id="step-one-toggle-div" className="display-flex">
         <div>
-          <button className={ FFtoggle ? "step-one-toggle-buttons-fixed-height" : "step-one-toggle-buttons"} onClick={() => setFFToggle(!FFtoggle)}>
+          <button className="step-one-toggle-buttons" onClick={() => setFFToggle(!FFtoggle)}>
             <div className="color-red font-size-small">SIGN A FRIEND UP!</div>
             {
               FFtoggle
@@ -30,7 +30,6 @@ export default function Step1() {
             }
           </button>
           <div className={FFtoggle ? "step-one-arrow-down" : null}></div>
-          <br />
           {
             FFtoggle ? <FFContent /> : null
           }
@@ -51,7 +50,6 @@ export default function Step1() {
             }
           </button>
           <div className={GSCtoggle ? "step-one-arrow-down" : null} style={{marginLeft:"100px"}}></div>
-          <br />
           {
             GSCtoggle ? <GSCContent /> : null
           }
