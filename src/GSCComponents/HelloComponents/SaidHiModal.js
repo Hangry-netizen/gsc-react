@@ -155,7 +155,7 @@ export default function SaidHiModal({ gsc, currentGsc, showSaidHiModal, handleCl
           <br />
           <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
-              <label className="color-red">Key in this profile's name to enable the remove button:</label>
+              <label className="color-red">Key in this profile's name to enable contacted / undo 'hi' buttons:</label>
               <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.name}/>
             </div>
             <div>

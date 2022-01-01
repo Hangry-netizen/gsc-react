@@ -6,18 +6,18 @@ import { url } from "../../App";
 export default function ReportModal({ gsc, currentGsc, showReportModal, handleCloseReportModal, handleShowReportedModal }) {
   const [isLoading, setIsLoading] = useState(true)
   const [reason, setReason] = useState("")
+  const [recommendedAction, setRecommendedAction] = useState("")
   const [answer, setAnswer] = useState("")
   const [error, setError] = useState("")
 
   useEffect(() => {
-    if (answer.trim().toLowerCase() === gsc.name.trim().toLowerCase() && reason !== ""){
+    if (answer.trim().toLowerCase() === gsc.name.trim().toLowerCase() && reason !== "" && recommendedAction !== ""){
       setIsLoading(false)
     }
     else (
       setIsLoading(true)
     )
-  }, [answer, gsc.name, reason])
-
+  }, [answer, gsc.name, reason, recommendedAction])
 
   const handleReport = (e) => {
     e.preventDefault()
@@ -29,7 +29,8 @@ export default function ReportModal({ gsc, currentGsc, showReportModal, handleCl
       data: {
         "reported_by": currentGsc.id,
         "report_target": gsc.id,
-        "reason": reason
+        "reason": reason,
+        "recommended_action": recommendedAction
       }
     })
     .then((response) => {
@@ -46,6 +47,9 @@ export default function ReportModal({ gsc, currentGsc, showReportModal, handleCl
 
     setIsLoading(false)
   };
+
+  console.log(recommendedAction)
+  
   return (
     <>
       <Modal
@@ -59,24 +63,34 @@ export default function ReportModal({ gsc, currentGsc, showReportModal, handleCl
         </Modal.Header>
         <Modal.Body className="bg-beach" style={{overflowY:"auto"}}>
           <Form onSubmit={handleReport} className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
+            <div className="text-align-left">
+              <label className="color-red">I would like to report:</label>
+              <input type="text" style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"49%", marginLeft: "10px", borderRadius:"10px" }} onChange={e => setAnswer(e.target.value)} placeholder={gsc.name}/>
+            </div>
+            <br />
             <Form.Group controlId="formReportReason">
-              <Form.Label>Reason for report:</Form.Label>
-              <Col className="without-left-padding">
+              <Form.Label className="text-align-left">What concerns would you like to report about this person?</Form.Label>
+              <Col className="without-left-right-padding">
                 <Form.Control as="textarea" rows={6} type="textarea" required onChange={e => setReason(e.target.value)} value={reason}/>
               </Col>
             </Form.Group>
             <br />
-            <div>
-              <label className="color-red font-size-small">I would like to report:</label>
-              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.name}/>
-            </div>
+            <>
+              <Form.Control as="select" required onChange={e => setRecommendedAction(e.target.value)}>
+                <option value="">Recommended action (please select one to proceed)</option>
+                <option value="Keep an eye on them / suspicious activity">Keep an eye on them / suspicious activity</option>
+                <option value="Send them a warning">Send them a warning</option>
+                <option value="Terminate immediately">Terminate immediately</option>
+              </Form.Control>
+            </>
+            <br />
             <div>
               {error && <Alert className="color-red font-size-small">{error}</Alert>}
             </div>
             <br />
             <div style={{display:'flex', boxSizing:'border-box', width:'100%', justifyContent:'space-between'}}>
               <Button variant="secondary" onClick={handleCloseReportModal}>Close</Button>
-              <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading}>Report</Button>
+              <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleReport}>Report</Button>
             </div>
           </Form>
         </Modal.Body>
