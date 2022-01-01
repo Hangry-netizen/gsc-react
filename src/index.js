@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext'
 
-/*
+
 Sentry.init({
   dsn: "https://290eb86eeddb47d0bc9339808793df47@o976907.ingest.sentry.io/5940990",
   integrations: [new Integrations.BrowserTracing()],
@@ -19,7 +19,6 @@ Sentry.init({
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 });
-*/
 
 
 ReactDOM.render(
