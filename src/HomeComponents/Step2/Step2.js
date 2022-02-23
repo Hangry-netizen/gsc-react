@@ -5,7 +5,7 @@ import { Carousel } from 'react-bootstrap';
 import { Group, EmailOutlined } from '@material-ui/icons';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
-export default function Step1() {
+export default function Step2() {
   const [width] = useState(window.innerWidth)
   const [mobile, setMobile] = useState(false);
 

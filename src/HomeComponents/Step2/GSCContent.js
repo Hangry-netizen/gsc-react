@@ -12,6 +12,7 @@ export default function GSCContent({ mobile }) {
         <div className="color-blue">to someone! (They will see your name and contact info)</div>
         <div style={{fontWeight:"lighter", color:"black"}}>3 chances every month</div>
       </div>
+      <br />
     </div>
   )
 }

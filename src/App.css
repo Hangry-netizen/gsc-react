@@ -11,7 +11,7 @@ body {
   }
 
   .font-size-large {
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
   .font-size-medium {
     font-size: 18px !important;
@@ -97,6 +97,10 @@ body {
 
 .bg-red {
   background-color: #e9482b;
+}
+
+.bg-grey {
+  background-color: #cccccc;
 }
 
 .color-blue {

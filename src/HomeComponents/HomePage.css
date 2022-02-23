@@ -141,6 +141,10 @@
   margin: auto;
 }
 
+#step-3-hi-icon {
+  font-size: 40px;
+}
+
 .step-two-content-buttons {
   width: 290px;
   padding: 10px;
@@ -151,45 +155,10 @@
 }
 
 #step-three-hello-page-button {
-  width: 400px;
-  padding: 20px;
-  margin: auto;
-  border-radius: 20px;
-}
-
-#step-three-hello-page-arrow-up {
-  width: 0; 
-  height: 0; 
-  border-left: 180px solid transparent;
-  border-right: 180px solid transparent;
-  margin: auto;
-  border-bottom: 15px solid #1E365C;
-}
-
-#step-three-hello-page-arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 180px solid transparent;
-  border-right: 180px solid transparent;
-  margin: auto;
-  border-top: 15px solid #1E365C;
-}
-
-#step-three-toggle-div {
-  margin: auto;
-  width: 620px;
-}
-
-.step-three-toggle-buttons {
-  background: #1E365C;
-  border: 1px solid #1E365C;
-  width: 350px;
+  width: 300px;
   padding: 10px;
-  display: block;
-  margin: auto;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  margin: 15px auto 0;
+  border-radius: 20px;
 }
 
 .step-three-content-buttons {
@@ -199,10 +168,6 @@
   border: 1px solid #D7CCBC;
   border-radius: 10px;
   margin-top: 15px;
-}
-
-.step-three-content-words-div {
-  width: 550px;
 }
 
 #for-people {
@@ -382,12 +347,12 @@
     margin: auto;
   }
 
-  #ff-icon {
+  #ff-icon, #gsc-icon {
     font-size: 50px;
   }
 
-  #gsc-icon {
-    font-size: 50px;
+  #step-3-hi-icon {
+    font-size: 30px;
   }
   
   .step-one-content-buttons {
@@ -423,56 +388,27 @@
   }
 
   #step-three-hello-page-button {
-    width: 300px;
+    width: 220px;
     padding: 10px;
-    margin: auto;
+    margin: 10px auto 0;
     border-radius: 10px;
   }
-  
-  #step-three-hello-page-arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 140px solid transparent;
-    border-right: 140px solid transparent;
-    margin: auto;
-    border-bottom: 10px solid #1E365C;
+
+  #step-three-carousel {
+    height: 340px;
   }
-  
-  #step-three-hello-page-arrow-down {
-    width: 0; 
-    height: 0; 
-    border-left: 140px solid transparent;
-    border-right: 140px solid transparent;
-    margin: auto;
-    border-top: 10px solid #1E365C;
-  }
-  
-  #step-three-toggle-div {
-    margin: auto;
-    width: 300px;
-  }
-  
-  .step-three-toggle-buttons {
-    background: #1E365C;
-    border: 1px solid #1E365C;
-    width: 300px;
-    padding: 5px;
-    display: block;
-    margin: auto;
-    margin-bottom: 10px;
-  }
-  
-  .step-three-content-buttons {
+
+  .step-three-content-div {
     width: 100%;
+  }
+
+  .step-three-content-buttons {
+    width: 250px;
     padding: 10px;
     background: #D7CCBC;
     border: 1px solid #D7CCBC;
     border-radius: 10px;
-    margin-top: 10px;
-  }
-  
-  .step-three-content-words-div {
-    width: 550px;
+    margin: 10px auto 0;
   }
 
   #resources-btn {
