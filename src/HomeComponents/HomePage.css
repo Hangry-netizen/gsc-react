@@ -39,6 +39,7 @@
 
 #step-2-title {
   font-weight: 700;
+  padding-top: 20px;
   margin: auto;
   text-shadow: 2px 2px #D9D9D9;
   text-decoration: underline 5px #E9482B;
@@ -118,53 +119,35 @@
 }
 
 #step-two-database-div {
-  width: 380px;
-  padding: 20px;
+  width: 300px;
+  padding: 10px;
   background: #D7CCBC;
   border: 1px solid #D7CCBC;
   border-radius: 15px;
-  margin: auto;
+  margin: 20px auto 0;
 }
 
 #step-two-email-icon {
-  font-size: 120px;
+  font-size: 80px;
 }
 
-#step-two-toggle-div {
-  width: 100%;
-  margin: auto;
-  max-width: 720px;
-}
-
-.step-two-toggle-buttons {
-  background: #1E365C;
-  border: 1px solid #1E365C;
-  width: 300px;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-}
-
-.step-two-arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-
-  border-top: 20px solid #1E365C;
+#step-two-carousel {
+  padding: 20px 40px;
+  height: 360px;
 }
 
 .step-two-content-div {
-  width: 300px;
+  width: 290px;
+  margin: auto;
 }
 
 .step-two-content-buttons {
-  width: 100%;
-  padding: 4%;
+  width: 290px;
+  padding: 10px;
   background: #D7CCBC;
   border: 1px solid #D7CCBC;
   border-radius: 10px;
-  margin-top: 15px;
+  margin: 15px auto 0;
 }
 
 #step-three-hello-page-button {
@@ -424,44 +407,17 @@
   }
 
   #step-two-email-icon {
-    font-size: 90px;
+    font-size: 60px;
   }
 
   #step-two-database-div {
-    width: 300px;
+    width: 230px;
     padding: 10px;
     border-radius: 10px;
   }
-  
-  #step-two-toggle-div {
-    width: 100%;
-    margin: auto;
-    max-width: 300px;
-  }
-  
-  .step-two-toggle-buttons {
-    background: #1E365C;
-    border: 1px solid #1E365C;
-    width: 140px;
-    padding: 5px;
-  }
-  
-  .step-two-arrow-down {
-    width: 0; 
-    height: 0; 
-    border-left: 70px solid transparent;
-    border-right: 70px solid transparent;
-  
-    border-top: 10px solid #1E365C;
-  }
-  
-  .step-two-content-div {
-    width: 300px;
-    margin: auto;
-  }
-  
+
   .step-two-content-buttons {
-    width: 300px;
+    width: 220px;
     padding: 10px;
     margin: none;
   }

@@ -7,16 +7,17 @@ import { Group } from '@material-ui/icons';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 export default function Step1() {
+  const [width] = useState(window.innerWidth)
   const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth <= 720) {
+    if (width <= 720) {
       setMobile(true)
     }
     else {
       setMobile(false)
     }
-  }, [window.innerWidth])
+  }, [width])
 
   return (
     <div className="font-size-16 bg-blue text-align-center">
