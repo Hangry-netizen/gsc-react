@@ -1,142 +1,84 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FFContent from './FFContent';
 import GSCContent from './GSCContent';
 import CelebrationOutlinedIcon from '@mui/icons-material/CelebrationOutlined';
+import { Carousel } from 'react-bootstrap';
+import { Group } from '@material-ui/icons';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 export default function Step1() {
-  const [FFtoggle, setFFToggle] = useState(false)
-  const [GSCtoggle, setGSCToggle] = useState(false)
+  const [mobile, setMobile] = useState(false);
 
-  const handleFFToggle = () => {
-    if (window.innerWidth > 720) {
-      setFFToggle(!FFtoggle)
+  useEffect(() => {
+    if (window.innerWidth <= 720) {
+      setMobile(true)
     }
-    else if (FFtoggle === false) {
-      setFFToggle(true)
-      setGSCToggle(false)
+    else {
+      setMobile(false)
     }
-    else if (FFtoggle === true) {
-      setFFToggle(false)
-    }
-  };
-
-  const handleGSCToggle = () => {
-    if (window.innerWidth > 720) {
-      setGSCToggle(!GSCtoggle)
-    }
-    else if (GSCtoggle === false) {
-      setGSCToggle(true)
-      setFFToggle(false)
-    }
-    else if (GSCtoggle === true) {
-      setGSCToggle(false)
-    }
-  };
+  }, [window.innerWidth])
 
   return (
-    <div className="bg-beach homepage-container-padding">
-      <div id="step-1-title" className="color-blue bold italic underline font-size-large">STEP 1: SUBMIT A PROFILE</div>
-      <br />
-      <div className="text-align-center color-blue semibold font-size-large">I want to</div>
-      <div id="step-one-toggle-div" className="display-flex">
-        <div>
-          <button className="step-one-toggle-buttons" onClick={handleFFToggle}>
-            <div className="color-red font-size-small">SIGN A FRIEND UP!</div>
-            {
-              FFtoggle
-              ?
-              <>
-                <div className="color-beach font-size-small">You are a</div>
-                <div className="color-beach Essays1743 font-size-small">FAITHFUL FRIEND</div>
-                <div className="color-red Essays1743 font-size-small">(FF)</div>
-              </>
-              :
-              null
-            }
-          </button>
-          <div className={FFtoggle ? "step-one-arrow-down" : null}></div>
-          {
-            window.innerWidth > 720
-            ?
-            <>
-              {
-                FFtoggle ? <FFContent /> : null
-              }
-            </>
-            :
-            null
-          }
-        </div>
-        <div className={window.innerWidth > 720 ? "text-align-right" : null}>
-          <button className="step-one-toggle-buttons" onClick={handleGSCToggle}>
-            <div className="color-red font-size-small">FIND A MATCH!</div>
-            {
-              GSCtoggle
-              ?
-              <>
-                <div className="color-beach font-size-small">You are a</div>
-                <div className="color-beach Essays1743 font-size-small">GOOD SINGLE CHRISTIAN</div>
-                <div className="color-red Essays1743 font-size-small">(GSC)</div>
-              </>
-              :
-              null
-            }
-          </button>
-          <div id="step-one-right-arrow-down-margin" className={GSCtoggle ? "step-one-arrow-down" : null}></div>
-          {
-            window.innerWidth > 720
-            ?
-            <>
-              {
-                GSCtoggle ? <GSCContent /> : null
-              }
-            </>
-            :
-            null
-          }
-        </div>
-      </div>
+    <div className="font-size-16 bg-blue text-align-center">
+      <div id="step-1-title" className="color-grey bold italic font-size-large">STEP 1: SUBMIT A PROFILE</div>
       {
-        window.innerWidth > 720
+        mobile
         ?
-        null
+        <Carousel id="step-one-carousel" className="text-align-center">
+          <Carousel.Item interval={10000}>
+            <div className="display-flex" style={{alignItems:"flex-end", width:"230px", margin:"auto"}}>
+              <Group id="ff-icon" className="color-red" />
+              <div className="color-red bold" style={{margin:"0 auto 5px 10px"}}>SIGN A FRIEND UP!</div>
+            </div>
+            <div style={{color:"white"}}>
+              <span className="font-size-small">You are a </span>
+              <span className="Essays1743 font-size-small">FAITHFUL FRIEND </span>
+              <span className="color-red Essays1743 font-size-small">(FF)</span>
+            </div>
+            <FFContent mobile={mobile} />
+          </Carousel.Item>
+          <Carousel.Item interval={10000}>
+            <div className="display-flex" style={{alignItems:"flex-end", width:"220px", margin:"auto"}}>
+              <div className="color-red bold" style={{margin:"0 5px 5px auto"}}>FIND A MATCH!</div>
+              <TravelExploreIcon id="gsc-icon" className="color-red" />
+            </div>
+            <div style={{color:"white"}}>
+              <span className="font-size-small">You are a </span>
+              <span className="Essays1743 font-size-small">GOOD SINGLE CHRISTIAN </span>
+              <span className="color-red Essays1743 font-size-small">(GSC)</span>
+            </div>
+            <GSCContent mobile={mobile} />
+          </Carousel.Item>
+        </Carousel>
         :
-        <div>
-          {
-            FFtoggle ? <FFContent /> : null
-          }
-          {
-            GSCtoggle ? <GSCContent /> : null
-          }
-        </div>
-      }
-      {
-        GSCtoggle
-        ?
         <>
-          <div id="step-one-profile-db-arrow-up"></div>
-          <div id="step-one-profile-on-db-div" className="bg-blue">
-            <div id="step-one-profile-on-db-content">
-              <div  className="display-flex color-beach text-align-left">
-                <div>
-                  <div>Your <span className="color-red">GSCF profile</span></div>
-                  <div>will be added to our</div>
-                  <div className="color-red font-size-large">DATABASE</div>
-                  <div>on the 1st of the following month</div>
-                </div>
-                <div style={{marginLeft: "10px"}}>
-                  <CelebrationOutlinedIcon className="color-red" id="step-one-celebration-icon" />
-                  <div className="color-red font-size-large">YAY!!!</div>
-                </div>
+          <div className="display-flex bg-blue" style={{width:"720px", margin:"auto"}}>
+            <div>
+              <div className="display-flex" style={{alignItems:"flex-end"}}>
+                <Group id="ff-icon" className="color-red" />
+                <div className="color-red bold" style={{margin:"0 auto 5px 10px"}}>SIGN A FRIEND UP!</div>
               </div>
-              <div style={{color:"white", fontWeight:"lighter"}} className="font-size-small">The database is updated with new profiles on the 1st of every month</div>
+              <div style={{color:"white"}}>
+                <span className="font-size-small">You are a </span>
+                <span className="Essays1743 font-size-small">FAITHFUL FRIEND </span>
+                <span className="color-red Essays1743 font-size-small">(FF)</span>
+              </div>
+              <FFContent />
+            </div>
+            <div>
+              <div className="display-flex" style={{alignItems:"flex-end"}}>
+                <div className="color-red bold" style={{margin:"0 5px 5px auto"}}>FIND A MATCH!</div>
+                <TravelExploreIcon id="gsc-icon" className="color-red" />
+              </div>
+              <div style={{color:"white"}}>
+                <span className="font-size-small">You are a </span>
+                <span className="Essays1743 font-size-small">GOOD SINGLE CHRISTIAN </span>
+                <span className="color-red Essays1743 font-size-small">(GSC)</span>
+              </div>
+              <GSCContent />
             </div>
           </div>
-          <div id="step-one-profile-db-arrow-down"></div>
-          <br />
         </>
-        :
-        null
       }
     </div>
   )

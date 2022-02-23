@@ -30,7 +30,7 @@ export default function Step2() {
 
   return (
     <div className="bg-beach homepage-container-padding">
-      <div id="step-1-title" className="color-blue bold italic underline font-size-large">STEP 2: STRIKE A MATCH</div>
+      <div id="step-2-title" className="color-blue bold italic underline font-size-large">STEP 2: STRIKE A MATCH</div>
       <br />
       <div id="step-two-database-div" className="text-align-left">
         <div style={{fontWeight:"lighter"}}>receive email on the 1st of every month...</div>
