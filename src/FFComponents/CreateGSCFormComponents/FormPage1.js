@@ -9,7 +9,7 @@ export default function FormPage1({ form, nextStep, handleChange, handleGscEmail
     <div className="create-gsc-form-container">
       <div className="create-gsc-form-header-content">
         <br />
-        <p className="color-blue mobile-text-align-justify">These information will be sent to your Good Single Christian Friend (GSCF) to be reviewed/edited. Remember, they can help you fill in the answers you aren't sure about ;)</p>
+        <p className="color-blue mobile-text-align-justify">This information will be sent to your Good Single Christian Friend (GSCF) to be reviewed/edited. Remember, they can help you fill in the answers you aren't sure about ;)</p>
         <div className="color-red text-align-left">*Required</div>
       </div>
       <hr />

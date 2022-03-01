@@ -196,7 +196,7 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
           </Col>
         </Form.Group>
         <Form.Group className="text-align-left">
-          <Form.Label className="Essays1743">What work does he/she do (paid and/or unpaid)?</Form.Label>
+          <Form.Label className="Essays1743">What kind of paid or unpaid work does (he/she) do?</Form.Label>
           <Col className="without-left-right-padding">
             <Form.Control as="textarea" rows={3} type="text" onChange={handleChange('do')} value={form.do} />
           </Col>

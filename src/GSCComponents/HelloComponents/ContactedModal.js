@@ -124,7 +124,7 @@ export default function ContactedModal({ gsc, currentGsc, showContactedModal, ha
           <div className="color-red">Something else that is particularly important</div>
           <div className="color-blue">{gsc.important_info_to_know}</div>
           <br />
-          <div className="color-red">Social media profile link</div>
+          <div className="color-red">Additional info</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
           <form onSubmit={handleDelete} className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>

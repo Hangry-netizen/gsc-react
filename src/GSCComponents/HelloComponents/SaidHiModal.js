@@ -55,15 +55,15 @@ export default function SaidHiModal({ gsc, currentGsc, showSaidHiModal, handleCl
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert("You have undone your 👋")
+        alert("You have taken back your 👋")
         window.location.reload()
       }
       else {
-        setError("Failed to undo your 👋")
+        setError("Failed to take back your 👋")
       }
     })
     .catch(() => {
-      setError("Failed to undo your 👋")
+      setError("Failed to take back your 👋")
     })
 
     setIsLoading(false)
@@ -150,7 +150,7 @@ export default function SaidHiModal({ gsc, currentGsc, showSaidHiModal, handleCl
           <div className="color-red">Something else that is particularly important</div>
           <div className="color-blue">{gsc.important_info_to_know}</div>
           <br />
-          <div className="color-red">Social media profile link</div>
+          <div className="color-red">Additional info</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
           <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>

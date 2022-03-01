@@ -61,15 +61,15 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
     })
     .then((response) => {
       if (response.data.status === "success") {
-        alert("You have undone your 👋")
+        alert("You have taken back your your 👋")
         window.location.reload()
       }
       else {
-        setError("Failed to undo your 👋")
+        setError("Failed to take back your 👋")
       }
     })
     .catch(() => {
-      setError("Failed to undo your 👋")
+      setError("Failed to take back your 👋")
     })
 
     setIsLoading(false)
@@ -179,7 +179,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
             {
               action === "said_hi"
               ?
-              <div className="color-blue font-size-small">*scroll down to undo your 👋</div>
+              <div className="color-blue font-size-small">*scroll down to take back your 👋</div>
               :
               <div className="color-blue font-size-small">*scroll down to remove {gsc.alias}'s 👋</div>
             }
@@ -241,7 +241,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
           <div className="color-red">Something else that is particularly important</div>
           <div className="color-blue">{gsc.important_info_to_know}</div>
           <br />
-          <div className="color-red">Social media profile link</div>
+          <div className="color-red">Additional info</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
           <form className="bg-blue color-red" style={{padding:"15px", borderRadius:"10px"}}>
@@ -257,7 +257,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
                   <br />
                   <div style={{marginLeft: "5px"}}>
                     <input style={{border:"white", padding:" 5px 15px", width:"90%", borderRadius:"5px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.alias}/>
-                    <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">undo</span> your 👋</label>
+                    <label className="font-size-small color-beach">Key in this profile's alias to <span className="color-red">take back</span> your 👋</label>
                   </div>
                 </div>
                 :
