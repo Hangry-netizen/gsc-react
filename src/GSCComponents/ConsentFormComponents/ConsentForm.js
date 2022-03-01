@@ -67,23 +67,23 @@ export default function ConsentForm() {
       data: {
         consent: true,
         year_of_birth: form.year_of_birth,
-        height: form.height,
-        languages: form.languages,
-        church_background: form.church_background,
-        nationality: form.nationality,
-        city: form.city,
-        country: form.country,
+        height: form.height.trim(),
+        languages: form.languages.trim(),
+        church_background: form.church_background.trim(),
+        nationality: form.nationality.trim(),
+        city: form.city.trim(),
+        country: form.country.trim(),
         moving_to_a_different_town: form.moving_to_a_different_town,
         moving_to_a_different_country: form.moving_to_a_different_country,
-        social_media_profile_link: form.social_media_profile_link, 
-        preferred_contact_method: form.preferred_contact_method,
-        contact_info: form.contact_info, 
+        social_media_profile_link: form.social_media_profile_link.trim(), 
+        preferred_contact_method: form.preferred_contact_method.trim(),
+        contact_info: form.contact_info.trim(), 
         notification_frequency: form.notification_frequency,
-        what_is_important_to_me: form.what_is_important_to_me,
-        mbti: form.mbti,
-        enneagram: form.enneagram,
-        disc: form.disc,
-        strengths_finder: form.strengths_finder
+        what_is_important_to_me: form.what_is_important_to_me.trim(),
+        mbti: form.mbti.trim(),
+        enneagram: form.enneagram.trim(),
+        disc: form.disc.trim(),
+        strengths_finder: form.strengths_finder.trim()
       }
     })
     .then((response) => {
@@ -106,8 +106,8 @@ export default function ConsentForm() {
         url: `${url}/references/`,
         data: {
           gsc_id: gsc.id,
-          ref_name: form.first_referral_name,
-          ref_email: form.first_referral_email
+          ref_name: form.first_referral_name.trim(),
+          ref_email: form.first_referral_email.trim()
         }
       })
       .catch(error => {
@@ -120,8 +120,8 @@ export default function ConsentForm() {
         url: `${url}/references/`,
         data: {
           gsc_id: gsc.id,
-          ref_name: form.second_referral_name,
-          ref_email: form.second_referral_email
+          ref_name: form.second_referral_name.trim(),
+          ref_email: form.second_referral_email.trim()
         }
       })
       .catch(error => {
