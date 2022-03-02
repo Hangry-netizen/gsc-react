@@ -263,7 +263,7 @@ export default function EditProfile({ form, submitEdit, handleChange, handleAlia
           </Col>
         </Form.Group>
         <br />
-        <Button variant="danger" type="submit" disabled={isLoading}>Save changes</Button>
+        <Button variant="danger" type="submit" disabled={isLoading || error !== ""}>Save changes</Button>
       </Form>
     </div>
   )
