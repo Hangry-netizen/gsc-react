@@ -10,12 +10,25 @@ export default function EditProfilePage() {
   const { uuid } = useParams();
   let history = useHistory();
   const [form, setForm] = useState({});
+  const [currentAlias, setCurrentAlias] = useState("");
   const [references, setReferences] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [gscs, setGscs] = useState([]);
+  const [existingAlias] = useState([]);
+  const [error, setError] = useState("");
+
   useEffect(() => {
     axios.get (`${url}/gscs/${uuid}`)
       .then((response) => {
-        setForm(response.data)
+        setForm(response.data);
+        setCurrentAlias(response.data.alias);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    axios.get (`${url}/gscs/`)
+      .then((response) => {
+        setGscs(response.data)
       })
       .catch((error) => {
         console.log(error)
@@ -28,6 +41,20 @@ export default function EditProfilePage() {
         console.log(error)
       })
   }, [uuid])
+
+  useEffect(() => {
+    gscs.map((gsc) => {
+      return existingAlias.push(gsc.alias);
+    })
+  })
+
+  const handleAliasChange = input => e => {
+    setError("")
+    if (existingAlias.includes(e.target.value.trim()) && currentAlias !== e.target.value.trim()) {
+      setError("Sorry, this alias is already taken. Please choose another alias.")
+    }
+    setForm({...form, [input]: e.target.value});
+  }
 
   const submitEdit = e => {
     e.preventDefault()
@@ -122,7 +149,9 @@ export default function EditProfilePage() {
             form={form}
             submitEdit={submitEdit}
             handleChange={handleChange}
+            handleAliasChange={handleAliasChange}
             isLoading={isLoading}
+            error={error}
           />
           {
             references.map((reference, i) => {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Form, Col, Row, Button } from 'react-bootstrap';
+import { Form, Col, Row, Button, Alert } from 'react-bootstrap';
 import DescriptiveWords from '../../utils/Descriptors.png';
 import SpiritualGifts from '../../utils/SpiritualGifts.png';
 
-export default function EditProfile({ form, submitEdit, handleChange, isLoading }) {
+export default function EditProfile({ form, submitEdit, handleChange, handleAliasChange, isLoading, error }) {
   let current_year = new Date().getFullYear()
   
   return (
@@ -24,9 +24,12 @@ export default function EditProfile({ form, submitEdit, handleChange, isLoading 
         <Form.Group as={Row}>
           <Form.Label column sm="4" className="Essays1743 text-align-left">Alias <span className="color-red">*</span></Form.Label>
           <Col sm="8">
-            <Form.Control type="text" required onChange={handleChange('alias')} value={form.alias}/>
+            <Form.Control type="text" required onChange={handleAliasChange('alias')} value={form.alias}/>
           </Col>
         </Form.Group>
+        <div>
+          {error && <Alert className="color-red font-size-small" variant="danger">{error}</Alert>}
+        </div>
         <Form.Group as={Row}>
           <Form.Label column sm="4" className="Essays1743 text-align-left without-right-padding">Year of birth <span className="color-red">*</span></Form.Label>
           <Col sm="8">

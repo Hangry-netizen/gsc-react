@@ -19,6 +19,7 @@ export default function CreateGSCForm() {
   const [giftCounter, setGiftCounter] = useState(0);
   const [gscs, setGscs] = useState([]);
   const [existingEmails] = useState([]);
+  const [existingAlias] = useState([]);
   const [form, setForm] = useState(
     {
       step: 1,
@@ -56,7 +57,9 @@ export default function CreateGSCForm() {
 
   useEffect(() => {
     gscs.map((gsc) => {
-      return existingEmails.push(gsc.email)
+      existingEmails.push(gsc.email);
+      existingAlias.push(gsc.alias);
+      return null
     })
   })
 
@@ -68,6 +71,14 @@ export default function CreateGSCForm() {
 
     if (currentUser.email === e.target.value) {
       setError("Sorry, we do not receive singles who sign themselves up, to include some form of peer filter! Please contact a friend who can be your Faithful Friend and ask them to sign up on our website, and create a GSCF account for you!")
+    }
+    setForm({...form, [input]: e.target.value});
+  }
+  
+  const handleAliasChange = input => e => {
+    setError("")
+    if (existingAlias.includes(e.target.value)) {
+      setError("Sorry, this alias is already taken. Please choose another alias.")
     }
     setForm({...form, [input]: e.target.value});
   }
@@ -246,6 +257,7 @@ export default function CreateGSCForm() {
                 form={form}
                 prevStep={prevStep}
                 handleChange={handleChange}
+                handleAliasChange={handleAliasChange}
                 submitForm={submitForm}
                 isLoading={isLoading}
                 error={error}
