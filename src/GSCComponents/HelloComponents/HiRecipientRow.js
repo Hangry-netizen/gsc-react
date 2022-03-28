@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import HiRecipientModal from './HiRecipientModal';
+import ReportModal from './ReportModal';
+import ReportedModal from './ReportedModal';
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
+import { Button } from 'react-bootstrap';
+
 
 const StyledTableRow = withStyles(() => ({
   root: {
@@ -16,11 +20,19 @@ const StyledTableRow = withStyles(() => ({
 
 export default function HiRecipientRow({ gsc, StyledTableCell, currentGsc }) {
   const [showHiRecipientModal, setShowHiRecipientModal] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [showReportedModal, setShowReportedModal] = useState(false);
   const [ageRange, setAgeRange] = useState()
   const [personality, setPersonality] = useState("")
 
   const handleCloseHiRecipientModal = () => setShowHiRecipientModal(false);
   const handleShowHiRecipientModal = () => setShowHiRecipientModal(true);
+
+  const handleCloseReportModal = () => setShowReportModal(false);
+  const handleShowReportModal = () => setShowReportModal(true);
+
+  const handleCloseReportedModal = () => setShowReportedModal(false);
+  const handleShowReportedModal = () => setShowReportedModal(true);
 
   useEffect(() => {
     let current_year = new Date().getFullYear()
@@ -60,25 +72,40 @@ export default function HiRecipientRow({ gsc, StyledTableCell, currentGsc }) {
 
   return (
     <>
-      <StyledTableRow onClick={handleShowHiRecipientModal}>
-        <StyledTableCell className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
-        <StyledTableCell>{gsc.name}</StyledTableCell>
-        <StyledTableCell>{gsc.preferred_contact_method}</StyledTableCell>
-        <StyledTableCell>{gsc.contact_info}</StyledTableCell>
-        <StyledTableCell>{ageRange}</StyledTableCell>
-        <StyledTableCell>{gsc.city}, {gsc.country}</StyledTableCell>
-        <StyledTableCell style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
-        <StyledTableCell>{gsc.height}</StyledTableCell>
-        <StyledTableCell>{gsc.languages}</StyledTableCell>
-        <StyledTableCell>{gsc.nationality}</StyledTableCell>
-        <StyledTableCell>{gsc.descriptive_words}</StyledTableCell>
-        <StyledTableCell>{personality}</StyledTableCell>
-        <StyledTableCell>{gsc.church_background}</StyledTableCell>
-        <StyledTableCell>{gsc.spiritual_maturity}</StyledTableCell>
-        <StyledTableCell>{gsc.spiritual_gifts}</StyledTableCell>
-        <StyledTableCell>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
-        <StyledTableCell>{gsc.good_match_for_gscf}</StyledTableCell>
-        <StyledTableCell>{gsc.what_is_important_to_me}</StyledTableCell>
+      <StyledTableRow>
+        <StyledTableCell>
+          {
+            currentGsc.reports.includes(gsc.id)
+            ?
+            <div className="text-align-center">
+              <Button onClick={handleShowReportedModal} variant="secondary">Reported</Button>
+            </div>
+            :
+            <div className="text-align-center">
+              <Button onClick={handleShowReportModal} variant='danger'>Report</Button>
+            </div>
+          }
+        </StyledTableCell>
+        <>
+          <StyledTableCell onClick={handleShowHiRecipientModal} className="sticky-left" style={{background:'#1e365c'}}>{gsc.alias}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.name}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.preferred_contact_method}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.contact_info}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{ageRange}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.city}, {gsc.country}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal} style={{whiteSpace: 'nowrap'}}>Town: {gsc.moving_to_a_different_town}%,<br /> Country: {gsc.moving_to_a_different_country}%</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.height}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.languages}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.nationality}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.descriptive_words}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{personality}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.church_background}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.spiritual_maturity}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.spiritual_gifts}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.reasons_gscf_makes_a_good_partner}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.good_match_for_gscf}</StyledTableCell>
+          <StyledTableCell onClick={handleShowHiRecipientModal}>{gsc.what_is_important_to_me}</StyledTableCell>
+        </>
       </StyledTableRow>
       <HiRecipientModal
         gsc={gsc}
@@ -87,6 +114,18 @@ export default function HiRecipientRow({ gsc, StyledTableCell, currentGsc }) {
         personality={personality}
         currentGsc={currentGsc}
         ageRange={ageRange}
+      />
+      <ReportModal
+        gsc={gsc}
+        showReportModal={showReportModal}
+        handleCloseReportModal={handleCloseReportModal}
+        currentGsc={currentGsc}
+        handleShowReportedModal={handleShowReportedModal}
+      />
+      <ReportedModal
+        gsc={gsc}
+        showReportedModal={showReportedModal}
+        handleCloseReportedModal={handleCloseReportedModal}
       />
     </>
   )

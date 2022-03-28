@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Modal, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from "../../App";
 
 
 export default function ContactedModal({ gsc, currentGsc, showContactedModal, handleCloseContactedModal, personality, ageRange }) {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [answer, setAnswer] = useState("")
+  const [error, setError] = useState("")
+
+  useEffect(() => {
+    if (answer.trim().toLowerCase() === gsc.name.trim().toLowerCase()){
+      setIsLoading(false)
+    }
+    else (
+      setIsLoading(true)
+    )
+  }, [answer, gsc.name]);
+
 
   const handleDelete = (e) => {
     e.preventDefault()
@@ -25,6 +37,7 @@ export default function ContactedModal({ gsc, currentGsc, showContactedModal, ha
       }
     })
     .catch((error) => {
+      setError("Failed to delete profile")
       console.log(error)
     })
 
@@ -111,25 +124,25 @@ export default function ContactedModal({ gsc, currentGsc, showContactedModal, ha
           <div className="color-red">Something else that is particularly important</div>
           <div className="color-blue">{gsc.important_info_to_know}</div>
           <br />
-          <div className="color-red">Social media profile link</div>
+          <div className="color-red">Additional info</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
-          <div style={{display:'flex', boxSizing:'border-box', width:'100%', justifyContent:'space-between'}}>
-            <Button variant="secondary" onClick={handleCloseContactedModal}>Close</Button>
+          <form onSubmit={handleDelete} className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
-              {
-                isLoading
-                ?
-                <>
-                  <Button variant="secondary" disabled={isLoading} onClick={handleDelete}>Delete</Button>
-                </>
-                :
-                <>
-                  <Button variant="danger" disabled={isLoading} onClick={handleDelete}>Delete</Button>
-                </>             
-              }
+              <label className="color-red font-size-small">Key in this profile's name to enable the delete button:</label>
+              <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.name}/>
             </div>
-          </div>
+            <div>
+              {error && <Alert className="color-red font-size-small">{error}</Alert>}
+            </div>
+            <br />
+            <div style={{display:'flex', boxSizing:'border-box', width:'100%', justifyContent:'space-between'}}>
+              <Button variant="secondary" onClick={handleCloseContactedModal}>Close</Button>
+              <div>
+                <Button variant={isLoading ? "secondary" : "danger"} disabled={isLoading} onClick={handleDelete}>Remove</Button>
+              </div>
+            </div>
+          </form>
         </Modal.Body>
       </Modal>
     </>

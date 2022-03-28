@@ -146,7 +146,7 @@ export default function FormPage2({ form, prevStep, step3NextStep, handleChange,
             </Col>
           </Form.Group>
           <Form.Group controlId="formBasicDo">
-            <Form.Label className="Essays1743">What does he/she do (paid and/or unpaid)?</Form.Label>
+            <Form.Label className="Essays1743">What kind of paid or unpaid work does (he/she) do?</Form.Label>
             <Col className="without-left-right-padding">
               <Form.Control as="textarea" type="text" onChange={handleChange('do')} value={form.do}/>
             </Col>

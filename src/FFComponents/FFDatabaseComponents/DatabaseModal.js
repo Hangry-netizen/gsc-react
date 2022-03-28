@@ -143,7 +143,7 @@ export default function DatabaseModal({ gsc, showGscModal, handleCloseGscModal, 
           <div className="color-red">Something else that is particularly important</div>
           <div className="color-blue">{gsc.important_info_to_know}</div>
           <br />
-          <div className="color-red">Social media profile link</div>
+          <div className="color-red">Additional info</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
           <div>

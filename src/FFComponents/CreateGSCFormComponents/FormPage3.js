@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Col, Button, Alert } from 'react-bootstrap';
 
-export default function FormPage3({ form, prevStep, submitForm, handleChange, isLoading, error }) {
+export default function FormPage3({ form, prevStep, submitForm, handleChange, handleAliasChange, isLoading, error }) {
 
   return (
     <div className="create-gsc-form-container">
@@ -48,7 +48,7 @@ export default function FormPage3({ form, prevStep, submitForm, handleChange, is
             <Form.Label className="Essays1743">Lastly, give your GSC an alias! <span className="color-red">*</span></Form.Label>
             <Form.Text className="text-align-left">In place of a name for the database. We suggest pairing a noun with a verb or adjective (e.g. rising sun/racing robot/ simple flower) or any word or phrase (e.g. unicorn), just not a person's name yea...</Form.Text>
             <Col className="without-left-padding">
-              <Form.Control type="text" required onChange={handleChange('alias')} value={form.alias}/>
+              <Form.Control type="text" required onChange={handleAliasChange('alias')} value={form.alias}/>
             </Col>
           </Form.Group>
           <br />
@@ -57,7 +57,7 @@ export default function FormPage3({ form, prevStep, submitForm, handleChange, is
           </div>
           <div className="display-flex">
             <Button variant="secondary" onClick={prevStep}>Back</Button>
-            <Button id="create-gsc-form-next-btn" disabled={isLoading} type="submit" value="submit">Submit</Button>
+            <Button id="create-gsc-form-next-btn" disabled={isLoading || error !== ""} type="submit" value="submit">Submit</Button>
           </div>
           <br />
           <div className="text-align-center">Page {form.step} of 3</div>

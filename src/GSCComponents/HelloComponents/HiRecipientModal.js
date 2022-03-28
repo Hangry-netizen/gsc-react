@@ -159,12 +159,12 @@ export default function HiRecipientModal({ gsc, currentGsc, showHiRecipientModal
           <div className="color-red">Something else that is particularly important</div>
           <div className="color-blue">{gsc.important_info_to_know}</div>
           <br />
-          <div className="color-red">Social media profile link</div>
+          <div className="color-red">Additional info</div>
           <div className="color-blue">{gsc.social_media_profile_link}</div>
           <br />
           <form className="bg-blue color-red" style={{padding:"20px", borderRadius:"10px"}}>
             <div>
-              <label className="color-red font-size-small">Key in this profile's name to enable contacted/remove buttons:</label>
+              <label className="color-red font-size-small">Key in this profile's name to enable contacted / remove buttons:</label>
               <input style={{border:"none", paddingLeft:"10px",paddingRight:"10px", width:"60%", marginLeft: "10px", borderRadius:"10px" }} type="text" onChange={e => setAnswer(e.target.value)} placeholder={gsc.name}/>
             </div>
             <div>

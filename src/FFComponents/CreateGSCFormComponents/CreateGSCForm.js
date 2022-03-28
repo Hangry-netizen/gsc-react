@@ -19,6 +19,7 @@ export default function CreateGSCForm() {
   const [giftCounter, setGiftCounter] = useState(0);
   const [gscs, setGscs] = useState([]);
   const [existingEmails] = useState([]);
+  const [existingAlias] = useState([]);
   const [form, setForm] = useState(
     {
       step: 1,
@@ -56,7 +57,9 @@ export default function CreateGSCForm() {
 
   useEffect(() => {
     gscs.map((gsc) => {
-      return existingEmails.push(gsc.email)
+      existingEmails.push(gsc.email);
+      existingAlias.push(gsc.alias);
+      return null
     })
   })
 
@@ -68,6 +71,14 @@ export default function CreateGSCForm() {
 
     if (currentUser.email === e.target.value) {
       setError("Sorry, we do not receive singles who sign themselves up, to include some form of peer filter! Please contact a friend who can be your Faithful Friend and ask them to sign up on our website, and create a GSCF account for you!")
+    }
+    setForm({...form, [input]: e.target.value});
+  }
+  
+  const handleAliasChange = input => e => {
+    setError("")
+    if (existingAlias.includes(e.target.value)) {
+      setError("Sorry, this alias is already taken. Please choose another alias.")
     }
     setForm({...form, [input]: e.target.value});
   }
@@ -166,20 +177,20 @@ export default function CreateGSCForm() {
         ff_email: currentUser.email,
         name: form.name.trim(),
         email: form.email.trim(),
-        gender: form.gender,
-        descriptive_words: otherDescWords !== "" ? `${form.descriptive_words}, ${otherDescWords}` : form.descriptive_words,
-        favorite_topics: form.favorite_topics,
-        chill_activities: form.chill_activities,
-        do: form.do,
-        skills_and_talents: form.skills_and_talents,
-        growth_and_development: form.growth_and_development,
-        spiritual_gifts: otherSpiritualGifts !== "" ? `${form.spiritual_gifts}, ${otherSpiritualGifts}` : form.spiritual_gifts,
-        spiritual_maturity: form.spiritual_maturity,
-        reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner,
-        good_match_for_gscf: form.good_match_for_gscf,
-        has_been_married_or_has_kids: form.has_been_married_or_has_kids,
-        want_to_have_kids: form.want_to_have_kids,
-        important_info_to_know: form.important_info_to_know,
+        gender: form.gender.trim(),
+        descriptive_words: otherDescWords !== "" ? `${form.descriptive_words.trim()}, ${otherDescWords}` : form.descriptive_words.trim(),
+        favorite_topics: form.favorite_topics.trim(),
+        chill_activities: form.chill_activities.trim(),
+        do: form.do.trim(),
+        skills_and_talents: form.skills_and_talents.trim(),
+        growth_and_development: form.growth_and_development.trim(),
+        spiritual_gifts: otherSpiritualGifts !== "" ? `${form.spiritual_gifts.trim()}, ${otherSpiritualGifts}` : form.spiritual_gifts.trim(),
+        spiritual_maturity: form.spiritual_maturity.trim(),
+        reasons_gscf_makes_a_good_partner: form.reasons_gscf_makes_a_good_partner.trim(),
+        good_match_for_gscf: form.good_match_for_gscf.trim(),
+        has_been_married_or_has_kids: form.has_been_married_or_has_kids.trim(),
+        want_to_have_kids: form.want_to_have_kids.trim(),
+        important_info_to_know: form.important_info_to_know.trim(),
         alias: form.alias.trim()
       }
     })
@@ -246,6 +257,7 @@ export default function CreateGSCForm() {
                 form={form}
                 prevStep={prevStep}
                 handleChange={handleChange}
+                handleAliasChange={handleAliasChange}
                 submitForm={submitForm}
                 isLoading={isLoading}
                 error={error}
