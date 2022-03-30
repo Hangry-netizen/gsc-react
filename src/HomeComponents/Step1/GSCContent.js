@@ -10,7 +10,7 @@ export default function GSCContent({ mobile }) {
         <div className="text-align-left color-blue">
           <div><span className="color-red">Ask</span> a friend to be your</div>
           <div className={mobile ? "color-red font-size-16" : "color-red font-size-22"}>FAITHFUL FRIEND</div>
-          <div>and create a GSCF profile for you</div>
+          <div>and create a GSC profile for you</div>
         </div>
       </button>
       <br />
@@ -18,7 +18,7 @@ export default function GSCContent({ mobile }) {
       <div className="step-one-right-number-circles">2</div>
       <button className="step-one-content-buttons display-flex align-items" style={{margin:"auto"}}>
         <div className="text-align-left color-blue">
-          <div style={{fontWeight:"lighter", color:"black"}}>receives email...</div>
+          <div style={{fontWeight:"lighter", color:"black"}}>receives proposed profile via email...</div>
           <div className={mobile ? "color-red font-size-16" : "color-red font-size-22"}>CONSENT</div>
           <div>and <span className="color-red">edit</span> profile</div>
         </div>
@@ -34,8 +34,8 @@ export default function GSCContent({ mobile }) {
       <div className="step-one-right-number-circles">3</div>
       <button className="step-one-content-buttons display-flex align-items">
         <div className="text-align-left color-blue">
-          <div style={{fontWeight:"lighter", color:"black"}}>receives email...</div>
-          <div>Notified when profile is</div>
+          <div style={{fontWeight:"lighter", color:"black"}}>Notified via email...</div>
+          <div>When profile is</div>
           <div className={mobile ? "color-red font-size-16" : "color-red font-size-22"}>APPROVED</div>
         </div>
         <div><CheckCircleOutline className="steps-icons" /></div>

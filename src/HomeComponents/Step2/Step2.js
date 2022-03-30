@@ -22,7 +22,7 @@ export default function Step2() {
     <div className="font-size-16 text-align-center">
       <div id="step-2-title" className="color-blue bold italic underline font-size-large">STEP 2: STRIKE A MATCH</div>
       <div id="step-two-database-div" className="text-align-left font-size-small">
-        <div style={{fontWeight:"lighter"}}>receive email on the 1st of every month...</div>
+        <div style={{fontWeight:"lighter"}}>FFs and GSCs receive email on the 1st of every month...</div>
         <div className="display-flex align-items">
           <div className="color-blue">
             <div>Check out our</div>

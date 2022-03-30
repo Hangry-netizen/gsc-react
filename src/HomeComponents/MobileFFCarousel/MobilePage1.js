@@ -3,7 +3,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from 'react-router-dom';
 import { AssignmentIndSharp, NotesSharp, PeopleAltSharp } from '@material-ui/icons';
 
-export default function FFContent({ mobile }) {
+export default function MobilePage1({ mobile }) {
   const { currentUser } = useAuth();
   let history = useHistory();
 
@@ -16,13 +16,13 @@ export default function FFContent({ mobile }) {
   }
 
   return (
-    <div className="step-one-content-div font-size-16">
+    <div className={mobile ? "ff-carousel-content-div font-size-small" : "ff-carousel-content-div font-size-16"}>
       <br />
       <div className="display-flex">
-        <div className="step-one-left-number-circles">1</div>
+        <div className="ff-carousel-left-number-circles">1</div>
         {currentUser 
             ?
-            <button className="step-one-content-buttons display-flex align-items" onClick={goToFFProfilePage}>
+            <button className="ff-carousel-content-buttons display-flex align-items" onClick={goToFFProfilePage}>
               <div><AssignmentIndSharp className="steps-icons" /></div>
               <div className="text-align-right color-blue">
                 <div><span className="color-red">Create</span> a Faithful Friend</div>
@@ -31,7 +31,7 @@ export default function FFContent({ mobile }) {
               </div>
             </button>
             :
-            <button className="step-one-content-buttons display-flex align-items" onClick={goToFFLogInpage}>
+            <button className="ff-carousel-content-buttons display-flex align-items" onClick={goToFFLogInpage}>
               <div><AssignmentIndSharp className="steps-icons" /></div>
               <div className="text-align-left color-blue">
                 <div><span className="color-red">Create</span> a Faithful Friend</div>
@@ -44,8 +44,8 @@ export default function FFContent({ mobile }) {
       </div>
       <br />
       <div className="display-flex">
-        <div className="step-one-left-number-circles">2</div>
-        <button className="step-one-content-buttons display-flex align-items">
+        <div className="ff-carousel-left-number-circles">2</div>
+        <button className="ff-carousel-content-buttons display-flex align-items">
           <div><PeopleAltSharp className="steps-icons" /></div>
           <div className="text-align-right color-blue">
             <div className={mobile ? "color-red font-size-16" : "color-red font-size-22"}>CHECK</div>
@@ -55,8 +55,8 @@ export default function FFContent({ mobile }) {
       </div>
       <br />
       <div className="display-flex">
-        <div className="step-one-left-number-circles">3</div>
-        <button className="step-one-content-buttons display-flex align-items">
+        <div className="ff-carousel-left-number-circles">3</div>
+        <button className="ff-carousel-content-buttons display-flex align-items">
           <div><NotesSharp className="steps-icons" /></div>
           <div className="text-align-left color-blue">
             <div>
