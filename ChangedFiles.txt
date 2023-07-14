@@ -1,0 +1,10 @@
+App.js
+ - disconnect PlaceHolder
+ - connect back FFLoginPage
+ - uncomment routes
+
+Question.js
+- inverse bg-color and color
+
+Homepage.js
+- uncomment "SingleCommunities"

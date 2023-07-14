@@ -46,7 +46,11 @@ export default function HomePage() {
       }
       <Resources />
       <AFewWords />
-      <SingleCommunities />
+      {
+      /*
+        <SingleCommunities /> 
+      */
+      }
       <Question />
     </div>
   )
