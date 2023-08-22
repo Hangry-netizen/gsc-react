@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Navbar from './NavComponents/Navbar';
-import HomePage from './pages/HomePage';
+import Homepage from './pages/Homepage';
 import DonationPage from './pages/DonationPage';
 import TermsAndPrivacyPage from './pages/TermsAndPrivacyPage';
-import FFPlaceHolderLoginPage from './pages/FFPlaceHolderLoginPage';
+//import FFPlaceHolderLoginPage from './pages/FFPlaceHolderLoginPage';
 import FFLoginPage from './pages/FFLoginPage';
 import FFSignUpPage from './pages/FFSignUpPage';
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
@@ -61,21 +61,18 @@ function App() {
       }
 
       <Switch>
-        <Route exact path="/"><HomePage /></Route>
+        <Route exact path="/"><Homepage /></Route>
         <Route exact path="/terms-and-privacy-policy"><TermsAndPrivacyPage /></Route>
         <Route exact path="/donation-info"><DonationPage /></Route>
         <Route exact path="/resources"><ResourcesPage /></Route>
         <Route exact path="/frequently-asked-questions"><FAQPage /></Route>
-        {
-        /*
-          <Route exact path="/good-single-christian-friend/:uuid"><ProfilePage /></Route>
-          <Route exact path="/good-single-christian-friend/:uuid/edit"><EditProfilePage /></Route>
-          <Route exact path="/good-single-christian-friend/:uuid/database"><GSCDatabasePage /></Route>
-          <Route exact path="/good-single-christian-friend/:uuid/hellos"><HelloPage /></Route>
-          <Route exact path="/good-single-christian-friend/:uuid/consent"><ConsentForm /></Route>
-          <Route exact path="/good-single-christian-friend/:uuid/:ref_id/reference/:ref_name"><ReferenceForm /></Route>
-        */
-        }
+
+        <Route exact path="/good-single-christian-friend/:uuid"><ProfilePage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/edit"><EditProfilePage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/database"><GSCDatabasePage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/hellos"><HelloPage /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/consent"><ConsentForm /></Route>
+        <Route exact path="/good-single-christian-friend/:uuid/:ref_id/reference/:ref_name"><ReferenceForm /></Route>
         
         {/* Articles */}
         <Route exact path="/resources/articles/should-i-put-myself-out-there"><Article1 /></Route>
@@ -87,7 +84,6 @@ function App() {
 
         {/* currentAdmin */}
         {
-          /*
           currentAdmin
           ?
           <>
@@ -99,12 +95,10 @@ function App() {
           </>
           :
           <Route exact path="/admin/login"><AdminLoginPage /></Route>
-        */
         }
         
         {/* currentUser*/}
         {
-          /*
           currentUser
           ?
           <>
@@ -112,15 +106,15 @@ function App() {
             <Route exact path="/my-good-single-christian-friends/create"><CreateGSCForm /></Route>
             <Route exact path="/my-good-single-christian-friend/:uuid"><FFDatabasePage /></Route>
           </>
-        :
+          :
           <>
             <Route exact path="/faithful-friend-login"><FFLoginPage /></Route>
             <Route exact path="/faithful-friend-sign-up"><FFSignUpPage /></Route>
             <Route exact path="/forgot-password"><ForgotPasswordPage /></Route>
           </>
-        */
         }
-          <Route exact path="/faithful-friend-login"><FFPlaceHolderLoginPage /></Route>
+
+        {/* <Route exact path="/faithful-friend-login"><FFPlaceHolderLoginPage /></Route> */}
         <Redirect to="/" />
       </Switch>
     </div>
